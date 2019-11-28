@@ -1,8 +1,8 @@
 {
-  "name": "News-Explorer-Front",
+  "name": "news-explorer-front",
   "version": "0.0.1",
   "homepage": "https://vadimobruchnikov.github.io/news-explorer-front/",
-  "repository": {https:\/\/vadimobruchnikov.github.io/news-explorer-front.github.io},
+  "repository": "https:\/\/vadimobruchnikov.github.io/news-explorer-front.github.io",
   "description": "frontend of News Explorer Project",
   "main": "index.js",
   "scripts": {
