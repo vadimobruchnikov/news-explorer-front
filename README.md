@@ -1,6 +1,6 @@
 # news-explorer-front.github.io
 
-## v0.0.5
+## v0.0.1
 
 Проект практикума по использованию webpack и модульного разбиения JavaScript
 
