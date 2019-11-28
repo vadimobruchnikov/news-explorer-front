@@ -1,0 +1,16 @@
+.user-info__button {
+  position: absolute;
+  top: 16px;
+  right: 0;
+
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 2px;
+}
+
+@media screen and (max-width: 980px) {
+  .user-info__button {
+    position: static;
+    margin-bottom: 40px;
+  }
+}

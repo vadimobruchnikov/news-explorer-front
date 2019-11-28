@@ -1,0 +1,14 @@
+.popup__content_preview {
+  border-radius: 0;
+  width: auto;
+  max-height: 80vh;
+  max-width: 80vw;
+  background-color:  transparent;
+  padding: 0;
+}
+  
+  @media screen and (max-width: 540px) {
+    .popup__content_preview {
+        background-color: none;
+    }
+  }

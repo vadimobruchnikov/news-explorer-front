@@ -1,0 +1,12 @@
+.root__section {
+  /* width: calc(100% - 400px); плохо смотрелось на моем 11" макбуке - исправлено */
+  width: calc(100% - 100px);
+  
+  margin: auto;
+}
+
+@media screen and (max-width: 980px) {
+  .root__section {
+    width: 90%;
+  }
+}
