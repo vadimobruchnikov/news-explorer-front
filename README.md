@@ -1,18 +1,30 @@
-# news-explorer-front.github.io
+# Проект News Explorer (Frontend)
 
 ## v0.0.1
 
-Проект практикума по использованию webpack и модульного разбиения JavaScript
-
 ## Ссылка на проект [https://vadimobruchnikov.github.io/news-explorer-front.github.io/index.html]
 
-1. Первый пул-реквест [https://github.com/vadimobruchnikov/news-explorer-front.github.io/pull/1]
+Финальный проект Яндекс-Практикума(дипломная работа).
+Проект должен показать чему научился студент на курсу Вэб-разработчик.
+В данном проекте реализован Frontend проекта.
+Бэкенд для этого проекта можно найти на следующем репозитории
 
+## Ссылка на проект [https://vadimobruchnikov.github.io/news-explorer-api.github.io/index.html]
+
+В проекте были использованы следующие технологии:
+Front-End: HTML5 + CSS + JS(ES6, REST API, AJAX, JSON) + Babel + Webpack + NPM
+Back-End: VPS Linux + NodeJS + MongoDB + JS(ES6) + NPM + HTTPS(SSL Certificate)
+
+Реализованы механизмы логирования запросов и их ответов, ошибок.
+Реализована валидация данных непосредственно при вводе.
 
 ## Для развертывания проекта установите следующие пакеты:
 
 Саму библиотеку подсистем NPM
 Скачать ее можно с официального сайта[https://nodejs.org/en/download/]
+
+Установите npm-зависимости
+>`npm install`
 
 После установки NPM, будут установлены следующие пакеты:
 
@@ -37,9 +49,6 @@ Optimize CSS assets[https://www.npmjs.com/package/optimize-css-assets-webpack-pl
 Склонируйте гит-репозиторий
 >`git clone https://github.com/vadimobruchnikov/news-explorer-front.git`
 
-Установите npm-зависимости
->`npm install`
-
 Запустите сборку приложения
 >`npm run build`
 
@@ -49,6 +58,12 @@ Optimize CSS assets[https://www.npmjs.com/package/optimize-css-assets-webpack-pl
 Можно задеплоить проект командой
 >`npm run deploy`
 
-## Что представляет проект
-Проект представляет систему публикации карточек с возможностью голосования и сохранения пользовательских оценок.
-Также есть возможность редактировать профильпользователя и его аватар.
+Проект работает на большинстве разрешений экранов
+(оптимизирован под 1440px, 720px, 535px)
+
+## Планы на будущее
+
+Возможно будут добавлены другие API поиска новостей
+
+PS Ссылка на пул-реквест [https://github.com/vadimobruchnikov/news-explorer-front.github.io/pull/1]
+
