@@ -1,0 +1,14 @@
+@import url(./_image/about-author_image.css);
+@import url(./_column/about-author_column.css);
+@import url(./_title/about-author_title.css);
+@import url(./_text/about-author_text.css);
+
+
+.about-author {
+  height: 624px;
+  width: 100%;
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+  flex-direction: row;
+}

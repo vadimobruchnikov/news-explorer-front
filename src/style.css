@@ -1,9 +1,12 @@
 @import url(./vendor/normalize.css);
-@import url(./vendor/normalize.css);
 @import url(./vendor/fonts.css);
-@import url(./blocks/root/root.css);
 @import url(./blocks/header/header.css);
 @import url(./blocks/logo/logo.css);
+@import url(./blocks/root/root.css);
+@import url(./blocks/search/search.css);
+@import url(./blocks/about-author/about_author.css);
+
+/*
 @import url(./blocks/profile/profile.css);
 @import url(./blocks/button/button.css);
 @import url(./blocks/user-info/user-info.css);
@@ -12,7 +15,22 @@
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/input/input.css);
 @import url(./blocks/error-message/error-message.css);
+*/
 
 body {
-  background-color: #000;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+}
+
+/* DEBUG */
+
+section {
+  border-color: blueviolet;
+  border-width: 1px;
+}
+
+div {
+  border-color: blueviolet;
+  border-width: 1px;
 }

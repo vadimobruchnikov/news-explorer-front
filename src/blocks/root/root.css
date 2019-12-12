@@ -1,16 +1,25 @@
 @import url(./__section/root__section.css);
 
 .root {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /*
   background-color: black;
   min-height: 100vh;
   font-family: 'Inter';
   padding-bottom: 194px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  */
+  background-image: url('../../images/georgia-de-lotz.png');
+  background-repeat: no-repeat;
 }
 
 @media screen and (max-width: 1024px) {
   .root {
-    padding-bottom: 140px;
+    /*padding-bottom: 140px;*/
   }
 }

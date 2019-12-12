@@ -1,0 +1,5 @@
+.header_nav {
+  display: flex;
+  flex-direction: row;
+  margin-right: 104px;
+}

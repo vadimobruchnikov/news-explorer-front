@@ -1,4 +1,5 @@
 import "./style.css";
+/*
 import {Api, apiBaseUrl, apiToken, myOwnerId} from "./scripts/api.js";
 import {getElement, resetError, handleValidate, activateError, validate, submitButtonStatus,
     isValidForm, isValidLink} from "./scripts/utils.js";
@@ -80,4 +81,6 @@ const avatarPopup = new Popup({
   closeControl: getElement('.popup__close_avatar'),
   submitControl: document.forms.avatar.querySelector('.button_submit'),
   inputs: [getElement('#avatar_link')]
-});  
+});
+
+*/

@@ -6,7 +6,9 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const isDev = process.env.NODE_ENV === 'development';
 module.exports = {
-    entry: { main: './src/index.js' },
+    entry: {
+      main: './src/index.js',
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].[chunkhash].js'
@@ -24,7 +26,7 @@ module.exports = {
                 test: /\.css$/,
                 use:  [
                     (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
-                    'css-loader', 
+                    'css-loader',
                     'postcss-loader'
                 ]
             },
@@ -47,7 +49,9 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].css',
-        }),
+            filename: './css/[name].[contenthash].css',
+            chunkFilename: '[name].[contenthash].css'
+          }),
         new OptimizeCssAssetsPlugin({
             assetNameRegExp: /\.css$/g,
             cssProcessor: require('cssnano'),
@@ -59,10 +63,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             inject: false,
             hash: true,
-            template: './src/index.html',
-            filename: 'index.html'
+            filename: 'index.html',
+            template: './src/index.html'
         }),
-        new WebpackMd5Hash(),
+      new WebpackMd5Hash(),
         new webpack.DefinePlugin({
             'NODE_ENV': JSON.stringify(process.env.NODE_ENV),
        })
