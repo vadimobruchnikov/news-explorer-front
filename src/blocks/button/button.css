@@ -1,9 +1,11 @@
+@import url(./_search/button_search.css);
+
 .button {
   background-color: transparent;
   border: 1px solid white;
   color: white;
   width: 150px;
-  height: 50px;
+  height: 100%;
   font-size: 30px;
   display: block;
 }

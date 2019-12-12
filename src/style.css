@@ -5,6 +5,7 @@
 @import url(./blocks/root/root.css);
 @import url(./blocks/search/search.css);
 @import url(./blocks/about-author/about_author.css);
+@import url(./blocks/button/button.css);
 
 /*
 @import url(./blocks/profile/profile.css);

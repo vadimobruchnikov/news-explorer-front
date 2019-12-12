@@ -1,5 +1,7 @@
 .search_field {
+  position:relative;
   margin-top: 64px;
   width: 100%;
-  border: 1px dotted fuchsia;
+  display: flex;
+  /*border: 1px dotted fuchsia;*/
 }

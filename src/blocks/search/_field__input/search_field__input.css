@@ -1,0 +1,10 @@
+.search_field__input {
+  /*width: 90%;*/
+  width: 90%;
+  height: 64px;
+  background-color: #fff;
+  border-radius: 100px;
+  border-width: 0;
+  padding-left: 24px;
+  outline: none;
+}
