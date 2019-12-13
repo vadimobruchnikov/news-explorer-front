@@ -1,6 +1,9 @@
 @import url(./_search/button_search.css);
-@import url(./_card/button_card.css);
 
+@import url(./_card/button_card.css);
+@import url(./_card-keyword/button_card-keyword.css);
+@import url(./_card-bookmark/button_card-bookmark.css);
+@import url(./_card-help/button_card-help.css);
 
 .button {
   background-color: transparent;
