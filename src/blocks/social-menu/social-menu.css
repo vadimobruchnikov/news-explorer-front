@@ -1,0 +1,11 @@
+@import url(./_item/social-menu_item.css);
+@import url(./_item/social_menu-item__fb.css);
+@import url(./_item/social_menu-item__git.css);
+
+.social-menu{
+  display: flex;
+  flex-direction: row;
+  margin-right: 104px;
+}
+
+/* TODO: сохранить на всякий случай vk (пасхальное яцйцо) */

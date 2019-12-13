@@ -17,4 +17,12 @@
   align-items: center;
   text-align: center;
   color: #FFFFFF;
+  outline: none;
+}
+.button_search:hover{
+  background: #347EFF;
+  animation-duration: 9s;
+}
+.button_search:active{
+  background: #2A65CC;
 }
