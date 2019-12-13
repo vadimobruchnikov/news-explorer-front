@@ -1,0 +1,15 @@
+.card_text{
+  margin-top: 16px;
+  margin-left: 24px;
+  /*width: 352px;*/
+  height: 110px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  /* or 137% */
+
+  /* main/black */
+  color: #1A1B22;
+}

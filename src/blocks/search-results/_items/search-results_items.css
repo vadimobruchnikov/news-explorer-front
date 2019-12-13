@@ -1,0 +1,10 @@
+.search-results_items{
+  padding-top: 64px;
+  padding-left: 104px;
+  padding-right: 104px;
+  margin-bottom: 46px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+}
