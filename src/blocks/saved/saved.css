@@ -1,11 +1,11 @@
 .saved{
   width: 100%;
-  height: 294px;
+  /*height: 294px;*/
   background-color: #FFFFFF;
 }
 .saved_title{
   width: 712px;
-  height: 24px;
+  /*height: 24px;*/
   margin-left: 104px;
   margin-top: 40px;
   font-family: Roboto;
@@ -28,6 +28,7 @@
 .saved_keywords{
   margin-left: 104px;
   margin-top: 30px;
+  margin-bottom: 56px;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
