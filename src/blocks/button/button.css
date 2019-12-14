@@ -4,6 +4,8 @@
 @import url(./_card-keyword/button_card-keyword.css);
 @import url(./_card-bookmark/button_card-bookmark.css);
 @import url(./_card-help/button_card-help.css);
+@import url(./_card-delete/button_card-delete.css);
+
 
 .button {
   background-color: transparent;
