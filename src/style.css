@@ -9,6 +9,8 @@
 @import url(./blocks/search-results/search-results.css);
 @import url(./blocks/card/card.css);
 @import url(./blocks/saved/saved.css);
+@import url(./blocks/history/history.css);
+@import url(./blocks/tech/tech.css);
 
 @import url(./blocks/social-menu/social-menu.css);
 @import url(./blocks/footer/footer.css);

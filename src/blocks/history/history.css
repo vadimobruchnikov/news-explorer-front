@@ -1,0 +1,28 @@
+.history{
+
+}
+.history_title{
+  margin-left: 104px;
+  margin-top: 80px;
+  width: 56%;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1A1B22;
+}
+
+.history_text{
+  margin-left: 104px;
+  margin-top: 24px;
+  margin-bottom: 72px;
+
+  width: 56%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1A1B22;
+}

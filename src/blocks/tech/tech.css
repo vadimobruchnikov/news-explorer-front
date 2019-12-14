@@ -1,0 +1,71 @@
+.tech {
+  position: relative;
+  width: 1440px;
+  height: 334px;
+  background: #F5F6F7;
+}
+
+.tech_title{
+  position: absolute;
+  left: 104px;
+  top: 80px;
+  width: 344px;
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1A1B22;
+}
+
+.tech_items{
+  position: absolute;
+  margin-top: 93px;
+  right: 216px;
+  width: 42%; /* ? */
+  height: 153px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.tech-item{
+  width: 120px;
+  height: 153px;
+  margin-left: 40px;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items : center;
+}
+.tech-item_title{
+  /*width: 100%;*/
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  letter-spacing: 0.2px;
+  color: #1A1B22;
+  text-transform: uppercase;
+}
+.tech-item_image{
+  width: 120px;
+  height: 120px;
+  margin: 0;
+}
+.tech-item_image__html{
+  background-image: url(../../images/tech/html.svg);
+}
+.tech-item_image__css{
+  background-image: url(../../images/tech/css.svg);
+}
+.tech-item_image__javascript{
+  background-image: url(../../images/tech/javascript.svg);
+}
+.tech-item_image__webpack{
+  background-image: url(../../images/tech/webpack.svg);
+}
+
+
+

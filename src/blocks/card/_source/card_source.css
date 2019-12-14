@@ -1,8 +1,8 @@
 .card_source{
   position: absolute;
-  left: 24px;
+  left: 6%; /*24px;*/
   bottom: 24px;
-  width: 80%;
+  width: 88%;
   height: 20px;
   font-family: Roboto Slab;
   font-style: normal;
