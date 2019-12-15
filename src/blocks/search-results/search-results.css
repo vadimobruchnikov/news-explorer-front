@@ -3,8 +3,10 @@
 @import url(./__show-more/search-results__show-more.css);
 @import url(./__searching-news/search-results__searching-news.css);
 @import url(./__searching-news/search-results__searching-news_text.css);
-@import url(./__preloader/search-results__preloader.css);
+@import url(./__searching-news/search-results__searching-news_title.css);
 
+@import url(./__no-found/search-results__no-found.css);
+@import url(./__preloader/search-results__preloader.css);
 
 .search-results {
   width: 100%;
