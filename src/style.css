@@ -7,6 +7,8 @@
 @import url(./blocks/about-author/about_author.css);
 
 @import url(./blocks/search-results/search-results.css);
+@import url(./blocks/search-results/__preloader/search-results__preloader.css);
+
 @import url(./blocks/card/card.css);
 @import url(./blocks/saved/saved.css);
 @import url(./blocks/history/history.css);
