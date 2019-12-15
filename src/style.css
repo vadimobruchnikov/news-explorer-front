@@ -15,6 +15,10 @@
 @import url(./blocks/social-menu/social-menu.css);
 @import url(./blocks/footer/footer.css);
 
+/* слайдер */
+@import url(./vendor/sliders/flickity/flickity.css);
+
+
 /*
 @import url(./blocks/profile/profile.css);
 @import url(./blocks/button/button.css);

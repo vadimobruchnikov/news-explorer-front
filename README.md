@@ -2,47 +2,47 @@
 
 ## v0.0.1
 
-## Ссылка на проект [https://vadimobruchnikov.github.io/news-explorer-front.github.io/index.html]
+## [Ссылка на проект] (https://vadimobruchnikov.github.io/news-explorer-front.github.io/index.html)
 
 Финальный проект Яндекс-Практикума(дипломная работа).
 Проект должен показать чему научился студент на курсу Вэб-разработчик.
 В данном проекте реализован Frontend проекта.
 Бэкенд для этого проекта можно найти на следующем репозитории
 
-## Ссылка на проект [https://vadimobruchnikov.github.io/news-explorer-api.github.io/index.html]
+## [Ссылка на проект] (https://vadimobruchnikov.github.io/news-explorer-api.github.io/index.html)
 
 В проекте были использованы следующие технологии:
-Front-End: HTML5 + CSS + JS(ES6, REST API, AJAX, JSON) + Babel + Webpack + NPM
-Back-End: VPS Linux + NodeJS + MongoDB + JS(ES6) + NPM + HTTPS(SSL Certificate)
+*Front-End:* HTML5 + CSS + JS(ES6, REST API, AJAX, JSON) + Babel + Webpack + NPM
+*Back-End:* VPS Linux + NodeJS + MongoDB + JS(ES6) + NPM + HTTPS(SSL Certificate)
 
 Реализованы механизмы логирования запросов и их ответов, ошибок.
 Реализована валидация данных непосредственно при вводе.
 
 ## Для развертывания проекта установите следующие пакеты:
 
-Саму библиотеку подсистем NPM
-Скачать ее можно с официального сайта[https://nodejs.org/en/download/]
+Саму библиотеку подсистем *NPM*
+Скачать ее можно с [официального сайта](https://nodejs.org/en/download/)
 
 Установите npm-зависимости
 >`npm install`
 
 После установки NPM, будут установлены следующие пакеты:
 
-Babel CLI[https://babeljs.io/docs/en/babel-cli#docsNav]
+[Babel CLI](https://babeljs.io/docs/en/babel-cli#docsNav)
 
-Babel Core[https://babeljs.io/docs/en/babel-core]
+[Babel Core](https://babeljs.io/docs/en/babel-core)
 
-Babel Preset Evnvironment[https://babeljs.io/docs/en/babel-preset-env#docsNav]
+[Babel Preset Evnvironment](https://babeljs.io/docs/en/babel-preset-env#docsNav)
 
-Сore JS[https://github.com/zloirock/core-js#readme]
+[Сore JS](https://github.com/zloirock/core-js#readme)
 
-PostCSS[https://postcss.org/]
+[PostCSS](https://postcss.org/)
 
-Define plugin[https://webpack.js.org/plugins/define-plugin/]
+[Define plugin](https://webpack.js.org/plugins/define-plugin/)
 
-Style loader[https://github.com/webpack-contrib/style-loader]
+[Style loader](https://github.com/webpack-contrib/style-loader)
 
-Optimize CSS assets[https://www.npmjs.com/package/optimize-css-assets-webpack-plugin]
+[Optimize CSS assets](https://www.npmjs.com/package/optimize-css-assets-webpack-plugin)
 
 ## После установки всех пакетов проделайте следующее
 
@@ -65,5 +65,5 @@ Optimize CSS assets[https://www.npmjs.com/package/optimize-css-assets-webpack-pl
 
 Возможно будут добавлены другие API поиска новостей
 
-PS Ссылка на пул-реквест [https://github.com/vadimobruchnikov/news-explorer-front.github.io/pull/1]
+PS [Ссылка на пул-реквест](https://github.com/vadimobruchnikov/news-explorer-front.github.io/pull/1)
 

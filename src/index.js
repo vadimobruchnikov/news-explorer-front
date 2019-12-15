@@ -1,4 +1,6 @@
+/*
 import "./style.css";
+
 /*
 import {Api, apiBaseUrl, apiToken, myOwnerId} from "./scripts/api.js";
 import {getElement, resetError, handleValidate, activateError, validate, submitButtonStatus,
