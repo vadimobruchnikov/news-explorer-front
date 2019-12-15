@@ -1,6 +1,7 @@
 .card_title{
-  margin-top: 12px;
+  margin-top: 8px;/*12px;*/
   margin-left: 6%; /*24px;*/
+  margin-bottom: 0;
   width: 88%; /* 352px;*/
   font-family: Roboto Slab;
   font-style: normal;

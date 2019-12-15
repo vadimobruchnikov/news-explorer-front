@@ -1,6 +1,8 @@
+/*
 .history{
 
 }
+*/
 .history_title{
   margin-left: 104px;
   margin-top: 80px;
@@ -18,11 +20,14 @@
   margin-top: 24px;
   margin-bottom: 72px;
 
-  width: 56%;
+  width: 58%;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
   color: #1A1B22;
+}
+.history_text p {
+  margin-top: 24px;
 }

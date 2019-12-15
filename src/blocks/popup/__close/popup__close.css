@@ -1,7 +1,8 @@
 .popup__close {
-  width: 26px;
+  width: 40px; /*26px;*/
   position: absolute;
-  top: -26px;
-  right: -26px;
+  top: -40px;
+  right: -40px;
   cursor: pointer;
+  background-image: url(../../../images/popup/close-mid.svg);
 }

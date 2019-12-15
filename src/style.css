@@ -18,6 +18,11 @@
 /* слайдер */
 @import url(./vendor/sliders/flickity/flickity.css);
 
+/* модальные окна, валидация, ошибки */
+@import url(./blocks/popup/popup.css);
+@import url(./blocks/input/input.css);
+@import url(./blocks/error-message/error-message.css);
+
 
 /*
 @import url(./blocks/profile/profile.css);
@@ -25,9 +30,6 @@
 @import url(./blocks/user-info/user-info.css);
 @import url(./blocks/places-list/places-list.css);
 @import url(./blocks/place-card/place-card.css);
-@import url(./blocks/popup/popup.css);
-@import url(./blocks/input/input.css);
-@import url(./blocks/error-message/error-message.css);
 */
 
 body {

@@ -6,9 +6,11 @@
 .footer {
   height: 80px;
   width: 100%;
+  padding-top: 30px;
   padding-right: 104px;
   padding-left: 104px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-content: center;
 }

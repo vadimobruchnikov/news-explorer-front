@@ -7,11 +7,18 @@
 
 @import url(./__title/popup__title.css);
 @import url(./__form/popup__form.css);
+
 @import url(./__input/popup__input.css);
+@import url(./__input/popup__input_title.css);
+
 @import url(./__button/popup__button.css);
 @import url(./__button/popup__button_edit.css);
 @import url(./__button/popup__button_validate.css);
 @import url(./_is-opened/popup_is-opened.css);
+
+@import url(./__help/popup__help.css);
+@import url(./__help/popup__help_link.css);
+
 
 .popup {
   position: fixed;
@@ -23,5 +30,5 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  display: none;
+  /* DEBUG display: none; */
 }

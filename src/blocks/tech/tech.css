@@ -21,17 +21,19 @@
 
 .tech_items{
   position: absolute;
-  margin-top: 93px;
+  margin-top: 76px;
   right: 216px;
   width: 42%; /* ? */
   height: 153px;
   display: flex;
   justify-content: flex-end;
+  /*align-content: flex-start;*/
 }
 
 .tech-item{
   width: 120px;
   height: 153px;
+  margin-top: 16px;
   margin-left: 40px;
   background-repeat: no-repeat;
   display: flex;
@@ -48,12 +50,13 @@
   text-align: center;
   letter-spacing: 0.2px;
   color: #1A1B22;
-  text-transform: uppercase;
+  /*text-transform: uppercase;*/
 }
 .tech-item_image{
   width: 120px;
   height: 120px;
   margin: 0;
+  margin-top: 8px;
 }
 .tech-item_image__html{
   background-image: url(../../images/tech/html.svg);

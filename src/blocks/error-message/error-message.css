@@ -1,14 +1,16 @@
 .error-message {
-    color: #FF3333;
-    font-size: 0.8em;
-    padding: 0px;
-    margin-bottom: 24px;
-    transition: .3s;
-    opacity: 0;  
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 15px;
-    display: block;
+  color: #FF3333;
+  padding: 0px;
+  margin-top: 3px;
+  margin-bottom: 10px; /*24px;*/
+  transition: .3s;
+  /*opacity: 0;*/
+  display: block;
+
+  font-family: Roboto; /*Inter;*/
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;/*0.8em;*/
+  line-height: 15px;
+  color: #FF0000;
 }
-  

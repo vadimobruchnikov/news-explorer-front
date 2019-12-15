@@ -76,17 +76,17 @@
           </div>
         </div>
         <div class="tech-item">
-          <div class="tech-item_title">css</div>
+          <div class="tech-item_title">CSS </div>
           <div class="tech-item tech-item_image tech-item_image__css">
           </div>
         </div>
         <div class="tech-item">
-          <div class="tech-item_title">javascript</div>
+          <div class="tech-item_title">Java Script</div>
           <div class="tech-item tech-item_image tech-item_image__javascript">
           </div>
         </div>
         <div class="tech-item">
-          <div class="tech-item_title">webpack</div>
+          <div class="tech-item_title">Webpack</div>
           <div class="tech-item tech-item_image tech-item_image__webpack">
           </div>
         </div>
@@ -99,15 +99,21 @@
         Клиентам
       </div>
       <div class="history_text">
-          Этот сайт — дипломный проект студента Яндекс.Практикума. Его цель — показать, чему научился студент, какими технологиями владеет.
-
+        <p>
+        Этот сайт — дипломный проект студента Яндекс.Практикума. Его цель — показать, чему научился студент, какими технологиями владеет.
+        </p>
+        <p>
           Вёрстка сайта выполнена по методологии БЭМ. Это делает сайт гибким и масштабируемым. Кроме того, добавлять новые страницы и функциональность проще и быстрее, чем в проектах, выполненных по другим методологиям. Также сайт проще и дешевле поддерживать.
-
+        </p>
+        <p>
           Студент самостоятельно написал серверный код. В нём реализована функциональность регистрации и входа в систему. Сайт позволяет искать новости за прошедшую неделю и сохранять понравившиеся в личном кабинете. На сервере избранные новости хранятся в базе данных Mongo DB. Студент запрограммировал надёжный сервер: отказоустойчивый и безопасный.
-
+        </p>
+        <p>
           При создании проекта была использована сборка технологией Webpack. Это современный подход к разработке сайтов. Код оптимизируется, а значит, сайт работает быстрее. Также сайт работает в старых браузерах. Даже если посетители — пользователи старых операционных систем, у них не будет проблем с отображением. А значит, потенциальная аудитория возрастает.
-
+        </p>
+        <p>
           Проект был проверен экспертами Яндекс.Практикума. Если вашему бизнесу нужен сайт, мы рекомендуем обратиться к этому студенту.
+        </p>
       </div>
     </section>
 
@@ -305,20 +311,28 @@
       <!-- конец примера. -->
 
     <!-- Форма добавления карточки -->
-    <!--div class="popup" id="add-card">
+    <div class="popup" id="add-card">
       <div class="popup__content">
-        <img src="./images/close.svg" alt="" class="popup__close popup__close_add-card">
-        <h3 class="popup__title">Новое место</h3>
+        <!--./images/close.svg-->
+        <img src="./images/popup/close-mid.svg" alt="" class="popup__close popup__close_add-card">
+        <h3 class="popup__title">Вход</h3>
         <form id="form__add-card" class="popup__form" name="new">
-            <input id="add-card_name" type="text" name="name" class="popup__input popup__input_type_name" required minlength="2" maxlength="30" placeholder="Название" autocomplete="off">
-            <span id="error_add-card_name" class="error-message"></span>
-            <input id="add-card_link" type="text" name="link" class="popup__input popup__input_type_link-url" required minlength="6" maxlength="255" placeholder="Ссылка на картинку" autocomplete="off">
-            <span id="error_add-card_link" class="error-message"></span>
-            <button type class="button popup__button popup__button_edit button_submit">+</button>
-        </form>
-      </div>
-    </div-->
 
+          <span class="popup__input_title">Email</span>
+          <input id="add-card_name" type="text" name="name" class="popup__input popup__input_type_name" required minlength="2" maxlength="30" placeholder="Название" autocomplete="off" value="abcde">
+          <span id="error_add-card_name" class="error-message">Ошибка #1</span>
+          <span class="popup__input_title">Пароль</span>
+          <input id="add-card_link" type="text" name="link" class="popup__input popup__input_type_link-url" required minlength="6" maxlength="255" placeholder="Ссылка на картинку" autocomplete="off">
+          <span id="error_add-card_link" class="error-message">Ошибка #2</span>
+          <button type class="button popup__button popup__button_edit button_submit">Войти</button>
+
+        </form>
+        <div class="popup__help">
+          или
+          <span class="popup__help_link">Зарегистрироваться</span>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!--script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script-->
