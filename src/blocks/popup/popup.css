@@ -19,6 +19,8 @@
 @import url(./__help/popup__help.css);
 @import url(./__help/popup__help_link.css);
 
+@import url(./__info-message/popup__info-message.css);
+
 
 .popup {
   position: fixed;

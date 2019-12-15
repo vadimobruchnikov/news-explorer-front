@@ -259,6 +259,10 @@
             </div>
           </div>
         </div>
+
+      </div>
+      <div class="search-results__show-more">
+        <button class="button button__gray">Показать еще ...</button>
       </div>
     </section>
 
@@ -310,12 +314,14 @@
 
       <!-- конец примера. -->
 
-    <!-- Форма добавления карточки -->
+    <!-- Модального окна -->
+    <!--
     <div class="popup" id="add-card">
       <div class="popup__content">
-        <!--./images/close.svg-->
         <img src="./images/popup/close-mid.svg" alt="" class="popup__close popup__close_add-card">
-        <h3 class="popup__title">Вход</h3>
+        <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+        <div class="popup__info-message">Выполнить вход</div>
+
         <form id="form__add-card" class="popup__form" name="new">
 
           <span class="popup__input_title">Email</span>
@@ -324,6 +330,8 @@
           <span class="popup__input_title">Пароль</span>
           <input id="add-card_link" type="text" name="link" class="popup__input popup__input_type_link-url" required minlength="6" maxlength="255" placeholder="Ссылка на картинку" autocomplete="off">
           <span id="error_add-card_link" class="error-message">Ошибка #2</span>
+
+          <span class="error-message error-message_under-button">Такой пользователь уже есть</span>
           <button type class="button popup__button popup__button_edit button_submit">Войти</button>
 
         </form>
@@ -331,8 +339,9 @@
           или
           <span class="popup__help_link">Зарегистрироваться</span>
         </div>
+
       </div>
-    </div>
+    </div-->
   </section>
 
   <!--script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script-->

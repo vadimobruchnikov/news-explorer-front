@@ -5,7 +5,7 @@
 @import url(./blocks/root/root.css);
 @import url(./blocks/search/search.css);
 @import url(./blocks/about-author/about_author.css);
-@import url(./blocks/button/button.css);
+
 @import url(./blocks/search-results/search-results.css);
 @import url(./blocks/card/card.css);
 @import url(./blocks/saved/saved.css);
@@ -22,6 +22,10 @@
 @import url(./blocks/popup/popup.css);
 @import url(./blocks/input/input.css);
 @import url(./blocks/error-message/error-message.css);
+
+/*  кнопки */
+@import url(./blocks/button/button.css);
+@import url(./blocks/button/__gray/button__gray.css);
 
 
 /*

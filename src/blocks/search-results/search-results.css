@@ -1,5 +1,6 @@
 @import url(./_title/search-results_title.css);
 @import url(./_items/search-results_items.css);
+@import url(./__show-more/search-results__show-more.css);
 
 .search-results {
   width: 100%;
