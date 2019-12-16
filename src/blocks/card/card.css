@@ -26,3 +26,12 @@
   box-shadow: blur(58px);
   */
 }
+
+@media (max-width: 1280px) {
+  .card{
+    min-height: calc( (100vw - 768px)/(1440 - 768) * (576 - 420) + 420px);
+    margin-bottom: calc( (100vw - 768px)/(1440 - 768) * (16 - 8) + 8px);
+    width: calc( (100vw - 768px)/(1440 - 768) * (400 - 224) + 224px);
+    margin-right: calc( (100vw - 768px)/(1440 - 768) * (16 - 8) + 8px);
+  }
+}

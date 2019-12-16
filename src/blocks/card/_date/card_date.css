@@ -13,3 +13,9 @@
   /* simulator/gray/text */
   color: #B6BCBF;
 }
+@media (max-width: 1280px) {
+  .card_date{
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (24 - 16) + 16px);
+    margin-top: calc( (100vw - 768px)/(1440 - 768) * (20 - 16) + 16px);
+  }
+}

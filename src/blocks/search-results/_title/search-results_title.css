@@ -1,10 +1,19 @@
 .search-results_title{
   padding-top: 80px;
+  padding-left: 104px;
   font-family: Roboto Slab;
   font-style: normal;
   font-weight: normal;
   font-size: 40px;
   line-height: 46px;
   color: #1A1B22;
-  padding-left: 104px;
+
+}
+@media (max-width: 1280px) {
+  .search-results_title{
+    padding-top: calc( (100vw - 768px)/(1440 - 768) * (80 - 40) + 40px);
+    padding-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+    font-size: calc( (100vw - 768px)/(1440 - 768) * (40 - 30) + 30px);
+    line-height: calc( (100vw - 768px)/(1440 - 768) * (46 - 34) + 34px);
+  }
 }
