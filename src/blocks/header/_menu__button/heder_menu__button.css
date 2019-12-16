@@ -5,3 +5,6 @@
   padding: 12px 19px 12px 19px;
   display: flex;
 }
+.header_menu__button a{
+  color: #B6BCBF;
+}

@@ -11,3 +11,6 @@
   margin-left: 34px;
   /*display: flex;*/
 }
+.header_menu:hover, .header_menu:active{
+  color: #FFF;
+}

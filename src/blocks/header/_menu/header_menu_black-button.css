@@ -1,0 +1,11 @@
+.header_menu_black-button{
+  color: #1A1B22;
+  border-radius: 100px;
+  border: 1px solid #1A1B22;
+  box-sizing: border-box;
+  padding: 12px 19px 12px 19px;
+  display: flex;
+}
+a.header_menu_black-button, a.header_menu_black-button:active{
+  color: #1A1B22;
+}
