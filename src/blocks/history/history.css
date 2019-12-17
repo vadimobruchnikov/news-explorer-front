@@ -19,12 +19,10 @@
 }
 @media (max-width: 1440px) {
   .history_title{
-
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
     margin-top: calc( (100vw - 768px)/(1440 - 768) * (80 - 30) + 30px);
     font-size: calc( (100vw - 768px)/(1440 - 768) * (40 - 30) + 30px);
     line-height: calc( (100vw - 768px)/(1440 - 768) * (46 - 34) + 34px);
-
   }
 }
 

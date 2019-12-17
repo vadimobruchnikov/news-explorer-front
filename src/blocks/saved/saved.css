@@ -15,6 +15,12 @@
   line-height: 24px;
   color: rgba(26, 27, 34, 0.5);
 }
+@media (max-width: 1280px) {
+  .saved_title{
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+  }
+}
+
 .saved_text{
   margin-left: 104px;
   margin-top: 28px;
@@ -24,6 +30,11 @@
   font-size: 40px;
   line-height: 46px;
   color: #1A1B22;
+}
+@media (max-width: 1280px) {
+  .saved_text{
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+  }
 }
 .saved_keywords{
   margin-left: 104px;
@@ -36,6 +47,12 @@
   line-height: 24px;
   color: #1A1B22;
 }
+@media (max-width: 1280px) {
+  .saved_keywords{
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+  }
+}
+
 .saved_keywords__bold{
   font-weight: 600;
 }

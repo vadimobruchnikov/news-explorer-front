@@ -1,33 +1,82 @@
-.tech {
-  position: relative;
-  max-width: 1440px;
-  width: 100%;
-  height: 334px;
-  background: #F5F6F7;
+/*
+  TODO: Переделать под БЭМ
+*/
+
+@media (min-width: 1281px) {
+  .tech {
+    position: relative;
+    max-width: 1440px;
+    width: 100%;
+    height: 334px;
+    background: #F5F6F7;
+  }
+}
+@media (max-width: 1280px) {
+  .tech{
+    width: 100%;
+    height: 341px;
+    display: flex;
+    flex-direction: column;
+    background: #F5F6F7;
+  }
 }
 
-.tech_title{
-  position: absolute;
-  left: 104px;
-  top: 80px;
-  width: 344px;
-  font-family: Roboto Slab;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 40px;
-  line-height: 46px;
-  color: #1A1B22;
+@media (min-width: 1281px) {
+  .tech_title{
+    position: absolute;
+    left: 104px;
+    top: 80px;
+    width: 344px;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    color: #1A1B22;
+  }
+}
+@media (max-width: 1280px) {
+  .tech_title{
+    position: relative;
+    /*margin-left: 40px;*/
+    margin-top: 40px;
+    width: 344px;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    color: #1A1B22;
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+  }
 }
 
-.tech_items{
-  position: absolute;
-  margin-top: 76px;
-  right: 216px;
-  width: 42%; /* ? */
-  height: 153px;
-  display: flex;
-  justify-content: flex-end;
-  /*align-content: flex-start;*/
+@media (min-width: 1281px) {
+  .tech_items{
+    position: absolute;
+    margin-top: 76px;
+    right: 216px;
+    width: 42%; /* ? */
+    height: 153px;
+    display: flex;
+    justify-content: flex-end;
+    /*align-content: flex-start;*/
+  }
+}
+
+@media (max-width: 1280px) {
+  .tech_items{
+    /*width: 100%;*/
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 40px;
+    margin-right: 0px;
+    display: flex;
+
+    /*
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+    */
+  }
 }
 
 .tech-item{
@@ -40,6 +89,14 @@
   flex-direction: column;
   align-items : center;
 }
+@media (max-width: 1280px) {
+  .tech-item{
+    margin-top: 0px;
+    margin-left: 0px;
+    margin-right: 40px;
+  }
+}
+
 .tech-item_title{
   /*width: 100%;*/
   font-family: Roboto;
