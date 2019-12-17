@@ -5,3 +5,9 @@
   display: flex;
   /*border: 1px dotted fuchsia;*/
 }
+@media (max-width: 560px) {
+  .search_field {
+    flex-direction: column;
+    margin-top: calc( (100vw - 320px)/(768 - 320) * (64 - 122) + 122px);
+  }
+}

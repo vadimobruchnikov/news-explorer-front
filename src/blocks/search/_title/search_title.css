@@ -20,3 +20,11 @@
     width : calc( (100vw - 768px)/(1440 - 768) * (608 - 385) + 385px);
   }
 }
+@media (max-width: 400px) {
+  .search_title{
+    font-size : calc( (100vw - 320px)/(768 - 320) * (60 - 36) + 36px);
+    line-height : calc( (100vw - 320px)/(768 - 320) * (64 - 40) + 40px);
+    margin-top : calc( (100vw - 320px)/(768 - 320) * (38 - 30) + 30px);
+    margin-left : calc( (100vw - 320px)/(768 - 320) * (163 - 19) + 19px);
+  }
+}
