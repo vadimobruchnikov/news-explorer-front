@@ -9,4 +9,14 @@
   border-color: #fff;
   border-width: 1px;
   margin-top: 80px;
+  margin-left: 416px;
+}
+@media (max-width: 1439px) {
+  .search_title{
+    margin-top : calc( (100vw - 768px)/(1440 - 768) * (80 - 38) + 38px);
+    margin-left : calc( (100vw - 768px)/(1440 - 768) * (416 - 163) + 163px);
+    font-size : calc( (100vw - 768px)/(1440 - 768) * (60 - 36) + 36px);
+    line-height : calc( (100vw - 768px)/(1440 - 768) * (64 - 40) + 40px);
+    width : calc( (100vw - 768px)/(1440 - 768) * (608 - 385) + 385px);
+  }
 }

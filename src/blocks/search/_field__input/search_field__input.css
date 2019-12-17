@@ -1,6 +1,6 @@
 .search_field__input {
   /*width: 90%;*/
-  width: 90%;
+  width: 608px; /*90%;*/
   height: 64px;
   background-color: #fff;
   border-radius: 100px;
@@ -14,4 +14,14 @@
   line-height: 22px;
   color: #1A1B22;
   /*color: #B6BCBF;*/
+  margin-left: 416px;
+  margin-bottom: 80px;
+}
+@media (max-width: 1439px) {
+  .search_field__input{
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (416 - 163) + 163px);
+    margin-bottom: calc( (100vw - 768px)/(1440 - 768) * (80 - 48) + 48px);
+    width: calc( (100vw - 768px)/(1440 - 768) * (608 - 452) + 452px);
+    height: calc( (100vw - 768px)/(1440 - 768) * (64 - 56) + 56px);
+  }
 }

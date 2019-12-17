@@ -18,6 +18,8 @@
 @media (max-width: 1280px) {
   .saved_title{
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+    margin-top: calc( (100vw - 768px)/(1440 - 768) * (40 - 24) + 24px);
+
   }
 }
 
@@ -34,6 +36,10 @@
 @media (max-width: 1280px) {
   .saved_text{
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+    margin-top: calc( (100vw - 768px)/(1440 - 768) * (28 - 16) + 16px);
+    font-size: calc( (100vw - 768px)/(1440 - 768) * (40 - 30) + 30px);
+    line-height: calc( (100vw - 768px)/(1440 - 768) * (46 - 34) + 34px);
+    width: 50%;
   }
 }
 .saved_keywords{
@@ -50,6 +56,7 @@
 @media (max-width: 1280px) {
   .saved_keywords{
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+    margin-bottom: calc( (100vw - 768px)/(1440 - 768) * (56 - 32) + 32px);
   }
 }
 

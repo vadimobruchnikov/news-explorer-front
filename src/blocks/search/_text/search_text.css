@@ -7,4 +7,12 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
+  margin-left: 416px;
+}
+
+@media (max-width: 1439px) {
+  .search_text{
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (416 - 163) + 163px);
+    width: calc( (100vw - 768px)/(1440 - 768) * (608 - 452) + 452px);
+  }
 }

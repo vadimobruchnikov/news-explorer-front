@@ -4,10 +4,21 @@
 @import url(./_field__input/search_field__input.css);
 
 .search {
-  height: 496px;
-  width: 608px;
+  /*height: 496px;*/
+  width: 100%;
   display: flex;
-  /*justify-content: center;*/
-  align-items: center;
+  justify-content: center;
+  /*align-items: flex-start;*/
   flex-direction: column;
+  /*margin-left : 416px;*/
+}
+
+@media (max-width: 1439px) {
+  .search{
+  /*
+    margin-left : calc( (100vw - 768px)/(1440 - 768) * (416 - 160) + 160px);
+
+    width : calc( (100vw - 768px)/(1440 - 768) * (608 - 448) + 448px);
+ */
+  }
 }
