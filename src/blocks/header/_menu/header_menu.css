@@ -14,3 +14,11 @@
 .header_menu:hover, .header_menu:active{
   color: #FFF;
 }
+@media (max-width: 1439px) {
+  .header_menu{
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (34 - 16) + 16px);
+  }
+}
+
+
+

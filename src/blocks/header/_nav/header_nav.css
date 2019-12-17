@@ -8,3 +8,9 @@
 .header_nav a{
   text-decoration: none;
 }
+
+@media (max-width: 1439px) {
+  .header_nav{
+    margin-right: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+  }
+}
