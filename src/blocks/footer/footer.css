@@ -1,14 +1,16 @@
 @import url(./_copyright/footer_copyright.css);
 @import url(./_menu/footer_menu.css);
+/*
 @import url(./_menu__social/footer_menu__social.css);
+*/
 @import url(./_menu-item/footer_menu-item.css);
 
 .footer {
   height: 80px;
   width: 100%;
   padding-top: 30px;
-  padding-right: 104px;
-  padding-left: 104px;
+  margin-right: 104px;
+  margin-left: 104px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
