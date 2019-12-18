@@ -35,3 +35,23 @@
     margin-right: calc( (100vw - 768px)/(1440 - 768) * (16 - 8) + 8px);
   }
 }
+/*
+@media (max-width: 768px) {
+  .card{
+    min-width: 224px;
+    width: 40%;
+    max-width: 400px;
+   }
+}
+/*
+@media (max-width: 480px) {
+  .card{
+    min-width: 224px;
+    width: 95%;
+    max-width: 400px;
+    min-height: calc( (100vw - 320px)/(768 - 320) * (576 - 420) + 420px);
+    margin-bottom: 2.5%;
+    margin-right: 2.5%;
+   }
+}
+*/
