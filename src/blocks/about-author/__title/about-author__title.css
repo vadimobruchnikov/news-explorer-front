@@ -13,3 +13,12 @@
     margin-top: calc( (100vw - 768px)/(1440 - 768) * (131 - 40) + 40px);
   }
 }
+@media (max-width: 500px) {
+  .about-author__title{
+    width: 90%;
+    margin-top: 24px;
+    margin-bottom: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+   }
+}

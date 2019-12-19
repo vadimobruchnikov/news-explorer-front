@@ -3,8 +3,11 @@
   height: 24px;
   margin-left: 24px;
 }
-
 .social-menu__item:first-of-type {
   margin-left: 0;
 }
-
+@media (max-width: 500px) {
+  .social-menu__item{
+    margin-left: 28px;
+  }
+}

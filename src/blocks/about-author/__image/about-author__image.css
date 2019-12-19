@@ -16,3 +16,13 @@
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
   }
 }
+@media (max-width: 500px) {
+  .about-author__image{
+    height: 85vw;
+    width: 85vw;
+    margin-top: 7.5vw;
+    margin-bottom: 7.5vw;
+    margin-left: 7.5vw;
+    margin-right: unset;
+   }
+}

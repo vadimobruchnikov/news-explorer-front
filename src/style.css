@@ -80,14 +80,3 @@ body {
   /*align-items: center;*/
 }
 
-/* DEBUG */
-
-section {
-  border-color: blueviolet;
-  border-width: 1px;
-}
-
-div {
-  border-color: blueviolet;
-  border-width: 1px;
-}

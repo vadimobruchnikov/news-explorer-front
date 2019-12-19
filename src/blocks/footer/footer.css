@@ -6,6 +6,7 @@
 @import url(./__menu-item/footer__menu-item.css);
 
 .footer {
+  position: relative;
   height: 80px;
   width: 100%;
   padding-top: 30px;
@@ -15,4 +16,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-content: center;
+}
+
+@media (max-width: 500px) {
+  .footer{
+    height: unset;
+    padding-top: 0;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+   }
 }
