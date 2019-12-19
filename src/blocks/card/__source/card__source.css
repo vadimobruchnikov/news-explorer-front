@@ -13,3 +13,8 @@
   text-transform: uppercase;
   color: #B6BCBF;
 }
+@media (max-width: 630px) {
+  .card__text{
+    margin-left: 5%;
+  }
+}

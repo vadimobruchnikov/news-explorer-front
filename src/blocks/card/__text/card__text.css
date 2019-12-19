@@ -10,6 +10,7 @@
   font-size: 16px;
   line-height: 22px;
   color: #1A1B22;
+  /*overflow: hidden;*/
   overflow: hidden;
 }
 @media (max-width: 1280px) {
@@ -19,3 +20,11 @@
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (24 - 16) + 16px);
   }
 }
+@media (max-width: 630px) {
+  .card__text{
+    margin-left: 5%;
+    width: 80%;
+    height: 88px;
+  }
+}
+

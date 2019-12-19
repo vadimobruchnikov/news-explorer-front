@@ -6,3 +6,8 @@
   justify-content: center;
 
 }
+@media (max-width: 768px) {
+  .search-results__show-more{
+    margin-bottom: 32px;
+  }
+}

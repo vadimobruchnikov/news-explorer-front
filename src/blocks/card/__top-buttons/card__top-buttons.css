@@ -14,3 +14,10 @@
     width: calc( (100vw - 768px)/(1440 - 768) * (352 - 208) + 208px);
   }
 }
+@media (max-width: 768px) {
+  .card__top-buttons{
+    left: 2.5%;
+    top: 2.5%;
+    width: 95%;
+  }
+}

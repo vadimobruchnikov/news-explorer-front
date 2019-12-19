@@ -20,3 +20,9 @@
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (24 - 16) + 16px);
   }
 }
+@media (max-width: 630px) {
+  .card__title{
+    margin-left: 5%;
+    width: 80%;
+  }
+}

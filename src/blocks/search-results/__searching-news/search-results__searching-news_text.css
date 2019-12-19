@@ -9,3 +9,10 @@
   text-align: center;
   color: #B6BCBF;
 }
+@media (max-width: 768px) {
+  .search-results__searching-news_text{
+    margin-top: 5%;
+    width: 90%;
+  }
+}
+

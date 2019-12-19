@@ -51,10 +51,10 @@
         <div class="search__title">Что в мире творится?</div>
         <div class="search__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</div>
 
-        <div class="search__field">
+        <form class="search__field">
           <input class="search__field_input" type="search" placeholder="Введите то, что вас интересует">
           <button class="button__search">Найти</button>
-        </div>
+        </form>
       </section>
 
       <section class="saved">
@@ -144,7 +144,8 @@
               <button class="button__card button__card-bookmark_disable">
               </button>
             </div>
-            <img class="card__image" src="images/cards/image_08.png">
+            <!--img class="card__image" src="<%=require('./images/cards/image_08.png')%>"-->
+            <img class="card__image" src="./images/cards/image_08.png">
             <div class="card__bottom">
               <div class="card__date">
                 2 августа, 2019

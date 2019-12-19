@@ -1,8 +1,4 @@
 .history__text{
-  margin-left: 104px;
-  margin-top: 24px;
-  margin-bottom: 72px;
-  width: 815px; /*58%;*/
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
@@ -10,21 +6,44 @@
   line-height: 24px;
   color: #1A1B22;
 }
+
+@media (min-width: 1439px) {
+  .history__text{
+    margin-left: 104px;
+    margin-top: 24px;
+    margin-bottom: 72px;
+    width: 815px; /*58%;*/
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    color: #1A1B22;
+  }
+}
+
 .history__text p {
   margin-top: 24px;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1440px)and (min-width: 769px) {
   .history__text{
 
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
     margin-top: calc( (100vw - 768px)/(1440 - 768) * (24 - 16) + 16px);
     margin-bottom: calc( (100vw - 768px)/(1440 - 768) * (72 - 40) + 40px);
-
     width: calc( (100vw - 768px)/(1440 - 768) * (815 - 688) + 688px);
 
   }
   .history__text p{
     margin-top: calc( (100vw - 768px)/(1440 - 768) * (24 - 16) + 16px);
+  }
+}
+
+@media (max-width: 768px) {
+  .history__text p{
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 90%;
   }
 }
