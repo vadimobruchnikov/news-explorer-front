@@ -1,0 +1,13 @@
+.button__card-delete{
+    background-image: url(../../../images/buttons/__card-delete/button__card-delete.svg);
+    background-repeat: no-repeat;
+    background-position-x: 7px;
+    background-position-y: 8px;
+}
+
+.button__card-delete_disable{
+  background-image: url(../../../images/buttons/__card-delete/button__card-delete_disable.svg);
+}
+
+
+

@@ -1,6 +1,6 @@
-@import url(./_item/social-menu_item.css);
-@import url(./_item/social-menu_item__fb.css);
-@import url(./_item/social-menu_item__git.css);
+@import url(./__item/social-menu__item.css);
+@import url(./__item/social-menu__item_fb.css);
+@import url(./__item/social-menu__item_git.css);
 
 .social-menu{
   display: flex;

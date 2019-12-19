@@ -1,7 +1,7 @@
-@import url(./_title/search_title.css);
-@import url(./_text/search_text.css);
-@import url(./_field/search_field.css);
-@import url(./_field__input/search_field__input.css);
+@import url(./__title/search__title.css);
+@import url(./__text/search__text.css);
+@import url(./__field/search__field.css);
+@import url(./__field_input/search__field_input.css);
 
 .search {
   /*height: 496px;*/

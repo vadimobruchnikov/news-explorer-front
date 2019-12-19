@@ -1,5 +1,5 @@
-@import url(./_title/search-results_title.css);
-@import url(./_items/search-results_items.css);
+@import url(./__title/search-results_title.css);
+@import url(./__items/search-results__items.css);
 @import url(./__show-more/search-results__show-more.css);
 @import url(./__searching-news/search-results__searching-news.css);
 @import url(./__searching-news/search-results__searching-news_text.css);

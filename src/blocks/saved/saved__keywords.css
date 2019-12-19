@@ -1,0 +1,28 @@
+.saved__keywords{
+  margin-left: 104px;
+  margin-top: 30px;
+  margin-bottom: 56px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1A1B22;
+}
+@media (max-width: 1280px) {
+  .saved__keywords{
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+    margin-bottom: calc( (100vw - 768px)/(1440 - 768) * (56 - 32) + 32px);
+  }
+}
+@media (max-width: 560px) {
+  .saved__keywords{
+    margin-left: calc( (100vw - 320px)/(768 - 320) * (40 - 16) + 16px);
+    margin-top: calc( (100vw - 320px)/(768 - 320) * (30 - 16) + 16px);
+    margin-bottom: calc( (100vw - 320px)/(768 - 320) * (56 - 32) + 32px);
+  }
+}
+
+.saved__keywords_bold{
+  font-weight: 600;
+}

@@ -1,0 +1,37 @@
+.search__field_input {
+  /*width: 90%;*/
+  width: 608px; /*90%;*/
+  height: 64px;
+  background-color: #fff;
+  border-radius: 100px;
+  border-width: 0;
+  padding-left: 24px;
+  outline: none;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1A1B22;
+  /*color: #B6BCBF;*/
+  margin-left: 416px;
+  margin-bottom: 80px;
+}
+@media (max-width: 1439px) {
+  .search__field_input{
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (416 - 163) + 163px);
+    margin-bottom: calc( (100vw - 768px)/(1440 - 768) * (80 - 48) + 48px);
+    width: calc( (100vw - 768px)/(1440 - 768) * (608 - 452) + 452px);
+    height: calc( (100vw - 768px)/(1440 - 768) * (64 - 56) + 56px);
+  }
+}
+
+@media (max-width: 560px) {
+  .search__field_input{
+    margin-left: calc( (100vw - 320px)/(768 - 320) * (163 - 16) + 16px);
+    margin-bottom: calc( (100vw - 320px)/(768 - 320) * (48 - 16) + 16px);
+    width: calc( (100vw - 320px)/(768 - 320) * (452 - 288) + 288px);
+  }
+}
+
+

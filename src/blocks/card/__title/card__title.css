@@ -1,0 +1,22 @@
+.card__title{
+  margin-top: 8px;/*12px;*/
+  margin-left: 6%; /*24px;*/
+  margin-bottom: 0;
+  width: 88%; /* 352px;*/
+  font-family: Roboto Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 30px;
+  color: #1A1B22;
+  overflow: hidden;
+}
+@media (max-width: 1280px) {
+  .card__title{
+    width: calc( (100vw - 768px)/(1440 - 768) * (352 - 192) + 192px);
+    font-size: calc( (100vw - 768px)/(1440 - 768) * (26 - 22) + 22px);
+    line-height: calc( (100vw - 768px)/(1440 - 768) * (30 - 24) + 24px);
+    max-height: calc( (100vw - 768px)/(1440 - 768) * (90 - 72) + 72px);
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (24 - 16) + 16px);
+  }
+}

@@ -1,9 +1,9 @@
-@import url(./_image/card_image.css);
-@import url(./_date/card_date.css);
-@import url(./_title/card_title.css);
-@import url(./_text/card_text.css);
-@import url(./_source/card_source.css);
-@import url(./_top-buttons/card_top-buttons.css);
+@import url(./__image/card__image.css);
+@import url(./__date/card__date.css);
+@import url(./__title/card__title.css);
+@import url(./__text/card__text.css);
+@import url(./__source/card__source.css);
+@import url(./__top-buttons/card__top-buttons.css);
 
 
 .card{

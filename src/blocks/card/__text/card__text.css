@@ -1,0 +1,21 @@
+.card__text{
+  margin-top: 16px;
+  margin-left: 6%; /*24px;*/
+  margin-bottom: 54px;
+  width: 88%; /* 352px;*/
+  /*height: 110px;*/
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #1A1B22;
+  overflow: hidden;
+}
+@media (max-width: 1280px) {
+  .card__text{
+    width: calc( (100vw - 768px)/(1440 - 768) * (352 - 192) + 192px);
+    max-height: calc( (100vw - 768px)/(1440 - 768) * (110 - 88) + 88px);
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (24 - 16) + 16px);
+  }
+}

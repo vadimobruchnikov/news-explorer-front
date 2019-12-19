@@ -1,0 +1,10 @@
+.social-menu__item {
+  width: 24px;
+  height: 24px;
+  margin-left: 24px;
+}
+
+.social-menu__item:first-of-type {
+  margin-left: 0;
+}
+

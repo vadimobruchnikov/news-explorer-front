@@ -1,0 +1,17 @@
+.tech-item{
+  width: 120px;
+  height: 153px;
+  margin-top: 16px;
+  margin-left: 40px;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items : center;
+}
+@media (max-width: 1280px) {
+  .tech-item{
+    margin-top: 0px;
+    margin-left: 0px;
+    /*margin-right: 40px;*/
+  }
+}

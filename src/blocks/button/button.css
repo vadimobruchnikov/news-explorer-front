@@ -1,10 +1,10 @@
-@import url(./_search/button_search.css);
+@import url(./__search/button__search.css);
 
-@import url(./_card/button_card.css);
-@import url(./_card-keyword/button_card-keyword.css);
-@import url(./_card-bookmark/button_card-bookmark.css);
-@import url(./_card-help/button_card-help.css);
-@import url(./_card-delete/button_card-delete.css);
+@import url(./__card/button__card.css);
+@import url(./__card-keyword/button__card-keyword.css);
+@import url(./__card-bookmark/button__card-bookmark.css);
+@import url(./__card-help/button__card-help.css);
+@import url(./__card-delete/button__card-delete.css);
 
 
 .button {

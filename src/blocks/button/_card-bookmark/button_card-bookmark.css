@@ -1,9 +1,0 @@
-@import url(./button_card-bookmark__active.css);
-@import url(./button_card-bookmark__disable.css);
-
-.button_card-bookmark{
-  background-image: url(../../../images/buttons/_card-bookmark/button_card-bookmark.svg);
-  background-repeat: no-repeat;
-  background-position-x: 7px;
-  background-position-y: 8px;
-}

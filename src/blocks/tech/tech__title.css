@@ -1,0 +1,29 @@
+@media (min-width: 1281px) {
+  .tech__title{
+    position: absolute;
+    left: 104px;
+    top: 80px;
+    width: 344px;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    color: #1A1B22;
+  }
+}
+@media (max-width: 1280px) {
+  .tech__title{
+    position: relative;
+    /*margin-left: 40px;*/
+    margin-top: 40px;
+    width: 344px;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    color: #1A1B22;
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+  }
+}

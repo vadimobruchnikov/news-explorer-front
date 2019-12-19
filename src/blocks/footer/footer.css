@@ -1,9 +1,9 @@
-@import url(./_copyright/footer_copyright.css);
-@import url(./_menu/footer_menu.css);
+@import url(./__copyright/footer__copyright.css);
+@import url(./__menu/footer__menu.css);
 /*
 @import url(./_menu__social/footer_menu__social.css);
 */
-@import url(./_menu-item/footer_menu-item.css);
+@import url(./__menu-item/footer__menu-item.css);
 
 .footer {
   height: 80px;

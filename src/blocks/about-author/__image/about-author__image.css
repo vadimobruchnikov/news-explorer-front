@@ -1,0 +1,18 @@
+.about-author__image{
+  margin-top: 80px;
+  margin-left: 104px;
+  margin-right: 56px;
+  height: 464px;
+  width: 464px;
+  Opacity: 90%;
+  border-radius: 69.4%; /*1000px;*/
+}
+
+@media (max-width: 1280px) {
+  .about-author__image{
+    height: 30.2vw; /*464px;*/
+    width: 30.2vw; /*464px;*/
+    margin-top: calc( (100vw - 768px)/(1440 - 768) * (80 - 61) + 61px);
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+  }
+}
