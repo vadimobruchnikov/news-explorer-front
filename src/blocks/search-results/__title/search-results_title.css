@@ -19,7 +19,8 @@
 }
 @media (max-width: 560px) {
   .search-results__title{
-    margin-top: calc( (100vw - 320px)/(768 - 320) * (48 - 32) + 32px);
+    /*margin-top: calc( (100vw - 320px)/(768 - 320) * (48 - 32) + 32px);*/
+    margin-top: 0;
     margin-left: calc( (100vw - 320px)/(768 - 320) * (40 - 16) + 16px);
     margin-bottom: calc( (100vw - 320px)/(768 - 320) * (48 - 24) + 24px);
     width: calc( (100vw - 320px)/(768 - 320) * (452 - 288) + 288px);
@@ -27,3 +28,4 @@
     line-height: 34px;
    }
 }
+

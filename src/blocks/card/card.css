@@ -12,6 +12,9 @@
   width: 32.5%; /*400px;*/
   min-width: 224px;
 }
+.card:last-of-type{
+  margin-right: 0;
+}
 @media (min-width: 1440px) {
   .card{
     width: 32.5%; /*400px;*/
@@ -26,6 +29,7 @@
 @media (max-width: 800px) {
   .card{
     width: 48.64%;
+    margin-bottom: 2.5%;
   }
 }
 @media (max-width: 630px) {

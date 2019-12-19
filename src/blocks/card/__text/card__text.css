@@ -15,7 +15,8 @@
 }
 @media (max-width: 1280px) {
   .card__text{
-    width: calc( (100vw - 768px)/(1440 - 768) * (352 - 192) + 192px);
+    /*width: calc( (100vw - 768px)/(1440 - 768) * (352 - 192) + 192px);*/
+    width: 80%;
     max-height: calc( (100vw - 768px)/(1440 - 768) * (110 - 88) + 88px);
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (24 - 16) + 16px);
   }
