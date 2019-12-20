@@ -2,14 +2,17 @@
 
 ## v0.0.1
 
-## [Ссылка на проект] (https://vadimobruchnikov.github.io/news-explorer-front.github.io/index.html)
+## [Ссылка на проект front]
+(https://vadimobruchnikov.github.io/news-explorer-front.github.io/index.html)
 
 Финальный проект Яндекс-Практикума(дипломная работа).
 Проект должен показать чему научился студент на курсу Вэб-разработчик.
 В данном проекте реализован Frontend проекта.
 Бэкенд для этого проекта можно найти на следующем репозитории
 
-## [Ссылка на проект] (https://vadimobruchnikov.github.io/news-explorer-api.github.io/index.html)
+## [Ссылка на gh-pages](https://vadimobruchnikov.github.io/news-explorer-front/)
+
+## [Ссылка на проект back] (https://vadimobruchnikov.github.io/news-explorer-api.github.io/index.html)
 
 В проекте были использованы следующие технологии:
 *Front-End:* HTML5 + CSS + JS(ES6, REST API, AJAX, JSON) + Babel + Webpack + NPM

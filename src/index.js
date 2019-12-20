@@ -1,5 +1,5 @@
 /*
-import "./style.css";
+import './style.css';
 
 /*
 import {Api, apiBaseUrl, apiToken, myOwnerId} from "./scripts/api.js";
@@ -56,7 +56,8 @@ const cardPopup = new Popup({
       cardPopup.form.reset();
   },
   saveFunction: () =>  {
-      const card = {name:cardPopup.form.elements.name.value, link:cardPopup.form.elements.link.value};
+      const card = {name:cardPopup.form.elements.name.value,
+        link:cardPopup.form.elements.link.value};
       api.saveCard(card)
   },
   closeControl: getElement('.popup__close_add-card'),
@@ -70,7 +71,8 @@ const avatarPopup = new Popup({
   mainContainer: getElement('#edit-avatar'),
   openControl: getElement('.user-info__photo'),
   openFunction: function() {
-    getElement('#avatar_link').value = urlImageToSrc(getElement('.user-info__photo').style.backgroundImage);
+    getElement('#avatar_link').value = urlImageToSrc(
+      getElement('.user-info__photo').style.backgroundImage);
     getElement('#error_avatar_link').textContent = '';
   },
   saveFunction: function() {

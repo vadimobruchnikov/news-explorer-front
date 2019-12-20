@@ -8,9 +8,10 @@
   cursor: default;
   /* */
   background: #E6E8EB;
+  background-color: #E6E8EB;
   border-radius: 100px;
 
-   font-family: Inter;
+  font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

@@ -16,3 +16,8 @@
     background: #F5F6F7;
   }
 }
+@media (max-width: 640px) {
+  .tech{
+    height: unset;
+  }
+}

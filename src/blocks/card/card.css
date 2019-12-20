@@ -11,6 +11,7 @@
   border-radius: 16px;
   width: 32.5%; /*400px;*/
   min-width: 224px;
+  margin-bottom: 16px;
 }
 .card:last-of-type{
   margin-right: 0;
@@ -26,7 +27,7 @@
     margin-right: 0;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 760px) {
   .card{
     width: 48.64%;
     margin-bottom: 2.5%;
@@ -87,9 +88,11 @@
 }
 */
 
+
 .card:hover{
-  /*
+
   background: rgba(8, 29, 45, 0.1);
-  box-shadow: blur(58px);
-  */
+  filter: blur(58px);
+
 }
+

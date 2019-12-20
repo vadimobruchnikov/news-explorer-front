@@ -17,6 +17,12 @@
     line-height: calc( (100vw - 768px)/(1440 - 768) * (46 - 34) + 34px);
   }
 }
+@media (max-width: 760px) {
+  .search-results__title{
+    margin-bottom: 16px;
+   }
+}
+
 @media (max-width: 560px) {
   .search-results__title{
     /*margin-top: calc( (100vw - 320px)/(768 - 320) * (48 - 32) + 32px);*/

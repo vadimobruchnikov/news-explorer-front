@@ -16,7 +16,7 @@
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 640px) {
   .about-author__image{
     height: 85vw;
     width: 85vw;

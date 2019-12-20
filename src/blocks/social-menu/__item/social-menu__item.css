@@ -6,7 +6,7 @@
 .social-menu__item:first-of-type {
   margin-left: 0;
 }
-@media (max-width: 500px) {
+@media (max-width: 760px) {
   .social-menu__item{
     margin-left: 28px;
   }

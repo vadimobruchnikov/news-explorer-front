@@ -18,7 +18,7 @@
   align-content: center;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 760px) {
   .footer{
     height: unset;
     padding-top: 0;

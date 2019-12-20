@@ -13,12 +13,12 @@
     margin-right: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 760px) {
   .social-menu{
     margin-top: 20px;
     padding-top: 0;
     position: absolute;
-    right: 0;
+    right: 5%;
     top: 0;
   }
 }

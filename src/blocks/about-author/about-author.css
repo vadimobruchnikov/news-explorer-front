@@ -19,7 +19,13 @@
     height: calc( (100vw - 768px)/(1440 - 768) * (624 - 354) + 354px);
   }
 }
-@media (max-width: 500px) {
+@media (max-width: 768px) {
+  .about-author{
+    height: unset;
+  }
+}
+
+@media (max-width: 640px) {
   .about-author{
     height: unset;
     flex-direction: column;
