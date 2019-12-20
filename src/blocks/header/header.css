@@ -1,16 +1,18 @@
-@import url(./_nav/header_nav.css);
-@import url(./_menu/header_menu.css);
-@import url(./_menu/header_menu_a.css);
+/*
+@import url(./blocks/header/__nav/header__nav.css);
+@import url(./blocks/header/__menu/header__menu.css);
+@import url(./blocks/header/__menu/header__menu_a.css);
 
-@import url(./_menu__active/header_menu__active.css);
-@import url(./_menu__button/heder_menu__button.css);
-@import url(./_menu__autorized/header_menu__autorized.css);
-@import url(./_menu__exit/header_menu__exit.css);
-@import url(./_menu__exit/header_menu__exit-black.css);
+@import url(./blocks/header/__menu_active/header__menu_active.css);
+@import url(./blocks/header/__menu_button/heder__menu_button.css);
+@import url(./blocks/header/__menu_autorized/header__menu_autorized.css);
+@import url(./blocks/header/__menu_exit/header__menu_exit.css);
+@import url(./blocks/header/__menu_exit/header__menu_exit-black.css);
 
-@import url(./_menu/header_menu_black.css);
-@import url(./_menu/header_menu_black-button.css);
-@import url(./_menu__active/header_menu__active-black.css);
+@import url(./blocks/header/__menu/header__menu_black.css);
+@import url(./blocks/header/__menu/header__menu_black-button.css);
+@import url(./blocks/header/__menu__active/header__menu_active-black.css);
+*/
 
 .header {
   /*min-height: 576px;*/
