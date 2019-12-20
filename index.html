@@ -4,99 +4,357 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" href="../dist/images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+  <!--link rel="shortcut icon" href="../dist/images/favicon.ico" type="image/x-icon"-->
   <title>News Explorer</title>
-  <link rel="stylesheet" href="style.fa258095c995316a3a92.css?58afc0487541f5ba96b0">
+  <link rel="stylesheet" href="">
+  <!--link rel="stylesheet" href="style.css"-->
+
+  <!--link rel="stylesheet" href="./vendor/sliders/flickity/flickity.css"-->
+  <!--script src="./vendor/sliders/flickity/flickity.pkgd.min.js"></script-->
 
 </head>
 <body>
-  <div class="root">
-    <header class="header root__section">
-      <img src="../dist/images/logo.svg" alt="mesto logo" class="logo">
-    </header>
-    <div class="profile root__section">
-      <div class="user-info">
-        <div class="user-info__photo"></div>
-        <div class="user-info__data">
-          <h1 class="user-info__name"></h1>
-          <p class="user-info__job"></p>
-          <button class="button user-info__button_edit">Edit</button>
+  <section class="root">
+      <!--img src="../dist/images/logo.svg" alt="mesto logo" class="logo"-->
+      <section class="header root__section">
+        <div class="logo">
+          NewsExplorer
         </div>
-        <button class="button user-info__button">+</button>
-      </div>
-    </div>
-    <div class="places-list root__section">
+        <nav class="header__nav">
+          <a class="header__menu header__menu_active" href="#">Главная</a>
+          <a class="header__menu" href="#">О проекте</a>
+          <a class="header__menu header__menu_button" href="#">Авторизоваться</a>
+          <div class="header__menu header__menu_button header__menu_autorized">
+            <a class="header__menu_a" href="#">Грета</a>
+            <a class="header__menu_exit" href="#"></a>
+          </div>
+        </nav>
+      </section>
 
-      <!-- Пример вёрстки карточки: -->
-
-      <!-- <div class="place-card">
-        <div class="place-card__image" style="background-image: url(https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg)">
-          <button class="place-card__delete-icon"></button>
+      <!--section class="header root__section">
+        <div class="logo_black">
+          NewsExplorer
         </div>
-        <div class="place-card__description">
-          <h3 class="place-card__name">Камчатка</h3>
-          <button class="place-card__like-icon"></button>
-        </div>
-      </div> -->
+        <nav class="header__nav">
+          <a class="header__menu header__menu_active-black header__menu_black" href="#">Главная</a>
+          <a class="header__menu header__menu_black" href="#">О проекте</a>
+          <a class="header__menu header__menu_black-button header__menu_black" href="#">Авторизоваться</a>
+          <div class="header__menu header__menu_black-button header__menu_autorized header__menu_black">
+            <a class="header__menu_a header__menu_black" href="#">Грета</a>
+            <a class="header__menu_exit-black header__menu_black" href="#"></a>
+          </div>
+        </nav>
+      </section-->
 
-      <!-- конец примера. -->
+      <section class="search">
+        <div class="search__title">Что в мире творится?</div>
+        <div class="search__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</div>
 
-    </div>
-    
-    <!-- Форма редактирования профиля -->
-    <div class="popup" id="edit-profile">
-      <div class="popup__content">
-        <img src="../dist/images/close.svg" alt="" class="popup__close popup__close_profile">
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form" name="edit">
-            <input id="edit-profile_name" type="text" name="name" class="popup__input popup__input_type_name" required minlength="2" maxlength="30" placeholder="Имя">
-            <span id="error_edit-profile_name" class="error-message"></span>
-            <input id="edit-profile_job" type="text" name="job" class="popup__input" required minlength="2" maxlength="30" placeholder="Должность, статус">
-            <span id="error_edit-profile_job" class="error-message"></span>
-            <button type class="button popup__button popup__button_edit button_submit">Сохранить</button>
+        <form class="search__field">
+          <input class="search__field_input" type="search" placeholder="Введите то, что вас интересует">
+          <button class="button__search">Найти</button>
         </form>
-      </div>
-    </div>
+      </section>
 
-    <!-- Форма добавления карточки -->
-    <div class="popup" id="add-card">
-      <div class="popup__content">
-        <img src="./images/close.svg" alt="" class="popup__close popup__close_add-card">
-        <h3 class="popup__title">Новое место</h3>
-        <form id="form__add-card" class="popup__form" name="new">
-            <input id="add-card_name" type="text" name="name" class="popup__input popup__input_type_name" required minlength="2" maxlength="30" placeholder="Название" autocomplete="off">
-            <span id="error_add-card_name" class="error-message"></span>
+      <section class="saved">
+        <div class="saved__title">
+          Сохранённые статьи
+        </div>
+        <div class="saved__text">
+          Грета, у вас 5 сохранённых статей
+        </div>
+        <div class="saved__keywords">
+          По ключевым словам:
+          <span class="saved__keywords_bold">
+            Природа, Тайга
+          </span>
+          и
+          <span class="saved__keywords_bold">
+            2 другим
+          </span>
+        </div>
+      </section>
+
+      <section class="tech">
+        <div class="tech__title">
+          Используемые технологии
+        </div>
+        <div class="tech__items">
+          <div class="tech-item">
+            <div class="tech-item__title">HTML</div>
+            <div class="tech-item tech-item__image tech-item__image_html">
+            </div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-item__title">CSS </div>
+            <div class="tech-item tech-item__image tech-item__image_css">
+            </div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-item__title">Java Script</div>
+            <div class="tech-item tech-item__image tech-item__image_javascript">
+            </div>
+          </div>
+          <div class="tech-item">
+            <div class="tech-item__title">Webpack</div>
+            <div class="tech-item tech-item__image tech-item__image_webpack">
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="history">
+        <div class="history__title">
+          Клиентам
+        </div>
+        <div class="history__text">
+          <p>
+          Этот сайт — дипломный проект студента Яндекс.Практикума. Его цель — показать, чему научился студент, какими технологиями владеет.
+          </p>
+          <p>
+            Вёрстка сайта выполнена по методологии БЭМ. Это делает сайт гибким и масштабируемым. Кроме того, добавлять новые страницы и функциональность проще и быстрее, чем в проектах, выполненных по другим методологиям. Также сайт проще и дешевле поддерживать.
+          </p>
+          <p>
+            Студент самостоятельно написал серверный код. В нём реализована функциональность регистрации и входа в систему. Сайт позволяет искать новости за прошедшую неделю и сохранять понравившиеся в личном кабинете. На сервере избранные новости хранятся в базе данных Mongo DB. Студент запрограммировал надёжный сервер: отказоустойчивый и безопасный.
+          </p>
+          <p>
+            При создании проекта была использована сборка технологией Webpack. Это современный подход к разработке сайтов. Код оптимизируется, а значит, сайт работает быстрее. Также сайт работает в старых браузерах. Даже если посетители — пользователи старых операционных систем, у них не будет проблем с отображением. А значит, потенциальная аудитория возрастает.
+          </p>
+          <p>
+            Проект был проверен экспертами Яндекс.Практикума. Если вашему бизнесу нужен сайт, мы рекомендуем обратиться к этому студенту.
+          </p>
+        </div>
+      </section>
+
+      <section class="search-results">
+        <div class="search-results__title">
+          Результаты поиска
+        </div>
+
+        <div class="search-results__items">
+
+          <div class="card">
+            <div class="card__top-buttons">
+              <!-- Пример скрытой подсказки-->
+              <button class="button__card button__card-help button__card-help_hidden">
+                 Войдите, чтобы сохранять статьи
+              </button>
+              <button class="button__card button__card-bookmark_disable">
+              </button>
+            </div>
+            <!--img class="card__image" src="../dist/images/image_08.png"-->
+            <img class="card__image" src="./images/cards/image_08.png">
+            <div class="card__bottom">
+              <div class="card__date">
+                2 августа, 2019
+              </div>
+              <h3 class="card__title">
+                Национальное достояние – парки
+              </h3>
+              <p class="card__text">
+                  В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
+              </p>
+              <div class="card__source">
+                Лента.ру
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__top-buttons">
+              <button class="button__card button__card-keyword">
+                Природа
+              </button>
+              <!-- Пример скрытой подсказки-->
+              <button class="button__card button__card-help button__card-help_hidden">
+                 Войдите, чтобы сохранять статьи
+              </button>
+              <button class="button__card button__card-bookmark_active">
+              </button>
+            </div>
+            <img class="card__image" src="images/cards/image_04.png">
+            <div class="card__bottom">
+              <div class="card__date">
+                  10 августа, 2019
+              </div>
+              <h3 class="card__title">
+                Лесные огоньки: история одной фотографии
+              </h3>
+              <p class="card__text">
+                Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.
+              </p>
+              <div class="card__source">
+                Медуза
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__top-buttons">
+              <button class="button__card button__card-keyword">
+                Природа
+              </button>
+              <button class="button__card button__card-help">
+                 Войдите, чтобы сохранять статьи
+              </button>
+              <button class="button__card button__card-bookmark">
+              </button>
+            </div>
+            <img class="card__image" src="images/cards/image_07.png">
+            <div class="card__bottom">
+              <div class="card__date">
+                30 августа, 2019
+              </div>
+              <h3 class="card__title">
+                «Первозданная тайга»: новый фотопроект Игоря Шпиленка
+              </h3>
+              <p class="card__text">
+                Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...
+              </p>
+              <div class="card__source">
+                риа
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__top-buttons">
+              <button class="button__card button__card-keyword">
+                Парки
+              </button>
+              <button class="button__card button__card-help">
+                 Убрать из сохраненных
+              </button>
+              <button class="button__card button__card-delete">
+              </button>
+            </div>
+            <img class="card__image" src="images/cards/image_07.png">
+            <div class="card__bottom">
+              <div class="card__date">
+                30 августа, 2019
+              </div>
+              <h3 class="card__title">
+                «Первозданная тайга»: новый фотопроект Игоря Шпиленка
+              </h3>
+              <p class="card__text">
+                Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...
+              </p>
+              <div class="card__source">
+                риа
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card__top-buttons">
+              <button class="button__card button__card-keyword">
+                Растения
+              </button>
+              <!-- Пример скрытой подсказки-->
+              <button class="button__card button__card-help button__card-help_hidden">
+                 Войдите, чтобы сохранять статьи
+              </button>
+              <button class="button__card button__card-delete button__card-delete_disable">
+              </button>
+            </div>
+            <img class="card__image" src="images/cards/image_08.png">
+            <div class="card__bottom">
+              <div class="card__date">
+                2 августа, 2019
+              </div>
+              <h3 class="card__title">
+                Национальное достояние – парки
+              </h3>
+              <p class="card__text">
+                  В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
+              </p>
+              <div class="card__source">
+                Лента.ру
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="search-results__show-more">
+          <button class="button button__gray">Показать еще</button>
+        </div>
+
+        <div class="search-results__searching-news">
+          <div class="search-results__preloader"></div>
+          <span class="search-results__searching-news_text">Идет поиск новостей...</span>
+        </div>
+
+        <div class="search-results__searching-news">
+          <div class="search-results__no-found"></div>
+          <span class="search-results__searching-news_title">Ничего не найдено</span>
+          <span class="search-results__searching-news_text">К сожалению, по вашему запросу ничего не найдено.</span>
+        </div>
+
+      </section>
+
+      <section class="about-author">
+        <img src="images/image-03.png" class="about-author__image" alt="Author photo">
+
+        <div class="about-author__column">
+            <div class="about-author__title">Об авторе</div>
+            <div class="about-author__text">
+              <p>
+                Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+              </p>
+              <p>
+                Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
+              </p>
+            </div>
+        </div>
+      </section>
+
+
+      <section class="footer">
+        <div class="footer__copyright">
+          © 2019  Supersite
+        </div>
+        <nav class="footer__menu">
+          <div class="footer__menu-item">Главная</div>
+          <div class="footer__menu-item">О проекте</div>
+          <div class="footer__menu-item">Яндекс.Практикум</div>
+        </nav>
+        <nav class="social-menu">
+          <div class="social-menu__item social-menu__item_git"></div>
+          <div class="social-menu__item social-menu__item_fb"></div>
+        </nav>
+      </section>
+
+      <!-- Модального окна --
+
+      <div class="popup" id="add-card">
+        <div class="popup__content">
+          <img src="./images/popup/close-mid.svg" alt="" class="popup__close popup__close_add-card">
+          <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+          <div class="popup__info-message">Выполнить вход</div>
+
+          <form id="form__add-card" class="popup__form" name="new">
+
+            <span class="popup__input_title">Email</span>
+            <input id="add-card_name" type="text" name="name" class="popup__input popup__input_type_name" required minlength="2" maxlength="30" placeholder="Название" autocomplete="off" value="abcde">
+            <span id="error_add-card_name" class="error-message">Ошибка #1</span>
+            <span class="popup__input_title">Пароль</span>
             <input id="add-card_link" type="text" name="link" class="popup__input popup__input_type_link-url" required minlength="6" maxlength="255" placeholder="Ссылка на картинку" autocomplete="off">
-            <span id="error_add-card_link" class="error-message"></span>
-            <button type class="button popup__button popup__button_edit button_submit">+</button>
-        </form>
-      </div>
-    </div>
+            <span id="error_add-card_link" class="error-message">Ошибка #2</span>
 
-    <!-- Форма просмотра фото -->
-    <div class="popup" id="preview">
-      <div class="popup__content popup__content_preview">
-          <img class="popup__content_image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg" alt='preview'>
-          <img src="./images/close.svg" alt="" class="popup__close popup__close_preview">
-      </div>
-    </div>
+            <span class="error-message error-message__under-button">Такой пользователь уже есть</span>
 
-    <!-- Форма редактирования аватара -->
-    <div class="popup" id="edit-avatar">
-      <div class="popup__content">
-        <img src="./images/close.svg" alt="" class="popup__close popup__close_avatar">
-        <h3 class="popup__title">Редактировать аватар</h3>
-        <form class="popup__form" name="avatar">
-          <input id="avatar_link" type="text" name="link" class="popup__input popup__input_type_link-url" required minlength="6" maxlength="255" placeholder="Ссылка на картинку" autocomplete="off">
-          <span id="error_avatar_link" class="error-message"></span>
-          <button type class="button popup__button popup__button_edit button_submit">Сохранить</button>
-        </form>
-      </div>
-    </div>
-  
-  </div>
+            <button type class="button popup__button popup__button_edit button_submit">Войти</button>
 
-  <script src="main.c43f23fc98e32faac13c.js?58afc0487541f5ba96b0"></script>
+          </form>
+          <div class="popup__help">
+            или
+            <span class="popup__help_link">Зарегистрироваться</span>
+          </div>
+
+        </div>
+      </div-->
+    </section>
+
+  <!--script src="main.6571912546e7635188f1.js?c1485bb4ab41b709b5fd"></script-->
 
 </body>
 </html>
