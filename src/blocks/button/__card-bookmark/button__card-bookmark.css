@@ -1,6 +1,3 @@
-@import url(./button__card-bookmark_active.css);
-@import url(./button__card-bookmark_disable.css);
-
 .button__card-bookmark{
   background-image: url(../../../images/buttons/__card-bookmark/button__card-bookmark.svg);
   background-repeat: no-repeat;

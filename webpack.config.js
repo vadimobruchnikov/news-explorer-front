@@ -1,25 +1,17 @@
 const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-
-const isDev = process.env.NODE_ENV === 'development';
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/index.js',
+    index: './src/pages/index/index.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js',
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      minSize: 30000,
-    },
   },
   module: {
     rules: [
@@ -33,7 +25,13 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          (isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+          {
+            loader:
+            MiniCssExtractPlugin.loader,
+            options: {
+              publicPath: '../',
+            },
+          },
           'css-loader',
           'postcss-loader',
         ],
@@ -45,21 +43,43 @@ module.exports = {
           'file-loader?name=./images/[name].[ext]',
           {
             loader: 'image-webpack-loader',
-            options: { },
+            options: {
+              mozjpeg: {
+                progressive: true,
+                quality: 90,
+              },
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: [0.75, 0.90],
+                speed: 4,
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              webp: {
+                quality: 90,
+              },
+            },
           },
         ],
       },
       {
         test: /\.(eot|ttf|woff|woff2)$/,
-        loader: 'file-loader?name=./fonts/[name].[ext]',
+        loader: 'file-loader?name=./vendor/[name].[ext]',
       },
     ],
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style.[contenthash].css',
-      chunkFilename: '[name].[contenthash].css',
-      publicPath: '../',
+      filename: 'css/style.[contenthash].css',
+      chunkFilename: 'css/[name].[contenthash].css',
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: './src/pages/index/index.html',
+      filename: 'index.html',
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
@@ -68,12 +88,6 @@ module.exports = {
         preset: ['default'],
       },
       canPrint: true,
-    }),
-    new HtmlWebpackPlugin({
-      inject: false,
-      hash: true,
-      filename: 'index.html',
-      template: './src/index.html',
     }),
     new WebpackMd5Hash(),
     new webpack.DefinePlugin({

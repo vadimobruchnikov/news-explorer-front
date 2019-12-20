@@ -1,5 +1,5 @@
 
-import './style.css';
+import './index.css';
 
 /*
 import {Api, apiBaseUrl, apiToken, myOwnerId} from "./scripts/api.js";

@@ -4,19 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
-  <link rel="shortcut icon" href="<%=require('./images/favicon.ico')%>" type="image/x-icon">
+  <link rel="shortcut icon" href="<%=require('../../images/favicon.ico')%>" type="image/x-icon">
+  <meta name="author" content="Vadim">
+  <meta name="description" content="News-Explorer-Project">
   <title>News Explorer</title>
-  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
-  <!-- link rel="stylesheet" href="style.css"-->
-
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.index.css%>">
   <!--link rel="stylesheet" href="./vendor/sliders/flickity/flickity.css"-->
   <!--script src="./vendor/sliders/flickity/flickity.pkgd.min.js"></script-->
 
 </head>
 <body>
   <section class="root">
-      <!--img src="<%=require('./images/logo.svg')%>" alt="mesto logo" class="logo"-->
       <section class="header root__section">
         <div class="logo">
           NewsExplorer
@@ -144,8 +142,7 @@
               <button class="button__card button__card-bookmark_disable">
               </button>
             </div>
-            <!--img class="card__image" src="<%=require('./images/cards/image_08.png')%>"-->
-            <img class="card__image" src="<%=require('../src/images/cards/image_08.png')%>">
+            <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>">
             <div class="card__bottom">
               <div class="card__date">
                 2 августа, 2019
@@ -173,7 +170,7 @@
               <button class="button__card button__card-bookmark_active">
               </button>
             </div>
-            <img class="card__image" src="images/cards/image_04.png">
+            <img class="card__image" src="<%=require('../../images/cards/image_04.png'%>">
             <div class="card__bottom">
               <div class="card__date">
                   10 августа, 2019
@@ -200,7 +197,7 @@
               <button class="button__card button__card-bookmark">
               </button>
             </div>
-            <img class="card__image" src="images/cards/image_07.png">
+            <img class="card__image" src="<%=require('../../images/cards/image_07.png'%>">
             <div class="card__bottom">
               <div class="card__date">
                 30 августа, 2019
@@ -227,7 +224,7 @@
               <button class="button__card button__card-delete">
               </button>
             </div>
-            <img class="card__image" src="images/cards/image_07.png">
+            <img class="card__image" src="<%=require('../../images/cards/image_07.png'%>">
             <div class="card__bottom">
               <div class="card__date">
                 30 августа, 2019
@@ -255,7 +252,7 @@
               <button class="button__card button__card-delete button__card-delete_disable">
               </button>
             </div>
-            <img class="card__image" src="images/cards/image_08.png">
+            <img class="card__image" src="<%=require('../../images/cards/image_08.png'%>">
             <div class="card__bottom">
               <div class="card__date">
                 2 августа, 2019
@@ -264,7 +261,7 @@
                 Национальное достояние – парки
               </h3>
               <p class="card__text">
-                  В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
+                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
               </p>
               <div class="card__source">
                 Лента.ру
@@ -292,7 +289,7 @@
       </section>
 
       <section class="about-author">
-        <img src="images/image-03.png" class="about-author__image" alt="Author photo">
+        <img src="<%=require('../../images/image-03.png'%>" class="about-author__image" alt="Author photo">
 
         <div class="about-author__column">
             <div class="about-author__title">Об авторе</div>
@@ -354,7 +351,7 @@
       </div-->
     </section>
 
-  <!--script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script-->
+    <script src="<%=htmlWebpackPlugin.files.chunks.index.entry%>"></script>
 
 </body>
 </html>
