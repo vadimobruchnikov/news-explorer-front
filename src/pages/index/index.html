@@ -16,9 +16,9 @@
 <body>
   <section class="root">
       <section class="header root__section">
-        <div class="logo">
+        <a class="logo" href="/">
           NewsExplorer
-        </div>
+        </a>
         <nav class="header__nav">
           <a class="header__menu header__menu_active" href="#">Главная</a>
           <a class="header__menu" href="#">О проекте</a>
@@ -142,7 +142,7 @@
               <button class="button__card button__card-bookmark_disable">
               </button>
             </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>">
+            <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>" alt="Парки">
             <div class="card__bottom">
               <div class="card__date">
                 2 августа, 2019
@@ -170,7 +170,7 @@
               <button class="button__card button__card-bookmark_active">
               </button>
             </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_04.png')%>">
+            <img class="card__image" src="<%=require('../../images/cards/image_04.png')%>" alt="Парки">
             <div class="card__bottom">
               <div class="card__date">
                   10 августа, 2019
@@ -197,7 +197,7 @@
               <button class="button__card button__card-bookmark">
               </button>
             </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>">
+            <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>" alt="Парки">
             <div class="card__bottom">
               <div class="card__date">
                 30 августа, 2019
@@ -224,7 +224,7 @@
               <button class="button__card button__card-delete">
               </button>
             </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>">
+            <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>" alt="Парки">
             <div class="card__bottom">
               <div class="card__date">
                 30 августа, 2019
@@ -252,7 +252,7 @@
               <button class="button__card button__card-delete button__card-delete_disable">
               </button>
             </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>">
+            <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>" alt="Парки">
             <div class="card__bottom">
               <div class="card__date">
                 2 августа, 2019
@@ -289,7 +289,7 @@
       </section>
 
       <section class="about-author">
-        <img src="<%=require('../../images/image-03.png')%>" class="about-author__image" alt="Author photo">
+        <img src="<%=require('../../images/author-avatar.png')%>" class="about-author__image" alt="Author photo">
 
         <div class="about-author__column">
             <div class="about-author__title">Об авторе</div>
@@ -304,19 +304,18 @@
         </div>
       </section>
 
-
       <section class="footer">
         <div class="footer__copyright">
           © 2019  Supersite
         </div>
         <nav class="footer__menu">
-          <div class="footer__menu-item">Главная</div>
-          <div class="footer__menu-item">О проекте</div>
-          <div class="footer__menu-item">Яндекс.Практикум</div>
+          <a class="footer__menu-item" href="./pages/index/index.html">Главная</a>
+          <a class="footer__menu-item" href="./pages/about-author/about-author.html">О проекте</a>
+          <a class="footer__menu-item" href="http://praktikum.yandex.ru">Яндекс.Практикум</a>
         </nav>
         <nav class="social-menu">
-          <div class="social-menu__item social-menu__item_git"></div>
-          <div class="social-menu__item social-menu__item_fb"></div>
+          <a class="social-menu__item social-menu__item_git" href="https://github.com/vadimobruchnikov/news-explorer-front"></a>
+          <a class="social-menu__item social-menu__item_fb" href="https://www.facebook.com/yandex"></a>
         </nav>
       </section>
 
