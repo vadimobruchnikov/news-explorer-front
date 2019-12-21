@@ -1,17 +1,11 @@
-/*
-  TODO: Не забыть разбить по БЭМ
-
-*/
 .history{
   width: 100%;
 }
-
 @media (max-width: 768px) {
   .history{
     margin-bottom: 40px;
   }
 }
-
 @media (max-width: 400px) {
   .history{
     margin-bottom: 0;

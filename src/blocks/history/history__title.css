@@ -17,7 +17,6 @@
     color: #1A1B22;
   }
 }
-
 @media (max-width: 1439px) {
   .history__title{
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
@@ -33,4 +32,3 @@
     width: 90%;
   }
 }
-
