@@ -68,5 +68,9 @@
 
 Возможно будут добавлены другие API поиска новостей
 
-PS [Ссылка на пул-реквест](https://github.com/vadimobruchnikov/news-explorer-front.github.io/pull/1)
+PS [Ссылка на пул-реквест](https://github.com/vadimobruchnikov/news-explorer-front/pull/1)
+или
+(https://github.com/vadimobruchnikov/news-explorer-front.github.io/pull/1)
+
+
 
