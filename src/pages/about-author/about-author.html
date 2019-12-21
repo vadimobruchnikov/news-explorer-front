@@ -8,7 +8,7 @@
   <meta name="author" content="Vadim">
   <meta name="description" content="News Explorer Project">
   <title>News Explorer</title>
-  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.index.css%>">
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.aboutauthor.css%>">
   <!--link rel="stylesheet" href="../../vendor/sliders/flickity/flickity.css"-->
   <!--script src="../../vendor/sliders/flickity/flickity.pkgd.min.js"></script-->
 
@@ -17,12 +17,12 @@
   <section class="root">
       <section class="header root__section">
         <a class="logo" href="./index.html">
-          NewsExplorer v1.0
+          NewsExplorer
         </a>
         <nav class="header__nav">
-          <a class="header__menu header__menu_active" href="./index.html">Главная</a>
-          <a class="header__menu" href="./about-author.html">О проекте</a>
-          <a class="header__menu" href="./saved-news.html">Сохраненные статьи</a>
+          <a class="header__menu" href="./index.html">Главная</a>
+          <a class="header__menu header__menu_active" href="./about-author.html">О проекте</a>
+          <a class="header__menu header__menu_button" href="./saved-news.html">Авторизоваться</a>
           <div class="header__menu header__menu_button header__menu_autorized">
             <a class="header__menu_a" href="./saved-news.html">Грета</a>
             <a class="header__menu_exit" href="./index.html"></a>
@@ -350,7 +350,7 @@
       </div-->
     </section>
 
-    <script src="<%=htmlWebpackPlugin.files.chunks.index.entry%>"></script>
+    <script src="<%=htmlWebpackPlugin.files.chunks.aboutauthor.entry%>"></script>
 
 </body>
 </html>

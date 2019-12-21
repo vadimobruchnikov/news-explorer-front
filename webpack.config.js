@@ -8,6 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     index: './src/pages/index/index.js',
+    aboutauthor: './src/pages/about-author/about-author.js',
+    savednews: './src/pages/saved-news/saved-news.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -79,7 +81,17 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/pages/index/index.html',
-      filename: 'index.html',
+      filename: './index.html',
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: './src/pages/about-author/about-author.html',
+      filename: './about-author.html',
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: './src/pages/saved-news/saved-news.html',
+      filename: './saved-news.html',
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
