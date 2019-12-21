@@ -3,6 +3,8 @@
 @import url(../../vendor/fonts.css);
 
 @import url(../../blocks/header/header.css);
+@import url(../../blocks/header/header_black.css);
+
 @import url(../../blocks/header/__menu/header__menu.css);
 @import url(../../blocks/header/__menu/header__menu_a.css);
 @import url(../../blocks/header/__menu/header__menu_black.css);
@@ -12,14 +14,21 @@
 @import url(../../blocks/header/__menu_active/header__menu_active-black.css);
 
 @import url(../../blocks/header/__menu_autorized/header__menu_autorized.css);
+
 @import url(../../blocks/header/__menu_button/heder__menu_button.css);
+@import url(../../blocks/header/__menu_button/heder__menu_button-black.css);
+
 @import url(../../blocks/header/__menu_exit/header__menu_exit.css);
 @import url(../../blocks/header/__menu_exit/header__menu_exit-black.css);
 @import url(../../blocks/header/__nav/header__nav.css);
 
+
 @import url(../../blocks/logo/logo.css);
 @import url(../../blocks/logo/logo_black.css);
+
 @import url(../../blocks/root/root.css);
+@import url(../../blocks/root/__black/root__black.css);
+
 @import url(../../blocks/root/__section/root__section.css);
 
 @import url(../../blocks/search/search.css);
