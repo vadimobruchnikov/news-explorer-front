@@ -20,7 +20,7 @@
           NewsExplorer v1.22
         </a>
         <nav class="header__nav">
-          <a class="header__menu" href="#">A</a>
+          <a class="header__menu" id="popup-active" href="#">A</a>
           <a class="header__menu header__menu_active" href="./index.html">Главная</a>
           <a class="header__menu" href="./about-author.html">О проекте</a>
           <a class="header__menu" href="./saved-news.html">Сохраненные статьи</a>
@@ -320,11 +320,11 @@
         </nav>
       </section>
 
-      <!-- Модального окна --
+      <!-- Модального окна -->
 
-      <div class="popup" id="add-card">
+      <div class="popup" id="modal-popup">
         <div class="popup__content">
-          <img src="./images/popup/close-mid.svg" alt="" class="popup__close popup__close_add-card">
+          <img id="popup__close" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
           <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
           <div class="popup__info-message">Выполнить вход</div>
 
@@ -348,7 +348,8 @@
           </div>
 
         </div>
-      </div-->
+      </div>
+
     </section>
 
     <script src="<%=htmlWebpackPlugin.files.chunks.index.entry%>"></script>

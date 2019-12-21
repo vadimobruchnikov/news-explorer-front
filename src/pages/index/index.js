@@ -1,6 +1,27 @@
 
 import './index.css';
 
+function getElement(selector) {
+  return document.querySelector(selector);
+}
+
+const menu = getElement('#popup-active');
+const popup = getElement('#modal-popup');
+const popup_close = getElement('#popup__close');
+
+menu.addEventListener('click', () => {
+  if (popup.style.display == 'none') {
+    popup.style.display = 'flex';
+  } else {
+    popup.style.display = 'none';
+  }
+});
+
+popup_close.addEventListener('click', () => {
+  popup.style.display = 'none';
+});
+
+
 /*
 import {Api, apiBaseUrl, apiToken, myOwnerId} from "./scripts/api.js";
 import {getElement, resetError, handleValidate, activateError, validate, submitButtonStatus,
