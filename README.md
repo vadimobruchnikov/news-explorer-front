@@ -3,7 +3,7 @@
 ## v0.0.1
 
 ## [Ссылка на проект front]
-(https://vadimobruchnikov.github.io/news-explorer-front.github.io/index.html)
+(https://github.com/vadimobruchnikov/news-explorer-front)
 
 Финальный проект Яндекс-Практикума(дипломная работа).
 Проект должен показать чему научился студент на курсу Вэб-разработчик.
