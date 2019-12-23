@@ -1,90 +1,99 @@
 
 import './about-author.css';
 
+const Flickity = require('flickity');
+
+const elem = document.querySelector('.carousel');
+const flkty = new Flickity(elem, {
+  // options
+  cellAlign: 'center',
+  // contain: true,
+  freeScroll: true,
+  wrapAround: true,
+});
+
 /*
-import {Api, apiBaseUrl, apiToken, myOwnerId} from "./scripts/api.js";
-import {getElement, resetError, handleValidate, activateError, validate, submitButtonStatus,
-    isValidForm, isValidLink} from "./scripts/utils.js";
-import {Popup} from "./scripts/popup.js";
-import {Card} from "./scripts/card.js";
-import {CardList} from "./scripts/cardlist.js";
-import {UrerProfile} from "./scripts/user-profile.js";
-import {imgPreview} from "./scripts/image-preview.js";
+var flky = new Flickity( '.gallery', {
+  // options, defaults listed
 
-const api = new Api({
-  baseUrl: apiBaseUrl,
-  headers: {
-    authorization: apiToken,
-    'Content-Type': 'application/json'
-  }
+  accessibility: true,
+  // enable keyboard navigation, pressing left & right keys
+
+  adaptiveHeight: false,
+  // set carousel height to the selected slide
+
+  autoPlay: false,
+  // advances to the next cell
+  // if true, default is 3 seconds
+  // or set time between advances in milliseconds
+  // i.e. `autoPlay: 1000` will advance every 1 second
+
+  cellAlign: 'center',
+  // alignment of cells, 'center', 'left', or 'right'
+  // or a decimal 0-1, 0 is beginning (left) of container, 1 is end (right)
+
+  cellSelector: undefined,
+  // specify selector for cell elements
+
+  contain: false,
+  // will contain cells to container
+  // so no excess scroll at beginning or end
+  // has no effect if wrapAround is enabled
+
+  draggable: '>1',
+  // enables dragging & flicking
+  // if at least 2 cells
+
+  dragThreshold: 3,
+  // number of pixels a user must scroll horizontally to start dragging
+  // increase to allow more room for vertical scroll for touch devices
+
+  freeScroll: false,
+  // enables content to be freely scrolled and flicked
+  // without aligning cells
+
+  friction: 0.2,
+  // smaller number = easier to flick farther
+
+  groupCells: false,
+  // group cells together in slides
+
+  initialIndex: 0,
+  // zero-based index of the initial selected cell
+
+  lazyLoad: true,
+  // enable lazy-loading images
+  // set img data-flickity-lazyload="src.jpg"
+  // set to number to load images adjacent cells
+
+  percentPosition: true,
+  // sets positioning in percent values, rather than pixels
+  // Enable if items have percent widths
+  // Disable if items have pixel widths, like images
+
+  prevNextButtons: true,
+  // creates and enables buttons to click to previous & next cells
+
+  pageDots: true,
+  // create and enable page dots
+
+  resize: true,
+  // listens to window resize events to adjust size & positions
+
+  rightToLeft: false,
+  // enables right-to-left layout
+
+  setGallerySize: true,
+  // sets the height of gallery
+  // disable if gallery already has height set with CSS
+
+  watchCSS: false,
+  // watches the content of :after of the element
+  // activates if #element:after { content: 'flickity' }
+
+  wrapAround: false
+  // at end of cells, wraps-around to first for infinite scrolling
+
 });
-
-const userPopup = new Popup({
-  form: document.forms.edit,
-  mainContainer: getElement('#edit-profile'),
-  openControl: getElement('.user-info__button_edit'),
-  openFunction: function() {
-    getElement('#edit-profile_name').value = getElement('.user-info__name').textContent;
-    getElement('#edit-profile_job').value = getElement('.user-info__job').textContent;
-    //TODO 8#: вынести в класс очистку ошибок
-    getElement('#error_edit-profile_name').textContent = '';
-    getElement('#error_edit-profile_job').textContent = '';
-  },
-  saveFunction: function(event) {
-    if (isValidForm(this.form)) {
-      const name = getElement('#edit-profile_name').value;
-      const job = getElement('#edit-profile_job').value;
-      getElement('.user-info__name').textContent = name;
-      getElement('.user-info__job').textContent = job;
-      api.setUserInfo(userProfile, name, job, this);
-    }
-  },
-  closeControl: getElement('.popup__close_profile'),
-  submitControl: document.forms.edit.querySelector('.button_submit'),
-  inputs: [getElement('#edit-profile_name'), getElement('#edit-profile_job')]
-});
-
-const userProfile = new UrerProfile(api, apiBaseUrl, apiToken, userPopup);
-
-const cardPopup = new Popup({
-  form: document.forms.new,
-  mainContainer: getElement('#add-card'),
-  openControl: getElement('.user-info__button'),
-  openFunction: () => {
-      getElement('#error_add-card_name').textContent = '';
-      getElement('#error_add-card_link').textContent = '';
-      cardPopup.form.reset();
-  },
-  saveFunction: () =>  {
-      const card = {name:cardPopup.form.elements.name.value,
-        link:cardPopup.form.elements.link.value};
-      api.saveCard(card)
-  },
-  closeControl: getElement('.popup__close_add-card'),
-  submitControl: document.forms.new.querySelector('.button_submit'),
-  inputs: [getElement('#add-card_name'), getElement('#add-card_link')],
-  cardsContainer: getElement('.places-list')
-});
-
-const avatarPopup = new Popup({
-  form: document.forms.avatar,
-  mainContainer: getElement('#edit-avatar'),
-  openControl: getElement('.user-info__photo'),
-  openFunction: function() {
-    getElement('#avatar_link').value = urlImageToSrc(
-      getElement('.user-info__photo').style.backgroundImage);
-    getElement('#error_avatar_link').textContent = '';
-  },
-  saveFunction: function() {
-    if (isValidForm(this.form)) {
-
-      api.saveUserAvatar(getElement('#avatar_link').value);
-
-    }
-  },
-  closeControl: getElement('.popup__close_avatar'),
-  submitControl: document.forms.avatar.querySelector('.button_submit'),
-  inputs: [getElement('#avatar_link')]
-});
-
 */
+

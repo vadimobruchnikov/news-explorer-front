@@ -2,15 +2,17 @@
 
 ## v0.0.1
 
-## [Ссылка на проект front]
-(https://github.com/vadimobruchnikov/news-explorer-front)
+Авторизоваться работает со второго клика(
+
+## [Ссылка на gh-pages]
+(https://vadimobruchnikov.github.io/news-explorer-front/)
 
 Финальный проект Яндекс-Практикума(дипломная работа).
 Проект должен показать чему научился студент на курсу Вэб-разработчик.
 В данном проекте реализован Frontend проекта.
 Бэкенд для этого проекта можно найти на следующем репозитории
 
-## [Ссылка на gh-pages](https://vadimobruchnikov.github.io/news-explorer-front/)
+## [Ссылка на проект front](https://github.com/vadimobruchnikov/news-explorer-front)
 
 ## [Ссылка на проект back] (https://vadimobruchnikov.github.io/news-explorer-api.github.io/index.html)
 

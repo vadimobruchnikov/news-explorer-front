@@ -7,17 +7,18 @@ function getElement(selector) {
 
 const menu = getElement('#popup-active');
 const popup = getElement('#modal-popup');
-const popup_close = getElement('#popup__close');
+const popupClose = getElement('#popup__close');
 
 menu.addEventListener('click', () => {
-  if (popup.style.display == 'none') {
-    popup.style.display = 'flex';
-  } else {
+  if (popup.style.display !== 'none') {
     popup.style.display = 'none';
+  } else {
+    popup.style.display = 'flex';
   }
+  return false;
 });
 
-popup_close.addEventListener('click', () => {
+popupClose.addEventListener('click', () => {
   popup.style.display = 'none';
 });
 

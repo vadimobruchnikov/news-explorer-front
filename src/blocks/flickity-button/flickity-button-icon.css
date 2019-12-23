@@ -1,0 +1,21 @@
+.flickity-button-icon{
+
+}
+.flickity-prev-next-button {
+  top: 54%;
+}
+.flickity-page-dots {
+  top: 518px;
+}
+@media (max-width: 959px) {
+  .flickity-page-dots {
+    top: 414px;
+  }
+}
+@media (max-width: 480px) {
+  .flickity-page-dots {
+    top: 414px;
+  }
+}
+
+

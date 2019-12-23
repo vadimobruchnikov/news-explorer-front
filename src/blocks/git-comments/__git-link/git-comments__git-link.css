@@ -1,0 +1,13 @@
+.git-comment__link {
+  position: absolute;
+  right: 112px;
+  top: 85px;
+  width: 200px;
+  height: 24px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1A1B22;
+}

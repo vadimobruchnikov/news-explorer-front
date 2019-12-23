@@ -1,0 +1,18 @@
+.git-comments {
+  position: relative;
+  width: 100%;
+  margin-bottom: 40px;
+  height: 606px;
+  /*display: flex;*/
+  background: #F5F6F7;
+}
+@media (max-width: 959px) {
+  .git-comments {
+    height: 462px;
+  }
+}
+@media (max-width: 480px) {
+  .git-comments {
+    height: 462px;
+  }
+}

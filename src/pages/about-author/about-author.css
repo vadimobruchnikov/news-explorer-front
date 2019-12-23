@@ -104,9 +104,26 @@
 @import url(../../blocks/error-message/error-message.css);
 @import url(../../blocks/error-message/error-message__under-button.css);
 
+
+@import url(../../blocks/git-comments/git-comments.css);
+@import url(../../blocks/git-comments/__title/git-comments__title.css);
+@import url(../../blocks/git-comments/__git-link/git-comments__git-link.css);
+
+@import url(../../blocks/git-comment/git-comment.css);
+@import url(../../blocks/git-comment/__date/git-comment__date.css);
+@import url(../../blocks/git-comment/__avatar/git-comment__avatar.css);
+@import url(../../blocks/git-comment/__name/git-comment__name.css);
+@import url(../../blocks/git-comment/__email/git-comment__email.css);
+@import url(../../blocks/git-comment/__text/git-comment__text.css);
+@import url(../../blocks/git-comment/__text/git-comment__text_selected.css);
+
+
+/* переопределение стилей слайдера*/
+@import url(../../blocks/flickity-button/flickity-button.css);
+@import url(../../blocks/flickity-button/flickity-button-icon.css);
+
 body {
   background-color: #fff;
   display: flex;
   justify-content: center;
 }
-

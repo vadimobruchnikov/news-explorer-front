@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const WebpackMd5Hash = require('webpack-md5-hash');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const ghpages = require('gh-pages');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {

@@ -1,0 +1,32 @@
+.git-comment{
+  position: relative;
+  margin-top: 182px;
+  margin-right: 16px;
+  margin-bottom: 136px;
+  /*padding: 24px;*/
+  border: none;
+  background: #FFFFFF;
+  border-radius: 16px;
+}
+@media (min-width: 960px) {
+  .git-comment {
+    margin-top: 140px;
+    margin-bottom: 32px;
+    width: 400px;
+    height: 288px;
+  }
+}
+@media (max-width: 959px) {
+  .git-comment {
+    margin-top: 140px;
+    margin-bottom: 32px;
+    width: 336px;
+    height: 242px;
+  }
+}
+@media (max-width: 480px) {
+  .git-comment {
+    width: 288px;
+    height: 264px;
+  }
+}
