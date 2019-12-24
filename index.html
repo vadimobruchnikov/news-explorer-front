@@ -8,7 +8,7 @@
   <meta name="author" content="Vadim">
   <meta name="description" content="News Explorer Project">
   <title>News Explorer</title>
-  <link rel="stylesheet" href="css/style.2e5018fbc7a1dea44adb.css">
+  <link rel="stylesheet" href="css/style.9df71c29e5db194444b6.css">
   <!--link rel="stylesheet" href="../../vendor/sliders/flickity/flickity.css"-->
   <!--script src="../../vendor/sliders/flickity/flickity.pkgd.min.js"></script-->
 
@@ -20,111 +20,21 @@
           NewsExplorer
         </a>
         <nav class="header__nav">
-          <a class="header__menu" id="popup-active" href="#">A</a>
           <a class="header__menu header__menu_active" href="./index.html">Главная</a>
           <a class="header__menu" href="./about-author.html">О проекте</a>
           <a class="header__menu" href="./saved-news.html">Сохраненные статьи</a>
-          <div class="header__menu header__menu_button header__menu_autorized">
-            <a class="header__menu_a" href="./saved-news.html">Грета</a>
-            <a class="header__menu_exit" href="./index.html"></a>
-          </div>
+          <a class="header__menu header__menu_button" id="popup-active" href="#">Авторизоваться</a>
         </nav>
       </section>
-
-      <!--section class="header root__section">
-        <div class="logo_black">
-          NewsExplorer
-        </div>
-        <nav class="header__nav">
-          <a class="header__menu header__menu_active-black header__menu_black" href="#">Главная</a>
-          <a class="header__menu header__menu_black" href="#">О проекте</a>
-          <a class="header__menu header__menu_black-button header__menu_black" href="#">Авторизоваться</a>
-          <div class="header__menu header__menu_black-button header__menu_autorized header__menu_black">
-            <a class="header__menu_a header__menu_black" href="#">Грета</a>
-            <a class="header__menu_exit-black header__menu_black" href="#"></a>
-          </div>
-        </nav>
-      </section-->
 
       <section class="search">
         <div class="search__title">Что в мире творится?</div>
         <div class="search__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</div>
 
         <form class="search__field">
-          <input class="search__field_input" type="search" placeholder="Введите то, что вас интересует">
+          <input class="search__field-input" type="search" placeholder="Введите то, что вас интересует">
           <button class="button__search">Найти</button>
         </form>
-      </section>
-
-      <section class="saved">
-        <div class="saved__title">
-          Сохранённые статьи
-        </div>
-        <div class="saved__text">
-          Грета, у вас 5 сохранённых статей
-        </div>
-        <div class="saved__keywords">
-          По ключевым словам:
-          <span class="saved__keywords_bold">
-            Природа, Тайга
-          </span>
-          и
-          <span class="saved__keywords_bold">
-            2 другим
-          </span>
-        </div>
-      </section>
-
-      <section class="tech">
-        <div class="tech__title">
-          Используемые технологии
-        </div>
-        <div class="tech__items">
-          <div class="tech-item">
-            <div class="tech-item__title">HTML</div>
-            <div class="tech-item tech-item__image tech-item__image_html">
-            </div>
-          </div>
-          <div class="tech-item">
-            <div class="tech-item__title">CSS </div>
-            <div class="tech-item tech-item__image tech-item__image_css">
-            </div>
-          </div>
-          <div class="tech-item">
-            <div class="tech-item__title">Java Script</div>
-            <div class="tech-item tech-item__image tech-item__image_javascript">
-            </div>
-          </div>
-          <div class="tech-item">
-            <div class="tech-item__title">Webpack</div>
-            <div class="tech-item tech-item__image tech-item__image_webpack">
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section class="history">
-        <div class="history__title">
-          Клиентам
-        </div>
-        <div class="history__text">
-          <p>
-          Этот сайт — дипломный проект студента Яндекс.Практикума. Его цель — показать, чему научился студент, какими технологиями владеет.
-          </p>
-          <p>
-            Вёрстка сайта выполнена по методологии БЭМ. Это делает сайт гибким и масштабируемым. Кроме того, добавлять новые страницы и функциональность проще и быстрее, чем в проектах, выполненных по другим методологиям. Также сайт проще и дешевле поддерживать.
-          </p>
-          <p>
-            Студент самостоятельно написал серверный код. В нём реализована функциональность регистрации и входа в систему. Сайт позволяет искать новости за прошедшую неделю и сохранять понравившиеся в личном кабинете. На сервере избранные новости хранятся в базе данных Mongo DB. Студент запрограммировал надёжный сервер: отказоустойчивый и безопасный.
-          </p>
-          <p>
-            При создании проекта была использована сборка технологией Webpack. Это современный подход к разработке сайтов. Код оптимизируется, а значит, сайт работает быстрее. Также сайт работает в старых браузерах. Даже если посетители — пользователи старых операционных систем, у них не будет проблем с отображением. А значит, потенциальная аудитория возрастает.
-          </p>
-          <p>
-            Проект был проверен экспертами Яндекс.Практикума. Если вашему бизнесу нужен сайт, мы рекомендуем обратиться к этому студенту.
-          </p>
-        </div>
       </section>
 
       <section class="search-results">
@@ -135,12 +45,12 @@
         <div class="search-results__items">
 
           <div class="card">
-            <div class="card__top-buttons">
+            <div class="card__top-buttons button">
               <!-- Пример скрытой подсказки-->
               <button class="button__card button__card-help button__card-help_hidden">
                  Войдите, чтобы сохранять статьи
               </button>
-              <button class="button__card button__card-bookmark_disable">
+              <button class="button__card button__card-bookmark button__card-bookmark_disable">
               </button>
             </div>
             <img class="card__image" src="./images/image_08.png" alt="Парки">
@@ -160,15 +70,11 @@
             </div>
           </div>
           <div class="card">
-            <div class="card__top-buttons">
+            <div class="card__top-buttons button">
               <button class="button__card button__card-keyword">
                 Природа
               </button>
-              <!-- Пример скрытой подсказки-->
-              <button class="button__card button__card-help button__card-help_hidden">
-                 Войдите, чтобы сохранять статьи
-              </button>
-              <button class="button__card button__card-bookmark_active">
+              <button class="button__card button__card-bookmark button__card-bookmark_active">
               </button>
             </div>
             <img class="card__image" src="./images/image_04.png" alt="Парки">
@@ -188,12 +94,9 @@
             </div>
           </div>
           <div class="card">
-            <div class="card__top-buttons">
+            <div class="card__top-buttons button">
               <button class="button__card button__card-keyword">
                 Природа
-              </button>
-              <button class="button__card button__card-help">
-                 Войдите, чтобы сохранять статьи
               </button>
               <button class="button__card button__card-bookmark">
               </button>
@@ -215,7 +118,7 @@
             </div>
           </div>
           <div class="card">
-            <div class="card__top-buttons">
+            <div class="card__top-buttons button">
               <button class="button__card button__card-keyword">
                 Парки
               </button>
@@ -242,13 +145,9 @@
             </div>
           </div>
           <div class="card">
-            <div class="card__top-buttons">
+            <div class="card__top-buttons button">
               <button class="button__card button__card-keyword">
                 Растения
-              </button>
-              <!-- Пример скрытой подсказки-->
-              <button class="button__card button__card-help button__card-help_hidden">
-                 Войдите, чтобы сохранять статьи
               </button>
               <button class="button__card button__card-delete button__card-delete_disable">
               </button>
@@ -278,13 +177,13 @@
 
         <div class="search-results__searching-news">
           <div class="search-results__preloader"></div>
-          <span class="search-results__searching-news_text">Идет поиск новостей...</span>
+          <div class="search-results__searching-news search-results__searching-news_text">Идет поиск новостей...</div>
         </div>
 
         <div class="search-results__searching-news">
           <div class="search-results__no-found"></div>
-          <span class="search-results__searching-news_title">Ничего не найдено</span>
-          <span class="search-results__searching-news_text">К сожалению, по вашему запросу ничего не найдено.</span>
+          <div class="search-results__searching-news search-results__searching-news_title">Ничего не найдено</div>
+          <div class="search-results__searching-news search-results__searching-news_text">К сожалению, по вашему запросу ничего не найдено.</div>
         </div>
 
       </section>
@@ -310,8 +209,8 @@
           © 2019  Supersite
         </div>
         <nav class="footer__menu">
-          <a class="footer__menu-item" href="./pages/index/index.html">Главная</a>
-          <a class="footer__menu-item" href="./pages/about-author/about-author.html">О проекте</a>
+          <a class="footer__menu-item" href="./index.html">Главная</a>
+          <a class="footer__menu-item" href="./about-author.html">О проекте</a>
           <a class="footer__menu-item" href="http://praktikum.yandex.ru">Яндекс.Практикум</a>
         </nav>
         <nav class="social-menu">
@@ -339,7 +238,7 @@
 
             <span class="error-message error-message__under-button">Такой пользователь уже есть</span>
 
-            <button type class="button popup__button popup__button_edit button_submit">Войти</button>
+            <button class="button popup__button popup__button_edit button_submit">Войти</button>
 
           </form>
           <div class="popup__help">
@@ -352,7 +251,7 @@
 
     </section>
 
-    <script src="index.6f7b04d2789ec90f031d.js"></script>
+    <script src="index.c4fe83ff5788401d4936.js"></script>
 
 </body>
 </html>
