@@ -1,4 +1,4 @@
-.search__field_input {
+.search__field-input {
   /*width: 90%;*/
   width: 608px; /*90%;*/
   height: 64px;
@@ -18,7 +18,7 @@
   margin-bottom: 80px;
 }
 @media (max-width: 1439px) {
-  .search__field_input{
+  .search__field-input{
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (416 - 163) + 163px);
     margin-bottom: calc( (100vw - 768px)/(1440 - 768) * (80 - 48) + 48px);
     width: calc( (100vw - 768px)/(1440 - 768) * (608 - 452) + 452px);
@@ -27,7 +27,7 @@
 }
 
 @media (max-width: 560px) {
-  .search__field_input{
+  .search__field-input{
     margin-left: calc( (100vw - 320px)/(768 - 320) * (163 - 16) + 16px);
     margin-bottom: calc( (100vw - 320px)/(768 - 320) * (48 - 16) + 16px);
     width: calc( (100vw - 320px)/(768 - 320) * (452 - 288) + 288px);

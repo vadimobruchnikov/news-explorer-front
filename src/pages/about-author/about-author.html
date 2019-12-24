@@ -14,94 +14,21 @@
 
 </head>
 <body>
-  <section class="root">
-      <section class="header root__section">
-        <a class="logo" href="/">
-          NewsExplorer
-        </a>
-        <nav class="header__nav">
-          <a class="header__menu" href="./index.html">Главная</a>
-          <a class="header__menu header__menu_active" href="./about-author.html">О проекте</a>
-          <a class="header__menu header__menu_button" href="./saved-news.html">Авторизоваться</a>
-          <div class="header__menu header__menu_button header__menu_autorized">
-            <a class="header__menu_a" href="./saved-news.html">Грета</a>
-            <a class="header__menu_exit" href="./index.html"></a>
-          </div>
-        </nav>
-      </section>
-
-      <!--section class="header root__section">
-        <div class="logo_black">
-          NewsExplorer
+  <section class="root root__black">
+    <section class="header header_black root__section">
+      <a class="logo logo_black" href="/">
+        NewsExplorer
+      </a>
+      <nav class="header__nav">
+        <a class="header__menu header__menu_black" href="./index.html">Главная</a>
+        <a class="header__menu header__menu_active-black header__menu_black" href="./about-author.html">О проекте</a>
+        <a class="header__menu header__menu_black" href="./saved-news.html">Сохраненные статьи</a>
+        <div class="header__menu header__menu_button-black header__menu_autorized header__menu_black">
+          <a class="header__menu_a header__menu_black" href="./saved-news.html">Грета</a>
+          <a class="header__menu_exit-black header__menu_black" href="./index.html"></a>
         </div>
-        <nav class="header__nav">
-          <a class="header__menu header__menu_active-black header__menu_black" href="#">Главная</a>
-          <a class="header__menu header__menu_black" href="#">О проекте</a>
-          <a class="header__menu header__menu_black-button header__menu_black" href="#">Авторизоваться</a>
-          <div class="header__menu header__menu_black-button header__menu_autorized header__menu_black">
-            <a class="header__menu_a header__menu_black" href="#">Грета</a>
-            <a class="header__menu_exit-black header__menu_black" href="#"></a>
-          </div>
-        </nav>
-      </section-->
-
-      <section class="search">
-        <div class="search__title">Что в мире творится?</div>
-        <div class="search__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</div>
-
-        <form class="search__field">
-          <input class="search__field_input" type="search" placeholder="Введите то, что вас интересует">
-          <button class="button__search">Найти</button>
-        </form>
-      </section>
-
-      <section class="saved">
-        <div class="saved__title">
-          Сохранённые статьи
-        </div>
-        <div class="saved__text">
-          Грета, у вас 5 сохранённых статей
-        </div>
-        <div class="saved__keywords">
-          По ключевым словам:
-          <span class="saved__keywords_bold">
-            Природа, Тайга
-          </span>
-          и
-          <span class="saved__keywords_bold">
-            2 другим
-          </span>
-        </div>
-      </section>
-
-      <section class="tech">
-        <div class="tech__title">
-          Используемые технологии
-        </div>
-        <div class="tech__items">
-          <div class="tech-item">
-            <div class="tech-item__title">HTML</div>
-            <div class="tech-item tech-item__image tech-item__image_html">
-            </div>
-          </div>
-          <div class="tech-item">
-            <div class="tech-item__title">CSS </div>
-            <div class="tech-item tech-item__image tech-item__image_css">
-            </div>
-          </div>
-          <div class="tech-item">
-            <div class="tech-item__title">Java Script</div>
-            <div class="tech-item tech-item__image tech-item__image_javascript">
-            </div>
-          </div>
-          <div class="tech-item">
-            <div class="tech-item__title">Webpack</div>
-            <div class="tech-item tech-item__image tech-item__image_webpack">
-            </div>
-          </div>
-
-        </div>
-      </section>
+      </nav>
+    </section>
 
       <section class="history">
         <div class="history__title">
@@ -126,166 +53,32 @@
         </div>
       </section>
 
-      <section class="search-results">
-        <div class="search-results__title">
-          Результаты поиска
+      <section class="tech">
+        <div class="tech__title">
+          Используемые технологии
         </div>
-
-        <div class="search-results__items">
-
-          <div class="card">
-            <div class="card__top-buttons">
-              <!-- Пример скрытой подсказки-->
-              <button class="button__card button__card-help button__card-help_hidden">
-                 Войдите, чтобы сохранять статьи
-              </button>
-              <button class="button__card button__card-bookmark_disable">
-              </button>
-            </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>" alt="Парки">
-            <div class="card__bottom">
-              <div class="card__date">
-                2 августа, 2019
-              </div>
-              <h3 class="card__title">
-                Национальное достояние – парки
-              </h3>
-              <p class="card__text">
-                  В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <div class="card__source">
-                Лента.ру
-              </div>
+        <div class="tech__items">
+          <div class="tech-item">
+            <div class="tech-item__title">HTML</div>
+            <div class="tech-item__image tech-item__image_html">
             </div>
           </div>
-          <div class="card">
-            <div class="card__top-buttons">
-              <button class="button__card button__card-keyword">
-                Природа
-              </button>
-              <!-- Пример скрытой подсказки-->
-              <button class="button__card button__card-help button__card-help_hidden">
-                 Войдите, чтобы сохранять статьи
-              </button>
-              <button class="button__card button__card-bookmark_active">
-              </button>
-            </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_04.png')%>" alt="Парки">
-            <div class="card__bottom">
-              <div class="card__date">
-                  10 августа, 2019
-              </div>
-              <h3 class="card__title">
-                Лесные огоньки: история одной фотографии
-              </h3>
-              <p class="card__text">
-                Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.
-              </p>
-              <div class="card__source">
-                Медуза
-              </div>
+          <div class="tech-item">
+            <div class="tech-item__title">CSS </div>
+            <div class="tech-item__image tech-item__image_css">
             </div>
           </div>
-          <div class="card">
-            <div class="card__top-buttons">
-              <button class="button__card button__card-keyword">
-                Природа
-              </button>
-              <button class="button__card button__card-help">
-                 Войдите, чтобы сохранять статьи
-              </button>
-              <button class="button__card button__card-bookmark">
-              </button>
-            </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>" alt="Парки">
-            <div class="card__bottom">
-              <div class="card__date">
-                30 августа, 2019
-              </div>
-              <h3 class="card__title">
-                «Первозданная тайга»: новый фотопроект Игоря Шпиленка
-              </h3>
-              <p class="card__text">
-                Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-              </p>
-              <div class="card__source">
-                риа
-              </div>
+          <div class="tech-item">
+            <div class="tech-item__title">Java Script</div>
+            <div class="tech-item__image tech-item__image_javascript">
             </div>
           </div>
-          <div class="card">
-            <div class="card__top-buttons">
-              <button class="button__card button__card-keyword">
-                Парки
-              </button>
-              <button class="button__card button__card-help">
-                 Убрать из сохраненных
-              </button>
-              <button class="button__card button__card-delete">
-              </button>
-            </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>" alt="Парки">
-            <div class="card__bottom">
-              <div class="card__date">
-                30 августа, 2019
-              </div>
-              <h3 class="card__title">
-                «Первозданная тайга»: новый фотопроект Игоря Шпиленка
-              </h3>
-              <p class="card__text">
-                Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-              </p>
-              <div class="card__source">
-                риа
-              </div>
+          <div class="tech-item">
+            <div class="tech-item__title">Webpack</div>
+            <div class="tech-item__image tech-item__image_webpack">
             </div>
           </div>
-          <div class="card">
-            <div class="card__top-buttons">
-              <button class="button__card button__card-keyword">
-                Растения
-              </button>
-              <!-- Пример скрытой подсказки-->
-              <button class="button__card button__card-help button__card-help_hidden">
-                 Войдите, чтобы сохранять статьи
-              </button>
-              <button class="button__card button__card-delete button__card-delete_disable">
-              </button>
-            </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>" alt="Парки">
-            <div class="card__bottom">
-              <div class="card__date">
-                2 августа, 2019
-              </div>
-              <h3 class="card__title">
-                Национальное достояние – парки
-              </h3>
-              <p class="card__text">
-                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <div class="card__source">
-                Лента.ру
-              </div>
-            </div>
-          </div>
-
         </div>
-
-        <div class="search-results__show-more">
-          <button class="button button__gray">Показать еще</button>
-        </div>
-
-        <div class="search-results__searching-news">
-          <div class="search-results__preloader"></div>
-          <span class="search-results__searching-news_text">Идет поиск новостей...</span>
-        </div>
-
-        <div class="search-results__searching-news">
-          <div class="search-results__no-found"></div>
-          <span class="search-results__searching-news_title">Ничего не найдено</span>
-          <span class="search-results__searching-news_text">К сожалению, по вашему запросу ничего не найдено.</span>
-        </div>
-
       </section>
 
       <section class="about-author">
@@ -314,7 +107,7 @@
           <div class="carousel">
             <div class="carousel-cell git-comment">
               <div class="git-comment__date">15 августа 2019</div>
-              <img class="git-comment__avatar" src="<%=require('../../images/slider/image-01.png')%>" alt="image1" class="carousel__image">
+              <img class="git-comment__avatar carousel__image" src="<%=require('../../images/slider/image-01.png')%>" alt="image1">
               <div class="git-comment__name">Мария Федоровна</div>
               <div class="git-comment__email">mariiifed@yandex.ru</div>
               <div class="git-comment__text">
@@ -324,7 +117,7 @@
             </div>
             <div class="carousel-cell git-comment">
               <div class="git-comment__date">15 августа 2019</div>
-              <img class="git-comment__avatar" src="<%=require('../../images/slider/image-03.png')%>" alt="image1" class="carousel__image">
+              <img class="git-comment__avatar carousel__image" src="<%=require('../../images/slider/image-03.png')%>" alt="image1">
               <div class="git-comment__name">Инга Иванова</div>
               <div class="git-comment__email">mariiifed@yandex.ru</div>
               <div class="git-comment__text">
@@ -335,7 +128,7 @@
             </div>
             <div class="carousel-cell git-comment">
               <div class="git-comment__date">15 августа 2019</div>
-              <img class="git-comment__avatar" src="<%=require('../../images/slider/image-04.png')%>" alt="image1" class="carousel__image">
+              <img class="git-comment__avatar carousel__image" src="<%=require('../../images/slider/image-04.png')%>" alt="image1">
               <div class="git-comment__name">Антон Долинин</div>
               <div class="git-comment__email">mariiifed@yandex.ru</div>
               <div class="git-comment__text">
@@ -345,7 +138,7 @@
             </div>
             <div class="carousel-cell git-comment">
               <div class="git-comment__date">15 августа 2019</div>
-              <img class="git-comment__avatar" src="<%=require('../../images/slider/image-03.png')%>" alt="image1" class="carousel__image">
+              <img class="git-comment__avatar carousel__image" src="<%=require('../../images/slider/image-03.png')%>" alt="image1">
               <div class="git-comment__name">Инга Иванова</div>
               <div class="git-comment__email">mariiifed@yandex.ru</div>
               <div class="git-comment__text">
@@ -356,12 +149,12 @@
             </div>
             <div class="carousel-cell git-comment">
               <div class="git-comment__date">15 августа 2019</div>
-              <img class="git-comment__avatar" src="<%=require('../../images/slider/image-04.png')%>" alt="image1" class="carousel__image">
+              <img class="git-comment__avatar carousel__image" src="<%=require('../../images/slider/image-04.png')%>" alt="image1">
               <div class="git-comment__name">Антон Дмитриев</div>
               <div class="git-comment__email">mariiifed@yandex.ru</div>
               <div class="git-comment__text">
                 You can install this plugin directly from NetBeans Plugin Portal: in NetBeans, open
-                <span class="git-comment__text_selected">Tools > Plugins > Available plugins</span> and find and install Emmet plugin.
+                <span class="git-comment__text git-comment__text_selected">Tools > Plugins > Available plugins</span> and find and install Emmet plugin.
               </div>
             </div>
           </div>

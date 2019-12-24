@@ -2,7 +2,7 @@
 
 ## v0.0.1
 
-Авторизоваться работает со второго клика(
+Модальное окно работает со второго клика по меню "Авторизоваться"
 
 ## [Ссылка на gh-pages]
 (https://vadimobruchnikov.github.io/news-explorer-front/)
@@ -12,7 +12,7 @@
 В данном проекте реализован Frontend проекта.
 Бэкенд для этого проекта можно найти на следующем репозитории
 
-## [Ссылка на проект front](https://github.com/vadimobruchnikov/news-explorer-front)
+## [Ссылка на проект front] (https://github.com/vadimobruchnikov/news-explorer-front)
 
 ## [Ссылка на проект back] (https://vadimobruchnikov.github.io/news-explorer-api.github.io/index.html)
 

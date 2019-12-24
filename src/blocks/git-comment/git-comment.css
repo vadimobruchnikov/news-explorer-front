@@ -26,6 +26,7 @@
 }
 @media (max-width: 480px) {
   .git-comment {
+    margin-top: 156px;
     width: 288px;
     height: 264px;
   }

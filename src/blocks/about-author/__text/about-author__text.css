@@ -21,7 +21,7 @@
 }
 @media (max-width: 640px) {
   .about-author__text p{
-    width: 85vw;
+    width: 90%;
     margin-top: 16px;
     margin-bottom: 16px;
     margin-left: 5vw;

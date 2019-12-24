@@ -32,7 +32,7 @@
         <div class="search__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</div>
 
         <form class="search__field">
-          <input class="search__field_input" type="search" placeholder="Введите то, что вас интересует">
+          <input class="search__field-input" type="search" placeholder="Введите то, что вас интересует">
           <button class="button__search">Найти</button>
         </form>
       </section>
@@ -45,12 +45,12 @@
         <div class="search-results__items">
 
           <div class="card">
-            <div class="card__top-buttons">
+            <div class="card__top-buttons button">
               <!-- Пример скрытой подсказки-->
               <button class="button__card button__card-help button__card-help_hidden">
                  Войдите, чтобы сохранять статьи
               </button>
-              <button class="button__card button__card-bookmark_disable">
+              <button class="button__card button__card-bookmark button__card-bookmark_disable">
               </button>
             </div>
             <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>" alt="Парки">
@@ -70,15 +70,11 @@
             </div>
           </div>
           <div class="card">
-            <div class="card__top-buttons">
+            <div class="card__top-buttons button">
               <button class="button__card button__card-keyword">
                 Природа
               </button>
-              <!-- Пример скрытой подсказки-->
-              <button class="button__card button__card-help button__card-help_hidden">
-                 Войдите, чтобы сохранять статьи
-              </button>
-              <button class="button__card button__card-bookmark_active">
+              <button class="button__card button__card-bookmark button__card-bookmark_active">
               </button>
             </div>
             <img class="card__image" src="<%=require('../../images/cards/image_04.png')%>" alt="Парки">
@@ -98,12 +94,9 @@
             </div>
           </div>
           <div class="card">
-            <div class="card__top-buttons">
+            <div class="card__top-buttons button">
               <button class="button__card button__card-keyword">
                 Природа
-              </button>
-              <button class="button__card button__card-help">
-                 Войдите, чтобы сохранять статьи
               </button>
               <button class="button__card button__card-bookmark">
               </button>
@@ -125,7 +118,7 @@
             </div>
           </div>
           <div class="card">
-            <div class="card__top-buttons">
+            <div class="card__top-buttons button">
               <button class="button__card button__card-keyword">
                 Парки
               </button>
@@ -152,13 +145,9 @@
             </div>
           </div>
           <div class="card">
-            <div class="card__top-buttons">
+            <div class="card__top-buttons button">
               <button class="button__card button__card-keyword">
                 Растения
-              </button>
-              <!-- Пример скрытой подсказки-->
-              <button class="button__card button__card-help button__card-help_hidden">
-                 Войдите, чтобы сохранять статьи
               </button>
               <button class="button__card button__card-delete button__card-delete_disable">
               </button>
@@ -188,13 +177,13 @@
 
         <div class="search-results__searching-news">
           <div class="search-results__preloader"></div>
-          <span class="search-results__searching-news_text">Идет поиск новостей...</span>
+          <div class="search-results__searching-news search-results__searching-news_text">Идет поиск новостей...</div>
         </div>
 
         <div class="search-results__searching-news">
           <div class="search-results__no-found"></div>
-          <span class="search-results__searching-news_title">Ничего не найдено</span>
-          <span class="search-results__searching-news_text">К сожалению, по вашему запросу ничего не найдено.</span>
+          <div class="search-results__searching-news search-results__searching-news_title">Ничего не найдено</div>
+          <div class="search-results__searching-news search-results__searching-news_text">К сожалению, по вашему запросу ничего не найдено.</div>
         </div>
 
       </section>

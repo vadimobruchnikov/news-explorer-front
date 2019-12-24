@@ -1,27 +1,41 @@
 .git-comments__title{
   position: absolute;
-  width: 712px;
-  height: 46px;
-  left: 104px;
+  max-width: 90%;
   top: 72px;
+  color: #1A1B22;
   font-family: Roboto Slab;
   font-style: normal;
   font-weight: normal;
-  font-size: 40px;
-  line-height: 46px;
-  color: #1A1B22;
 }
-@media (max-width: 1280px) {
+@media (min-width: 1281px) {
+  .git-comments__title {
+    width: 712px;
+    font-size: 40px;
+    line-height: 46px;
+    left: 104px;
+    height: 46px;
+  }
+}
+@media (max-width: 1280px) and (min-width:761px) {
   .git-comments__title {
     position: absolute;
+    max-width: 90%;
     width: 336px;
     height: 68px;
     left: 40px;
     top: 40px;
-    font-family: Roboto Slab;
-    font-style: normal;
-    font-weight: normal;
     font-size: 30px;
     line-height: 34px;
   }
 }
+@media (max-width: 760px) {
+  .git-comments__title {
+    font-size: 30px;
+    line-height: 40px;
+    color: #1A1B22;
+    left: 5%;
+    top: 5%;
+    margin-bottom: 5%;
+  }
+}
+

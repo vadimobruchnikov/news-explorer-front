@@ -1,6 +1,7 @@
 .git-comment__name{
   position: absolute;
   width: 300px;
+  max-width: 69%;
   height: 30px;
   left: 104px;
   top: 66px;
@@ -10,6 +11,21 @@
   font-size: 26px;
   line-height: 30px;
   color: #1A1B22;
+}
+@media (max-width: 960px) {
+  .git-comment__name {
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    color: #1A1B22;
+  }
+}
+@media (max-width: 760px) {
+  .git-comment__name {
+    left: 76px;
+  }
 }
 
 

@@ -6,4 +6,9 @@
   line-height: 30px;
   text-align: center;
   color: #1A1B22;
+
+  margin-top: unset;
+  width: unset;
+  margin-bottom: unset;
+  display: unset;
 }

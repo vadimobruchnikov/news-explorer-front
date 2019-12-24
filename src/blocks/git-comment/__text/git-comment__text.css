@@ -1,6 +1,6 @@
 .git-comment__text{
   position: absolute;
-  width: 352px;
+  width: 88%; /*352px;*/
   height: 88px;
   left: 24px;
   top: 142px;
@@ -10,4 +10,6 @@
   font-size: 16px;
   line-height: 22px;
   color: #1A1B22;
+  overflow: hidden;
 }
+

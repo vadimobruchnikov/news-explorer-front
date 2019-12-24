@@ -1,7 +1,6 @@
 .git-comment__link {
   position: absolute;
   right: 112px;
-  top: 85px;
   width: 200px;
   height: 24px;
   font-family: Roboto;
@@ -10,4 +9,22 @@
   font-size: 18px;
   line-height: 24px;
   color: #1A1B22;
+}
+@media (min-width: 1280px) {
+  .git-comment__link {
+    top: 85px;
+  }
+}
+
+@media (min-width: 761px) {
+  .git-comment__link {
+    top: 48px;
+    right: 40px;
+  }
+}
+
+@media (max-width: 760px) {
+  .git-comment__link {
+    display: none;
+  }
 }

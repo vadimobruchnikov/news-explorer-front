@@ -1,13 +1,10 @@
 .button {
+  /*
   background-color: transparent;
   border: 1px solid white;
   color: white;
-  /*width: 150px; ?? */
   height: 100%;
   font-size: 30px;
   display: block;
-}
-
-.button:focus {
-  /*outline-color: greenyellow;*/
+  */
 }
