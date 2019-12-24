@@ -1,4 +1,4 @@
-.button__search {
+.search__field-button {
   position: absolute;
   left: 856px;
   /*height: 100%;*/
@@ -20,23 +20,23 @@
   color: #FFFFFF;
   outline: none;
 }
-.button__search:hover{
+.search__field-button:hover{
   background: #347EFF;
   animation-duration: 9s;
 }
-.button__search:active{
+.search__field-button:active{
   background: #2A65CC;
 }
 
 @media (max-width: 1439px) {
-  .button__search{
+  .search__field-button{
     left: calc( (100vw - 768px)/(1440 - 768) * (856 - 452) + 452px);
     height: calc( (100vw - 768px)/(1440 - 768) * (64 - 56) + 56px);
   }
 }
 
 @media (max-width: 560px) {
-  .button__search{
+  .search__field-button{
     left: auto;
     position: relative;
     margin-left: calc( (100vw - 320px)/(768 - 320) * (163 - 16) + 16px);
