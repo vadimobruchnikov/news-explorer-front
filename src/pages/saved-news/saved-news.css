@@ -35,6 +35,8 @@
 
 @import url(../../blocks/saved/saved.css);
 @import url(../../blocks/saved/__keywords/saved__keywords.css);
+@import url(../../blocks/saved/__keywords/saved__keywords_bold.css);
+
 @import url(../../blocks/saved/__text/saved__text.css);
 @import url(../../blocks/saved/__title/saved__title.css);
 
@@ -49,8 +51,8 @@
 @import url(../../blocks/button/button.css);
 @import url(../../blocks/button/__card/button__card.css);
 @import url(../../blocks/button/__card-keyword/button__card-keyword.css);
-@import url(../../blocks/button/__card-bookmark/button__card-bookmark.css);
 
+@import url(../../blocks/button/__card-bookmark/button__card-bookmark.css);
 @import url(../../blocks/button/__card-bookmark/button__card-bookmark_active.css);
 @import url(../../blocks/button/__card-bookmark/button__card-bookmark_disable.css);
 
