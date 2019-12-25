@@ -59,8 +59,6 @@
 @import url(../../blocks/button/__card-help/button__card-help.css);
 @import url(../../blocks/button/__card-help/button__card-help_hidden.css);
 @import url(../../blocks/button/__card-delete/button__card-delete.css);
-@import url(../../blocks/button/__gray/button__gray.css);
-
 /* модальные окна, валидация, ошибки */
 @import url(../../blocks/popup/popup.css);
 

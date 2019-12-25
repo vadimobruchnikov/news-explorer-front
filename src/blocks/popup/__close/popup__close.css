@@ -6,3 +6,8 @@
   cursor: pointer;
   background-image: url(../../../images/popup/close-mid.svg);
 }
+@media screen and (max-width: 520px) {
+  .popup__close {
+      display: none;
+  }
+}

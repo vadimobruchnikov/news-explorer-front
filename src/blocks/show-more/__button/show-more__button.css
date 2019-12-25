@@ -1,4 +1,4 @@
-.button__gray{
+.show-more__button{
   font-family: Roboto;
   font-style: normal;
   font-weight: 500;
@@ -15,6 +15,6 @@
   padding-left: 84px;
   padding-right: 84px;
 }
-.button__gray:hover, .button__gray:active{
+.show-more__button:hover, .show-more__button:active{
   opacity: 0.8;
 }

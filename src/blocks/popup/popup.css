@@ -11,13 +11,13 @@
   /* DEBUG display: none; */
   display: none;
 }
-@media (max-width: 760px) {
+/*
+@media (max-width: 400px) {
   .popup{
-    /*position: static;*/
     top: 56px;
     left: 0;
-    width: 52.2%;
+    width: 100%;
     display: none;
-    /*display: block;*/
   }
 }
+*/

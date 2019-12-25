@@ -23,6 +23,10 @@
 @import url(../../blocks/search-results/search-results.css);
 @import url(../../blocks/search-results/__preloader/search-results__preloader.css);
 
+@import url(../../blocks/show-more/show-more.css);
+@import url(../../blocks/show-more/__button/show-more__button.css);
+
+
 @import url(../../blocks/card/card.css);
 @import url(../../blocks/card/__image/card__image.css);
 @import url(../../blocks/card/__date/card__date.css);
@@ -46,7 +50,6 @@
 @import url(../../blocks/button/__card-help/button__card-help.css);
 @import url(../../blocks/button/__card-help/button__card-help_hidden.css);
 @import url(../../blocks/button/__card-delete/button__card-delete.css);
-@import url(../../blocks/button/__gray/button__gray.css);
 
 /* модальные окна, валидация, ошибки */
 @import url(../../blocks/popup/popup.css);
