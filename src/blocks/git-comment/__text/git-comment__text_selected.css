@@ -1,9 +1,0 @@
-.git-comment__text_selected{
-  padding-left: 6px;
-  padding-right: 6px;
-  background: #F5F6F7;
-  border: 1px solid #D1D2D6;
-  box-sizing: content-box;
-  overflow: hidden;
-	/*text-overflow: ellipsis;*/
-}
