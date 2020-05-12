@@ -20,6 +20,8 @@
           NewsExplorer
         </a>
         <nav class="header__nav">
+          <a class="header__menu" id= "menuPopupSuccess" href="#">1</a>
+          <a class="header__menu" id= "menuPopupEnter" href="#">2</a>
           <a class="header__menu header__menu_active" href="./index.html">Главная</a>
           <a class="header__menu" href="./about-author.html">О проекте</a>
           <a class="header__menu" href="./saved-news.html">Сохраненные статьи</a>
@@ -28,8 +30,12 @@
       </section>
 
       <section class="search">
-        <div class="search__title">Что в мире творится?</div>
-        <div class="search__text">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</div>
+        <div class="search__title">
+          Что в мире творится?
+        </div>
+        <div class="search__text">
+          Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.
+        </div>
 
         <form class="search__field">
           <input class="search__field-input" type="search" placeholder="Введите то, что вас интересует">
@@ -209,47 +215,59 @@
         <div class="footer__copyright">
           © 2020  Supersite
         </div>
-        <nav class="footer__menu">
-          <a class="footer__menu-item" href="./index.html">Главная</a>
-          <a class="footer__menu-item" href="./about-author.html">О проекте</a>
-          <a class="footer__menu-item" href="http://praktikum.yandex.ru">Яндекс.Практикум</a>
+
+        <nav>
+          <ul class="footer__menu">
+            <li class="footer__menu-item">
+              <a class="footer__menu-link" href="./index.html">Главная</a>
+            </li>
+            <li>
+              <a class="footer__menu-link" href="./about-author.html">О проекте</a>
+            </li>
+            <li>
+              <a class="footer__menu-link" href="http://praktikum.yandex.ru">Яндекс.Практикум</a>
+            </li>
+          </ul>
         </nav>
+
         <nav class="social-menu">
           <a class="social-menu__item social-menu__item_git" href="https://github.com/vadimobruchnikov/news-explorer-front"></a>
           <a class="social-menu__item social-menu__item_fb" href="https://www.facebook.com/yandex"></a>
         </nav>
+
       </section>
 
-      <!-- Модального окна -->
+      <!-- Модальное окно "Выполнить вход" -->
 
-      <div class="popup" id="modal-popup">
+      <div class="popup" id="popupSuccess">
         <div class="popup__content">
-          <img id="popup__close" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
+          <img id="popupSuccessClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
           <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
           <div class="popup__info-message">Выполнить вход</div>
+        </div>
+      </div>
 
+      <!-- Модальное окно "Регистрация" -->
+
+      <div class="popup" id="popupEnter">
+        <div class="popup__content">
+          <img id="popupEnterClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
           <form id="form__add-card" class="popup__form" name="new">
-
             <span class="popup__input popup__input_title">Email</span>
             <input id="add-card_name" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Название" autocomplete="off" value="abcde">
             <span id="error_add-card_name" class="error-message">Ошибка #1</span>
             <span class="popup__input popup__input_title">Пароль</span>
             <input id="add-card_link" type="text" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Ссылка на картинку" autocomplete="off">
             <span id="error_add-card_link" class="error-message">Ошибка #2</span>
-
             <span class="error-message error-message__under-button">Такой пользователь уже есть</span>
-
             <button class="button popup__button popup__button_edit button_submit">Войти</button>
-
           </form>
           <div class="popup__help">
             или
             <span class="popup__help popup__help_link">Зарегистрироваться</span>
           </div>
-
         </div>
       </div>
-
     </section>
 
     <script src="<%=htmlWebpackPlugin.files.chunks.index.entry%>"></script>

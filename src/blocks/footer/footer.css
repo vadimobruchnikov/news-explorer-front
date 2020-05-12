@@ -4,6 +4,7 @@
 @import url(./_menu__social/footer_menu__social.css);
 */
 @import url(./__menu-item/footer__menu-item.css);
+@import url(./__menu-link/footer__menu-link.css);
 
 .footer {
   position: relative;

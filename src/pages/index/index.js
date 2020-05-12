@@ -5,21 +5,35 @@ function getElement(selector) {
   return document.querySelector(selector);
 }
 
-const menu = getElement('#popup-active');
-const popup = getElement('#modal-popup');
-const popupClose = getElement('#popup__close');
+const menuPopupSuccess = getElement('#menuPopupSuccess');
+const menuPopupEnter = getElement('#menuPopupEnter');
+const popupSuccess = getElement('#popupSuccess');
+const popupEnter = getElement('#popupEnter');
+const popupSuccessClose = getElement('#popupSuccessClose');
+const popupEnterClose = getElement('#popupEnterClose');
 
-menu.addEventListener('click', () => {
-  if (popup.style.display !== 'none') {
-    popup.style.display = 'none';
+menuPopupSuccess.addEventListener('click', () => {
+  if ((popupSuccess.style.display != 'none')&&(popupSuccess.style.display !== '')) {
+    popupSuccess.style.display = 'none';
   } else {
-    popup.style.display = 'flex';
+    popupSuccess.style.display = 'flex';
   }
-  return false;
 });
 
-popupClose.addEventListener('click', () => {
-  popup.style.display = 'none';
+menuPopupEnter.addEventListener('click', () => {
+  if ((popupEnter.style.display != 'none')&&(popupEnter.style.display !== '')) {
+    popupEnter.style.display = 'none';
+  } else {
+    popupEnter.style.display = 'flex';
+  }
+});
+
+popupSuccessClose.addEventListener('click', () => {
+  popupSuccess.style.display = 'none';
+});
+
+popupEnterClose.addEventListener('click', () => {
+  popupEnter.style.display = 'none';
 });
 
 
