@@ -9,265 +9,235 @@
   <meta name="description" content="News Explorer Project">
   <title>News Explorer</title>
   <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.savednews.css%>">
-  <!--link rel="stylesheet" href="../../vendor/sliders/flickity/flickity.css"-->
-  <!--script src="../../vendor/sliders/flickity/flickity.pkgd.min.js"></script-->
 
 </head>
 <body>
   <section class="root root__black">
-      <section class="header header_black root__section">
-        <a class="logo logo_black" href="/">
-          NewsExplorer
-        </a>
-        <nav class="header__nav">
-          <a class="header__menu header__menu_black" href="./index.html">Главная</a>
-          <a class="header__menu header__menu_black" href="./about-author.html">О проекте</a>
-          <a class="header__menu header__menu_active-black header__menu_black" href="./saved-news.html">Сохраненные статьи</a>
-          <div class="header__menu header__menu_button-black header__menu_autorized header__menu_black">
-            <a class="header__menu header__menu_a header__menu_black" href="./saved-news.html">Грета</a>
-            <a class="header__menu header__menu_exit-black header__menu_black" href="./index.html"></a>
-          </div>
-        </nav>
-      </section>
 
-      <section class="saved">
-        <div class="saved__title">
-          Сохранённые статьи
+    <section class="header header_black root__section">
+      <a class="logo logo_black" href="/">
+        NewsExplorer
+      </a>
+      <nav class="header__nav">
+        <a class="header__menu header__menu_black" href="./index.html">Главная</a>
+        <a class="header__menu header__menu_black" href="./about-author.html">О проекте</a>
+        <a class="header__menu header__menu_active-black header__menu_black" href="./saved-news.html">Сохраненные статьи</a>
+        <div class="header__menu header__menu_button-black header__menu_autorized header__menu_black">
+          <a class="header__menu header__menu_a header__menu_black" href="./saved-news.html">Грета</a>
+          <a class="header__menu header__menu_exit-black header__menu_black" href="./index.html"></a>
         </div>
-        <div class="saved__text">
-          Грета, у вас 5 сохранённых статей
-        </div>
-        <div class="saved__keywords">
-          По ключевым словам:
-          <span class="saved__keywords saved__keywords_bold">
-            Природа, Тайга
-          </span>
-          и
-          <span class="saved__keywords saved__keywords_bold">
-            2 другим
-          </span>
-        </div>
-      </section>
-
-      <section class="search-results">
-        <div class="search-results__title">
-          Результаты поиска
-        </div>
-
-        <div class="search-results__items">
-
-          <div class="card">
-            <div class="card__top-buttons button">
-              <!-- Пример скрытой подсказки-->
-              <button class="button__card button__card-help button__card-help_hidden">
-                 Войдите, чтобы сохранять статьи
-              </button>
-              <button class="button__card button__card-bookmark_disable">
-              </button>
-            </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>" alt="Парки">
-            <div class="card__bottom">
-              <div class="card__date">
-                2 августа, 2019
-              </div>
-              <h3 class="card__title">
-                Национальное достояние – парки
-              </h3>
-              <p class="card__text">
-                  В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <div class="card__source">
-                Лента.ру
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card__top-buttons button">
-              <button class="button__card button__card-keyword">
-                Природа
-              </button>
-              <!-- Пример скрытой подсказки-->
-              <button class="button__card button__card-help button__card-help_hidden">
-                 Войдите, чтобы сохранять статьи
-              </button>
-              <button class="button__card button__card-bookmark button__card-bookmark_active">
-              </button>
-            </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_04.png')%>" alt="Парки">
-            <div class="card__bottom">
-              <div class="card__date">
-                  10 августа, 2019
-              </div>
-              <h3 class="card__title">
-                Лесные огоньки: история одной фотографии
-              </h3>
-              <p class="card__text">
-                Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.
-              </p>
-              <div class="card__source">
-                Медуза
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card__top-buttons button">
-              <button class="button__card button__card-keyword">
-                Природа
-              </button>
-              <!-- Пример скрытой подсказки-->
-              <button class="button__card button__card-help button__card-help_hidden">
-                 Войдите, чтобы сохранять статьи
-              </button>
-              <button class="button__card button__card-bookmark">
-              </button>
-            </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>" alt="Парки">
-            <div class="card__bottom">
-              <div class="card__date">
-                30 августа, 2019
-              </div>
-              <h3 class="card__title">
-                «Первозданная тайга»: новый фотопроект Игоря Шпиленка
-              </h3>
-              <p class="card__text">
-                Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-              </p>
-              <div class="card__source">
-                риа
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card__top-buttons button">
-              <button class="button__card button__card-keyword">
-                Парки
-              </button>
-              <button class="button__card button__card-help">
-                 Убрать из сохраненных
-              </button>
-              <button class="button__card button__card-delete">
-              </button>
-            </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>" alt="Парки">
-            <div class="card__bottom">
-              <div class="card__date">
-                30 августа, 2019
-              </div>
-              <h3 class="card__title">
-                «Первозданная тайга»: новый фотопроект Игоря Шпиленка
-              </h3>
-              <p class="card__text">
-                Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-              </p>
-              <div class="card__source">
-                риа
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card__top-buttons button">
-              <button class="button__card button__card-keyword">
-                Растения
-              </button>
-              <!-- Пример скрытой подсказки-->
-              <button class="button__card button__card-help button__card-help_hidden">
-                 Войдите, чтобы сохранять статьи
-              </button>
-              <button class="button__card button__card-delete button__card-delete_disable">
-              </button>
-            </div>
-            <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>" alt="Парки">
-            <div class="card__bottom">
-              <div class="card__date">
-                2 августа, 2019
-              </div>
-              <h3 class="card__title">
-                Национальное достояние – парки
-              </h3>
-              <p class="card__text">
-                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <div class="card__source">
-                Лента.ру
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="show-more">
-          <button class="show-more__button">Показать еще</button>
-        </div>
-
-        <div class="search-results__searching-news">
-          <div class="search-results__preloader"></div>
-          <div class="search-results__searching-news search-results__searching-news_text">Идет поиск новостей...</div>
-        </div>
-
-        <div class="search-results__searching-news">
-          <div class="search-results__no-found"></div>
-          <div class="search-results__searching-news search-results__searching-news_title">Ничего не найдено</div>
-          <div class="search-results__searching-news search-results__searching-news_text">К сожалению, по вашему запросу ничего не найдено.</div>
-        </div>
-
-      </section>
-
-      <section class="footer">
-        <div class="footer__copyright">
-          © 2020  Supersite
-        </div>
-
-        <nav>
-          <ul class="footer__menu">
-            <li class="footer__menu-item">
-              <a class="footer__menu-link" href="./index.html">Главная</a>
-            </li>
-            <li>
-              <a class="footer__menu-link" href="./about-author.html">О проекте</a>
-            </li>
-            <li>
-              <a class="footer__menu-link" href="http://praktikum.yandex.ru">Яндекс.Практикум</a>
-            </li>
-          </ul>
-        </nav>
-
-        <nav class="social-menu">
-          <!-- TODO: переделать ul li -->
-          <a class="social-menu__item social-menu__item_git" href="https://github.com/vadimobruchnikov/news-explorer-front"></a>
-          <a class="social-menu__item social-menu__item_fb" href="https://www.facebook.com/yandex"></a>
-        </nav>
-      </section>
-
-      <!-- Модального окна --
-
-      <div class="popup" id="add-card">
-        <div class="popup__content">
-          <img src="./images/popup/close-mid.svg" alt="" class="popup__close popup__close_add-card">
-          <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-          <div class="popup__info-message">Выполнить вход</div>
-
-          <form id="form__add-card" class="popup__form" name="new">
-
-            <span class="popup__input_title">Email</span>
-            <input id="add-card_name" type="text" name="name" class="popup__input popup__input_type_name" required minlength="2" maxlength="30" placeholder="Название" autocomplete="off" value="abcde">
-            <span id="error_add-card_name" class="error-message">Ошибка #1</span>
-            <span class="popup__input_title">Пароль</span>
-            <input id="add-card_link" type="text" name="link" class="popup__input popup__input_type_link-url" required minlength="6" maxlength="255" placeholder="Ссылка на картинку" autocomplete="off">
-            <span id="error_add-card_link" class="error-message">Ошибка #2</span>
-
-            <span class="error-message error-message__under-button">Такой пользователь уже есть</span>
-
-            <button class="button popup__button popup__button_edit button_submit">Войти</button>
-
-          </form>
-          <div class="popup__help">
-            или
-            <span class="popup__help_link">Зарегистрироваться</span>
-          </div>
-
-        </div>
-      </div-->
+      </nav>
     </section>
+
+    <section class="saved">
+      <div class="saved__title">
+        Сохранённые статьи
+      </div>
+      <div class="saved__text">
+        Грета, у вас 5 сохранённых статей
+      </div>
+      <div class="saved__keywords">
+        По ключевым словам:
+        <span class="saved__keywords saved__keywords_bold">
+          Природа, Тайга
+        </span>
+        и
+        <span class="saved__keywords saved__keywords_bold">
+          2 другим
+        </span>
+      </div>
+    </section>
+
+    <section class="search-results">
+      <div class="search-results__title">
+        Результаты поиска
+      </div>
+
+      <div class="search-results__items">
+
+        <div class="card">
+          <div class="card__top-buttons button">
+            <!-- Пример скрытой подсказки-->
+            <button class="button__card button__card-help button__card-help_hidden">
+               Войдите, чтобы сохранять статьи
+            </button>
+            <button class="button__card button__card-bookmark_disable">
+            </button>
+          </div>
+          <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>" alt="Парки">
+          <div class="card__bottom">
+            <div class="card__date">
+              2 августа, 2019
+            </div>
+            <h3 class="card__title">
+              Национальное достояние – парки
+            </h3>
+            <p class="card__text">
+                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
+            </p>
+            <div class="card__source">
+              Лента.ру
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__top-buttons button">
+            <button class="button__card button__card-keyword">
+              Природа
+            </button>
+            <!-- Пример скрытой подсказки-->
+            <button class="button__card button__card-help button__card-help_hidden">
+               Войдите, чтобы сохранять статьи
+            </button>
+            <button class="button__card button__card-bookmark button__card-bookmark_active">
+            </button>
+          </div>
+          <img class="card__image" src="<%=require('../../images/cards/image_04.png')%>" alt="Парки">
+          <div class="card__bottom">
+            <div class="card__date">
+                10 августа, 2019
+            </div>
+            <h3 class="card__title">
+              Лесные огоньки: история одной фотографии
+            </h3>
+            <p class="card__text">
+              Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.
+            </p>
+            <div class="card__source">
+              Медуза
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__top-buttons button">
+            <button class="button__card button__card-keyword">
+              Природа
+            </button>
+            <!-- Пример скрытой подсказки-->
+            <button class="button__card button__card-help button__card-help_hidden">
+               Войдите, чтобы сохранять статьи
+            </button>
+            <button class="button__card button__card-bookmark">
+            </button>
+          </div>
+          <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>" alt="Парки">
+          <div class="card__bottom">
+            <div class="card__date">
+              30 августа, 2019
+            </div>
+            <h3 class="card__title">
+              «Первозданная тайга»: новый фотопроект Игоря Шпиленка
+            </h3>
+            <p class="card__text">
+              Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...
+            </p>
+            <div class="card__source">
+              риа
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__top-buttons button">
+            <button class="button__card button__card-keyword">
+              Парки
+            </button>
+            <button class="button__card button__card-help">
+               Убрать из сохраненных
+            </button>
+            <button class="button__card button__card-delete">
+            </button>
+          </div>
+          <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>" alt="Парки">
+          <div class="card__bottom">
+            <div class="card__date">
+              30 августа, 2019
+            </div>
+            <h3 class="card__title">
+              «Первозданная тайга»: новый фотопроект Игоря Шпиленка
+            </h3>
+            <p class="card__text">
+              Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...
+            </p>
+            <div class="card__source">
+              риа
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card__top-buttons button">
+            <button class="button__card button__card-keyword">
+              Растения
+            </button>
+            <!-- Пример скрытой подсказки-->
+            <button class="button__card button__card-help button__card-help_hidden">
+               Войдите, чтобы сохранять статьи
+            </button>
+            <button class="button__card button__card-delete button__card-delete_disable">
+            </button>
+          </div>
+          <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>" alt="Парки">
+          <div class="card__bottom">
+            <div class="card__date">
+              2 августа, 2019
+            </div>
+            <h3 class="card__title">
+              Национальное достояние – парки
+            </h3>
+            <p class="card__text">
+              В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
+            </p>
+            <div class="card__source">
+              Лента.ру
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="show-more">
+        <button class="show-more__button">Показать еще</button>
+      </div>
+
+      <div class="search-results__searching-news">
+        <div class="search-results__preloader"></div>
+        <div class="search-results__searching-news search-results__searching-news_text">Идет поиск новостей...</div>
+      </div>
+
+      <div class="search-results__searching-news">
+        <div class="search-results__no-found"></div>
+        <div class="search-results__searching-news search-results__searching-news_title">Ничего не найдено</div>
+        <div class="search-results__searching-news search-results__searching-news_text">К сожалению, по вашему запросу ничего не найдено.</div>
+      </div>
+
+    </section>
+
+    <section class="footer">
+      <div class="footer__copyright">
+        © 2020  Supersite
+      </div>
+
+      <nav>
+        <ul class="footer__menu">
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="./index.html">Главная</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="./about-author.html">О проекте</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="http://praktikum.yandex.ru">Яндекс.Практикум</a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="social-menu">
+        <!-- TODO: переделать ul li -->
+        <a class="social-menu__item social-menu__item_git" href="https://github.com/vadimobruchnikov/news-explorer-front"></a>
+        <a class="social-menu__item social-menu__item_fb" href="https://www.facebook.com/yandex"></a>
+      </nav>
+    </section>
+
+  </section>
 
     <script src="<%=htmlWebpackPlugin.files.chunks.savednews.entry%>"></script>
 
