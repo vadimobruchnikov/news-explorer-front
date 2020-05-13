@@ -1,4 +1,4 @@
-.search__text{
+.search__text {
   margin-top: 32px;
   width: 608px;
   color: #fff;
@@ -11,13 +11,13 @@
 }
 
 @media (max-width: 1439px) {
-  .search__text{
+  .search__text {
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (416 - 163) + 163px);
     width: calc( (100vw - 768px)/(1440 - 768) * (608 - 452) + 452px);
   }
 }
 @media (max-width: 400px) {
-  .search__text{
+  .search__text {
     margin-top : calc( (100vw - 320px)/(768 - 320) * (32 - 16) + 16px);
     margin-left : calc( (100vw - 320px)/(768 - 320) * (163 - 16) + 16px);
     width : calc( (100vw - 320px)/(768 - 320) * (452 - 288) + 288px);

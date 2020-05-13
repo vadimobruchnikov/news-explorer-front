@@ -1,4 +1,4 @@
-.tech-item{
+.tech-item {
   width: 120px;
   height: 153px;
   margin-top: 16px;
@@ -9,7 +9,7 @@
   align-items : center;
 }
 @media (max-width: 1280px) {
-  .tech-item{
+  .tech-item {
     margin-top: 0;
     margin-left: auto;
     margin-right: auto;

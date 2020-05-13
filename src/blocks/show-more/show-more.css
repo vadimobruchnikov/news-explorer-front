@@ -1,4 +1,4 @@
-.show-more{
+.show-more {
   margin-top: 0;
   width: 100%;
   margin-bottom: 80px;
@@ -7,7 +7,7 @@
 
 }
 @media (max-width: 760px) {
-  .show-more{
+  .show-more {
     margin-bottom: 32px;
   }
 }

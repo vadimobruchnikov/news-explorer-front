@@ -4,15 +4,3 @@
   margin: 0;
   margin-top: 8px;
 }
-.tech-item__image_html{
-  background-image: url(../../../images/tech/html.svg);
-}
-.tech-item__image_css{
-  background-image: url(../../../images/tech/css.svg);
-}
-.tech-item__image_javascript{
-  background-image: url(../../../images/tech/javascript.svg);
-}
-.tech-item__image_webpack{
-  background-image: url(../../../images/tech/webpack.svg);
-}

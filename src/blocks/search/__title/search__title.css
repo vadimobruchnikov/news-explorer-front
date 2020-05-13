@@ -12,7 +12,7 @@
   margin-left: 416px;
 }
 @media (max-width: 1439px) {
-  .search__title{
+  .search__title {
     margin-top : calc( (100vw - 768px)/(1440 - 768) * (80 - 38) + 38px);
     margin-left : calc( (100vw - 768px)/(1440 - 768) * (416 - 163) + 163px);
     font-size : calc( (100vw - 768px)/(1440 - 768) * (60 - 36) + 36px);
@@ -21,7 +21,7 @@
   }
 }
 @media (max-width: 400px) {
-  .search__title{
+  .search__title {
     font-size : calc( (100vw - 320px)/(768 - 320) * (60 - 36) + 36px);
     line-height : calc( (100vw - 320px)/(768 - 320) * (64 - 40) + 40px);
     margin-top : calc( (100vw - 320px)/(768 - 320) * (38 - 30) + 30px);
