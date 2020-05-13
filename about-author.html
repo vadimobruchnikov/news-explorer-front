@@ -28,133 +28,104 @@
       </nav>
     </section>
 
-      <section class="history">
-        <div class="history__title">
-          Клиентам
-        </div>
-        <div class="history__text">
-          <p>
-          Этот сайт — дипломный проект студента Яндекс.Практикума. Его цель — показать, чему научился студент, какими технологиями владеет.
-          </p>
-          <p>
-            Вёрстка сайта выполнена по методологии БЭМ. Это делает сайт гибким и масштабируемым. Кроме того, добавлять новые страницы и функциональность проще и быстрее, чем в проектах, выполненных по другим методологиям. Также сайт проще и дешевле поддерживать.
-          </p>
-          <p>
-            Студент самостоятельно написал серверный код. В нём реализована функциональность регистрации и входа в систему. Сайт позволяет искать новости за прошедшую неделю и сохранять понравившиеся в личном кабинете. На сервере избранные новости хранятся в базе данных Mongo DB. Студент запрограммировал надёжный сервер: отказоустойчивый и безопасный.
-          </p>
-          <p>
-            При создании проекта была использована сборка технологией Webpack. Это современный подход к разработке сайтов. Код оптимизируется, а значит, сайт работает быстрее. Также сайт работает в старых браузерах. Даже если посетители — пользователи старых операционных систем, у них не будет проблем с отображением. А значит, потенциальная аудитория возрастает.
-          </p>
-          <p>
-            Проект был проверен экспертами Яндекс.Практикума. Если вашему бизнесу нужен сайт, мы рекомендуем обратиться к этому студенту.
-          </p>
-        </div>
-      </section>
-
-      <section class="tech">
-        <div class="tech__title">
-          Используемые технологии
-        </div>
-        <div class="tech__items">
-          <div class="tech-item">
-            <div class="tech-item__title">HTML</div>
-            <div class="tech-item__image tech-item__image_html">
-            </div>
-          </div>
-          <div class="tech-item">
-            <div class="tech-item__title">CSS </div>
-            <div class="tech-item__image tech-item__image_css">
-            </div>
-          </div>
-          <div class="tech-item">
-            <div class="tech-item__title">Java Script</div>
-            <div class="tech-item__image tech-item__image_javascript">
-            </div>
-          </div>
-          <div class="tech-item">
-            <div class="tech-item__title">Webpack</div>
-            <div class="tech-item__image tech-item__image_webpack">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="about-author">
-        <img src="./images/author-avatar.png" class="about-author__image" alt="Author photo">
-
-        <div class="about-author__column">
-            <div class="about-author__title">Об авторе</div>
-            <div class="about-author__text">
-              <p>
-                По требованиям v1.0 эта страница была, и я прошу ее оставить. Не зря же я ее верстал).
-              </p>
-              <p>
-                Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
-              </p>
-              <p>
-                Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
-              </p>
-            </div>
-        </div>
-      </section>
-      <section class="footer">
-        <div class="footer__copyright">
-          © 2019  Supersite
-        </div>
-
-        <nav>
-          <ul class="footer__menu">
-            <li class="footer__menu-item">
-              <a class="footer__menu-link" href="./index.html">Главная</a>
-            </li>
-            <li>
-              <a class="footer__menu-link" href="./about-author.html">О проекте</a>
-            </li>
-            <li>
-              <a class="footer__menu-link" href="http://praktikum.yandex.ru">Яндекс.Практикум</a>
-            </li>
-          </ul>
-        </nav>
-
-        <nav class="social-menu">
-          <a class="social-menu__item social-menu__item_git" href="https://github.com/vadimobruchnikov/news-explorer-front"></a>
-          <a class="social-menu__item social-menu__item_fb" href="https://www.facebook.com/yandex"></a>
-        </nav>
-
-      </section>
-
-      <!-- Модального окна --
-
-      <div class="popup" id="add-card">
-        <div class="popup__content">
-          <img src="./images/popup/close-mid.svg" alt="" class="popup__close popup__close_add-card">
-          <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-          <div class="popup__info-message">Выполнить вход</div>
-
-          <form id="form__add-card" class="popup__form" name="new">
-
-            <span class="popup__input_title">Email</span>
-            <input id="add-card_name" type="text" name="name" class="popup__input popup__input_type_name" required minlength="2" maxlength="30" placeholder="Название" autocomplete="off" value="abcde">
-            <span id="error_add-card_name" class="error-message">Ошибка #1</span>
-            <span class="popup__input_title">Пароль</span>
-            <input id="add-card_link" type="text" name="link" class="popup__input popup__input_type_link-url" required minlength="6" maxlength="255" placeholder="Ссылка на картинку" autocomplete="off">
-            <span id="error_add-card_link" class="error-message">Ошибка #2</span>
-
-            <span class="error-message error-message__under-button">Такой пользователь уже есть</span>
-
-            <button class="button popup__button popup__button_edit button_submit">Войти</button>
-
-          </form>
-          <div class="popup__help">
-            или
-            <span class="popup__help_link">Зарегистрироваться</span>
-          </div>
-
-        </div>
-      </div-->
+    <section class="history">
+      <div class="history__title">
+        Клиентам
+      </div>
+      <div class="history__text">
+        <p>
+        Этот сайт — дипломный проект студента Яндекс.Практикума. Его цель — показать, чему научился студент, какими технологиями владеет.
+        </p>
+        <p>
+          Вёрстка сайта выполнена по методологии БЭМ. Это делает сайт гибким и масштабируемым. Кроме того, добавлять новые страницы и функциональность проще и быстрее, чем в проектах, выполненных по другим методологиям. Также сайт проще и дешевле поддерживать.
+        </p>
+        <p>
+          Студент самостоятельно написал серверный код. В нём реализована функциональность регистрации и входа в систему. Сайт позволяет искать новости за прошедшую неделю и сохранять понравившиеся в личном кабинете. На сервере избранные новости хранятся в базе данных Mongo DB. Студент запрограммировал надёжный сервер: отказоустойчивый и безопасный.
+        </p>
+        <p>
+          При создании проекта была использована сборка технологией Webpack. Это современный подход к разработке сайтов. Код оптимизируется, а значит, сайт работает быстрее. Также сайт работает в старых браузерах. Даже если посетители — пользователи старых операционных систем, у них не будет проблем с отображением. А значит, потенциальная аудитория возрастает.
+        </p>
+        <p>
+          Проект был проверен экспертами Яндекс.Практикума. Если вашему бизнесу нужен сайт, мы рекомендуем обратиться к этому студенту.
+        </p>
+      </div>
     </section>
 
-    <script src="aboutauthor.46f5cc6e062c8c2bec81.js"></script>
+    <section class="tech">
+      <div class="tech__title">
+        Используемые технологии
+      </div>
+      <div class="tech__items">
+        <div class="tech-item">
+          <div class="tech-item__title">HTML</div>
+          <div class="tech-item__image tech-item__image_html">
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-item__title">CSS </div>
+          <div class="tech-item__image tech-item__image_css">
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-item__title">Java Script</div>
+          <div class="tech-item__image tech-item__image_javascript">
+          </div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-item__title">Webpack</div>
+          <div class="tech-item__image tech-item__image_webpack">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-author">
+      <img src="./images/author-avatar.png" class="about-author__image" alt="Author photo">
+
+      <div class="about-author__column">
+          <div class="about-author__title">Об авторе</div>
+          <div class="about-author__text">
+            <p>
+              По требованиям v1.0 эта страница была, и я прошу ее оставить. Не зря же я ее верстал).
+            </p>
+            <p>
+              Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.
+            </p>
+            <p>
+              Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.
+            </p>
+          </div>
+      </div>
+    </section>
+    <section class="footer">
+      <div class="footer__copyright">
+        © 2020  Supersite
+      </div>
+
+      <nav>
+        <ul class="footer__menu">
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="./index.html">Главная</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="./about-author.html">О проекте</a>
+          </li>
+          <li class="footer__menu-item">
+            <a class="footer__menu-link" href="http://praktikum.yandex.ru">Яндекс.Практикум</a>
+          </li>
+        </ul>
+      </nav>
+
+      <nav class="social-menu">
+        <a class="social-menu__item social-menu__item_git" href="https://github.com/vadimobruchnikov/news-explorer-front"></a>
+        <a class="social-menu__item social-menu__item_fb" href="https://www.facebook.com/yandex"></a>
+      </nav >
+
+    </section>
+
+  </section>
+
+  <script src="aboutauthor.46f5cc6e062c8c2bec81.js"></script>
 
 </body>
 </html>
