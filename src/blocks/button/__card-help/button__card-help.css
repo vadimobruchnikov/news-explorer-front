@@ -1,0 +1,5 @@
+@media (max-width: 1280px) {
+  .button__card-help{
+    display:none;
+  }
+}

@@ -1,0 +1,6 @@
+.header__menu_a{
+  padding: 0;
+}
+a.header__menu_a:hover, a.header__menu_a:active{
+  color:#fff;
+}

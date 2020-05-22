@@ -1,0 +1,23 @@
+.header__nav {
+  display: flex;
+  flex-direction: row;
+  margin-right: 104px;
+  text-decoration: none;
+}
+
+.header__nav a{
+  text-decoration: none;
+}
+
+@media (max-width: 1439px) {
+  .header__nav{
+    margin-right: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+  }
+}
+
+/* отладка модального меню @media (max-width: 767px) { */
+@media (max-width: 860px) { 
+  .header__nav{
+    display: none;
+  }
+}

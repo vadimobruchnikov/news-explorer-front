@@ -1,0 +1,34 @@
+.history__title{
+  font-family: Roboto Slab, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  color: #1A1B22;
+}
+@media (min-width: 1440px) {
+  .history__title{
+    margin-left: 104px;
+    margin-top: 80px;
+    width: 56%;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    color: #1A1B22;
+  }
+}
+@media (max-width: 1439px) {
+  .history__title{
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+    margin-top: calc( (100vw - 768px)/(1440 - 768) * (80 - 30) + 30px);
+    font-size: calc( (100vw - 768px)/(1440 - 768) * (40 - 30) + 30px);
+    line-height: calc( (100vw - 768px)/(1440 - 768) * (46 - 34) + 34px);
+  }
+}
+@media (max-width: 768px) {
+  .history__title{
+    margin-left: 5%;
+    margin-top: 5%;
+    width: 90%;
+  }
+}

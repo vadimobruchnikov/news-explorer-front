@@ -1,0 +1,19 @@
+@import url(./__title/search-results_title.css);
+@import url(./__items/search-results__items.css);
+@import url(./__searching-news/search-results__searching-news.css);
+@import url(./__searching-news/search-results__searching-news_text.css);
+@import url(./__searching-news/search-results__searching-news_title.css);
+
+@import url(./__no-found/search-results__no-found.css);
+@import url(./__preloader/search-results__preloader.css);
+
+.search-results {
+  width: 100%;
+  /*height: 974px;*/
+  display: flex;
+  /*justify-items: left;*/
+  flex-direction: column;
+  /*padding-left: 104px;
+  padding-right: 104px;*/
+  background-color: #F5F6F7;
+}

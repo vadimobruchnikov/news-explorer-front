@@ -1,0 +1,27 @@
+@import url(./__item/social-menu__item.css);
+@import url(./__item/social-menu__item_fb.css);
+@import url(./__item/social-menu__item_git.css);
+
+.social-menu{
+  display: flex;
+  flex-direction: row;
+  margin-right: 104px;
+}
+
+@media (max-width: 1280px) {
+  .social-menu{
+    margin-right: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+  }
+}
+@media (max-width: 760px) {
+  .social-menu{
+    margin-top: 20px;
+    padding-top: 0;
+    position: absolute;
+    right: 5%;
+    top: 0;
+  }
+}
+
+
+/* TODO: сохранить на всякий случай vk (пасхальное яцйцо) */

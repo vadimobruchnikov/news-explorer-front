@@ -1,0 +1,35 @@
+@import url(./__image/about-author__image.css);
+@import url(./__title/about-author__title.css);
+@import url(./__text/about-author__text.css);
+
+
+.about-author {
+  height: 624px;
+  width: 100%;
+  display: flex;
+  /*justify-content: center;*/
+  /*align-items: center;*/
+  flex-direction: row;
+}
+
+@media (max-width: 1280px) {
+  .about-author{
+    /*height: 55.2vw; /*600px;*/
+    height: calc( (100vw - 768px)/(1440 - 768) * (624 - 354) + 354px);
+  }
+}
+@media (max-width: 768px) {
+  .about-author{
+    height: unset;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-author{
+    height: unset;
+    flex-direction: column;
+    align-items: unset;
+    justify-content: center;
+    margin-bottom: 64px;
+  }
+}

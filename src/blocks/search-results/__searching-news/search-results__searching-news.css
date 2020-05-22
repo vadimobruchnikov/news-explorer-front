@@ -1,0 +1,14 @@
+.search-results__searching-news{
+  margin-top: 16px; /*80px;*/
+  width: 100%;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+@media (max-width: 760px) {
+  .search-results__searching-news{
+    margin-bottom: 16px;
+  }
+}

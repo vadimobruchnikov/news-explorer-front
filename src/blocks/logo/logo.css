@@ -1,0 +1,27 @@
+.logo {
+  color: #fff;
+  font-family: Roboto Slab, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  margin-left: 104px;
+  text-decoration: none;
+}
+
+@media (max-width: 1439px) {
+  .logo{
+    margin-left: calc( (100vw - 768px)/(1440 - 768) * (104 - 40) + 40px);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo{
+    margin-left: calc( (100vw - 320px)/(768 - 320) * (40 - 16) + 16px);
+  }
+}
+@media (max-width: 560px) {
+  .logo {
+    font-size: calc( (100vw - 320px)/(768 - 320) * (20 - 16) + 16px);
+  }
+}

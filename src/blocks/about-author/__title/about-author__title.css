@@ -1,0 +1,24 @@
+.about-author__title {
+  margin-top: 131px;
+  width: 41.66vw; /*600px;*/
+  font-family: Roboto Slab, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+@media (max-width: 1280px) {
+  .about-author__title{
+    margin-top: calc( (100vw - 768px)/(1440 - 768) * (131 - 40) + 40px);
+  }
+}
+@media (max-width: 640px) {
+  .about-author__title{
+    width: 90%;
+    margin-top: 24px;
+    margin-bottom: 0;
+    margin-left: 5%;
+    margin-right: 5%;
+   }
+}

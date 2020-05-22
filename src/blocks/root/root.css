@@ -1,0 +1,26 @@
+.root {
+  max-width: 1440px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content:  center;
+  /*
+  background-color: black;
+  min-height: 100vh;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  padding-bottom: 194px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url('../../images/georgia-de-lotz.png');
+ background-image: url("<%=require('../../images/georgia-de-lotz.png')%>");
+  */
+
+  background-image: url('../../images/georgia-de-lotz.png');
+  background-repeat: no-repeat;
+}
+@media screen and (max-width: 1024px) {
+  .root {
+    /*padding-bottom: 140px;*/
+  }
+}

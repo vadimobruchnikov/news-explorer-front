@@ -1,0 +1,9 @@
+.header__menu_black{
+  color: #1A1B22;
+}
+.header__menu_black:hover, .header__menu_black:active{
+  color: #1A1B22;
+}
+a.header__menu_black:hover, a.header__menu_black:active{
+  color: #1A1B22;
+}
