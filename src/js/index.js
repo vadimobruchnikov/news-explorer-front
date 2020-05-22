@@ -1,12 +1,25 @@
-
-console.log('js\index.js');
-
 import '../pages/index/index.css';
 import {apiBaseUrl} from '../js/api/api.js';
+import {getElement} from '../js/utils/utils';
+import {newsApi} from '../js/api/newsapi.js';
+import {NEWS_API_KEY} from '../js/config/main.js';
 
-function getElement(selector) {
-  return document.querySelector(selector);
-}
+const news = new newsApi(NEWS_API_KEY);
+news.getNews('вирус', '2020-05-20', '2020-05-23')
+.then(response => response.json())
+.then(result =>  {
+  return result.status == "ok" ? result.articles : false;
+})
+.then(newsArray => {
+  if (newsArray) {
+    console.log(newsArray);      
+  }
+})
+.catch((err) => {
+  console.log(err);
+})
+.finally(() => {
+});
 
 const menuPopupSuccess = getElement('#menuPopupSuccess');
 const menuPopupEnter = getElement('#menuPopupEnter');
