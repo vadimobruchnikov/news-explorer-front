@@ -1,5 +1,5 @@
 .history__text{
-  font-family: Roboto;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -13,7 +13,7 @@
     margin-top: 24px;
     margin-bottom: 72px;
     width: 815px; /*58%;*/
-    font-family: Roboto;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
