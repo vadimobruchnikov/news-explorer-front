@@ -1,9 +1,9 @@
 'use strict';
 
 
-export {newsApi}
+export {NewsApi}
     
-class newsApi {
+class NewsApi {
 
     constructor(newsApiKey) {
         
@@ -13,7 +13,7 @@ class newsApi {
 
     getNews(newsQuery, dateFrom, dateTo) {
 
-        const newsUrl = `https://praktikum.tk/news/v2/everything?q=${newsQuery}&from=${dateFrom}&to=${dateTo}&language=ru&pageSize=100&apiKey=${this.newsApiKey}`;
+        const newsUrl = `https://praktikum.tk/news/v2/everything?q=${newsQuery}&from=${dateFrom}&to=${dateTo}&language=ru&apiKey=${this.newsApiKey}`;
 
         return fetch(newsUrl, {
             method: 'GET',

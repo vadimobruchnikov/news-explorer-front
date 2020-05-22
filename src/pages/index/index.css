@@ -86,16 +86,6 @@
 @import url(../../blocks/error-message/error-message.css);
 @import url(../../blocks/error-message/error-message__under-button.css);
 
-body {
-  /* "Open Sans", "Arial", sans-serif;*/
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-  /*align-items: center;*/
-}
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-
+@import url(../../blocks/body/body.css);
+@import url(../../blocks/ul/ul.css);
+@import url(../../blocks/hidden/hidden.css);

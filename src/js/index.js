@@ -4,7 +4,9 @@ import {getElement} from '../js/utils/utils';
 import {newsApi} from '../js/api/newsapi.js';
 import {NEWS_API_KEY} from '../js/config/main.js';
 
-const news = new newsApi(NEWS_API_KEY);
+import {NewsCard} from '../js/components/newsCard';
+
+const news = new NewsApi(NEWS_API_KEY);
 news.getNews('вирус', '2020-05-20', '2020-05-23')
 .then(response => response.json())
 .then(result =>  {

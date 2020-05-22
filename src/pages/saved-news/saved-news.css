@@ -93,14 +93,6 @@
 @import url(../../blocks/error-message/error-message.css);
 @import url(../../blocks/error-message/error-message__under-button.css);
 
-body {
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
+@import url(../../blocks/body/body.css);
+@import url(../../blocks/ul/ul.css);
+@import url(../../blocks/hidden/hidden.css);
