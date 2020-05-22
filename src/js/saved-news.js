@@ -1,5 +1,5 @@
 
-import './saved-news.css';
+import '../pages/saved-news/saved-news.css';
 
 /*
 import {Api, apiBaseUrl, apiToken, myOwnerId} from "./scripts/api.js";

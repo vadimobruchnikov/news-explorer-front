@@ -1,5 +1,8 @@
 
-import './index.css';
+console.log('js\index.js');
+
+import '../pages/index/index.css';
+import {apiBaseUrl} from '../js/api/api.js';
 
 function getElement(selector) {
   return document.querySelector(selector);
