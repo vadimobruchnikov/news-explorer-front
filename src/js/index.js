@@ -1,27 +1,87 @@
 import '../pages/index/index.css';
 import {apiBaseUrl} from '../js/api/api.js';
-import {getElement} from '../js/utils/utils';
-import {newsApi} from '../js/api/newsapi.js';
-import {NEWS_API_KEY} from '../js/config/main.js';
+import {getElement, getRusFormatDate, getShortDate} from '../js/utils/utils';
+import {NewsApi} from '../js/api/newsapi.js';
+import {
+  NEWS_API_KEY,
+  NEWS_LAZY_LOAD,
+  NEWS_PERIOD,
+  URL_NOT_FOUND_IMAGE
+} from '../js/config/main.js';
 
 import {NewsCard} from '../js/components/newsCard';
+import {NewsCardList} from '../js/components/newsCardList';
+
+//document.addEventListener('DOMContentLoaded', () => {
+//  console.log('DOMContentLoaded')
+//});
+
+function delay(f, ms) {
+
+  return function() {
+    setTimeout(() => f.apply(this, arguments), ms);
+  };
+
+}
 
 const news = new NewsApi(NEWS_API_KEY);
-news.getNews('вирус', '2020-05-20', '2020-05-23')
-.then(response => response.json())
-.then(result =>  {
-  return result.status == "ok" ? result.articles : false;
-})
-.then(newsArray => {
-  if (newsArray) {
-    console.log(newsArray);      
-  }
-})
-.catch((err) => {
-  console.log(err);
-})
-.finally(() => {
+const newsCardList = new NewsCardList({
+  nameCardList:'.search-results__items',
+  nameLoader:'.news-preloader',
+  nameShowMore:'.show-more',
+  nameNotFound:'.news-not-found',
+  newsLazyLoad: NEWS_LAZY_LOAD,
+  notFoundImageUrl: URL_NOT_FOUND_IMAGE,
 });
+
+const showMoreButton = getElement('.show-more__button');
+showMoreButton.addEventListener('click', () => {
+  newsCardList.renderResults();
+});
+
+const searchButton = getElement('.search__field-button');
+searchButton.addEventListener('click', (event) => {
+
+  event.preventDefault();
+  event.stopPropagation();
+
+  newsCardList.showResults();
+  newsCardList.clearResults();
+  newsCardList.showPreloader();
+  newsCardList.hideAuthorSection();
+
+  const queryText = getElement('.search__field-input').value;
+  // валидация данных
+
+  let dateTo = new Date();
+  let dateFrom = new Date();
+  dateTo.setDate(dateTo.getDate());
+  dateFrom.setDate(dateTo.getDate() - NEWS_PERIOD);
+  //console.log(getShortDate(dateTo));
+  //console.log(getShortDate(dateFrom));
+
+  news.getNews({newsQuery: queryText, dateFrom: dateFrom, dateTo: dateTo})
+  .then(response => response.json())
+  .then(result =>  {
+    if (result.status == "ok") {
+      return  result.articles ? result.articles : false;
+    } else {
+      return Promise.reject(result.status)
+    }
+  })
+  .then(newsArray => {
+    newsCardList.saveResults(newsArray);
+    newsCardList.renderResults();
+  })
+  .catch((err) => {
+    console.log(err);
+  })
+  .finally(() => {
+    newsCardList.hidePreloader();
+  });
+  
+});
+
 
 const menuPopupSuccess = getElement('#menuPopupSuccess');
 const menuPopupEnter = getElement('#menuPopupEnter');
@@ -54,6 +114,10 @@ popupEnterClose.addEventListener('click', () => {
   popupEnter.style.display = 'none';
 });
 
+
+document.addEventListener('onerror', (event) => {
+  console.log('EE',event);
+});
 
 /*
 import {Api, apiBaseUrl, apiToken, myOwnerId} from "./scripts/api.js";

@@ -1,8 +1,25 @@
 export {getElement, resetError, handleValidate, activateError, validate, submitButtonStatus,
-    isValidForm, isValidLink}
+    isValidForm, isValidLink, getRusFormatDate, getShortDate}
     
 function getElement(selector) {
     return document.querySelector(selector);
+}
+
+function getRusFormatDate(dateStr) {
+  const monthNames = ["января", "февраля", "марта", "апреля", "мая", "июня",
+    "июля", "августа", "сентября", "октября", "ноября", "декабря"];
+  let dateObj = new Date(dateStr);
+  let month = monthNames[dateObj.getMonth()];
+  let day = String(dateObj.getDate()).padStart(2, '0');
+  let year = dateObj.getFullYear();
+  return day  + ' '+ month  + ', ' + year;
+}
+
+function getShortDate(dateTime) {
+  const year = new Intl.DateTimeFormat('ru', { year: 'numeric' }).format(dateTime);
+  const month = new Intl.DateTimeFormat('ru', { month: '2-digit' }).format(dateTime);
+  const day = new Intl.DateTimeFormat('ru', { day: '2-digit' }).format(dateTime);
+  return `${year}-${month}-${day}`;
 }
 
 function urlImageToSrc(url) {

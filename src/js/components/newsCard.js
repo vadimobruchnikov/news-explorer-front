@@ -1,49 +1,65 @@
+import { getRusFormatDate, getShortDate } from "../utils/utils";
+export { NewsCard }
+
 class NewsCard {
 
-    constructor(card) {
-        this.hiddenHint = card.hiddenHint;
-        this.imageLink = card.imageLink;
-        this.altText = card.altText;
-        this.newsDate = card.newsDate;
-        this.newsTitle = card.newsTitle;
-        this.newsText = card.newsText;
-        this.newsSource = card.newsSource;
-        this.cardHtml = this.create();
+    constructor(card, notFoundUrl) {
+        return this.create(card, notFoundUrl);
     }
 
     renderIcon() {
 
     }
-    create() {
+
+    sliceStr(str, len) {
+        return str.length < len -2 ? str : str.slice(0, len -2) + '...';
+    }
+
+    create(card, notFoundUrl) {
 
         //button__card-bookmark_active
         //button__card-bookmark_disable
 
-        return 
-            `<div class="card">
-                <div class="card__top-buttons button"> 
-                    <div class="button__card button__card-help button__card-help_hidden">
-                        <!-- скрытая подсказка-->
-                        ${this.hiddenHint}
-                    </div>
-                    <button class="button__card button__card-bookmark button__card-bookmark_disable">
-                    </button>
+        const cardTemplate = document.createElement('a');
+        cardTemplate.classList.add('card');
+        cardTemplate.href = card.url;
+        cardTemplate.target = "_blank";
+        let urlImage = card.urlToImage;
+        if( (!urlImage) || (urlImage==null) || (urlImage == undefined)) {
+            urlImage = notFoundUrl; 
+        }
+        const newsDate = getRusFormatDate(card.publishedAt);
+        cardTemplate.innerHTML =
+           `<div class="card__top-buttons button"> 
+                <div class="button__card button__card-help button__card-help_hidden">
+                    <!-- скрытая подсказка-->
+                    Скрытая подсказка
                 </div>
-                <img class="card__image" src="<%=require('${this.imageLink}')%>" alt="${this.altText}">
-                <div class="card__bottom">
-                    <div class="card__date">
-                        ${this.newsDate}
-                    </div>
-                    <h3 class="card__title">
-                        ${this.newsTitle}
-                    </h3>
-                    <p class="card__text">
-                        ${this.newsText}
-                    </p>
-                    <div class="card__source">
-                        ${this.newsSource}
-                    </div>
+                <button class="button__card button__card-bookmark button__card-bookmark_disable">
+                </button>
+            </div>
+            <img class="card__image" src="${urlImage}" alt="AltText">
+            <div class="card__bottom">
+                <div class="card__date">
+                    ${newsDate}
+                </div>
+                <h3 class="card__title">
+                    ${card.title}
+                </h3>
+                <p class="card__text">
+                    ${card.description}
+                </p>
+                <div class="card__source">
+                    ${card.source.name}
                 </div>
             </div>`;
+        //let cardImage = cardTemplate.querySelector('.card__image');
+        //cardImage.urlNotFoundImage = urlImage;
+        //cardImage.onerror = (event, urlImage) => {
+            //console.dir(event.target);
+            //event.target.src = event.target.urlNotFoundImage;
+            //console.log(event.target.urlNotFoundImage);
+        //};
+        return cardTemplate;
     }
 }

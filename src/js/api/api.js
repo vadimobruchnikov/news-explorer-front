@@ -2,12 +2,6 @@
 
 //import {CardList} from "../old/cardlist";
 import {getElement} from "../utils/utils";
-import {newsApi} from "../api/newsapi";
-
-console.log('api.js loaded!');
-
-let newsAPI = new newsApi('Тестовый');
-
 export const apiBaseUrl = NODE_ENV === 'development' ? 'http://praktikum.tk/cohort2' : 'https://praktikum.tk/cohort2';
 export const apiToken = 'f173d5ee-a929-4233-8a20-1219b8aad262';
 // Получить из кук если есть

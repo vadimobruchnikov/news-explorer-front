@@ -34,13 +34,13 @@
         Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.
       </div>
 
-      <form class="search__field">
-        <input class="search__field-input" type="search" placeholder="Введите то, что вас интересует">
+      <form class="search__field" action="">
+        <input class="search__field-input" type="search" placeholder="Введите то, что вас интересует" value="песочница">
         <button class="search__field-button">Найти</button>
       </form>
     </section>
 
-    <section class="search-results">
+    <section class="search-results hidden">
 
       <div class="search-results__title">
         Результаты поиска
@@ -56,19 +56,19 @@
 
       </div>
 
-      <div class="show-more">
+      <div class="show-more hidden">
         <button class="show-more__button">Показать еще</button>
       </div>
 
-      <div class="search-results__searching-news">
-        <div class="search-results__preloader"></div>
-        <div class="search-results__searching-news search-results__searching-news_text">Идет поиск новостей...</div>
+      <div class="news-preloader hidden">
+        <div class="news-preloader__animation"></div>
+        <div class="news-preloader__text">Идет поиск новостей...</div>
       </div>
 
-      <div class="search-results__searching-news">
-        <div class="search-results__no-found"></div>
-        <div class="search-results__searching-news search-results__searching-news_title">Ничего не найдено</div>
-        <div class="search-results__searching-news search-results__searching-news_text">К сожалению, по вашему запросу ничего не найдено.</div>
+      <div class="news-not-found hidden">
+        <div class="news-not-found__wraper"></div>
+        <div class="news-not-found__title">Ничего не найдено</div>
+        <div class="news-not-found__text">К сожалению, по вашему запросу ничего не найдено.</div>
       </div>
 
     </section>
@@ -145,6 +145,8 @@
     </div>
 
   </section>
+
+  <img class="hidden" src="<%=require('../../images/404/not-found.jpg')%>">
 
   <script src="<%=htmlWebpackPlugin.files.chunks.index.entry%>"></script>
 

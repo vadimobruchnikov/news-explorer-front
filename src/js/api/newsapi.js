@@ -1,6 +1,5 @@
 'use strict';
 
-
 export {NewsApi}
     
 class NewsApi {
@@ -11,9 +10,9 @@ class NewsApi {
         
     }
 
-    getNews(newsQuery, dateFrom, dateTo) {
+    getNews(options) {
 
-        const newsUrl = `https://praktikum.tk/news/v2/everything?q=${newsQuery}&from=${dateFrom}&to=${dateTo}&language=ru&apiKey=${this.newsApiKey}`;
+        const newsUrl = `https://praktikum.tk/news/v2/everything?q=${options.newsQuery}&from=${options.dateFrom}&to=${options.dateTo}&language=ru&pageSize=100&apiKey=${this.newsApiKey}`;
 
         return fetch(newsUrl, {
             method: 'GET',

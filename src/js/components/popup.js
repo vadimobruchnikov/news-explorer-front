@@ -3,6 +3,12 @@ export {Popup};
 
 class Popup {
 
+    //Popup
+    //setContent
+    //clearContent
+    //open
+    //close
+
     constructor( {form, mainContainer, openControl, openFunction, saveFunction, 
                   closeControl, submitControl, inputs, cardsContainer} ) {
        

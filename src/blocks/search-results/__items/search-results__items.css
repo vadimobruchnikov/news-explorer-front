@@ -3,6 +3,7 @@
     padding-left: 104px;
     padding-right: 104px;
     margin-bottom: 64px; /*46px;*/
+    max-width: 1440px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
