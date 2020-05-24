@@ -1,13 +1,14 @@
 import '../pages/index/index.css';
-import {apiBaseUrl} from '../js/api/api.js';
-import {getElement, getRusFormatDate, getShortDate} from '../js/utils/utils';
-import {NewsApi} from '../js/api/newsapi.js';
 import {
   NEWS_API_KEY,
   NEWS_LAZY_LOAD,
   NEWS_PERIOD,
   URL_NOT_FOUND_IMAGE
 } from '../js/config/main.js';
+import {apiBaseUrl} from '../js/api/api.js';
+import {getElement, getRusFormatDate, getShortDate} from '../js/utils/utils';
+import {getCookie, setCookie, deleteCookie} from '../js/utils/cookies';
+import {NewsApi} from '../js/api/newsapi.js';
 
 import {NewsCard} from '../js/components/newsCard';
 import {NewsCardList} from '../js/components/newsCardList';
@@ -15,14 +16,6 @@ import {NewsCardList} from '../js/components/newsCardList';
 //document.addEventListener('DOMContentLoaded', () => {
 //  console.log('DOMContentLoaded')
 //});
-
-function delay(f, ms) {
-
-  return function() {
-    setTimeout(() => f.apply(this, arguments), ms);
-  };
-
-}
 
 const news = new NewsApi(NEWS_API_KEY);
 const newsCardList = new NewsCardList({
@@ -57,10 +50,8 @@ searchButton.addEventListener('click', (event) => {
   let dateFrom = new Date();
   dateTo.setDate(dateTo.getDate());
   dateFrom.setDate(dateTo.getDate() - NEWS_PERIOD);
-  //console.log(getShortDate(dateTo));
-  //console.log(getShortDate(dateFrom));
 
-  news.getNews({newsQuery: queryText, dateFrom: dateFrom, dateTo: dateTo})
+  news.getNews({newsQuery: queryText, dateFrom: getShortDate(dateFrom), dateTo: getShortDate(dateTo)})
   .then(response => response.json())
   .then(result =>  {
     if (result.status == "ok") {

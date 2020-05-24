@@ -39,7 +39,6 @@ class NewsCardList {
         this._newsArray = results;
         this._newsShowed = 0;
         this._newsCount = this._newsArray.length;
-        //console.log(this._newsCount);
     }
 
     clearResults() {
