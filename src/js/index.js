@@ -6,17 +6,18 @@ import {
   URL_NOT_FOUND_IMAGE
 } from '../js/config/main.js';
 import {apiBaseUrl} from '../js/api/api.js';
-import {getElement, getRusFormatDate, getShortDate} from '../js/utils/utils';
-import {getCookie, setCookie, deleteCookie} from '../js/utils/cookies';
-import {NewsApi} from '../js/api/newsapi.js';
+import { getElement, getRusFormatDate, getShortDate } from '../js/utils/utils';
+import { getCookie, setCookie, deleteCookie } from '../js/utils/cookies';
+import { NewsApi } from '../js/api/newsapi.js';
 
-import {NewsCard} from '../js/components/newsCard';
-import {NewsCardList} from '../js/components/newsCardList';
+import { NewsCard } from '../js/components/newsCard';
+import { NewsCardList } from '../js/components/newsCardList';
+import { Header } from '../js/components/header';
 
 //document.addEventListener('DOMContentLoaded', () => {
 //  console.log('DOMContentLoaded')
 //});
-
+const header = new Header(getElement('.header__nav'));
 const news = new NewsApi(NEWS_API_KEY);
 const newsCardList = new NewsCardList({
   nameCardList:'.search-results__items',

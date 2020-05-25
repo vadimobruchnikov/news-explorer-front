@@ -1,3 +1,6 @@
+
+import { getCookie, setCookie, deleteCookie } from "../config/main";
+
 class MainAPI {
     constructor() {
 
