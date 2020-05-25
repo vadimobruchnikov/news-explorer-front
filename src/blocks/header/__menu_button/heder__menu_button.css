@@ -5,6 +5,7 @@
   box-sizing: border-box;
   padding: 12px 19px 12px 19px;
   display: flex;
+  cursor: pointer;
 }
 .header__menu_button a{
   color: #B6BCBF;

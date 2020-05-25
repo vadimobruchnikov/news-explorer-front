@@ -18,7 +18,6 @@
         NewsExplorer
       </a>
       <nav class="header__nav">
-        <a class="header__menu" id= "menuPopupSuccess" href="#">1</a>
         <a class="header__menu header__menu_active" href="./index.html">Главная</a>
         <a class="header__menu" href="./saved-news.html">Сохраненные статьи</a>
         
@@ -125,7 +124,7 @@
       </div>
     </div>
 
-    <!-- Модальное окно "Авторизация" (signin) -->
+    <!-- Модальное окно "Авторизация" (SIGNIN) -->
     <div class="popup hidden" id="popupEnter">
       <div class="popup__content">
         <img id="popupEnterClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
@@ -134,11 +133,11 @@
         <form id="form__add-card" class="popup__form" name="new">
           <span class="popup__input popup__input_title">Email</span>
           <input id="add-card_name" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Название" autocomplete="off" value="abcde">
-          <span id="error_add-card_name" class="error-message">Ошибка #1</span>
+          <span id="error_add-card_name hidden" class="error-message">Ошибка #1</span>
           <span class="popup__input popup__input_title">Пароль</span>
           <input id="add-card_link" type="text" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off">
-          <span id="error_add-card_link" class="error-message">Ошибка #2</span>
-          <span class="error-message error-message__under-button">Такой пользователь уже есть</span>
+          <span id="error_add-card_link" class="error-message  hidden">Ошибка #2</span>
+          <span class="error-message error-message__under-button  hidden">Такой пользователь уже есть</span>
           <button class="button popup__button popup__button_edit button_submit">Войти</button>
         </form>
         <div class="popup__help">
@@ -148,32 +147,32 @@
       </div>
     </div>
 
-    <!-- Модальное окно "Регистрация" (signup) -->
-    <div class="popup hidden" id="popupEnter">
+    <!-- Модальное окно "Регистрация" (SIGNUP) -->
+    <div class="popup hidden" id="popupSignup">
       <div class="popup__content">
-        <img id="popupEnterClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
+        <img id="buttonSignupClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
 
         <h3 class="popup__title">Регистрация</h3>
-        <form id="form__add-card" class="popup__form" name="new">
+        <form id="form__add-card" class="popup__form" name="new" action="#">
 
           <span class="popup__input popup__input_title">Email</span>
-          <input id="add-card_name" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Название" autocomplete="off" value="abcde">
-          <span id="error_add-card_name" class="error-message">Ошибка #1</span>
-
-          <span class="popup__input popup__input_title">Пароль</span>
-          <input id="add-card_link" type="text" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off">
-          <span id="error_add-card_link" class="error-message">Ошибка #2</span>
+          <input id="popupSignupEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="user22@mail.ru">
+          <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
 
           <span class="popup__input popup__input_title">Имя пользователя</span>
-          <input id="add-card_name" type="text" name="username" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Имя пользователя" autocomplete="off" value="abcde">
-          <span id="error_add-card_name" class="error-message">Ошибка #3</span>
+          <input id="popupSignupUserName" type="text" name="username" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Имя пользователя" autocomplete="off" value="User22">
+          <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #2 -->
 
-          <span class="error-message error-message__under-button">Такой пользователь уже есть</span>
-          <button class="button popup__button popup__button_edit button_submit">Войти</button>
+          <span class="popup__input popup__input_title">Пароль</span>
+          <input id="popupSignupPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value='123456'>
+          <span id="error_add-card_link" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
+
+          <span class="error-message error-message__under-button hidden" id="popupSignupErrorMessage"></span><!-- Ошибка #API -->
+          <button class="button popup__button popup__button_edit button_submit popup__button_active" id="buttonSignupSubmit">Зарегистрироваться</button>
         </form>
         <div class="popup__help">
           или
-          <a class="popup__help popup__help_link" href="#">Войти</a>
+          <a class="popup__help popup__help_link" id="buttonSignupRedirect" href="#">Войти</a>
         </div>
       </div>
     </div>

@@ -83,6 +83,7 @@
 @import url(../../blocks/popup/__button/popup__button.css);
 @import url(../../blocks/popup/__button/popup__button_edit.css);
 @import url(../../blocks/popup/__button/popup__button_validate.css);
+@import url(../../blocks/popup/__button/popup__button_validate.css);
 
 @import url(../../blocks/popup/__help/popup__help.css);
 @import url(../../blocks/popup/__help/popup__help_link.css);

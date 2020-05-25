@@ -5,20 +5,26 @@ import {
   NEWS_PERIOD,
   URL_NOT_FOUND_IMAGE
 } from '../js/config/main.js';
-import {apiBaseUrl} from '../js/api/api.js';
+import { apiBaseUrl } from '../js/api/api.js';
 import { getElement, getRusFormatDate, getShortDate } from '../js/utils/utils';
 import { getCookie, setCookie, deleteCookie } from '../js/utils/cookies';
-import { NewsApi } from '../js/api/newsapi.js';
 
+import { NewsApi } from '../js/api/newsapi.js';
+import { MainApi } from '../js/api/mainapi';
+import { Header } from '../js/components/header';
 import { NewsCard } from '../js/components/newsCard';
 import { NewsCardList } from '../js/components/newsCardList';
-import { Header } from '../js/components/header';
+import { BaseComponent } from '../js/components/basecomponent';
+
 
 //document.addEventListener('DOMContentLoaded', () => {
 //  console.log('DOMContentLoaded')
 //});
+
 const header = new Header(getElement('.header__nav'));
+
 const news = new NewsApi(NEWS_API_KEY);
+
 const newsCardList = new NewsCardList({
   nameCardList:'.search-results__items',
   nameLoader:'.news-preloader',
@@ -45,7 +51,6 @@ searchButton.addEventListener('click', (event) => {
   newsCardList.hideAuthorSection();
 
   const queryText = getElement('.search__field-input').value;
-  // валидация данных
 
   let dateTo = new Date();
   let dateFrom = new Date();
@@ -74,36 +79,49 @@ searchButton.addEventListener('click', (event) => {
   
 });
 
+const mainApi = new MainApi();
 
-const menuPopupSuccess = getElement('#menuPopupSuccess');
-const menuPopupEnter = getElement('#menuPopupEnter');
-const popupSuccess = getElement('#popupSuccess');
-const popupEnter = getElement('#popupEnter');
-const popupSuccessClose = getElement('#popupSuccessClose');
-const popupEnterClose = getElement('#popupEnterClose');
+const signupSubmitAction = function() {
+  
+  const signupOptions = { 
+    'name': getElement('#popupSignupUserName').value,
+    'email': getElement('#popupSignupEmail').value,
+    'password': getElement('#popupSignupPass').value
+  };
+  console.log(signupOptions);
+  mainApi.signup(signupOptions)
+    .then(response => response.json())
+    .then(result =>  {
+      console.log(result);
+      console.log(result.message);
+      if (result.message)
+        this.showErrors(result.message);
+    })
+    .catch((err) => {
+      console.log(err);
+    })
+    .finally(() => {
+    });
+  
+  // если все ОК закрываем!
+  //this.popupClose(this);
+  return true;
+}
 
-menuPopupSuccess.addEventListener('click', () => {
-  if ((popupSuccess.style.display != 'none')&&(popupSuccess.style.display !== '')) {
-    popupSuccess.style.display = 'none';
-  } else {
-    popupSuccess.style.display = 'flex';
-  }
-});
+const signupRedirect = function() {
+  console.log('signupRedirect');
+}
 
-menuPopupEnter.addEventListener('click', () => {
-  if ((popupEnter.style.display != 'none')&&(popupEnter.style.display !== '')) {
-    popupEnter.style.display = 'none';
-  } else {
-    popupEnter.style.display = 'flex';
-  }
-});
-
-popupSuccessClose.addEventListener('click', () => {
-  popupSuccess.style.display = 'none';
-});
-
-popupEnterClose.addEventListener('click', () => {
-  popupEnter.style.display = 'none';
+const signup = new BaseComponent({
+  popupElement: getElement('#popupSignup'), 
+  menuOpen: getElement('#menuSignup'), 
+  buttonClose: getElement('#buttonSignupClose'), 
+  overlayClose: null, 
+  buttonSubmit: getElement('#buttonSignupSubmit'), 
+  submitAction: signupSubmitAction,
+  errorElement: getElement('#popupSignupErrorMessage'),
+  redirectElement: getElement('#buttonSignupRedirect'), 
+  redirectAction: signupRedirect
 });
 
 

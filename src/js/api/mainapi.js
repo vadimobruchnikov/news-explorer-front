@@ -1,13 +1,26 @@
-
 import { getCookie, setCookie, deleteCookie } from "../config/main";
 
-class MainAPI {
+export { MainApi }
+
+class MainApi {
+
     constructor() {
 
     }
 
-    signup() {
-        // регистрирует нового пользователя;
+    // регистрирует нового пользователя;
+    signup(bodyObj) {
+        
+        console.dir(bodyObj);
+        return fetch(`http://localhost:3000/signup`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+                //'Access-Control-Allow-Origin': 'http://localhost:8080'
+            },
+            body: JSON.stringify(bodyObj)
+        });
     }
     
     signin() {
