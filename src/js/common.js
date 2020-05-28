@@ -24,6 +24,7 @@ const header = new Header({
     menuAutorized: getElement('#menuAutorized'),
     menuUserProfile: getElement('#menuUserProfile'),
     menuLogout: getElement('#menuLogout'),
+    menuSavedNews: getElement('#menuSavedNews'),
 });
 
 header.render();

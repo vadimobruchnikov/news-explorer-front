@@ -4,7 +4,7 @@ import { getElement } from '../utils/utils';
 export { Header }
 
 class Header {
-  constructor({ menuSignin, menuAutorized, menuUserProfile, menuLogout }) {
+  constructor({ menuSignin, menuAutorized, menuUserProfile, menuLogout, menuSavedNews }) {
     // tests
     // setCookie('user.name', 'Практикум');
     
@@ -16,6 +16,7 @@ class Header {
     this._menuAutorized = menuAutorized || null;
     this.menuUserProfile = menuUserProfile || null;
     this.menuLogout = menuLogout || null;
+    this.menuSavedNews = menuSavedNews || null;
     this.render();
   }
 
@@ -27,9 +28,13 @@ class Header {
       this.menuUserProfile.textContent = this.userName;
       this._menuAutorized.classList.remove('hidden');
       this._menuSignin.classList.add('hidden');
+      if(this.menuSavedNews)
+        this.menuSavedNews.classList.remove('hidden');
     } else {
       this._menuSignin.classList.remove('hidden');
       this._menuAutorized.classList.add('hidden');
+      if(this.menuSavedNews)
+        this.menuSavedNews.classList.add('hidden');
     }
   }
 
