@@ -56,6 +56,14 @@ class MainApi {
     
     getUserData() {
         // возвращает информацию о пользователе;
+        return fetch(this.baseUrl + `/users/me`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getCookie('jwt'),
+            },
+        });
     }
     
     getArticles() {
@@ -71,6 +79,7 @@ class MainApi {
     }
     
     saveArticle(article) {
+        // сохраняет статью
         return fetch(this.baseUrl + `/articles`, {
             method: 'POST',
             headers: {
