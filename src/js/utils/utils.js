@@ -1,5 +1,5 @@
 export {getElement, resetError, handleValidate, activateError, validate, submitButtonStatus,
-    isValidForm, isValidLink, getRusFormatDate, getShortDate}
+    isValidForm, isValidLink, getRusFormatDate, getShortDate, getNewsDate}
     
 function getElement(selector) {
     return document.querySelector(selector);
@@ -13,6 +13,11 @@ function getRusFormatDate(dateStr) {
   let day = String(dateObj.getDate()).padStart(2, '0');
   let year = dateObj.getFullYear();
   return day + ' ' + month + ', ' + year;
+}
+
+function getNewsDate(newsDate, incDays){
+  newsDate.setDate(newsDate.getDate() + incDays);
+  return getShortDate(newsDate);
 }
 
 function getShortDate(dateTime) {

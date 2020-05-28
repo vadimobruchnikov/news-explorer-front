@@ -19,6 +19,7 @@
         NewsExplorer
       </a>
       <nav class="header__nav header__nav_black">
+        <a class="header__menu header__menu_active" id="test1" href="#">1</a>
         <a class="header__menu header__menu_black" href="./index.html">Главная</a>
         <a class="header__menu header__menu_active-black header__menu_black" href="./saved-news.html">Сохраненные статьи</a>
         
@@ -69,19 +70,19 @@
         
       </div>
 
-      <div class="show-more">
+      <div class="show-more hidden">
         <button class="show-more__button">Показать еще</button>
       </div>
 
-      <div class="search-results__searching-news">
-        <div class="search-results__preloader"></div>
-        <div class="search-results__searching-news search-results__searching-news_text">Идет поиск новостей...</div>
+      <div class="news-preloader hidden">
+        <div class="news-preloader__animation"></div>
+        <div class="news-preloader__text">Идет поиск новостей...</div>
       </div>
 
-      <div class="search-results__searching-news">
-        <div class="search-results__no-found"></div>
-        <div class="search-results__searching-news search-results__searching-news_title">Ничего не найдено</div>
-        <div class="search-results__searching-news search-results__searching-news_text">К сожалению, по вашему запросу ничего не найдено.</div>
+      <div class="news-not-found hidden">
+        <div class="news-not-found__wraper"></div>
+        <div class="news-not-found__title">Ничего не найдено</div>
+        <div class="news-not-found__text">К сожалению, по вашему запросу ничего не найдено.</div>
       </div>
 
     </section>
@@ -109,9 +110,84 @@
       </nav>
     </section>
 
+    <!-- Модальное окно "Регистрация" (SIGNUP) -->
+    <div class="popup hidden" id="popupSignup">
+      <div class="popup__content">
+        <img id="buttonSignupClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
+
+        <h3 class="popup__title">Регистрация</h3>
+        <form id="form__add-card" class="popup__form" name="new" action="#">
+
+          <span class="popup__input popup__input_title">Email</span>
+          <input id="popupSignupEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="user222@mail.ru">
+          <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
+
+          <span class="popup__input popup__input_title">Имя пользователя</span>
+          <input id="popupSignupUserName" type="text" name="username" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Имя пользователя" autocomplete="off" value="User222">
+          <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #2 -->
+
+          <span class="popup__input popup__input_title">Пароль</span>
+          <input id="popupSignupPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value='12345678wA'>
+          <span id="error_add-card_link" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
+
+          <span class="error-message error-message__under-button hidden" id="popupSignupErrorMessage"></span><!-- Ошибка #API -->
+          <button class="button popup__button popup__button_edit button_submit popup__button_active" id="buttonSignupSubmit">Зарегистрироваться</button>
+        </form>
+        <div class="popup__help">
+          или
+          <a class="popup__help popup__help_link" id="buttonSignupRedirect" href="#">Войти</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Модальное окно "Авторизации" (SIGNIN) -->
+    <div class="popup hidden" id="popupSignin">
+      <div class="popup__content">
+        <img id="buttonSigninClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
+
+        <h3 class="popup__title">Авторизизация</h3>
+
+        <form id="form__add-card" class="popup__form" name="new" action="#">
+          <span class="popup__input popup__input_title">Email</span>
+          <input id="popupSigninEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="user222@mail.ru">
+          <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
+          <span class="popup__input popup__input_title">Пароль</span>
+          <input id="popupSigninPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value='12345678wA'>
+          <span id="error_add-card_link" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
+          <span class="error-message error-message__under-button hidden" id="popupSigninErrorMessage"></span><!-- Ошибка #API -->
+          <button class="button popup__button popup__button_edit button_submit popup__button_active" id="buttonSigninSubmit">Войти</button>
+        </form>
+
+        <div class="popup__help">
+          или
+          <a class="popup__help popup__help_link" id="buttonSigninRedirect" href="#">Зарегистрироваться</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно "successInfo" -->
+    <div class="popup hidden" id="popupSuccessInfo">
+      <div class="popup__content">
+        <img id="popupSuccessClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
+        <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+        <a class="popup__info-message" id="popupSuccessRedirect" href="#">Выполнить вход</a>
+        <!--div class="popup__help popup__help_link" id="buttonSignRedirect" href="#">Зарегистрироваться</div-->
+      </div>
+    </div>
+    
+    <!-- Модальное окно "successExit" -->
+    <div class="popup hidden" id="popupSuccessExit">
+      <div class="popup__content">
+        <img id="popupSuccessExitClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
+        <h3 class="popup__title">Вы успешно вышли!</h3>
+      </div>
+    </div>
+    
   </section>
 
-    <script src="<%=htmlWebpackPlugin.files.chunks.savednews.entry%>"></script>
+  <img class="hidden" src="<%=require('../../images/404/not-found.jpg')%>">
+
+  <script src="<%=htmlWebpackPlugin.files.chunks.savednews.entry%>"></script>
 
 </body>
 </html>

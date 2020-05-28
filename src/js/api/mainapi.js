@@ -1,4 +1,4 @@
-import { getCookie, setCookie, deleteCookie } from "../config/main";
+import { getCookie, setCookie, deleteCookie } from "../utils/cookies";
 
 export { MainApi }
 
@@ -60,14 +60,38 @@ class MainApi {
     
     getArticles() {
         // забирает все статьи;
+        return fetch(this.baseUrl + `/articles`, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getCookie('jwt'),
+            },
+        });
     }
     
-    saveArticle() {
-        // создаёт статью;
+    saveArticle(article) {
+        return fetch(this.baseUrl + `/articles`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getCookie('jwt'),
+            },
+            body: JSON.stringify(article)
+        });
     }
     
-    removeArticle() {
+    removeArticle(id) {
         // удаляет статью.
+        return fetch(this.baseUrl + `/articles/`+id, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getCookie('jwt'),
+            },
+        });
     }
     
 }

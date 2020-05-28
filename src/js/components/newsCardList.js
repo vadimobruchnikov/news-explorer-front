@@ -37,6 +37,7 @@ class NewsCardList {
 
     saveResults(results){
         this._newsArray = results;
+        console.dir(this._newsArray);
         this._newsShowed = 0;
         this._newsCount = this._newsArray.length;
     }

@@ -9,8 +9,14 @@ function getCookie(name) {
 
 function setCookie(name, value, options = {}) {
 
+    // let date = new Date();
+    // date.setTime(date.getTime() + 60 * 60 * 1000);
+    // date.toGMTString()
+    let expires = new Date(Date.now() + 604800e3);
     options = {
         path: '/',
+        expires: expires 
+        
         // при необходимости добавьте другие значения по умолчанию
     };
 

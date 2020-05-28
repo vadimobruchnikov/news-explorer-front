@@ -5,13 +5,13 @@ import {
   NEWS_PERIOD,
 } from '../js/config/main.js';
 
-import { getElement, getRusFormatDate, getShortDate } from '../js/utils/utils';
+import { getElement, getRusFormatDate, getNewsDate } from '../js/utils/utils';
 // import { getCookie, setCookie, deleteCookie } from '../js/utils/cookies';
 import { NewsApi } from '../js/api/newsapi.js';
 import { 
   // header, 
   newsCardList, 
-  // mainApi, 
+  mainApi, 
   // popupSuccessInfo, 
   // popupSuccessExit, 
   // signup, 
@@ -45,12 +45,8 @@ searchButton.addEventListener('click', (event) => {
 
   const queryText = getElement('.search__field-input').value;
 
-  let dateTo = new Date();
-  let dateFrom = new Date();
-  dateTo.setDate(dateTo.getDate());
-  dateFrom.setDate(dateTo.getDate() - NEWS_PERIOD);
-
-  news.getNews({newsQuery: queryText, dateFrom: getShortDate(dateFrom), dateTo: getShortDate(dateTo)})
+  //news.getNews({newsQuery: queryText, dateFrom: getShortDate(dateFrom), dateTo: getShortDate(dateTo)})
+  news.getNews({newsQuery: queryText, dateFrom: getNewsDate(new Date(), 0), dateTo: getNewsDate(new Date(), - NEWS_PERIOD)})
   .then(response => response.json())
   .then(result =>  {
     if (result.status == "ok") {
@@ -72,4 +68,5 @@ searchButton.addEventListener('click', (event) => {
   
 });
 // TODO@ CardListRefactor <- end
+
 

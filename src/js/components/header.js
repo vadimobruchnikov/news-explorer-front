@@ -9,8 +9,8 @@ class Header {
     // setCookie('user.name', 'Практикум');
     
     // отладка
-    deleteCookie('user.name');
-    deleteCookie('jwt');
+    // deleteCookie('user.name');
+    // deleteCookie('jwt');
     
     this._menuSignin = menuSignin || null;
     this._menuAutorized = menuAutorized || null;

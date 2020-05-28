@@ -10,6 +10,7 @@ import {
 // import { apiBaseUrl } from '../js/api/api.js';
   
 import { getElement, getRusFormatDate, getShortDate } from '../js/utils/utils';
+import { getCookie, setCookie, deleteCookie } from "../js/utils/cookies";
 import { BaseComponent } from '../js/components/basecomponent';
 import { Header } from '../js/components/header';
 import { NewsCardList } from '../js/components/newsCardList';
@@ -24,6 +25,8 @@ const header = new Header({
     menuUserProfile: getElement('#menuUserProfile'),
     menuLogout: getElement('#menuLogout'),
 });
+
+header.render();
 
 const newsCardList = new NewsCardList({
     nameCardList:'.search-results__items',
