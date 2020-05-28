@@ -3,7 +3,9 @@ import {
   NEWS_API_KEY,
   NEWS_LAZY_LOAD,
   NEWS_PERIOD,
-  URL_NOT_FOUND_IMAGE
+  URL_NOT_FOUND_IMAGE,
+  MAIN_API_BASE_URL,
+  MAIN_API_BASE_URL_DEV
 } from '../js/config/main.js';
 import { apiBaseUrl } from '../js/api/api.js';
 import { getElement, getRusFormatDate, getShortDate } from '../js/utils/utils';
@@ -16,12 +18,16 @@ import { NewsCard } from '../js/components/newsCard';
 import { NewsCardList } from '../js/components/newsCardList';
 import { BaseComponent } from '../js/components/basecomponent';
 
-
 //document.addEventListener('DOMContentLoaded', () => {
 //  console.log('DOMContentLoaded')
 //});
 
-const header = new Header(getElement('.header__nav'));
+const header = new Header({
+  menuSignin : getElement('#menuSignin'),
+  menuAutorized: getElement('#menuAutorized'),
+  menuUserProfile: getElement('#menuUserProfile'),
+  menuLogout: getElement('#menuLogout'),
+});
 
 const news = new NewsApi(NEWS_API_KEY);
 
@@ -34,6 +40,8 @@ const newsCardList = new NewsCardList({
   notFoundImageUrl: URL_NOT_FOUND_IMAGE,
 });
 
+// Вынести функции в CardList класс
+// TODO@ CardListRefactor -> start
 const showMoreButton = getElement('.show-more__button');
 showMoreButton.addEventListener('click', () => {
   newsCardList.renderResults();
@@ -78,141 +86,150 @@ searchButton.addEventListener('click', (event) => {
   });
   
 });
+// TODO@ CardListRefactor <- end
 
-const mainApi = new MainApi();
+// Проверить если не dev, то поставить MAIN_API_BASE_URL
+const mainApi = new MainApi({ baseUrl: MAIN_API_BASE_URL_DEV });
 
-const signupSubmitAction = function() {
-  
-  const signupOptions = { 
-    'name': getElement('#popupSignupUserName').value,
-    'email': getElement('#popupSignupEmail').value,
-    'password': getElement('#popupSignupPass').value
-  };
-  console.log(signupOptions);
-  mainApi.signup(signupOptions)
-    .then(response => response.json())
-    .then(result =>  {
-      console.log(result);
-      console.log(result.message);
-      if (result.message)
-        this.showErrors(result.message);
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-    .finally(() => {
-    });
-  
-  // если все ОК закрываем!
-  //this.popupClose(this);
-  return true;
-}
-
-const signupRedirect = function() {
-  console.log('signupRedirect');
-}
-
-const signup = new BaseComponent({
-  popupElement: getElement('#popupSignup'), 
-  menuOpen: getElement('#menuSignup'), 
-  buttonClose: getElement('#buttonSignupClose'), 
-  overlayClose: null, 
-  buttonSubmit: getElement('#buttonSignupSubmit'), 
-  submitAction: signupSubmitAction,
-  errorElement: getElement('#popupSignupErrorMessage'),
-  redirectElement: getElement('#buttonSignupRedirect'), 
-  redirectAction: signupRedirect
-});
-
-
-document.addEventListener('onerror', (event) => {
-  console.log('EE',event);
-});
-
-/*
-import {Api, apiBaseUrl, apiToken, myOwnerId} from "./scripts/api.js";
-import {getElement, resetError, handleValidate, activateError, validate, submitButtonStatus,
-    isValidForm, isValidLink} from "./scripts/utils.js";
-import {Popup} from "./scripts/popup.js";
-import {Card} from "./scripts/card.js";
-import {CardList} from "./scripts/cardlist.js";
-import {UrerProfile} from "./scripts/user-profile.js";
-import {imgPreview} from "./scripts/image-preview.js";
-
-const api = new Api({
-  baseUrl: apiBaseUrl,
-  headers: {
-    authorization: apiToken,
-    'Content-Type': 'application/json'
+// Пользователь успешно зарегистрирован
+const popupSuccessInfo = new BaseComponent({
+  menuOpen: getElement('#popupSuccessInfo'),  
+  popupElement: getElement('#popupSuccessInfo'), 
+  buttonClose: getElement('#popupSuccessClose'), 
+  buttonSubmit: null,
+  errorElement: null,
+  redirectElement: getElement('#popupSuccessRedirect'), 
+  redirectAction: function() {
+    this.popupClose();
+    signin.popupOpen();
   }
 });
 
-const userPopup = new Popup({
-  form: document.forms.edit,
-  mainContainer: getElement('#edit-profile'),
-  openControl: getElement('.user-info__button_edit'),
-  openFunction: function() {
-    getElement('#edit-profile_name').value = getElement('.user-info__name').textContent;
-    getElement('#edit-profile_job').value = getElement('.user-info__job').textContent;
-    //TODO 8#: вынести в класс очистку ошибок
-    getElement('#error_edit-profile_name').textContent = '';
-    getElement('#error_edit-profile_job').textContent = '';
-  },
-  saveFunction: function(event) {
-    if (isValidForm(this.form)) {
-      const name = getElement('#edit-profile_name').value;
-      const job = getElement('#edit-profile_job').value;
-      getElement('.user-info__name').textContent = name;
-      getElement('.user-info__job').textContent = job;
-      api.setUserInfo(userProfile, name, job, this);
-    }
-  },
-  closeControl: getElement('.popup__close_profile'),
-  submitControl: document.forms.edit.querySelector('.button_submit'),
-  inputs: [getElement('#edit-profile_name'), getElement('#edit-profile_job')]
+// Вы успешно вышли
+const popupSuccessExit = new BaseComponent({
+  menuOpen: null,  
+  popupElement: getElement('#popupSuccessExit'), 
+  buttonClose: getElement('#popupSuccessExitClose'), 
+  buttonSubmit: null,
+  submitAction: null,
+  errorElement: null,
+  redirectElement: null
 });
 
-const userProfile = new UrerProfile(api, apiBaseUrl, apiToken, userPopup);
-
-const cardPopup = new Popup({
-  form: document.forms.new,
-  mainContainer: getElement('#add-card'),
-  openControl: getElement('.user-info__button'),
-  openFunction: () => {
-      getElement('#error_add-card_name').textContent = '';
-      getElement('#error_add-card_link').textContent = '';
-      cardPopup.form.reset();
+// SIGNUP Регистрация нового пользователя
+const signup = new BaseComponent({
+  menuOpen: null, 
+  popupElement: getElement('#popupSignup'), 
+  buttonClose: getElement('#buttonSignupClose'), 
+  buttonSubmit: getElement('#buttonSignupSubmit'), 
+  submitAction: function() {
+    const signupOptions = { 
+      'name': getElement('#popupSignupUserName').value,
+      'email': getElement('#popupSignupEmail').value,
+      'password': getElement('#popupSignupPass').value
+    };
+    mainApi.signup(signupOptions)
+      .then(response => response.json())
+      .then(result =>  {
+        if (result.message){
+          this.showErrors(result.message);
+        } else {
+          if (result._id && result.name  && result.email) {
+            // не авторизируем принудительно после регистрации
+            // как в задании
+            // setCookie('user.name', result.username);
+            // setCookie('jwt', result.jwt);
+            popupSuccessInfo.popupOpen();
+          } else {
+            // тут ошибка регистрации т.к. не пришел ключ
+          }
+          this.popupClose();
+        }   
+      })
+      .catch((err) => {
+        this.showErrors(err);
+      })
+      .finally(() => {
+      });
+    return true;
   },
-  saveFunction: () =>  {
-      const card = {name:cardPopup.form.elements.name.value,
-        link:cardPopup.form.elements.link.value};
-      api.saveCard(card)
-  },
-  closeControl: getElement('.popup__close_add-card'),
-  submitControl: document.forms.new.querySelector('.button_submit'),
-  inputs: [getElement('#add-card_name'), getElement('#add-card_link')],
-  cardsContainer: getElement('.places-list')
+  errorElement: getElement('#popupSignupErrorMessage'),
+  redirectElement: getElement('#buttonSignupRedirect'), 
+  redirectAction: function() {
+    signin.popupOpen();
+  }
 });
 
-const avatarPopup = new Popup({
-  form: document.forms.avatar,
-  mainContainer: getElement('#edit-avatar'),
-  openControl: getElement('.user-info__photo'),
-  openFunction: function() {
-    getElement('#avatar_link').value = urlImageToSrc(
-      getElement('.user-info__photo').style.backgroundImage);
-    getElement('#error_avatar_link').textContent = '';
+// SIGNIN Авторизация существующего пользователя
+const signin = new BaseComponent({
+  menuOpen: getElement('#menuSignin'), 
+  popupElement: getElement('#popupSignin'), 
+  buttonClose: getElement('#buttonSigninClose'), 
+  buttonSubmit: getElement('#buttonSigninSubmit'), 
+  submitAction: function() {
+    const signinOptions = { 
+      'email': getElement('#popupSignupEmail').value,
+      'password': getElement('#popupSignupPass').value
+    };
+    mainApi.signin(signinOptions)
+      .then(response => response.json())
+      .then(result =>  {
+        if (result.message) {
+          this.showErrors(result.message);
+        } else {
+          if (result.username && result.jwt) {
+            setCookie('user.name', result.username);
+            setCookie('jwt', result.jwt);
+            // перерисовываем уже с пользователем
+            header.render();
+          }
+          this.popupClose();   
+        }
+      })
+      .catch((err) => {
+        console.log('err2',err);
+        this.showErrors(err);
+      })
+      .finally(() => {
+      });
+    return true;
   },
-  saveFunction: function() {
-    if (isValidForm(this.form)) {
-
-      api.saveUserAvatar(getElement('#avatar_link').value);
-
-    }
-  },
-  closeControl: getElement('.popup__close_avatar'),
-  submitControl: document.forms.avatar.querySelector('.button_submit'),
-  inputs: [getElement('#avatar_link')]
+  errorElement: getElement('#popupSigninErrorMessage'),
+  redirectElement: getElement('#buttonSigninRedirect'), 
+  redirectAction: function() {
+    signup.popupOpen();
+  }
 });
 
-*/
+// SIGNOUT Выход
+const signout = new BaseComponent({
+  menuOpen: getElement('#menuLogout'), 
+  popupElement: getElement('#popupSuccessExit'), 
+  buttonClose: getElement('#popupSuccessExitClose'), 
+  buttonSubmit: null, 
+  submitAction: function() {
+    mainApi.signout({})
+      .then(result =>  {
+        if ((result.status == 200)&&(result.ok)) {
+          deleteCookie('user.name');
+          deleteCookie('jwt');
+          header.render();
+          popupSuccessExit.popupOpen();
+        }
+      })
+      .catch((err) => {
+        console.log('err2',err);
+      })
+      .finally(() => {
+      });
+    return true;
+  },
+  errorElement: null,
+  redirectElement: null, 
+  redirectAction: null
+});
+
+// ошибка подгрузки изображения
+document.addEventListener('onerror', (event) => {
+  console.log('EE',event);
+});

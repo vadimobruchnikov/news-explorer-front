@@ -18,6 +18,7 @@
 
   background-image: url('../../images/georgia-de-lotz.png');
   background-repeat: no-repeat;
+  background-size: 100% 576px;
 }
 @media screen and (max-width: 1024px) {
   .root {

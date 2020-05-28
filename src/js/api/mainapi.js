@@ -4,15 +4,16 @@ export { MainApi }
 
 class MainApi {
 
-    constructor() {
-
+    constructor({baseUrl}) {
+        this.baseUrl = baseUrl;
     }
 
     // регистрирует нового пользователя;
     signup(bodyObj) {
-        
+
         console.dir(bodyObj);
-        return fetch(`http://localhost:3000/signup`, {
+        console.dir('this', this);
+        return fetch(this.baseUrl + `/signup`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -23,8 +24,34 @@ class MainApi {
         });
     }
     
-    signin() {
-        // аутентифицирует пользователя на основе почты и пароля;
+    // аутентифицирует пользователя на основе почты и пароля;
+    signin(bodyObj) {
+        console.dir(bodyObj);
+        console.log('this', this);
+        return fetch(this.baseUrl + `/signin`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                //'credentials': 'include'
+                //'credentials': 'same-origin',
+                //'mode':        'same-origin'
+                //'Access-Control-Allow-Origin': 'http://localhost:8080'
+            },
+            body: JSON.stringify(bodyObj)
+        });
+    }
+
+    signout() {
+        console.dir('signout');
+        console.log('this', this);
+        return fetch(this.baseUrl + `/signout`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+            },
+        });
     }
     
     getUserData() {
@@ -35,7 +62,7 @@ class MainApi {
         // забирает все статьи;
     }
     
-    createArticle() {
+    saveArticle() {
         // создаёт статью;
     }
     
