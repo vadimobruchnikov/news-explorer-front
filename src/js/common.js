@@ -1,45 +1,49 @@
-// import { BaseComponent } from '../js/components/basecomponent';
 import {
-    NEWS_API_KEY,
-    NEWS_LAZY_LOAD,
-    NEWS_PERIOD,
-    URL_NOT_FOUND_IMAGE,
-    MAIN_API_BASE_URL,
-    MAIN_API_BASE_URL_DEV
-  } from '../js/config/main.js';
-// import { apiBaseUrl } from '../js/api/api.js';
-  
+  NEWS_LAZY_LOAD,
+  URL_NOT_FOUND_IMAGE,
+  MAIN_API_BASE_URL,
+  MAIN_API_BASE_URL_DEV,
+  NEWS_API_KEY,
+  NEWS_PERIOD
+} from '../js/config/main.js';
+
 import { getElement, getRusFormatDate, getShortDate } from '../js/utils/utils';
 import { getCookie, setCookie, deleteCookie } from "../js/utils/cookies";
 import { BaseComponent } from '../js/components/basecomponent';
 import { Header } from '../js/components/header';
 import { NewsCardList } from '../js/components/newsCardList';
 import { MainApi } from '../js/api/mainapi';
-// import { NewsCard } from '../js/components/newsCard';
+import { NewsApi } from '../js/api/newsapi.js';
 
-export { header, newsCardList, mainApi, popupSuccessInfo, popupSuccessExit, signup, signin, signout}
-
-const header = new Header({
-    menuSignin : getElement('#menuSignin'),
-    menuAutorized: getElement('#menuAutorized'),
-    menuUserProfile: getElement('#menuUserProfile'),
-    menuLogout: getElement('#menuLogout'),
-    menuSavedNews: getElement('#menuSavedNews'),
-});
-
-header.render();
-
-const newsCardList = new NewsCardList({
-    nameCardList:'.search-results__items',
-    nameLoader:'.news-preloader',
-    nameShowMore:'.show-more',
-    nameNotFound:'.news-not-found',
-    newsLazyLoad: NEWS_LAZY_LOAD,
-    notFoundImageUrl: URL_NOT_FOUND_IMAGE,
-  });
+export { header, newsCardList, mainApi, newsApi, popupSuccessInfo, popupSuccessExit, signup, signin, signout}
 
 // Проверить если не dev, то поставить MAIN_API_BASE_URL
 const mainApi = new MainApi({ baseUrl: MAIN_API_BASE_URL_DEV });
+
+const newsApi = new NewsApi(NEWS_API_KEY);
+
+const header = new Header({
+  menuSignin : getElement('#menuSignin'),
+  menuAutorized: getElement('#menuAutorized'),
+  menuUserProfile: getElement('#menuUserProfile'),
+  menuLogout: getElement('#menuLogout'),
+  menuSavedNews: getElement('#menuSavedNews'),
+  containerSavedNews: getElement('#containerSavedNews'),
+  mainApi: mainApi
+});
+
+const newsCardList = new NewsCardList({
+  nameCardList: getElement('.search-results__items'),
+  nameLoader: getElement('.news-preloader'),
+  nameShowMore: getElement('.show-more'),
+  nameNotFound: getElement('.news-not-found'),
+  newsLazyLoad: NEWS_LAZY_LOAD,
+  notFoundImageUrl: URL_NOT_FOUND_IMAGE,
+  searchButton: getElement('.search__field-button'),
+  showMoreButton: getElement('.show-more__button'),
+  searchInput: getElement('.search__field-input'),
+  newsApi: newsApi
+});
 
 // Пользователь успешно зарегистрирован
 const popupSuccessInfo = new BaseComponent({
@@ -137,7 +141,7 @@ const signin = new BaseComponent({
         }
       })
       .catch((err) => {
-        console.log('err2',err);
+        console.log('signin.error',err);
         this.showErrors(err);
       })
       .finally(() => {
@@ -181,6 +185,6 @@ const signout = new BaseComponent({
 
 // ошибка подгрузки изображения
 document.addEventListener('onerror', (event) => {
-  console.log('EE',event);
+  console.log('onerror',event);
 });
   

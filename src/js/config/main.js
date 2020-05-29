@@ -5,3 +5,4 @@ export const URL_NOT_FOUND_IMAGE = './images/not-found.jpg';
 // export const MAIN_API_BASE_URL = NODE_ENV === 'development' ? 'http://localhost:3000' : 'http://localhost:3000';
 export const MAIN_API_BASE_URL = 'http://localhost:3000';
 export const MAIN_API_BASE_URL_DEV = 'http://localhost:3000';
+export const LOGIN_EXPIRES_DAYS = 7; // Сколько хранить авторизацию

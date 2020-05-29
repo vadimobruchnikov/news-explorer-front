@@ -1,16 +1,66 @@
-import { getElement } from "../utils/utils";
+import {
+    NEWS_LAZY_LOAD,
+    URL_NOT_FOUND_IMAGE,
+    MAIN_API_BASE_URL,
+    MAIN_API_BASE_URL_DEV,
+    NEWS_API_KEY,
+    NEWS_PERIOD,
+} from '../config/main.js';
+import { getElement, getRusFormatDate, getShortDate, getNewsDate } from '../utils/utils';
 import { NewsCard } from "../components/newsCard";
+
 
 export {NewsCardList}
 
 class NewsCardList {
-    constructor(options) {
-        this._container = getElement(options.nameCardList);
-        this._loader = getElement(options.nameLoader);
-        this._showMore = getElement(options.nameShowMore);
-        this._notFound = getElement(options.nameNotFound);
-        this._newsLazyLoad = options.newsLazyLoad;
-        this._notFoundImageUrl = options.notFoundImageUrl;
+
+    constructor({ nameCardList, nameLoader, nameShowMore, nameNotFound, newsLazyLoad, notFoundImageUrl, searchInput, searchButton, showMoreButton, newsApi }) {
+        this._container = nameCardList || null;;
+        this._loader = nameLoader || null;
+        this._showMore = nameShowMore || null;
+        this._notFound = nameNotFound || null;
+        this._newsLazyLoad = newsLazyLoad || null;
+        this._notFoundImageUrl = notFoundImageUrl || null;
+        
+        this.searchButton = searchButton || null;
+        this.searchInput = searchInput || null;
+        this.showMoreButton = showMoreButton || null;
+        this.newsApi = newsApi || null;
+   
+        this.showMoreButton.addEventListener('click', () => {
+            this.renderResults();
+        });
+
+        this.searchButton.addEventListener('click', (event) => {
+
+            event.preventDefault();
+            event.stopPropagation();
+            this.showResults();
+            this.clearResults();
+            this.showPreloader();
+            this.hideAuthorSection();
+
+            this.newsApi.getNews({newsQuery: searchInput.value, dateFrom: getNewsDate(new Date(), 0), dateTo: getNewsDate(new Date(), - NEWS_PERIOD)})
+            .then(response => response.json())
+            .then(result =>  {
+                if (result.status == "ok") {
+                return  result.articles ? result.articles : false;
+                } else {
+                return Promise.reject(result.status)
+                }
+            })
+            .then(newsArray => {
+                this.saveResults(newsArray);
+                this.renderResults();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                this.hidePreloader();
+            });
+        });
+
     }
 
     renderResults() {

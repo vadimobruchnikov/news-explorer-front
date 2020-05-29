@@ -1,26 +1,5 @@
 import '../pages/saved-news/saved-news.css';
-
-import {
-  NEWS_API_KEY,
-  NEWS_PERIOD,
-} from '../js/config/main.js';
-
-import { getElement, getRusFormatDate, getNewsDate } from '../js/utils/utils';
-// import { getCookie, setCookie, deleteCookie } from '../js/utils/cookies';
-import { NewsApi } from '../js/api/newsapi.js';
-import { 
-  // header, 
-  newsCardList, 
-  mainApi, 
-  // popupSuccessInfo, 
-  // popupSuccessExit, 
-  // signup, 
-  // signin, 
-  // signout 
-} from '../js/common';
-
-
-console.log(window.location.toString());
+import { mainApi } from '../js/common';
 
 const testButton = getElement('#test1');
 testButton.addEventListener('click', () => {
@@ -49,18 +28,6 @@ testButton.addEventListener('click', () => {
     console.log('fin');
   });
 
-  mainApi.getArticles()
-  .then(response => response.json())
-  .then(result =>  {
-    console.log(result);
-  })
-  .catch((err) => {
-    console.log('error',err);
-  })
-  .finally(() => {
-    console.log('fin');
-  });
-
   mainApi.removeArticle('5ed02a59e8013d11a8614ff1')
   .then(response => response.json())
   .then(result =>  {
@@ -74,6 +41,3 @@ testButton.addEventListener('click', () => {
   });
 
 });
-
-
-
