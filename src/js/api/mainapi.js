@@ -10,15 +10,11 @@ class MainApi {
 
     // регистрирует нового пользователя;
     signup(bodyObj) {
-
-        console.dir(bodyObj);
-        console.dir('this', this);
         return fetch(this.baseUrl + `/signup`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-                //'Access-Control-Allow-Origin': 'http://localhost:8080'
             },
             body: JSON.stringify(bodyObj)
         });
@@ -26,8 +22,6 @@ class MainApi {
     
     // аутентифицирует пользователя на основе почты и пароля;
     signin(bodyObj) {
-        console.dir(bodyObj);
-        console.log('this', this);
         return fetch(this.baseUrl + `/signin`, {
             method: 'POST',
             headers: {
@@ -43,8 +37,6 @@ class MainApi {
     }
 
     signout() {
-        console.dir('signout');
-        console.log('this', this);
         return fetch(this.baseUrl + `/signout`, {
             method: 'POST',
             headers: {
@@ -80,12 +72,13 @@ class MainApi {
     
     saveArticle(article) {
         // сохраняет статью
+        
         return fetch(this.baseUrl + `/articles`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + getCookie('jwt'),
+                'Authorization': 'Bearer ' + getCookie('jwt')
             },
             body: JSON.stringify(article)
         });

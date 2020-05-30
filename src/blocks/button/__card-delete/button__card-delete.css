@@ -1,7 +1,17 @@
 .button__card-delete{
     background-image: url(../../../images/button/__card-delete/button__card-delete.svg);
-    background-image: url(../../../images/button/__card-delete/button__card-delete.svg);
     background-repeat: no-repeat;
     background-position-x: 7px;
     background-position-y: 8px;
+
+    cursor: pointer;
+    text-transform: none;
+    overflow: visible;
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    text-rendering: auto;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1px 6px;
 }

@@ -1,4 +1,4 @@
-import { getRusFormatDate, getShortDate } from "../utils/utils";
+import { getRusFormatDate, getShortDate, sliceStr } from "../utils/utils";
 export { NewsCard }
 
 class NewsCard {
@@ -11,14 +11,7 @@ class NewsCard {
 
     }
 
-    sliceStr(str, len) {
-        return str.length < len -2 ? str : str.slice(0, len -2) + '...';
-    }
-
     create(card, notFoundUrl) {
-
-        //button__card-bookmark_active
-        //button__card-bookmark_disable
 
         const cardTemplate = document.createElement('a');
         cardTemplate.classList.add('card');
@@ -28,15 +21,20 @@ class NewsCard {
         if( (!urlImage) || (urlImage==null) || (urlImage == undefined)) {
             urlImage = notFoundUrl; 
         }
+        let cardId = card._id ? card._id : "";
+        let extButtonClass = card.keyword ? "button__card-delete": "button__card-bookmark"; //  button__card-bookmark_disable
+        // button__card-bookmark_active
         const newsDate = getRusFormatDate(card.publishedAt);
         cardTemplate.innerHTML =
-           `<div class="card__top-buttons button"> 
+           `<input type="hidden" class="publishedAt" value="${card.publishedAt}">
+            <input type="hidden" class="_id" value="${cardId}">
+            <div class="card__top-buttons button"> 
                 <div class="button__card button__card-help button__card-help_hidden">
                     <!-- скрытая подсказка-->
                     Скрытая подсказка
                 </div>
-                <button class="button__card button__card-bookmark button__card-bookmark_disable">
-                </button>
+                <a class="button__card ${extButtonClass}" href="#">
+                </a>
             </div>
             <img class="card__image" src="${urlImage}" alt="AltText">
             <div class="card__bottom">
@@ -53,13 +51,15 @@ class NewsCard {
                     ${card.source.name}
                 </div>
             </div>`;
-        //let cardImage = cardTemplate.querySelector('.card__image');
-        //cardImage.urlNotFoundImage = urlImage;
-        //cardImage.onerror = (event, urlImage) => {
-            //console.dir(event.target);
-            //event.target.src = event.target.urlNotFoundImage;
-            //console.log(event.target.urlNotFoundImage);
-        //};
+        /*
+        let cardImage = cardTemplate.querySelector('.card__image');
+        cardImage.urlNotFoundImage = urlImage;
+        cardImage.onerror = (event, urlImage) => {
+            console.dir(event.target);
+            event.target.src = event.target.urlNotFoundImage;
+            console.log(event.target.urlNotFoundImage);
+        };
+        */
         return cardTemplate;
     }
 }

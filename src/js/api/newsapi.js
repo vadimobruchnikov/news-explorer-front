@@ -4,15 +4,16 @@ export {NewsApi}
     
 class NewsApi {
 
-    constructor(newsApiKey) {
+    constructor({ newsApiKey, newsApiBaseUrl }) {
         
-        this.newsApiKey = newsApiKey;
+        this.newsApiKey = newsApiKey || null;
+        this.newsApiBaseUrl = newsApiBaseUrl || null;
         
     }
 
     getNews(options) {
 
-        const newsUrl = `https://praktikum.tk/news/v2/everything?q=${options.newsQuery}&from=${options.dateFrom}&to=${options.dateTo}&language=ru&pageSize=100&apiKey=${this.newsApiKey}`;
+        const newsUrl = this.newsApiBaseUrl + `?q=${options.newsQuery}&from=${options.dateFrom}&to=${options.dateTo}&language=ru&pageSize=100&apiKey=${this.newsApiKey}`;
 
         return fetch(newsUrl, {
             method: 'GET',

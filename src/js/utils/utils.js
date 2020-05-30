@@ -1,5 +1,5 @@
 export {getElement, resetError, handleValidate, activateError, validate, submitButtonStatus,
-    isValidForm, isValidLink, getRusFormatDate, getShortDate, getNewsDate}
+    isValidForm, isValidLink, getRusFormatDate, getShortDate, getNewsDate, sliceStr, validStr}
     
 function getElement(selector) {
     return document.querySelector(selector);
@@ -25,6 +25,24 @@ function getShortDate(dateTime) {
   const month = new Intl.DateTimeFormat('ru', { month: '2-digit' }).format(dateTime);
   const day = new Intl.DateTimeFormat('ru', { day: '2-digit' }).format(dateTime);
   return `${year}-${month}-${day}`;
+}
+
+function sliceStr(str, len) {
+  // return str.length < len -2 ? str : str.slice(0, len -2) + '...';
+  return str.length <= len ? str : str.slice(0, len);
+}
+
+function validStr(str, minLength, maxLength) {
+  str = str.trim();
+  str = str.replace(/<ol>/i, '');
+  str = str.replace(/<\/ol>/i, '');
+  str = str.replace(/<li>/i, '<p>');
+  str = str.replace(/<\/li>/i, '</p>');
+  
+  while (str.length < minLength) {
+    str = str + '.';
+  }
+  return sliceStr(str, maxLength);
 }
 
 function urlImageToSrc(url) {

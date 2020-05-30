@@ -3,11 +3,11 @@ import {
   URL_NOT_FOUND_IMAGE,
   MAIN_API_BASE_URL,
   MAIN_API_BASE_URL_DEV,
+  NEWS_API_BASE_URL,
   NEWS_API_KEY,
-  NEWS_PERIOD
 } from '../js/config/main.js';
 
-import { getElement, getRusFormatDate, getShortDate } from '../js/utils/utils';
+import { getElement } from '../js/utils/utils';
 import { getCookie, setCookie, deleteCookie } from "../js/utils/cookies";
 import { BaseComponent } from '../js/components/basecomponent';
 import { Header } from '../js/components/header';
@@ -20,7 +20,7 @@ export { header, newsCardList, mainApi, newsApi, popupSuccessInfo, popupSuccessE
 // Проверить если не dev, то поставить MAIN_API_BASE_URL
 const mainApi = new MainApi({ baseUrl: MAIN_API_BASE_URL_DEV });
 
-const newsApi = new NewsApi(NEWS_API_KEY);
+const newsApi = new NewsApi({ newsApiKey: NEWS_API_KEY, newsApiBaseUrl: NEWS_API_BASE_URL });
 
 const header = new Header({
   menuSignin : getElement('#menuSignin'),
@@ -28,12 +28,12 @@ const header = new Header({
   menuUserProfile: getElement('#menuUserProfile'),
   menuLogout: getElement('#menuLogout'),
   menuSavedNews: getElement('#menuSavedNews'),
-  containerSavedNews: getElement('#containerSavedNews'),
   mainApi: mainApi
 });
 
 const newsCardList = new NewsCardList({
-  nameCardList: getElement('.search-results__items'),
+  // nameCardList: getElement('.search-results__items'),
+  newsCardList: getElement('#newsCardList'),
   nameLoader: getElement('.news-preloader'),
   nameShowMore: getElement('.show-more'),
   nameNotFound: getElement('.news-not-found'),
@@ -42,7 +42,10 @@ const newsCardList = new NewsCardList({
   searchButton: getElement('.search__field-button'),
   showMoreButton: getElement('.show-more__button'),
   searchInput: getElement('.search__field-input'),
-  newsApi: newsApi
+  newsApi: newsApi,
+  mainApi: mainApi,
+  containerSavedTitle: getElement('#containerSavedTitle'),
+  searchItems: getElement('#searchItems'),
 });
 
 // Пользователь успешно зарегистрирован
@@ -54,9 +57,9 @@ const popupSuccessInfo = new BaseComponent({
   errorElement: null,
   redirectElement: getElement('#popupSuccessRedirect'), 
   redirectAction: function() {
-    this.popupClose();
+    popupSuccessInfo.popupClose();
     signin.popupOpen();
-  }
+  },
 });
 
 // Вы успешно вышли
@@ -76,7 +79,7 @@ const signup = new BaseComponent({
   popupElement: getElement('#popupSignup'), 
   buttonClose: getElement('#buttonSignupClose'), 
   buttonSubmit: getElement('#buttonSignupSubmit'), 
-  submitAction: function() {
+  submitAction: function(event) {
     const signupOptions = { 
       'name': getElement('#popupSignupUserName').value,
       'email': getElement('#popupSignupEmail').value,
@@ -97,10 +100,10 @@ const signup = new BaseComponent({
           } else {
             // тут ошибка регистрации т.к. не пришел ключ
           }
-          this.popupClose();
+          signup.popupClose(event);
         }   
       })
-      .catch((err) => {
+      .catch(function(err) {
         this.showErrors(err);
       })
       .finally(() => {
@@ -122,8 +125,8 @@ const signin = new BaseComponent({
   buttonSubmit: getElement('#buttonSigninSubmit'), 
   submitAction: function() {
     const signinOptions = { 
-      'email': getElement('#popupSignupEmail').value,
-      'password': getElement('#popupSignupPass').value
+      'email': getElement('#popupSigninEmail').value,
+      'password': getElement('#popupSigninPass').value
     };
     mainApi.signin(signinOptions)
       .then(response => response.json())
@@ -141,7 +144,6 @@ const signin = new BaseComponent({
         }
       })
       .catch((err) => {
-        console.log('signin.error',err);
         this.showErrors(err);
       })
       .finally(() => {

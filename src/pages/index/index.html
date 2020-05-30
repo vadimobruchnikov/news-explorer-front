@@ -12,7 +12,7 @@
 
 </head>
 <body>
-  <section class="root">
+  <section class="root index-page">
     <section class="header">
       <a class="logo" href="./index.html">
         NewsExplorer
@@ -20,11 +20,9 @@
       <nav class="header__nav">
         <a class="header__menu header__menu_active" href="./index.html">Главная</a>
         <a class="header__menu hidden" href="./saved-news.html" id="menuSavedNews">Сохраненные статьи</a>
-        
         <a class="header__menu header__menu_button hidden" id="menuSignin" href="#">Войти</a>
-        
         <div class="header__menu header__menu_button header__menu_autorized hidden" id="menuAutorized">
-          <a class="header__menu header__menu_a" id="menuUserProfile" href="#">Грета</a>
+          <a class="header__menu header__menu_a" id="menuUserProfile" href="#">Username</a>
           <a class="header__menu header__menu_exit" id="menuLogout" href="#"></a>
         </div>
 
@@ -40,7 +38,7 @@
       </div>
 
       <form class="search__field" action="">
-        <input class="search__field-input" type="search" placeholder="Введите то, что вас интересует" value="песочница">
+        <input class="search__field-input" type="search" placeholder="Введите то, что вас интересует" value="">
         <button class="search__field-button">Найти</button>
       </form>
     </section>
@@ -51,7 +49,7 @@
         Результаты поиска
       </div>
 
-      <div class="search-results__items">
+      <div class="search-results__items" id="newsCardList">
 
         <!-- тут отрисовываются карточки -->
 
@@ -122,15 +120,15 @@
         <form id="form__add-card" class="popup__form" name="new" action="#">
 
           <span class="popup__input popup__input_title">Email</span>
-          <input id="popupSignupEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="user222@mail.ru">
+          <input id="popupSignupEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="">
           <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
 
           <span class="popup__input popup__input_title">Имя пользователя</span>
-          <input id="popupSignupUserName" type="text" name="username" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Имя пользователя" autocomplete="off" value="User222">
+          <input id="popupSignupUserName" type="text" name="username" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Имя пользователя" autocomplete="off" value="">
           <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #2 -->
 
           <span class="popup__input popup__input_title">Пароль</span>
-          <input id="popupSignupPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value='12345678wA'>
+          <input id="popupSignupPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="8" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value=''>
           <span id="error_add-card_link" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
 
           <span class="error-message error-message__under-button hidden" id="popupSignupErrorMessage"></span><!-- Ошибка #API -->
@@ -152,10 +150,10 @@
 
         <form id="form__add-card" class="popup__form" name="new" action="#">
           <span class="popup__input popup__input_title">Email</span>
-          <input id="popupSigninEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="user222@mail.ru">
+          <input id="popupSigninEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="">
           <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
           <span class="popup__input popup__input_title">Пароль</span>
-          <input id="popupSigninPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value='12345678wA'>
+          <input id="popupSigninPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value=''>
           <span id="error_add-card_link" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
           <span class="error-message error-message__under-button hidden" id="popupSigninErrorMessage"></span><!-- Ошибка #API -->
           <button class="button popup__button popup__button_edit button_submit popup__button_active" id="buttonSigninSubmit">Войти</button>
@@ -174,7 +172,6 @@
         <img id="popupSuccessClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
         <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
         <a class="popup__info-message" id="popupSuccessRedirect" href="#">Выполнить вход</a>
-        <!--div class="popup__help popup__help_link" id="buttonSignRedirect" href="#">Зарегистрироваться</div-->
       </div>
     </div>
     

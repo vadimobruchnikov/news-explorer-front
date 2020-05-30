@@ -22,38 +22,53 @@ class BaseComponent {
         if(this.buttonSubmit)
             this.buttonSubmit.addEventListener('click', this.submitFunc.bind(this)); 
         if(this.redirectAction)
-            this.redirectElement.addEventListener('click', this.redirectClick.bind(this)); 
+            this.redirectElement.addEventListener('click',  this.redirectClick.bind(this));
         // клик на оверлее = на самом же элементе приводит к закрытию
-        if(this.popupElement)
-            this.popupElement.addEventListener('click', this.popupClose.bind(this));
+        /*
+        if(this.popupElement) {
+            this.popupElement.addEventListener('click', (event) => {
+                if (event.target.id === this.popupElement.id) {
+                    this.popupClose(event);
+                }
+            });
+        }
+        */
     }
 
     popupOpen() {
         this.hideErrors();
         // если нет кнопки сабмита, а функция есть, то вызываем ее сразу
         if((!this.buttonSubmit)&&(this.submitAction)) {
-            this.submitAction(this);
+            this.submitAction(undefined);
         } else {
             this.popupElement.classList.remove('hidden');
         }
     }
 
-    popupClose() {
+    popupClose(event = undefined) {
+        if(event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
         this.hideErrors();
         this.popupElement.classList.add('hidden');
     }
 
-    submitFunc(event) {
-        event.preventDefault();
-    	event.stopPropagation();
+    submitFunc(event = undefined) {
+        if(event) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
         this.hideErrors();
-        this.submitAction(this);
+        this.submitAction(event);
     }
 
     redirectClick(event) {
-        this.hideErrors();
-        this.popupClose();
-        this.redirectAction(this);
+        // this.hideErrors();
+        event.preventDefault();
+        event.stopPropagation();
+        this.popupClose(undefined);
+        this.redirectAction(undefined);
     }
 
     showErrors(message) {

@@ -7,7 +7,7 @@
   <link rel="shortcut icon" href="<%=require('../../images/favicon.ico')%>" type="image/x-icon">
   <meta name="author" content="Vadim">
   <meta name="description" content="News Explorer Project">
-  <title>News Explorer</title>
+  <title>News Explorer - Saved News</title>
   <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.savednews.css%>">
 
 </head>
@@ -19,33 +19,22 @@
         NewsExplorer
       </a>
       <nav class="header__nav header__nav_black">
-        <a class="header__menu header__menu_active" id="test1" href="#">1</a>
         <a class="header__menu header__menu_black" href="./index.html">Главная</a>
         <a class="header__menu header__menu_active-black header__menu_black" href="./saved-news.html" id="menuSavedNews">Сохраненные статьи</a>
-        
-        <!--
-        <div class="header__menu header__menu_button-black header__menu_autorized header__menu_black">
-          <a class="header__menu header__menu_a header__menu_black" href="./saved-news.html">Грета</a>
-          <a class="header__menu header__menu_exit-black header__menu_black" href="./index.html"></a>
-        </div>
-        -->
-
         <a class="header__menu header__menu_button-black" id="menuSignin" href="#">Войти</a>
-        
         <div class="header__menu header__menu_button-black header__menu_autorized header__menu_black" id="menuAutorized">
-          <a class="header__menu header__menu_a header__menu_black" id="menuUserProfile" href="#">Грета</a>
+          <a class="header__menu header__menu_a header__menu_black" id="menuUserProfile" href="#">Username</a>
           <a class="header__menu header__menu_exit-black header__menu_black" id="menuLogout" href="#"></a>
         </div>
-
       </nav>
     </section>
 
-    <section class="saved" id="containerSavedNews">
+    <section class="saved hidden" id="containerSavedTitle">
       <div class="saved__title">
         Сохранённые статьи
       </div>
       <div class="saved__text">
-        Грета, у вас 5 сохранённых статей
+        {Username}, у вас {savedNews} сохранённых статей
       </div>
       <div class="saved__keywords">
         По ключевым словам:
@@ -61,10 +50,10 @@
 
     <section class="search-results">
       <div class="search-results__title">
-        Результаты поиска
+        Сохранённые статьи
       </div>
 
-      <div class="search-results__items">
+      <div class="search-results__items" id="newsCardList">
 
         <!-- массив карточек -->
         
@@ -104,7 +93,6 @@
       </nav>
 
       <nav class="social-menu">
-        <!-- TODO: переделать ul li -->
         <a class="social-menu__item social-menu__item_git" href="https://github.com/vadimobruchnikov/news-explorer-front"></a>
         <a class="social-menu__item social-menu__item_fb" href="https://www.facebook.com/yandex"></a>
       </nav>
@@ -119,15 +107,15 @@
         <form id="form__add-card" class="popup__form" name="new" action="#">
 
           <span class="popup__input popup__input_title">Email</span>
-          <input id="popupSignupEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="user222@mail.ru">
+          <input id="popupSignupEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="">
           <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
 
           <span class="popup__input popup__input_title">Имя пользователя</span>
-          <input id="popupSignupUserName" type="text" name="username" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Имя пользователя" autocomplete="off" value="User222">
+          <input id="popupSignupUserName" type="text" name="username" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Имя пользователя" autocomplete="off" value="">
           <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #2 -->
 
           <span class="popup__input popup__input_title">Пароль</span>
-          <input id="popupSignupPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value='12345678wA'>
+          <input id="popupSignupPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value=''>
           <span id="error_add-card_link" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
 
           <span class="error-message error-message__under-button hidden" id="popupSignupErrorMessage"></span><!-- Ошибка #API -->
@@ -152,7 +140,7 @@
           <input id="popupSigninEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="user222@mail.ru">
           <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
           <span class="popup__input popup__input_title">Пароль</span>
-          <input id="popupSigninPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value='12345678wA'>
+          <input id="popupSigninPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="8" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value='12345678wA'>
           <span id="error_add-card_link" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
           <span class="error-message error-message__under-button hidden" id="popupSigninErrorMessage"></span><!-- Ошибка #API -->
           <button class="button popup__button popup__button_edit button_submit popup__button_active" id="buttonSigninSubmit">Войти</button>
@@ -171,7 +159,6 @@
         <img id="popupSuccessClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
         <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
         <a class="popup__info-message" id="popupSuccessRedirect" href="#">Выполнить вход</a>
-        <!--div class="popup__help popup__help_link" id="buttonSignRedirect" href="#">Зарегистрироваться</div-->
       </div>
     </div>
     

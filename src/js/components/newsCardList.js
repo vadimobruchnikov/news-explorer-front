@@ -6,16 +6,30 @@ import {
     NEWS_API_KEY,
     NEWS_PERIOD,
 } from '../config/main.js';
-import { getElement, getRusFormatDate, getShortDate, getNewsDate } from '../utils/utils';
+import { getElement, getNewsDate, validStr, isValidLink } from '../utils/utils';
+import { getCookie } from '../utils/cookies';
 import { NewsCard } from "../components/newsCard";
 
-
-export {NewsCardList}
+export { NewsCardList }
 
 class NewsCardList {
 
-    constructor({ nameCardList, nameLoader, nameShowMore, nameNotFound, newsLazyLoad, notFoundImageUrl, searchInput, searchButton, showMoreButton, newsApi }) {
-        this._container = nameCardList || null;;
+    constructor({ 
+        newsCardList, 
+        nameLoader, 
+        nameShowMore, 
+        nameNotFound, 
+        newsLazyLoad, 
+        notFoundImageUrl, 
+        searchInput, 
+        searchButton, 
+        showMoreButton, 
+        newsApi, 
+        mainApi, 
+        containerSavedTitle,
+        searchItems }) {
+    
+        this._container = newsCardList || null;;
         this._loader = nameLoader || null;
         this._showMore = nameShowMore || null;
         this._notFound = nameNotFound || null;
@@ -26,47 +40,137 @@ class NewsCardList {
         this.searchInput = searchInput || null;
         this.showMoreButton = showMoreButton || null;
         this.newsApi = newsApi || null;
+        this.mainApi = mainApi || null;
+        this.containerSavedTitle = containerSavedTitle || null;
+        this.searchItems = searchItems || null;
    
-        this.showMoreButton.addEventListener('click', () => {
-            this.renderResults();
-        });
+        this._container.addEventListener('click', (event) => {
 
-        this.searchButton.addEventListener('click', (event) => {
-
-            event.preventDefault();
-            event.stopPropagation();
-            this.showResults();
-            this.clearResults();
-            this.showPreloader();
-            this.hideAuthorSection();
-
-            this.newsApi.getNews({newsQuery: searchInput.value, dateFrom: getNewsDate(new Date(), 0), dateTo: getNewsDate(new Date(), - NEWS_PERIOD)})
-            .then(response => response.json())
-            .then(result =>  {
-                if (result.status == "ok") {
-                return  result.articles ? result.articles : false;
-                } else {
-                return Promise.reject(result.status)
+            // обработка кликов на карточках 
+            if (event.target.classList.contains('button__card-bookmark')) {
+                // на закладке
+                event.preventDefault();
+                event.stopPropagation();
+                let card = event.target.closest('.card');
+                // Если неверно указан источник, то берем его со ссылки на статью
+                let source = card.querySelector(".card__source").textContent.trim();
+                source = isValidLink(source) ? source : card.origin;
+                let article = {
+                    "keyword": validStr(searchInput.value, 3, 30),
+                    "title": validStr(card.querySelector(".card__title").textContent, 3, 30),
+                    "text": validStr(card.querySelector(".card__text").textContent, 3, 150),
+                    "date": card.querySelector(".publishedAt").value,
+                    "link": card.href,
+                    "source": source,
+                    "image": card.querySelector(".card__image").src
+                };
+                mainApi.saveArticle(article)
+                .then(response => response.json())
+                .then(result =>  {
+                    // карточка записана
+                    // console.log(result);
+                })
+                .catch((err) => {
+                    console.log('error',err);
+                });
+            }
+            if (event.target.classList.contains('button__card-delete')) {
+                // на удаление
+                event.preventDefault();
+                event.stopPropagation();
+                let card = event.target.closest('.card');
+                let id = card.querySelector("._id").value;
+                if (id) {
+                    mainApi.removeArticle(id)
+                    .then(response => response.json())
+                    .then(result =>  {
+                        // карточка удалена
+                        console.log(result);
+                        // удаляем ее со страницы
+                        card.parentNode.removeChild(card);
+                    })
+                    .catch((err) => {
+                        console.log('error',err);
+                    });
                 }
-            })
-            .then(newsArray => {
-                this.saveResults(newsArray);
-                this.renderResults();
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-            .finally(() => {
-                this.hidePreloader();
-            });
+            }
         });
 
+        this.showMoreButton.addEventListener('click', () => {
+            this.renderNewsResults();
+        });
+
+        if(this.searchButton){
+            this.searchButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+                this.showResults();
+                this.clearResults();
+                this.showPreloader();
+                this.hideAuthorSection();
+                this.newsApi.getNews({newsQuery: searchInput.value, dateFrom: getNewsDate(new Date(), 0), dateTo: getNewsDate(new Date(), - NEWS_PERIOD)})
+                .then(response => response.json())
+                .then(result =>  {
+                    if (result.status == "ok") {
+                    return  result.articles ? result.articles : false;
+                    } else {
+                    return Promise.reject(result.status)
+                    }
+                })
+                .then(newsArray => {
+                    this.saveResults(newsArray);
+                    this.renderNewsResults();
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+                .finally(() => {
+                    this.hidePreloader();
+                });
+            });
+        }
+
+        if ((this._container) && getCookie('user.name') && (!getElement('.index-page')) ) {
+            this.renderSavedItems(this._container);
+        }
     }
 
-    renderResults() {
+    renderSavedItems() {
+
+        this.showResults();
+        this.clearResults();
+        this.showPreloader();
+        this.mainApi.getArticles()
+        .then(response => response.json())
+        .then(result =>  {
+          let res = result.data.map(element => {
+            return {
+                _id: element._id, 
+                keyword: element.keyword, 
+                title: element.title, 
+                description: element.text,
+                date: element.date,
+                url: element.link,
+                source: {
+                    name: element.source,
+                    id:element.source
+                },
+                urlToImage: element.image,
+                publishedAt: element.createdAt,
+            };
+          });
+          this.saveResults(res);
+          this.renderNewsResults();
+        })
+        .catch((err) => {
+          console.log('error',err);
+        });
+    }
+
+    renderNewsResults() {
+        // проверить для = 1
         let start = this._newsShowed < this._newsCount - 1 ? this._newsShowed : this._newsCount;
         let finish = this._newsShowed + this._newsLazyLoad < this._newsCount - 1 ? this._newsShowed + this._newsLazyLoad : this._newsCount;
-        //console.log(start, finish);
         for (let i = start; i < finish; i++) {
             const newCard = new NewsCard(this._newsArray[i], this._notFoundImageUrl);
             this.addCard(newCard);
@@ -87,7 +191,6 @@ class NewsCardList {
 
     saveResults(results){
         this._newsArray = results;
-        console.dir(this._newsArray);
         this._newsShowed = 0;
         this._newsCount = this._newsArray.length;
     }
