@@ -15,8 +15,9 @@
   }
 }
 
-/* отладка модального меню @media (max-width: 767px) { */
-@media (max-width: 860px) { 
+/* отладка модального меню @media (max-width: 767px) 860px{ */
+
+@media (max-width: 680px) { 
   .header__nav{
     display: none;
   }

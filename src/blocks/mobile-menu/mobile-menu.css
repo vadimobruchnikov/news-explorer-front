@@ -1,0 +1,47 @@
+.mobile-menu {
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    right: 16px;
+}
+
+@media (max-width: 2000px) { 
+    .mobile-menu{
+        top: 28px;
+    }
+}
+
+
+@media (max-width: 680px) { 
+    .mobile-menu{
+        top: 27px;
+    }
+}
+
+@media (max-width: 580px) { 
+    .mobile-menu{
+        top: 24px;
+    }
+}
+
+@media (max-width: 440px) { 
+    .mobile-menu{
+        top: 20px;
+    }
+}
+
+@media (max-width: 420px) { 
+    .mobile-menu{
+        top: 15px;
+    }
+}
+
+@media (min-width: 681px) { 
+    .mobile-menu{
+        display: none;
+    }
+}
+
+
+
+  

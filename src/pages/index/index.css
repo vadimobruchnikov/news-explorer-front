@@ -97,6 +97,10 @@
 @import url(../../blocks/news-not-found/__title/news-not-found__title.css);
 @import url(../../blocks/news-not-found/__text/news-not-found__text.css);
 
+@import url(../../blocks/mobile-menu/mobile-menu.css);
+@import url(../../blocks/mobile-menu/mobile-menu_close.css);
+@import url(../../blocks/mobile-menu/mobile-menu_icon.css);
+
 @import url(../../blocks/body/body.css);
 @import url(../../blocks/ul/ul.css);
 @import url(../../blocks/hidden/hidden.css);

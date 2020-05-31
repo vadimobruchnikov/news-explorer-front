@@ -94,6 +94,10 @@
 @import url(../../blocks/error-message/error-message.css);
 @import url(../../blocks/error-message/error-message__under-button.css);
 
+@import url(../../blocks/mobile-menu/mobile-menu.css);
+@import url(../../blocks/mobile-menu/mobile-menu_close.css);
+@import url(../../blocks/mobile-menu/mobile-menu_icon.css);
+
 @import url(../../blocks/body/body.css);
 @import url(../../blocks/ul/ul.css);
 @import url(../../blocks/hidden/hidden.css);

@@ -10,6 +10,8 @@
   /*
   border-bottom: 1px solid #A5A5A5;
   */
+  
+  background-image: url(../../images/georgia-de-lotz.png);
 }
 
 @media (max-width: 560px) {
