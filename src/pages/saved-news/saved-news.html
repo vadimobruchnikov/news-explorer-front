@@ -36,27 +36,14 @@
       <div class="saved__text">
         {Username}, у вас {savedNews} сохранённых статей
       </div>
-      <div class="saved__keywords">
-        По ключевым словам:
-        <span class="saved__keywords saved__keywords_bold">
-          Природа, Тайга
-        </span>
-        и
-        <span class="saved__keywords saved__keywords_bold">
-          2 другим
-        </span>
+      <div class="saved__keywords" id="savedStats" >
       </div>
     </section>
 
     <section class="search-results">
-      <div class="search-results__title">
-        Сохранённые статьи
-      </div>
 
       <div class="search-results__items" id="newsCardList">
-
         <!-- массив карточек -->
-        
       </div>
 
       <div class="show-more hidden">
@@ -104,7 +91,7 @@
         <img id="buttonSignupClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
 
         <h3 class="popup__title">Регистрация</h3>
-        <form id="form__add-card" class="popup__form" name="new" action="#">
+        <form class="popup__form" name="new" action="#">
 
           <span class="popup__input popup__input_title">Email</span>
           <input id="popupSignupEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="">
@@ -135,7 +122,7 @@
 
         <h3 class="popup__title">Авторизизация</h3>
 
-        <form id="form__add-card" class="popup__form" name="new" action="#">
+        <form class="popup__form" name="new" action="#">
           <span class="popup__input popup__input_title">Email</span>
           <input id="popupSigninEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="user222@mail.ru">
           <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #1 -->

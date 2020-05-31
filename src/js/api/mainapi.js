@@ -72,7 +72,7 @@ class MainApi {
     
     saveArticle(article) {
         // сохраняет статью
-        console.log('MainApi.saveArticle',this.baseUrl + `/articles`); 
+        // console.log('MainApi.saveArticle',this.baseUrl + `/articles`); 
         return fetch(this.baseUrl + `/articles`, {
             method: 'POST',
             headers: {
@@ -94,6 +94,24 @@ class MainApi {
                 'Authorization': 'Bearer ' + getCookie('jwt'),
             },
         });
+    }
+
+    checkNewsStatus(news) {
+        // проверяет статусы статей для текущего пользователя
+        return fetch(this.baseUrl + '/check', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + getCookie('jwt'),
+            },
+            body: JSON.stringify({ links: news })
+        });
+
+    }
+
+    isLogedUser() {
+        return getCookie('jwt') ? true : false;
     }
     
 }

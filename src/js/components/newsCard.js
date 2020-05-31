@@ -16,7 +16,6 @@ class NewsCard {
 
         const isUserLogin = getCookie('user.name') ? true : false;
         const isSavedPage = getElement('.saved-page') ? true : false;
-        console.log('isUserLogin', isUserLogin);
         const cardTemplate = document.createElement('a');
         cardTemplate.classList.add('card');
         cardTemplate.href = card.url;
@@ -30,11 +29,16 @@ class NewsCard {
         let buttonCardHelpText = isUserLogin ? ( isSavedPage ? "Нажмите, чтобы удалить" : "Нажмите, чтобы сохранить" ) : "Войдите, чтобы сохранить";
         // button__card-bookmark_active
         //  button__card-help_hidden
+        const keyword = card.keyword ? card.keyword : '';
+        let extButtonKeywordClass = keyword == '' ? 'hidden' : '';   
         const newsDate = getRusFormatDate(card.publishedAt);
         cardTemplate.innerHTML =
            `<input type="hidden" class="publishedAt" value="${card.publishedAt}">
             <input type="hidden" class="_id" value="${cardId}">
             <div class="card__top-buttons button"> 
+                <div class="button__card button__card-keyword ${extButtonKeywordClass}">
+                    ${keyword}
+                </div>  
                 <div class="button__card button__card-help">
                     ${buttonCardHelpText}
                 </div>  

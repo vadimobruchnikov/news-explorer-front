@@ -6,7 +6,7 @@ import {
     NEWS_API_KEY,
     NEWS_PERIOD,
 } from '../config/main.js';
-import { getElement, getNewsDate, validStr, isValidLink } from '../utils/utils';
+import { getElement, getNewsDate, validStr, isValidLink, sortArrayByValue, deleteArrayElementById } from '../utils/utils';
 import { getCookie } from '../utils/cookies';
 import { NewsCard } from "../components/newsCard";
 
@@ -46,52 +46,50 @@ class NewsCardList {
    
         this._container.addEventListener('click', (event) => {
 
-            console.log('NewsCardList.click');
             // обработка кликов на карточках 
             if (event.target.classList.contains('button__card-bookmark')) {
                 // на закладке
-                console.log('button__card-bookmark.click');
                 event.preventDefault();
                 event.stopPropagation();
-                let card = event.target.closest('.card');
-                // Если неверно указан источник, то берем его со ссылки на статью
-                let source = card.querySelector(".card__source").textContent.trim();
-                source = isValidLink(source) ? source : card.origin;
-                let article = {
-                    "keyword": validStr(searchInput.value, 3, 30),
-                    "title": validStr(card.querySelector(".card__title").textContent, 3, 30),
-                    "text": validStr(card.querySelector(".card__text").textContent, 3, 150),
-                    "date": card.querySelector(".publishedAt").value,
-                    "link": card.href,
-                    "source": source,
-                    "image": card.querySelector(".card__image").src
-                };
-                mainApi.saveArticle(article)
-                .then(response => response.json())
-                .then(result =>  {
-                    console.log(result);
-                    const cardButton = card.querySelector('.button__card-bookmark');
-                    const cardButtonHelp = card.querySelector('.button__card-help');
-                    // карточка была удалена
-                    if (result && result.status == 'deleted') {
-                        cardButton.classList.remove('button__card-bookmark_active');
-                        cardButton.classList.add('button__card-bookmark_disable');
-                        cardButtonHelp.textContent = "Нажмите, чтобы сохранить";
-                    }
-                    // карточка была создана
-                    if (result && result.status == 'created') {
-                        cardButton.classList.remove('button__card-bookmark_disable');
-                        cardButton.classList.add('button__card-bookmark_active');
-                        cardButtonHelp.textContent = "Нажмите, чтобы удалить";
-                    }
-                })
-                .catch((err) => {
-                    console.log('error',err);
-                });
+                if (mainApi.isLogedUser()) {
+                    let card = event.target.closest('.card');
+                    // Если неверно указан источник, то берем его со ссылки на статью
+                    let source = card.querySelector(".card__source").textContent.trim();
+                    source = isValidLink(source) ? source : card.origin;
+                    let article = {
+                        "keyword": validStr(searchInput.value, 3, 30),
+                        "title": validStr(card.querySelector(".card__title").textContent, 3, 30),
+                        "text": validStr(card.querySelector(".card__text").textContent, 3, 150),
+                        "date": card.querySelector(".publishedAt").value,
+                        "link": card.href,
+                        "source": source,
+                        "image": card.querySelector(".card__image").src
+                    };
+                    mainApi.saveArticle(article)
+                    .then(response => response.json())
+                    .then(result =>  {
+                        const cardButton = card.querySelector('.button__card-bookmark');
+                        const cardButtonHelp = card.querySelector('.button__card-help');
+                        // карточка была удалена
+                        if (result && result.status == 'deleted') {
+                            cardButton.classList.remove('button__card-bookmark_active');
+                            cardButton.classList.add('button__card-bookmark_disable');
+                            cardButtonHelp.textContent = "Нажмите, чтобы сохранить";
+                        }
+                        // карточка была создана
+                        if (result && result.status == 'created') {
+                            cardButton.classList.remove('button__card-bookmark_disable');
+                            cardButton.classList.add('button__card-bookmark_active');
+                            cardButtonHelp.textContent = "Нажмите, чтобы удалить";
+                        }
+                    })
+                    .catch((err) => {
+                        console.log('error',err);
+                    });
+                }
             }
             if (event.target.classList.contains('button__card-delete')) {
                 // на удаление
-                console.log('button__card-delete.click');
                 event.preventDefault();
                 event.stopPropagation();
                 let card = event.target.closest('.card');
@@ -100,10 +98,14 @@ class NewsCardList {
                     mainApi.removeArticle(id)
                     .then(response => response.json())
                     .then(result =>  {
-                        // карточка удалена
-                        console.log(result);
-                        // удаляем ее со страницы
+                        // карточка удалена, удаляем ее со страницы
                         card.parentNode.removeChild(card);
+                        // перестраиваем заголовок
+                        deleteArrayElementById(this._newsArray, '_id', id);
+                        //this._newsShowed --;
+                        this._newsCount --;
+                        this.renderSavedNewsHeader(this._newsArray); 
+                        this.showMore(this._newsCount - this._newsShowed);
                     })
                     .catch((err) => {
                         console.log('error',err);
@@ -159,7 +161,7 @@ class NewsCardList {
         this.mainApi.getArticles()
         .then(response => response.json())
         .then(result =>  {
-          let res = result.data.map(element => {
+            let res = result.data.map(element => {
             return {
                 _id: element._id, 
                 keyword: element.keyword, 
@@ -175,6 +177,7 @@ class NewsCardList {
                 publishedAt: element.createdAt,
             };
           });
+          this.renderSavedNewsHeader(res);
           this.saveResults(res);
           this.renderNewsResults();
         })
@@ -184,12 +187,14 @@ class NewsCardList {
     }
 
     renderNewsResults() {
-        // проверить для = 1
+
         let start = this._newsShowed < this._newsCount - 1 ? this._newsShowed : this._newsCount;
         let finish = this._newsShowed + this._newsLazyLoad < this._newsCount - 1 ? this._newsShowed + this._newsLazyLoad : this._newsCount;
+        let createdCards = [];
         for (let i = start; i < finish; i++) {
             const newCard = new NewsCard(this._newsArray[i], this._notFoundImageUrl);
             this.addCard(newCard);
+            createdCards.push({"link": this._newsArray[i].url});
         }
         this._newsShowed = finish;
         this.hidePreloader();
@@ -202,6 +207,43 @@ class NewsCardList {
         }
         if (this._newsCount == 0) {
             this.renderError();
+        }
+        // проверяем статусы тех карточек, которые прорисовали
+        this.checkNewsStatus(createdCards);
+    }
+
+    renderSavedNewsHeader(res) {
+        const savedStats = getElement('#savedStats');
+        const savedTitle = getElement('.saved__text');
+        if (res.length > 0) {
+            let gruppedObj = { };
+            res.forEach( function(element) {
+                if (gruppedObj[element.keyword]) {
+                    gruppedObj[element.keyword] = gruppedObj[element.keyword] + 1;
+                } else {
+                    gruppedObj[element.keyword] = 1;
+                }
+            });
+            let gruppedArr = [];
+            for (let key in gruppedObj) {
+                gruppedArr.push({ name: key, value:gruppedObj[key]});
+            }
+            gruppedArr = sortArrayByValue(gruppedArr, 'value');
+            if (gruppedArr.length == 1){
+                savedStats.innerHTML = `По ключевому слову: <span class="saved__keywords saved__keywords_bold">${gruppedArr[0].name}</span>`;
+            }
+            if (gruppedArr.length > 1){
+                savedStats.innerHTML = `По ключевым словам: <span class="saved__keywords saved__keywords_bold">${gruppedArr[0].name}, ${gruppedArr[1].name}</span>`;
+            }
+            if (gruppedArr.length == 3){
+                savedStats.innerHTML = savedStats.innerHTML +  ` и <span class="saved__keywords saved__keywords_bold">одному другому</span>`;                
+            }
+            if (gruppedArr.length > 3){
+                savedStats.innerHTML = savedStats.innerHTML +  ` и <span class="saved__keywords saved__keywords_bold">${gruppedArr.length - 2} другим</span>`;                
+            }     
+            savedTitle.textContent = `${getCookie('user.name')} у вас ${res.length} сохраненных статей`;     
+        } else {
+            savedTitle.textContent = `${getCookie('user.name')} у вас нет сохраненных статей`;     
         }
     }
 
@@ -251,5 +293,29 @@ class NewsCardList {
 
     hideAuthorSection(){
         getElement('.about-author').classList.add('hidden');
+    }
+
+    checkNewsStatus(news) {
+        if (this.mainApi.isLogedUser()) {
+            this.mainApi.checkNewsStatus(news)
+            .then(response => response.json())
+            .then(result =>  {
+                // console.log(result);
+                // вернулись ссылки, которые сохранены у пользователя
+                if(result && result.data && Array.isArray(result.data)){
+                    result.data.forEach(function(link) {
+                        document.querySelectorAll(`[href="${link.link}"]`).forEach( element => {
+                            let cardButton = element.closest('.card').querySelector('.button__card-bookmark');
+                            cardButton.classList.remove('button__card-bookmark_disable');
+                            cardButton.classList.add('button__card-bookmark_active');
+                        })
+                    });
+                }
+            })
+            .catch((err) => {
+              console.log('error',err);
+            });
+    
+        }
     }
 }

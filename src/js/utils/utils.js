@@ -1,5 +1,5 @@
 export {getElement, resetError, handleValidate, activateError, validate, submitButtonStatus,
-    isValidForm, isValidLink, getRusFormatDate, getShortDate, getNewsDate, sliceStr, validStr}
+    isValidForm, isValidLink, getRusFormatDate, getShortDate, getNewsDate, sliceStr, validStr, sortArrayByValue, deleteArrayElementById}
     
 function getElement(selector) {
     return document.querySelector(selector);
@@ -124,11 +124,24 @@ function isValidForm(form) {
     });
     submitButtonStatus(submit, isValidForm);
     return isValidForm;
-  }
-  
-  function isValidLink(str) {
-    //return true;
-    // временно выключено
-    const re = /(^https?:\/\/)?[a-z0-9~_\-\.]+\.[a-z]{2,9}(\/|:|\?[!-~]*)?$/i;
-    return re.test(str);
-  }
+}
+
+function isValidLink(str) {
+  const re = /(^https?:\/\/)?[a-z0-9~_\-\.]+\.[a-z]{2,9}(\/|:|\?[!-~]*)?$/i;
+  return re.test(str);
+}
+
+function sortArrayByValue(arr, value) {
+  // сортируем в обратном порядке
+  return arr.sort((a, b) => - a[value] + b[value] );
+}
+
+function deleteArrayElementById(array, fieldName, fieldValue) {
+  array.forEach( function(element, index){
+    if (element[fieldName] == fieldValue) {
+      array.splice(index, 1);
+      return array;
+    }
+  });
+  return array;
+}

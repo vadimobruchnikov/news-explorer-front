@@ -11,8 +11,8 @@ export const MAIN_API_BASE_URL_DEV = 'http://localhost:3000';
 //export const MAIN_API_BASE_URL_DEV = 'http://api.cloudsnews.ru';
 
 export const LOGIN_EXPIRES_DAYS = 7; // Сколько хранить авторизацию
-//export const NEWS_API_BASE_URL = `https://praktikum.tk/news/v2/everything';
 
-export const NEWS_API_BASE_URL = `http://localhost:3000/news-articles`;
-//export const NEWS_API_BASE_URL = `http://api.cloudsnews.ru/news-articles`;
+export const NEWS_API_BASE_URL = 'https://praktikum.tk/news/v2/everything';
+//export const NEWS_API_BASE_URL = 'http://localhost:3000/news-articles';
+//export const NEWS_API_BASE_URL = 'http://api.cloudsnews.ru/news-articles';
 
