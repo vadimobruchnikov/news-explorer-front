@@ -215,6 +215,7 @@ class NewsCardList {
     renderSavedNewsHeader(res) {
         const savedStats = getElement('#savedStats');
         const savedTitle = getElement('.saved__text');
+        const searchResults = getElement('.search-results');
         if (res.length > 0) {
             let gruppedObj = { };
             res.forEach( function(element) {
@@ -241,9 +242,12 @@ class NewsCardList {
             if (gruppedArr.length > 3){
                 savedStats.innerHTML = savedStats.innerHTML +  ` и <span class="saved__keywords saved__keywords_bold">${gruppedArr.length - 2} другим</span>`;                
             }     
-            savedTitle.textContent = `${getCookie('user.name')} у вас ${res.length} сохраненных статей`;     
+            savedTitle.textContent = `${getCookie('user.name')} у вас ${res.length} сохраненных статей`;  
+            searchResults.classList.remove('hidden');   
         } else {
-            savedTitle.textContent = `${getCookie('user.name')} у вас нет сохраненных статей`;     
+            savedTitle.textContent = `${getCookie('user.name')} у вас нет сохраненных статей`;  
+            savedStats.innerHTML = '';
+            searchResults.classList.add('hidden');   
         }
     }
 
