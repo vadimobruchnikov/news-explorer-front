@@ -22,16 +22,16 @@ class NewsCard {
             urlImage = notFoundUrl; 
         }
         let cardId = card._id ? card._id : "";
-        let extButtonClass = card.keyword ? "button__card-delete": "button__card-bookmark"; //  button__card-bookmark_disable
+        let extButtonClass = card.keyword ? "button__card-delete": "button__card-bookmark button__card-bookmark_disable";   
         // button__card-bookmark_active
+        //  button__card-help_hidden
         const newsDate = getRusFormatDate(card.publishedAt);
         cardTemplate.innerHTML =
            `<input type="hidden" class="publishedAt" value="${card.publishedAt}">
             <input type="hidden" class="_id" value="${cardId}">
             <div class="card__top-buttons button"> 
-                <div class="button__card button__card-help button__card-help_hidden">
-                    <!-- скрытая подсказка-->
-                    Скрытая подсказка
+                <div class="button__card button__card-help" title="Войдите, чтобы сохранить">
+                    Войдите, чтобы сохранить
                 </div>
                 <a class="button__card ${extButtonClass}" href="#">
                 </a>

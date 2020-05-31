@@ -1,11 +1,6 @@
 # Проект News Explorer (Frontend)
 
-## v0.0.1
-
-Модальное окно работает со второго клика по меню "Авторизоваться"
-
-## [Ссылка на gh-pages]
-(https://vadimobruchnikov.github.io/news-explorer-front/)
+## v0.0.5
 
 Финальный проект Яндекс-Практикума(дипломная работа).
 Проект должен показать чему научился студент на курсу Вэб-разработчик.
@@ -14,10 +9,10 @@
 
 ## [Ссылка на проект front] (https://github.com/vadimobruchnikov/news-explorer-front)
 
-## [Ссылка на проект back] (https://vadimobruchnikov.github.io/news-explorer-api.github.io/index.html)
+## [Ссылка на проект back] (https://github.com/vadimobruchnikov/news-explorer-api)
 
 В проекте были использованы следующие технологии:
-*Front-End:* HTML5 + CSS + JS(ES6, REST API, AJAX, JSON) + Babel + Webpack + NPM
+*Front-End:* HTML5 + CSS + JS(ES6, REST API, AJAX, JSON, CORS) + Babel + Webpack + NPM
 *Back-End:* VPS Linux + NodeJS + MongoDB + JS(ES6) + NPM + HTTPS(SSL Certificate)
 
 Реализованы механизмы логирования запросов и их ответов, ошибок.
@@ -66,16 +61,20 @@
 Проект работает на большинстве разрешений экранов
 (оптимизирован под 1440px, 720px, 535px, 320px)
 
-## Планы на будущее
 
-Возможно будут добавлены другие API поиска новостей
+# Информация для ревьювера
 
-PS [Ссылка на пул-реквест](https://github.com/vadimobruchnikov/news-explorer-front/pull/1)
-или
-(https://github.com/vadimobruchnikov/news-explorer-front.github.io/pull/1)
+## [Ссылка на пул-реквест]
+(https://github.com/vadimobruchnikov/news-explorer-front/pull/2)
 
-## Пояснения для ревьювера
+## [Проект залит на]
+(http://cloudsnews.ru)
 
-Для отображения модального окна, кликните на пункт меню "1" или "2" на главной странице.
-Соответственно покажутся окно успешного входа или окно регистрации.
+## [Апи работает по адресу]
+(http://api.cloudsnews.ru)
 
+1) На первой странице немного поплыл один блок верстки, это будет устранено в ближайшее время
+
+2) Валидация кастомных сообщений будет дописана в ближайшие дни
+
+3) Пришлось переключиться на свой АПИ новостей, совместимый с NEWAPI.ORG, т.к. последний работал только на localhost.
