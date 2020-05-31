@@ -72,7 +72,7 @@ class MainApi {
     
     saveArticle(article) {
         // сохраняет статью
-        
+        console.log('MainApi.saveArticle',this.baseUrl + `/articles`); 
         return fetch(this.baseUrl + `/articles`, {
             method: 'POST',
             headers: {

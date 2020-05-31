@@ -46,9 +46,11 @@ class NewsCardList {
    
         this._container.addEventListener('click', (event) => {
 
+            console.log('NewsCardList.click');
             // обработка кликов на карточках 
             if (event.target.classList.contains('button__card-bookmark')) {
                 // на закладке
+                console.log('button__card-bookmark.click');
                 event.preventDefault();
                 event.stopPropagation();
                 let card = event.target.closest('.card');
@@ -67,8 +69,21 @@ class NewsCardList {
                 mainApi.saveArticle(article)
                 .then(response => response.json())
                 .then(result =>  {
-                    // карточка записана
-                    // console.log(result);
+                    console.log(result);
+                    const cardButton = card.querySelector('.button__card-bookmark');
+                    const cardButtonHelp = card.querySelector('.button__card-help');
+                    // карточка была удалена
+                    if (result && result.status == 'deleted') {
+                        cardButton.classList.remove('button__card-bookmark_active');
+                        cardButton.classList.add('button__card-bookmark_disable');
+                        cardButtonHelp.textContent = "Нажмите, чтобы сохранить";
+                    }
+                    // карточка была создана
+                    if (result && result.status == 'created') {
+                        cardButton.classList.remove('button__card-bookmark_disable');
+                        cardButton.classList.add('button__card-bookmark_active');
+                        cardButtonHelp.textContent = "Нажмите, чтобы удалить";
+                    }
                 })
                 .catch((err) => {
                     console.log('error',err);
@@ -76,6 +91,7 @@ class NewsCardList {
             }
             if (event.target.classList.contains('button__card-delete')) {
                 // на удаление
+                console.log('button__card-delete.click');
                 event.preventDefault();
                 event.stopPropagation();
                 let card = event.target.closest('.card');

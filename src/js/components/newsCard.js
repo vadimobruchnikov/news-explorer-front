@@ -1,4 +1,5 @@
-import { getRusFormatDate, getShortDate, sliceStr } from "../utils/utils";
+import { getElement, getRusFormatDate, getShortDate, sliceStr } from "../utils/utils";
+import { getCookie } from "../utils/cookies";
 export { NewsCard }
 
 class NewsCard {
@@ -13,6 +14,9 @@ class NewsCard {
 
     create(card, notFoundUrl) {
 
+        const isUserLogin = getCookie('user.name') ? true : false;
+        const isSavedPage = getElement('.saved-page') ? true : false;
+        console.log('isUserLogin', isUserLogin);
         const cardTemplate = document.createElement('a');
         cardTemplate.classList.add('card');
         cardTemplate.href = card.url;
@@ -22,7 +26,8 @@ class NewsCard {
             urlImage = notFoundUrl; 
         }
         let cardId = card._id ? card._id : "";
-        let extButtonClass = card.keyword ? "button__card-delete": "button__card-bookmark button__card-bookmark_disable";   
+        let extButtonCardClass = isSavedPage ? "button__card-delete": "button__card-bookmark button__card-bookmark_disable";   
+        let buttonCardHelpText = isUserLogin ? ( isSavedPage ? "Нажмите, чтобы удалить" : "Нажмите, чтобы сохранить" ) : "Войдите, чтобы сохранить";
         // button__card-bookmark_active
         //  button__card-help_hidden
         const newsDate = getRusFormatDate(card.publishedAt);
@@ -30,10 +35,10 @@ class NewsCard {
            `<input type="hidden" class="publishedAt" value="${card.publishedAt}">
             <input type="hidden" class="_id" value="${cardId}">
             <div class="card__top-buttons button"> 
-                <div class="button__card button__card-help" title="Войдите, чтобы сохранить">
-                    Войдите, чтобы сохранить
-                </div>
-                <a class="button__card ${extButtonClass}" href="#">
+                <div class="button__card button__card-help">
+                    ${buttonCardHelpText}
+                </div>  
+                <a class="button__card ${extButtonCardClass}" href="#">
                 </a>
             </div>
             <img class="card__image" src="${urlImage}" alt="AltText">
