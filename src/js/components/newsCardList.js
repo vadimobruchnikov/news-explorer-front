@@ -6,7 +6,7 @@ import {
     NEWS_API_KEY,
     NEWS_PERIOD,
 } from '../config/main.js';
-import { getElement, getNewsDate, validStr, isValidLink, sortArrayByValue, deleteArrayElementById } from '../utils/utils';
+import { getElement, getNewsDate, clearStr, isValidLink, sortArrayByValue, deleteArrayElementById } from '../utils/utils';
 import { getCookie } from '../utils/cookies';
 import { NewsCard } from "../components/newsCard";
 
@@ -57,9 +57,9 @@ class NewsCardList {
                     let source = card.querySelector(".card__source").textContent.trim();
                     source = isValidLink(source) ? source : card.origin;
                     let article = {
-                        "keyword": validStr(searchInput.value, 3, 30),
-                        "title": validStr(card.querySelector(".card__title").textContent, 3, 30),
-                        "text": validStr(card.querySelector(".card__text").textContent, 3, 150),
+                        "keyword": clearStr(searchInput.value, 3, 30),
+                        "title": clearStr(card.querySelector(".card__title").textContent, 3, 30),
+                        "text": clearStr(card.querySelector(".card__text").textContent, 3, 150),
                         "date": card.querySelector(".publishedAt").value,
                         "link": card.href,
                         "source": source,

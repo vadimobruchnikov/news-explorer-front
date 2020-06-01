@@ -1,5 +1,5 @@
 export {getElement, resetError, handleValidate, activateError, validate, submitButtonStatus,
-    isValidForm, isValidLink, getRusFormatDate, getShortDate, getNewsDate, sliceStr, validStr, sortArrayByValue, deleteArrayElementById}
+    isValidForm, isValidLink, getRusFormatDate, getShortDate, getNewsDate, sliceStr, clearStr, sortArrayByValue, deleteArrayElementById}
     
 function getElement(selector) {
     return document.querySelector(selector);
@@ -32,7 +32,7 @@ function sliceStr(str, len) {
   return str.length <= len ? str : str.slice(0, len);
 }
 
-function validStr(str, minLength, maxLength) {
+function clearStr(str, minLength, maxLength) {
   str = str.trim();
   str = str.replace(/<ol>/i, '');
   str = str.replace(/<\/ol>/i, '');
