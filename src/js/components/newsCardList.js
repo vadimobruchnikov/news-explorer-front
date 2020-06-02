@@ -6,7 +6,8 @@ import {
     NEWS_API_KEY,
     NEWS_PERIOD,
 } from '../config/main.js';
-import { getElement, getNewsDate, clearStr, isValidLink, sortArrayByValue, deleteArrayElementById } from '../utils/utils';
+import { getElement, getNewsDate, clearStr, sortArrayByValue, deleteArrayElementById } from '../utils/utils';
+import { isValidLink } from "../../js/components/validate";
 import { getCookie } from '../utils/cookies';
 import { NewsCard } from "../components/newsCard";
 

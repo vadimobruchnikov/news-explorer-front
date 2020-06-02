@@ -104,22 +104,22 @@
         <img id="buttonSignupClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
 
         <h3 class="popup__title">Регистрация</h3>
-        <form class="popup__form" name="new" action="#">
+        <form class="popup__form" name="signup" action="#">
 
           <span class="popup__input popup__input_title">Email</span>
-          <input id="popupSignupEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="">
-          <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
+          <input id="popupSignupEmail" type="email" name="email" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="">
+          <span id="error_popupSignupEmail" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
 
           <span class="popup__input popup__input_title">Имя пользователя</span>
           <input id="popupSignupUserName" type="text" name="username" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Имя пользователя" autocomplete="off" value="">
-          <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #2 -->
+          <span id="error_popupSignupUserName" class="error-message">&nbsp;</span><!-- Ошибка #2 -->
 
           <span class="popup__input popup__input_title">Пароль</span>
-          <input id="popupSignupPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value=''>
-          <span id="error_add-card_link" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
+          <input id="popupSignupPass" type="password" name="password" class="popup__input popup__input_type-link-url" required minlength="8" maxlength="64" placeholder="Введите ваш пароль" autocomplete="off" value=''>
+          <span id="error_popupSignupPass" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
 
           <span class="error-message error-message__under-button hidden" id="popupSignupErrorMessage"></span><!-- Ошибка #API -->
-          <button class="button popup__button popup__button_edit button_submit popup__button_active" id="buttonSignupSubmit">Зарегистрироваться</button>
+          <button class="button popup__button popup__button_edit button_submit" id="buttonSignupSubmit">Зарегистрироваться</button>
         </form>
         <div class="popup__help">
           или
@@ -135,15 +135,15 @@
 
         <h3 class="popup__title">Авторизизация</h3>
 
-        <form class="popup__form" name="new" action="#">
+        <form class="popup__form" name="signin" action="#">
           <span class="popup__input popup__input_title">Email</span>
-          <input id="popupSigninEmail" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="user222@mail.ru">
-          <span id="error_add-card_name" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
+          <input id="popupSigninEmail" type="email" name="email" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="user222@mail.ru">
+          <span id="error_popupSigninEmail" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
           <span class="popup__input popup__input_title">Пароль</span>
-          <input id="popupSigninPass" type="password" name="link" class="popup__input popup__input_type-link-url" required minlength="8" maxlength="255" placeholder="Введите ваш пароль" autocomplete="off" value='12345678wA'>
-          <span id="error_add-card_link" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
+          <input id="popupSigninPass" type="password" name="password" class="popup__input popup__input_type-link-url" required minlength="8" maxlength="64" placeholder="Введите ваш пароль" autocomplete="off" value='12345678wA'>
+          <span id="error_popupSigninPass" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
           <span class="error-message error-message__under-button hidden" id="popupSigninErrorMessage"></span><!-- Ошибка #API -->
-          <button class="button popup__button popup__button_edit button_submit popup__button_active" id="buttonSigninSubmit">Войти</button>
+          <button class="button popup__button popup__button_edit button_submit" id="buttonSigninSubmit">Войти</button>
         </form>
 
         <div class="popup__help">

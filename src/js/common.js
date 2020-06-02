@@ -1,3 +1,5 @@
+'use strict';
+
 import {
   NEWS_LAZY_LOAD,
   URL_NOT_FOUND_IMAGE,
@@ -79,6 +81,7 @@ const signup = new BaseComponent({
   popupElement: getElement('#popupSignup'), 
   buttonClose: getElement('#buttonSignupClose'), 
   buttonSubmit: getElement('#buttonSignupSubmit'), 
+  submitForm: getElement('#popupSignup').querySelector('form'),
   submitAction: function(event) {
     const signupOptions = { 
       'name': getElement('#popupSignupUserName').value,
@@ -123,6 +126,7 @@ const signin = new BaseComponent({
   popupElement: getElement('#popupSignin'), 
   buttonClose: getElement('#buttonSigninClose'), 
   buttonSubmit: getElement('#buttonSigninSubmit'), 
+  submitForm: getElement('#popupSignin').querySelector('form'),
   submitAction: function() {
     const signinOptions = { 
       'email': getElement('#popupSigninEmail').value,

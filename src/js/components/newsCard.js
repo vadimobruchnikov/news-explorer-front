@@ -8,10 +8,6 @@ class NewsCard {
         return this.create(card, notFoundUrl);
     }
 
-    renderIcon() {
-
-    }
-
     create(card, notFoundUrl) {
 
         const isUserLogin = getCookie('user.name') ? true : false;
@@ -27,8 +23,6 @@ class NewsCard {
         let cardId = card._id ? card._id : "";
         let extButtonCardClass = isSavedPage ? "button__card-delete": "button__card-bookmark button__card-bookmark_disable";   
         let buttonCardHelpText = isUserLogin ? ( isSavedPage ? "Нажмите, чтобы удалить" : "Нажмите, чтобы сохранить" ) : "Войдите, чтобы сохранить";
-        // button__card-bookmark_active
-        //  button__card-help_hidden
         const keyword = card.keyword ? card.keyword : '';
         let extButtonKeywordClass = keyword == '' ? 'hidden' : '';   
         const newsDate = getRusFormatDate(card.publishedAt);
