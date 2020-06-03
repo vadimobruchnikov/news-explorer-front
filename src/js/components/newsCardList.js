@@ -45,6 +45,13 @@ class NewsCardList {
         this.containerSavedTitle = containerSavedTitle || null;
         this.searchItems = searchItems || null;
         this.createCard = createCard || null;
+
+        this.elementSearchResults = getElement('.search-results');
+        this.elementNewsPreloader = getElement('.news-preloader');
+        this.elementNnewsNotFound = getElement('.news-not-found');
+        this.elementShowMore = getElement('.show-more');
+        this.elementAaboutAuthor = getElement('.about-author');
+        this.elementShowMoreButton = getElement('.show-more__button');
    
         this._container.addEventListener('click', (event) => {
 
@@ -212,7 +219,7 @@ class NewsCardList {
             return Promise.reject({message: res.status, res: res});
         })
         .then(result =>  {
-          const res = result.data.map( element => _getNewsDataFormat(element) );
+          const res = result.data.map( element => this._getNewsDataFormat(element) );
           this.renderSavedNewsHeader(res);
           this.saveResults(res);
           this.renderNewsResults();
@@ -252,7 +259,6 @@ class NewsCardList {
     renderSavedNewsHeader(res) {
         const savedStats = getElement('#savedStats');
         const savedTitle = getElement('.saved__text');
-        const searchResults = getElement('.search-results');
         if (res.length > 0) {
             let gruppedObj = { };
             res.forEach( function(element) {
@@ -280,11 +286,11 @@ class NewsCardList {
                 savedStats.innerHTML = savedStats.innerHTML +  ` и <span class="saved__keywords saved__keywords_bold">${gruppedArr.length - 2} другим</span>`;                
             }     
             savedTitle.textContent = `${getCookie('user.name')} у вас ${res.length} сохраненных статей`;  
-            searchResults.classList.remove('hidden');   
+            this.elementSearchResults.classList.remove('hidden');   
         } else {
             savedTitle.textContent = `${getCookie('user.name')} у вас нет сохраненных статей`;  
             savedStats.innerHTML = '';
-            searchResults.classList.add('hidden');   
+            this.elementSearchResults.classList.add('hidden');   
         }
     }
 
@@ -303,37 +309,37 @@ class NewsCardList {
     }
 
     showResults() {
-        getElement('.search-results').classList.remove('hidden');
+        this.elementSearchResults.classList.remove('hidden');
     }
 
     showPreloader() {
-        getElement('.news-preloader').classList.remove('hidden');
+        this.elementNewsPreloader.classList.remove('hidden');
     }
 
     hidePreloader() {
-        getElement('.news-preloader').classList.add('hidden');
+        this.elementNewsPreloader.classList.add('hidden');
     }
 
     renderError() {
-        getElement('.news-not-found').classList.remove('hidden');
+        this.elementNewsPreloader.classList.remove('hidden');
     }
 
     hideError() {
-        getElement('.news-not-found').classList.add('hidden');
+        this.elementNnewsNotFound.classList.add('hidden');
     }
 
     showMore(totalNews){
-        getElement('.show-more').classList.remove('hidden');
+        this.elementShowMore.classList.remove('hidden');
         const newsCount = totalNews > 0 ? ` (${totalNews})` : '';
-        getElement('.show-more__button').innerHTML = `Показать еще ${newsCount}`;
+        this.elementShowMoreButton.innerHTML = `Показать еще ${newsCount}`;
     }
 
     hideMore(){
-        getElement('.show-more').classList.add('hidden');
+        this.elementShowMore.classList.add('hidden');
     }
 
     hideAuthorSection(){
-        getElement('.about-author').classList.add('hidden');
+        this.elementAaboutAuthor.classList.add('hidden');
     }
 
     checkNewsStatus(news) {

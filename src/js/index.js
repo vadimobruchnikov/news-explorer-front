@@ -12,15 +12,3 @@ searchInput.addEventListener('input', (event) => {
         searchInput.classList.remove('search__field_inputing');
     }
 });
-
-/*
-const searchButton = getElement('#searcButton');
-searchButton.addEventListener('click', (event) => {
-    const searcValue = searchInput.value.trim();
-    if(searcValue == '') {
-        event.preventDefault();
-        event.stopPropagation();
-        console.log('Error');
-    }
-});
-*/
