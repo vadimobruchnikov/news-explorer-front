@@ -16,3 +16,16 @@
     padding: 12px 20px 12px 20px; /* */
   }
 }
+
+@media (max-width: 680px) { 
+  .header__menu_button{
+    padding: 2px 20px; /* */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 100px;
+  }
+}

@@ -5,3 +5,9 @@
   width: 24px;
   background-image: url(../../../images/menu/header__menu_exit-black.svg);
 }
+
+@media (max-width: 680px) { 
+  .header__menu_exit-black {
+    margin : unset;
+  }
+}

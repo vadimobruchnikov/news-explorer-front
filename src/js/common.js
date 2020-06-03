@@ -189,6 +189,24 @@ const signout = new BaseComponent({
   redirectAction: null
 });
 
+const mobileMenuOpen = getElement('#mobileMemuOpen');
+const mobileMenuClose = getElement('#mobileMemuClose');
+const headerElement = getElement('.header');
+const headerNavElement = getElement('.header__nav');
+mobileMenuOpen.addEventListener('click', (event) => {
+  headerElement.classList.add('header_mobile');
+  headerNavElement.style.display = 'flex';
+  mobileMenuOpen.classList.add('hidden');
+  mobileMenuClose.classList.remove('hidden');
+});
+
+mobileMenuClose.addEventListener('click', (event) => {
+  headerElement.classList.remove('header_mobile');
+  headerNavElement.style.display = null;
+  mobileMenuOpen.classList.remove('hidden');
+  mobileMenuClose.classList.add('hidden');
+});
+
 // ошибка подгрузки изображения
 document.addEventListener('onerror', (event) => {
   console.log('onerror',event);

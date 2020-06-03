@@ -1,4 +1,11 @@
 .header_black{
-  box-shadow: inset 0 -1px 0 rgba(8, 29, 45, 0.3);
   background-image: none;
+  background-color: unset;
+  box-shadow: inset 0 -1px 0 rgba(8, 29, 45, 0.3);
+}
+
+@media (max-width: 680px) { 
+  .header_black{
+    height: calc((100vw - 320px)/448*24 + 56px);
+  }
 }
