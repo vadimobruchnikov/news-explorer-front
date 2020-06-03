@@ -7,10 +7,10 @@ function getElement(selector) {
 function getRusFormatDate(dateStr) {
   const monthNames = ["января", "февраля", "марта", "апреля", "мая", "июня",
     "июля", "августа", "сентября", "октября", "ноября", "декабря"];
-  let dateObj = new Date(dateStr);
-  let month = monthNames[dateObj.getMonth()];
-  let day = String(dateObj.getDate()).padStart(2, '0');
-  let year = dateObj.getFullYear();
+  const dateObj = new Date(dateStr);
+  const month = monthNames[dateObj.getMonth()];
+  const day = String(dateObj.getDate()).padStart(2, '0');
+  const year = dateObj.getFullYear();
   return day + ' ' + month + ', ' + year;
 }
 

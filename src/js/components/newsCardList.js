@@ -53,11 +53,11 @@ class NewsCardList {
                 event.preventDefault();
                 event.stopPropagation();
                 if (mainApi.isLogedUser()) {
-                    let card = event.target.closest('.card');
+                    const card = event.target.closest('.card');
                     // Если неверно указан источник, то берем его со ссылки на статью
                     let source = card.querySelector(".card__source").textContent.trim();
                     source = isValidLink(source) ? source : card.origin;
-                    let article = {
+                    const article = {
                         "keyword": clearStr(searchInput.value, 3, 30),
                         "title": clearStr(card.querySelector(".card__title").textContent, 3, 30),
                         "text": clearStr(card.querySelector(".card__text").textContent, 3, 150),
@@ -67,7 +67,12 @@ class NewsCardList {
                         "image": card.querySelector(".card__image").src
                     };
                     mainApi.saveArticle(article)
-                    .then(response => response.json())
+                    .then(res => {
+                        if (res.ok) {
+                          return res.json();
+                        }
+                        return Promise.reject({message: res.status, res: res});
+                    })
                     .then(result =>  {
                         const cardButton = card.querySelector('.button__card-bookmark');
                         const cardButtonHelp = card.querySelector('.button__card-help');
@@ -93,8 +98,8 @@ class NewsCardList {
                 // на удаление
                 event.preventDefault();
                 event.stopPropagation();
-                let card = event.target.closest('.card');
-                let id = card.querySelector("._id").value;
+                const card = event.target.closest('.card');
+                const id = card.querySelector("._id").value;
                 if (id) {
                     mainApi.removeArticle(id)
                     .then(response => response.json())
@@ -128,7 +133,12 @@ class NewsCardList {
                 this.showPreloader();
                 this.hideAuthorSection();
                 this.newsApi.getNews({newsQuery: searchInput.value, dateFrom: getNewsDate(new Date(), 0), dateTo: getNewsDate(new Date(), - NEWS_PERIOD)})
-                .then(response => response.json())
+                .then(res => {
+                    if (res.ok) {
+                      return res.json();
+                    }
+                    return Promise.reject({message: res.status, res: res});
+                })
                 .then(result =>  {
                     if (result.status == "ok") {
                     return  result.articles ? result.articles : false;
@@ -160,9 +170,14 @@ class NewsCardList {
         this.clearResults();
         this.showPreloader();
         this.mainApi.getArticles()
-        .then(response => response.json())
+        .then(res => {
+            if (res.ok) {
+              return res.json();
+            }
+            return Promise.reject({message: res.status, res: res});
+        })
         .then(result =>  {
-            let res = result.data.map(element => {
+            const res = result.data.map(element => {
             return {
                 _id: element._id, 
                 keyword: element.keyword, 
@@ -189,8 +204,8 @@ class NewsCardList {
 
     renderNewsResults() {
 
-        let start = this._newsShowed < this._newsCount - 1 ? this._newsShowed : this._newsCount;
-        let finish = this._newsShowed + this._newsLazyLoad < this._newsCount - 1 ? this._newsShowed + this._newsLazyLoad : this._newsCount;
+        const start = this._newsShowed < this._newsCount - 1 ? this._newsShowed : this._newsCount;
+        const finish = this._newsShowed + this._newsLazyLoad < this._newsCount - 1 ? this._newsShowed + this._newsLazyLoad : this._newsCount;
         let createdCards = [];
         for (let i = start; i < finish; i++) {
             const newCard = new NewsCard(this._newsArray[i], this._notFoundImageUrl);
@@ -303,14 +318,19 @@ class NewsCardList {
     checkNewsStatus(news) {
         if (this.mainApi.isLogedUser()) {
             this.mainApi.checkNewsStatus(news)
-            .then(response => response.json())
+            .then(res => {
+                if (res.ok) {
+                  return res.json();
+                }
+                return Promise.reject({message: res.status, res: res});
+            })
             .then(result =>  {
                 // console.log(result);
                 // вернулись ссылки, которые сохранены у пользователя
                 if(result && result.data && Array.isArray(result.data)){
                     result.data.forEach(function(link) {
                         document.querySelectorAll(`[href="${link.link}"]`).forEach( element => {
-                            let cardButton = element.closest('.card').querySelector('.button__card-bookmark');
+                            const cardButton = element.closest('.card').querySelector('.button__card-bookmark');
                             cardButton.classList.remove('button__card-bookmark_disable');
                             cardButton.classList.add('button__card-bookmark_active');
                         })

@@ -49,7 +49,7 @@
       </div>
 
       <form class="search__field" action="" name="search">
-        <input class="search__field-input" id="searchInput" type="search" placeholder="Введите то, что вас интересует" required minlength="2" maxlength="30" value="">
+        <input class="search__field-input" id="searchInput" type="search" placeholder="Введите то, что вас интересует" autocomplete="off" required minlength="2" maxlength="30" value="">
         <button class="search__field-button button_submit" id="searcButton">Найти</button>
       </form>
     </section>
@@ -191,6 +191,14 @@
       <div class="popup__content">
         <img id="popupSuccessExitClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
         <h3 class="popup__title">Вы успешно вышли!</h3>
+      </div>
+    </div>
+
+    <!-- Модальное окно "showError" -->
+    <div class="popup hidden" id="popupShowModalError">
+      <div class="popup__content">
+        <h3 class="popup__title error-message_simple" id="popupShowModalErrorTitle">Ошибка!</h3>
+        <p class="popup__info-message error-message_simple" id="popupShowModalErrorText">Выполнить вход</p>
       </div>
     </div>
 

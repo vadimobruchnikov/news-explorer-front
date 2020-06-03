@@ -13,7 +13,7 @@ function getCookie(name) {
 
 function setCookie(name, value, options = {}) {
 
-    let expires = new Date(Date.now() + 604800e3);
+    const expires = new Date(Date.now() + 604800e3);
     // let date = new Date();
     // let expires = date.setTime(date.getTime() + (LOGIN_EXPIRES_DAYS * 24 * 60 * 60 * 1000));
     options = {
@@ -29,7 +29,7 @@ function setCookie(name, value, options = {}) {
 
     for (let optionKey in options) {
         updatedCookie += "; " + optionKey;
-        let optionValue = options[optionKey];
+        const optionValue = options[optionKey];
         if (optionValue !== true) {
         updatedCookie += "=" + optionValue;
         }

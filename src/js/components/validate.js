@@ -30,8 +30,12 @@ function resetError(element) {
  */
 function activateError(element, errorMessage, isShowError) {
     // element.parentNode.classList.add('input-container__invalid');
-    element.textContent = errorMessage;
-    if (isShowError) element.style.opacity = 1;
+    if(element) {
+      element.textContent = errorMessage;
+      if (isShowError) {
+        element.style.opacity = 1;
+      }
+    }
 }
 
 /**
@@ -48,7 +52,7 @@ function validate(element, isShowError) {
     }
    
     // отсекаем пробелы с начала и конца строки
-    let trimstr = element.value.trim();
+    const trimstr = element.value.trim();
     
     // доп. проверка на пустую строку
     if ((element.value !== trimstr)&&(!trimstr)) {
@@ -114,6 +118,7 @@ function submitButtonStatus(submitButton, isActive) {
  * @param {object} form Проверяемая форма 
  */
 function isValidForm(form) {
+    console.log('isValidForm',form);
     let isValidForm = true;
     const inputs = Array.from(form.elements);
     const submit = form.querySelector('.button_submit');

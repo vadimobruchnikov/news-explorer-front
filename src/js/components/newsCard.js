@@ -20,11 +20,11 @@ class NewsCard {
         if( (!urlImage) || (urlImage==null) || (urlImage == undefined)) {
             urlImage = notFoundUrl; 
         }
-        let cardId = card._id ? card._id : "";
-        let extButtonCardClass = isSavedPage ? "button__card-delete": "button__card-bookmark button__card-bookmark_disable";   
-        let buttonCardHelpText = isUserLogin ? ( isSavedPage ? "Нажмите, чтобы удалить" : "Нажмите, чтобы сохранить" ) : "Войдите, чтобы сохранить";
+        const cardId = card._id ? card._id : "";
+        const extButtonCardClass = isSavedPage ? "button__card-delete": "button__card-bookmark button__card-bookmark_disable";   
+        const buttonCardHelpText = isUserLogin ? ( isSavedPage ? "Нажмите, чтобы удалить" : "Нажмите, чтобы сохранить" ) : "Войдите, чтобы сохранить";
         const keyword = card.keyword ? card.keyword : '';
-        let extButtonKeywordClass = keyword == '' ? 'hidden' : '';   
+        const extButtonKeywordClass = keyword == '' ? 'hidden' : '';   
         const newsDate = getRusFormatDate(card.publishedAt);
         cardTemplate.innerHTML =
            `<input type="hidden" class="publishedAt" value="${card.publishedAt}">

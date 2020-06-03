@@ -89,7 +89,12 @@ const signup = new BaseComponent({
       'password': getElement('#popupSignupPass').value
     };
     mainApi.signup(signupOptions)
-      .then(response => response.json())
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject({message: res.status, res: res});
+      })
       .then(result =>  {
         if (result.message){
           this.showErrors(result.message);
@@ -133,7 +138,12 @@ const signin = new BaseComponent({
       'password': getElement('#popupSigninPass').value
     };
     mainApi.signin(signinOptions)
-      .then(response => response.json())
+      .then(res => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject({message: res.status, res: res});
+      })
       .then(result =>  {
         if (result.message) {
           this.showErrors(result.message);
@@ -206,6 +216,21 @@ mobileMenuClose.addEventListener('click', (event) => {
   mobileMenuOpen.classList.remove('hidden');
   mobileMenuClose.classList.add('hidden');
 });
+
+
+/*
+function disapearingOn() {
+  getElement('#popupShowModalError').classList.remove('hidden');
+  getElement('#popupShowModalError').classList.add('disappearing');
+}
+function disapearingOff() {
+  getElement('#popupShowModalError').classList.add('hidden');
+  getElement('#popupShowModalError').classList.remove('disappearing');
+}
+
+setTimeout(disapearingOn, 500);
+setTimeout(disapearingOff, 3500);
+*/
 
 // ошибка подгрузки изображения
 document.addEventListener('onerror', (event) => {

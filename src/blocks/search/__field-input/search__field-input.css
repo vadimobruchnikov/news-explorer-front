@@ -17,6 +17,11 @@
   margin-left: 416px;
   margin-bottom: 80px;
 }
+/*.search__field-input::-moz-placeholder,
+.search__field-input::-webkit-input-placeholder
+input:-ms-input-placeholder
+*/
+
 @media (max-width: 1439px) {
   .search__field-input{
     margin-left: calc( (100vw - 768px)/(1440 - 768) * (416 - 163) + 163px);
