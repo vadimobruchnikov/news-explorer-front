@@ -118,7 +118,7 @@ function submitButtonStatus(submitButton, isActive) {
  * @param {object} form Проверяемая форма 
  */
 function isValidForm(form) {
-    console.log('isValidForm',form);
+    //console.log('isValidForm',form);
     let isValidForm = true;
     const inputs = Array.from(form.elements);
     const submit = form.querySelector('.button_submit');

@@ -9,7 +9,6 @@ import {
 import { getElement, getNewsDate, clearStr, sortArrayByValue, deleteArrayElementById } from '../utils/utils';
 import { isValidLink } from "../../js/components/validate";
 import { getCookie } from '../utils/cookies';
-import { NewsCard } from "../components/newsCard";
 
 export { NewsCardList }
 
@@ -28,7 +27,8 @@ class NewsCardList {
         newsApi, 
         mainApi, 
         containerSavedTitle,
-        searchItems }) {
+        searchItems,
+        createCard }) {
     
         this._container = newsCardList || null;;
         this._loader = nameLoader || null;
@@ -44,79 +44,18 @@ class NewsCardList {
         this.mainApi = mainApi || null;
         this.containerSavedTitle = containerSavedTitle || null;
         this.searchItems = searchItems || null;
+        this.createCard = createCard || null;
    
         this._container.addEventListener('click', (event) => {
 
             // обработка кликов на карточках 
             if (event.target.classList.contains('button__card-bookmark')) {
                 // на закладке
-                event.preventDefault();
-                event.stopPropagation();
-                if (mainApi.isLogedUser()) {
-                    const card = event.target.closest('.card');
-                    // Если неверно указан источник, то берем его со ссылки на статью
-                    let source = card.querySelector(".card__source").textContent.trim();
-                    source = isValidLink(source) ? source : card.origin;
-                    const article = {
-                        "keyword": clearStr(searchInput.value, 3, 30),
-                        "title": clearStr(card.querySelector(".card__title").textContent, 3, 30),
-                        "text": clearStr(card.querySelector(".card__text").textContent, 3, 150),
-                        "date": card.querySelector(".publishedAt").value,
-                        "link": card.href,
-                        "source": source,
-                        "image": card.querySelector(".card__image").src
-                    };
-                    mainApi.saveArticle(article)
-                    .then(res => {
-                        if (res.ok) {
-                          return res.json();
-                        }
-                        return Promise.reject({message: res.status, res: res});
-                    })
-                    .then(result =>  {
-                        const cardButton = card.querySelector('.button__card-bookmark');
-                        const cardButtonHelp = card.querySelector('.button__card-help');
-                        // карточка была удалена
-                        if (result && result.status == 'deleted') {
-                            cardButton.classList.remove('button__card-bookmark_active');
-                            cardButton.classList.add('button__card-bookmark_disable');
-                            cardButtonHelp.textContent = "Нажмите, чтобы сохранить";
-                        }
-                        // карточка была создана
-                        if (result && result.status == 'created') {
-                            cardButton.classList.remove('button__card-bookmark_disable');
-                            cardButton.classList.add('button__card-bookmark_active');
-                            cardButtonHelp.textContent = "Нажмите, чтобы удалить";
-                        }
-                    })
-                    .catch((err) => {
-                        console.log('error',err);
-                    });
-                }
+                this._bookmarkClick(event);
             }
             if (event.target.classList.contains('button__card-delete')) {
                 // на удаление
-                event.preventDefault();
-                event.stopPropagation();
-                const card = event.target.closest('.card');
-                const id = card.querySelector("._id").value;
-                if (id) {
-                    mainApi.removeArticle(id)
-                    .then(response => response.json())
-                    .then(result =>  {
-                        // карточка удалена, удаляем ее со страницы
-                        card.parentNode.removeChild(card);
-                        // перестраиваем заголовок
-                        deleteArrayElementById(this._newsArray, '_id', id);
-                        //this._newsShowed --;
-                        this._newsCount --;
-                        this.renderSavedNewsHeader(this._newsArray); 
-                        this.showMore(this._newsCount - this._newsShowed);
-                    })
-                    .catch((err) => {
-                        console.log('error',err);
-                    });
-                }
+                this._deleteClick(event);
             }
         });
 
@@ -126,42 +65,138 @@ class NewsCardList {
 
         if(this.searchButton){
             this.searchButton.addEventListener('click', (event) => {
-                event.preventDefault();
-                event.stopPropagation();
-                this.showResults();
-                this.clearResults();
-                this.showPreloader();
-                this.hideAuthorSection();
-                this.newsApi.getNews({newsQuery: searchInput.value, dateFrom: getNewsDate(new Date(), 0), dateTo: getNewsDate(new Date(), - NEWS_PERIOD)})
-                .then(res => {
-                    if (res.ok) {
-                      return res.json();
-                    }
-                    return Promise.reject({message: res.status, res: res});
-                })
-                .then(result =>  {
-                    if (result.status == "ok") {
-                    return  result.articles ? result.articles : false;
-                    } else {
-                    return Promise.reject(result.status)
-                    }
-                })
-                .then(newsArray => {
-                    this.saveResults(newsArray);
-                    this.renderNewsResults();
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
-                .finally(() => {
-                    this.hidePreloader();
-                });
+                this._searchButtonClick(event);
             });
         }
 
         if ((this._container) && getCookie('user.name') && (!getElement('.index-page')) ) {
             this.renderSavedItems(this._container);
         }
+    }
+
+    _setArticleData(card) {
+
+    }
+
+
+    _bookmarkClick(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.mainApi.isLogedUser()) {
+            const card = event.target.closest('.card');
+            // Если неверно указан источник, то берем его со ссылки на статью
+            let source = card.querySelector(".card__source").textContent.trim();
+            source = isValidLink(source) ? source : card.origin;
+            const article = {
+                "keyword": clearStr(searchInput.value, 3, 30),
+                "title": clearStr(card.querySelector(".card__title").textContent, 3, 30),
+                "text": clearStr(card.querySelector(".card__text").textContent, 3, 150),
+                "date": card.querySelector(".publishedAt").value,
+                "link": card.href,
+                "source": source,
+                "image": card.querySelector(".card__image").src
+            };
+            this.mainApi.saveArticle(article)
+            .then(res => {
+                if (res.ok) {
+                  return res.json();
+                }
+                return Promise.reject({message: res.status, res: res});
+            })
+            .then(result =>  {
+                const cardButton = card.querySelector('.button__card-bookmark');
+                const cardButtonHelp = card.querySelector('.button__card-help');
+                // карточка была удалена
+                if (result && result.status == 'deleted') {
+                    cardButton.classList.remove('button__card-bookmark_active');
+                    cardButton.classList.add('button__card-bookmark_disable');
+                    cardButtonHelp.textContent = "Нажмите, чтобы сохранить";
+                }
+                // карточка была создана
+                if (result && result.status == 'created') {
+                    cardButton.classList.remove('button__card-bookmark_disable');
+                    cardButton.classList.add('button__card-bookmark_active');
+                    cardButtonHelp.textContent = "Нажмите, чтобы удалить";
+                }
+            })
+            .catch((err) => {
+                console.log('error',err);
+            });
+        }
+    }
+
+    _deleteClick(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const card = event.target.closest('.card');
+        const id = card.querySelector("._id").value;
+        if (id) {
+            this.mainApi.removeArticle(id)
+            .then(response => response.json())
+            .then(result =>  {
+                // карточка удалена, удаляем ее со страницы
+                card.parentNode.removeChild(card);
+                // перестраиваем заголовок
+                deleteArrayElementById(this._newsArray, '_id', id);
+                //this._newsShowed --;
+                this._newsCount --;
+                this.renderSavedNewsHeader(this._newsArray); 
+                this.showMore(this._newsCount - this._newsShowed);
+            })
+            .catch((err) => {
+                console.log('error',err);
+            });
+        }
+    }
+
+    _searchButtonClick(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.showResults();
+        this.clearResults();
+        this.showPreloader();
+        this.hideAuthorSection();
+        this.newsApi.getNews({newsQuery: searchInput.value, dateFrom: getNewsDate(new Date(), 0), dateTo: getNewsDate(new Date(), - NEWS_PERIOD)})
+        .then(res => {
+            if (res.ok) {
+              return res.json();
+            }
+            return Promise.reject({message: res.status, res: res});
+        })
+        .then(result =>  {
+            if ( result.status == "ok" ) {
+            return  result.articles ? result.articles : false;
+            } else {
+            return Promise.reject(result.status)
+            }
+        })
+        .then(newsArray => {
+            this.saveResults(newsArray);
+            this.renderNewsResults();
+        })
+        .catch((err) => {
+            console.log(err);
+        })
+        .finally(() => {
+            this.hidePreloader();
+        });
+    }
+
+    _getNewsDataFormat(element) {
+        return {
+            _id: element._id, 
+            keyword: element.keyword, 
+            title: element.title, 
+            description: element.text,
+            date: element.date,
+            url: element.link,
+            source: {
+                name: element.source,
+                id:element.source
+            },
+            urlToImage: element.image,
+            publishedAt: element.createdAt,
+        };
     }
 
     renderSavedItems() {
@@ -177,22 +212,7 @@ class NewsCardList {
             return Promise.reject({message: res.status, res: res});
         })
         .then(result =>  {
-            const res = result.data.map(element => {
-            return {
-                _id: element._id, 
-                keyword: element.keyword, 
-                title: element.title, 
-                description: element.text,
-                date: element.date,
-                url: element.link,
-                source: {
-                    name: element.source,
-                    id:element.source
-                },
-                urlToImage: element.image,
-                publishedAt: element.createdAt,
-            };
-          });
+          const res = result.data.map( element => _getNewsDataFormat(element) );
           this.renderSavedNewsHeader(res);
           this.saveResults(res);
           this.renderNewsResults();
@@ -208,7 +228,8 @@ class NewsCardList {
         const finish = this._newsShowed + this._newsLazyLoad < this._newsCount - 1 ? this._newsShowed + this._newsLazyLoad : this._newsCount;
         let createdCards = [];
         for (let i = start; i < finish; i++) {
-            const newCard = new NewsCard(this._newsArray[i], this._notFoundImageUrl);
+            //const newCard = new NewsCard(this._newsArray[i], this._notFoundImageUrl);
+            const newCard = this.createCard(this._newsArray[i], this._notFoundImageUrl);
             this.addCard(newCard);
             createdCards.push({"link": this._newsArray[i].url});
         }
@@ -331,8 +352,10 @@ class NewsCardList {
                     result.data.forEach(function(link) {
                         document.querySelectorAll(`[href="${link.link}"]`).forEach( element => {
                             const cardButton = element.closest('.card').querySelector('.button__card-bookmark');
-                            cardButton.classList.remove('button__card-bookmark_disable');
-                            cardButton.classList.add('button__card-bookmark_active');
+                            if(cardButton) {
+                                cardButton.classList.remove('button__card-bookmark_disable');
+                                cardButton.classList.add('button__card-bookmark_active');
+                            }
                         })
                     });
                 }

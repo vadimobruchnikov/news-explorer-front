@@ -16,6 +16,7 @@ import { Header } from '../js/components/header';
 import { NewsCardList } from '../js/components/newsCardList';
 import { MainApi } from '../js/api/mainapi';
 import { NewsApi } from '../js/api/newsapi.js';
+import { NewsCard } from "../js/components/newsCard";
 
 export { header, newsCardList, mainApi, newsApi, popupSuccessInfo, popupSuccessExit, signup, signin, signout}
 
@@ -33,6 +34,8 @@ const header = new Header({
   mainApi: mainApi
 });
 
+const createCard = (...args) => new NewsCard(...args);
+
 const newsCardList = new NewsCardList({
   // nameCardList: getElement('.search-results__items'),
   newsCardList: getElement('#newsCardList'),
@@ -48,6 +51,7 @@ const newsCardList = new NewsCardList({
   mainApi: mainApi,
   containerSavedTitle: getElement('#containerSavedTitle'),
   searchItems: getElement('#searchItems'),
+  createCard,
 });
 
 // Пользователь успешно зарегистрирован
