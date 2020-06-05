@@ -158,11 +158,11 @@ class NewsCardList {
 
     _searchButtonClick(event) {
         event.preventDefault();
-        console.log('_searchButtonClick()');
-        console.log(event.target);
+        //console.log('_searchButtonClick()');
+        //console.log(event.target);
         if (searchInput.value.trim() == '') {
             this.popupError.show(ErrorValidationMessages.VALUE_MISSING);
-            return false;
+            return true;
         }
         event.stopPropagation();
         this.showResults();
@@ -321,6 +321,7 @@ class NewsCardList {
     }
 
     showPreloader() {
+        this.elementShowMore.classList.add('hidden');
         this.elementNewsPreloader.classList.remove('hidden');
     }
 
@@ -378,7 +379,6 @@ class NewsCardList {
               console.log('error',err);
               this.popupError.show(ErrorMessages.MAIN_API_ERROR);
             });
-    
         }
     }
 }

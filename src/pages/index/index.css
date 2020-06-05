@@ -24,9 +24,6 @@
 @import url(../../blocks/about-author/about-author.css);
 
 @import url(../../blocks/search-results/search-results.css);
-/*
-@import url(../../blocks/search-results/__preloader/search-results__preloader.css);
-*/
 @import url(../../blocks/show-more/show-more.css);
 @import url(../../blocks/show-more/__button/show-more__button.css);
 

@@ -26,7 +26,13 @@
 
 
 @import url(../../blocks/search-results/search-results.css);
+/*
 @import url(../../blocks/search-results/__preloader/search-results__preloader.css);
+*/
+
+@import url(../../blocks/news-preloader/news-preloader.css);
+@import url(../../blocks/news-preloader/__animation/news-preloader__animation.css);
+@import url(../../blocks/news-preloader/__text/news-preloader__text.css);
 
 @import url(../../blocks/show-more/show-more.css);
 @import url(../../blocks/show-more/__button/show-more__button.css);
