@@ -12,6 +12,8 @@ module.exports.ErrorMessages = {
   USER_OR_PASS_NOT_FOUND_ERROR: 'Неправильные почта или пароль',
   SERVER_ERROR: 'На сервере произошла ошибка',
   BAD_REQUEST_ERROR: 'Неправильный формат запроса',
+  MAIN_API_ERROR: 'Ошибка MainApi',
+  NEWS_API_ERROR: 'Ошибка NewsApi',
 };
 
 module.exports.ErrorValidationMessages = {

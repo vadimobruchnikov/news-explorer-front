@@ -9,6 +9,7 @@ import {
 import { getElement, getNewsDate, clearStr, sortArrayByValue, deleteArrayElementById } from '../utils/utils';
 import { isValidLink } from "../../js/components/validate";
 import { getCookie } from '../utils/cookies';
+import { ErrorValidationMessages, ErrorMessages } from '../../js/resources/messages';
 
 export { NewsCardList }
 
@@ -28,7 +29,8 @@ class NewsCardList {
         mainApi, 
         containerSavedTitle,
         searchItems,
-        createCard }) {
+        createCard,
+        popupError}) {
     
         this._container = newsCardList || null;;
         this._loader = nameLoader || null;
@@ -45,6 +47,7 @@ class NewsCardList {
         this.containerSavedTitle = containerSavedTitle || null;
         this.searchItems = searchItems || null;
         this.createCard = createCard || null;
+        this.popupError = popupError || null; 
 
         this.elementSearchResults = getElement('.search-results');
         this.elementNewsPreloader = getElement('.news-preloader');
@@ -80,11 +83,6 @@ class NewsCardList {
             this.renderSavedItems(this._container);
         }
     }
-
-    _setArticleData(card) {
-
-    }
-
 
     _bookmarkClick(event) {
         event.preventDefault();
@@ -127,7 +125,8 @@ class NewsCardList {
                 }
             })
             .catch((err) => {
-                console.log('error',err);
+                console.log('error', err);
+                this.popupError.show(ErrorMessages.MAIN_API_ERROR);
             });
         }
     }
@@ -152,12 +151,19 @@ class NewsCardList {
             })
             .catch((err) => {
                 console.log('error',err);
+                this.popupError.show(ErrorMessages.MAIN_API_ERROR);
             });
         }
     }
 
     _searchButtonClick(event) {
         event.preventDefault();
+        console.log('_searchButtonClick()');
+        console.log(event.target);
+        if (searchInput.value.trim() == '') {
+            this.popupError.show(ErrorValidationMessages.VALUE_MISSING);
+            return false;
+        }
         event.stopPropagation();
         this.showResults();
         this.clearResults();
@@ -168,7 +174,7 @@ class NewsCardList {
             if (res.ok) {
               return res.json();
             }
-            return Promise.reject({message: res.status, res: res});
+            return Promise.reject({message: res.statusText, res: res});
         })
         .then(result =>  {
             if ( result.status == "ok" ) {
@@ -183,6 +189,7 @@ class NewsCardList {
         })
         .catch((err) => {
             console.log(err);
+            this.popupError.show(ErrorMessages.NEWS_API_ERROR);
         })
         .finally(() => {
             this.hidePreloader();
@@ -226,6 +233,7 @@ class NewsCardList {
         })
         .catch((err) => {
           console.log('error',err);
+          this.popupError.show(ErrorMessages.MAIN_API_ERROR);
         });
     }
 
@@ -368,6 +376,7 @@ class NewsCardList {
             })
             .catch((err) => {
               console.log('error',err);
+              this.popupError.show(ErrorMessages.MAIN_API_ERROR);
             });
     
         }

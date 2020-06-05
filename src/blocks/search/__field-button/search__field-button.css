@@ -19,6 +19,7 @@
   text-align: center;
   color: #FFFFFF;
   outline: none;
+  cursor: pointer;
 }
 .search__field-button:hover{
   background: #347EFF;

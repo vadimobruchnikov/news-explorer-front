@@ -1,5 +1,4 @@
-import { resetError, handleValidate, activateError, validate, submitButtonStatus,
-    isValidForm, isValidLink } from "../../js/components/validate";
+import { handleValidate } from "../../js/components/validate";
   
 export { BaseComponent }
 

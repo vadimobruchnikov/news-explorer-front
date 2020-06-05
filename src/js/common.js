@@ -17,13 +17,25 @@ import { NewsCardList } from '../js/components/newsCardList';
 import { MainApi } from '../js/api/mainapi';
 import { NewsApi } from '../js/api/newsapi.js';
 import { NewsCard } from "../js/components/newsCard";
+import { ShowError } from "../js/components/showError";
 
 export { header, newsCardList, mainApi, newsApi, popupSuccessInfo, popupSuccessExit, signup, signin, signout}
 
-// Проверить если не dev, то поставить MAIN_API_BASE_URL
-const mainApi = new MainApi({ baseUrl: MAIN_API_BASE_URL_DEV });
 
-const newsApi = new NewsApi({ newsApiKey: NEWS_API_KEY, newsApiBaseUrl: NEWS_API_BASE_URL });
+const popupError = new ShowError({ 
+  errorPopup: getElement('#popupShowModalError'), 
+  errorTextElement: getElement('#popupShowModalErrorText') 
+});
+
+// Проверить если не dev, то поставить MAIN_API_BASE_URL
+const mainApi = new MainApi({ 
+  baseUrl: MAIN_API_BASE_URL_DEV,
+});
+
+const newsApi = new NewsApi({ 
+  newsApiKey: NEWS_API_KEY, 
+  newsApiBaseUrl: NEWS_API_BASE_URL,
+ });
 
 const header = new Header({
   menuSignin : getElement('#menuSignin'),
@@ -31,7 +43,7 @@ const header = new Header({
   menuUserProfile: getElement('#menuUserProfile'),
   menuLogout: getElement('#menuLogout'),
   menuSavedNews: getElement('#menuSavedNews'),
-  mainApi: mainApi
+  mainApi: mainApi,
 });
 
 const createCard = (...args) => new NewsCard(...args);
@@ -52,6 +64,7 @@ const newsCardList = new NewsCardList({
   containerSavedTitle: getElement('#containerSavedTitle'),
   searchItems: getElement('#searchItems'),
   createCard,
+  popupError: popupError,
 });
 
 // Пользователь успешно зарегистрирован
@@ -222,19 +235,8 @@ mobileMenuClose.addEventListener('click', (event) => {
 });
 
 
-/*
-function disapearingOn() {
-  getElement('#popupShowModalError').classList.remove('hidden');
-  getElement('#popupShowModalError').classList.add('disappearing');
-}
-function disapearingOff() {
-  getElement('#popupShowModalError').classList.add('hidden');
-  getElement('#popupShowModalError').classList.remove('disappearing');
-}
 
-setTimeout(disapearingOn, 500);
-setTimeout(disapearingOff, 3500);
-*/
+//popupError.showError('Ошибка сервера');
 
 // ошибка подгрузки изображения
 document.addEventListener('onerror', (event) => {
