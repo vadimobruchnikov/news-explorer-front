@@ -287,6 +287,7 @@ class NewsCardList {
             }
             gruppedArr = sortArrayByValue(gruppedArr, 'value');
             if (gruppedArr.length == 1){
+<<<<<<< HEAD
                 savedStats.innerHTML = 'По ключевому слову: ' + sanitizeSpanHTML(gruppedArr[0].name);
             }
             if (gruppedArr.length > 1){
@@ -296,6 +297,21 @@ class NewsCardList {
                 savedStats.innerHTML = savedStats.innerHTML +  ' и ' + sanitizeSpanHTML('одному другому');                
             }
             if (gruppedArr.length > 3){
+=======
+                //savedStats.innerHTML = `По ключевому слову: <span class="saved__keywords saved__keywords_bold">${gruppedArr[0].name}</span>`;
+                savedStats.innerHTML = 'По ключевому слову: ' + sanitizeSpanHTML(gruppedArr[0].name);
+            }
+            if (gruppedArr.length > 1){
+                //savedStats.innerHTML = `По ключевым словам: <span class="saved__keywords saved__keywords_bold">${gruppedArr[0].name}, ${gruppedArr[1].name}</span>`;
+                savedStats.innerHTML = 'По ключевому слову: ' + sanitizeSpanHTML(gruppedArr[0].name + ', ' + gruppedArr[1].name);
+            }
+            if (gruppedArr.length == 3){
+                //savedStats.innerHTML = savedStats.innerHTML +  ` и <span class="saved__keywords saved__keywords_bold">одному другому</span>`;                
+                savedStats.innerHTML = savedStats.innerHTML +  ' и ' + sanitizeSpanHTML('одному другому');                
+            }
+            if (gruppedArr.length > 3){
+                //savedStats.innerHTML = savedStats.innerHTML +  ` и <span class="saved__keywords saved__keywords_bold">${gruppedArr.length - 2} другим</span>`;                
+>>>>>>> 183b7961a02ea3939a11eb7b2a699ad54852aeef
                 savedStats.innerHTML = savedStats.innerHTML +  ' и ' + sanitizeSpanHTML(Number(gruppedArr.length - 2) + ' другим');                
             }     
             savedTitle.textContent = `${getCookie('user.name')} у вас ${res.length} сохраненных статей`;  
