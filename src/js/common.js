@@ -11,7 +11,7 @@ import {
 
 import { getElement } from '../js/utils/utils';
 import { getCookie, setCookie, deleteCookie } from "../js/utils/cookies";
-import { BaseComponent } from '../js/components/basecomponent';
+import { PopupComponent } from './components/popupcomponent';
 import { Header } from '../js/components/header';
 import { NewsCardList } from '../js/components/newsCardList';
 import { MainApi } from '../js/api/mainapi';
@@ -43,6 +43,7 @@ const header = new Header({
   menuUserProfile: getElement('#menuUserProfile'),
   menuLogout: getElement('#menuLogout'),
   menuSavedNews: getElement('#menuSavedNews'),
+  isSavedNewsPage: !getElement('.index-page') ? true : false,
   mainApi: mainApi,
 });
 
@@ -68,7 +69,7 @@ const newsCardList = new NewsCardList({
 });
 
 // Пользователь успешно зарегистрирован
-const popupSuccessInfo = new BaseComponent({
+const popupSuccessInfo = new PopupComponent({
   menuOpen: getElement('#popupSuccessInfo'),  
   popupElement: getElement('#popupSuccessInfo'), 
   buttonClose: getElement('#popupSuccessClose'), 
@@ -82,7 +83,7 @@ const popupSuccessInfo = new BaseComponent({
 });
 
 // Вы успешно вышли
-const popupSuccessExit = new BaseComponent({
+const popupSuccessExit = new PopupComponent({
   menuOpen: null,  
   popupElement: getElement('#popupSuccessExit'), 
   buttonClose: getElement('#popupSuccessExitClose'), 
@@ -93,7 +94,7 @@ const popupSuccessExit = new BaseComponent({
 });
 
 // SIGNUP Регистрация нового пользователя
-const signup = new BaseComponent({
+const signup = new PopupComponent({
   menuOpen: null, 
   popupElement: getElement('#popupSignup'), 
   buttonClose: getElement('#buttonSignupClose'), 
@@ -143,7 +144,7 @@ const signup = new BaseComponent({
 });
 
 // SIGNIN Авторизация существующего пользователя
-const signin = new BaseComponent({
+const signin = new PopupComponent({
   menuOpen: getElement('#menuSignin'), 
   popupElement: getElement('#popupSignin'), 
   buttonClose: getElement('#buttonSigninClose'), 
@@ -189,7 +190,7 @@ const signin = new BaseComponent({
 });
 
 // SIGNOUT Выход
-const signout = new BaseComponent({
+const signout = new PopupComponent({
   menuOpen: getElement('#menuLogout'), 
   popupElement: getElement('#popupSuccessExit'), 
   buttonClose: getElement('#popupSuccessExitClose'), 
@@ -235,8 +236,32 @@ mobileMenuClose.addEventListener('click', (event) => {
 });
 
 
+/*
+const closeOnEsc = new CloseOnEsc(
+    [
+     
+      { 
+        elem: document.body,
+        eventName: 'keydown', 
+        callBack: (event) => {
+          if(event.key == "Escape") {
 
-//popupError.showError('Ошибка сервера');
+            console.log(event.key);
+            /*
+            this._elements.forEach(element => {
+                if(element){
+                    element.classList.add('hidden');
+                } 
+            });
+          }
+        }
+      }
+    ],
+    
+);
+*/
+
+
 
 // ошибка подгрузки изображения
 document.addEventListener('onerror', (event) => {

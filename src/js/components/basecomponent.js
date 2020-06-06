@@ -1,10 +1,12 @@
-import { handleValidate } from "../../js/components/validate";
+import { handleValidate } from "./validate";
   
 export { BaseComponent }
+export const HIDDEN_CLASS_NAME = `hidden`;
 
 class BaseComponent {
     
     constructor({menuOpen, popupElement, buttonClose, buttonSubmit, submitAction, redirectElement, redirectAction, submitForm, errorElement}) {
+
         this.menuOpen = menuOpen || null;
         this.popupElement = popupElement || null;
         this.buttonClose = buttonClose || null;
@@ -19,6 +21,7 @@ class BaseComponent {
     } 
 
     _setHandlers() {
+        
         if(this.menuOpen)
             this.menuOpen.addEventListener('click', this.popupOpen.bind(this));
         if(this.buttonClose)
@@ -34,64 +37,32 @@ class BaseComponent {
             });
         });
         
-        // клик на оверлее = на самом же элементе приводит к закрытию
         if(this.popupElement) {
+            // клик на оверлее = на самом же элементе приводит к закрытию
             this.popupElement.addEventListener('click', (event) => {
                 if (this.popupElement && (event.target.id === this.popupElement.id)) {
                     this.popupClose(event);
                 }
             });
+
+            // скрывать по Esc
+            document.addEventListener('keydown', (event) => {
+                if(event.key == "Escape") {
+                    this.popupClose(event);
+                }
+            });
         }
-        
     }
 
     popupOpen() {
-        this.hideErrors();
-        // если нет кнопки сабмита, а функция есть, то вызываем ее сразу
-        if((!this.buttonSubmit)&&(this.submitAction)) {
-            this.submitAction(undefined);
-        } else {
-            this.popupElement.classList.remove('hidden');
+        if(this.popupElement) {
+            this.popupElement.classList.remove(HIDDEN_CLASS_NAME);
         }
     }
 
     popupClose(event = undefined) {
-        if(event) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        this.hideErrors();
-        this.popupElement.classList.add('hidden');
-    }
-
-    _submitFunc(event = undefined) {
-        if(event) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        // VALIDATION
-        this.hideErrors();
-        this.submitAction(event);
-    }
-
-    redirectClick(event) {
-        // this.hideErrors();
-        event.preventDefault();
-        event.stopPropagation();
-        this.popupClose(undefined);
-        this.redirectAction(undefined);
-    }
-
-    showErrors(message) {
-        if (this.errorElement) {
-            this.errorElement.textContent = message;
-            this.errorElement.classList.remove('hidden');
-        }
-    }
-
-    hideErrors() {
-        if (this.errorElement) {
-            this.errorElement.classList.add('hidden');
+        if(this.popupElement) {
+            this.popupElement.classList.add(HIDDEN_CLASS_NAME);
         }
     }
 }
