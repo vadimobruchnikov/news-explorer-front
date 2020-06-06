@@ -2,94 +2,38 @@
   position: relative;
   background-color: #fff;
   border-radius: 16px;
-  width: 32.5%; /* 32.5 400px;*/
+  width: 32.5%; 
   min-width: 224px;
   margin-bottom: 16px;
   text-decoration: none;
 }
-/*
-.card:last-of-type{
-  margin-right: 0;
-}
-*/
-.card:nth-of-type(3){
-  margin-right: 0;
-}
-
-@media (min-width: 2000px) {
+@media (max-width: 2000px) and (min-width: 761px) {
   .card{
-    width: 32.5%; /*400px;*/
-    min-height: 576px;
-    margin-right: 1.25%;
+    width: 32.5%; 
+    margin-right: 1.1%;
     margin-bottom: 16px;
   }
-  
-  .card:nth-of-type(3){
-    margin-right: 0;
+  .card:nth-of-type(3n){
+    margin-right: 0px;
   }
-  
 }
-@media (max-width: 760px) {
+@media (max-width: 760px) and (min-width: 521px) {
   .card{
-    width: 48.64%;
-    margin-bottom: 2.5%;
+    width: 47.5%;
+    margin-right: 4.662%;
+    margin-top: 8px;
+  }
+  .card:nth-of-type(2n){
+    margin-right: 0px;
   }
 }
-@media (max-width: 630px) {
+@media (max-width: 520px) {
   .card{
     width: 100%;
+    margin-right: 0;
     margin-bottom: 5%;
   }
 }
-
-/*
-@media (max-width: 1439px)and(min-width: 897px) {
-  .card{
-    min-height: calc( (100vw - 768px)/(1440 - 768) * (576 - 420) + 420px);
-    margin-bottom: calc( (100vw - 768px)/(1440 - 768) * (16 - 8) + 8px);
-    width: calc( (100vw - 768px)/(1440 - 768) * (370 - 224) + 224px);
-    margin-right: calc( (100vw - 768px)/(1440 - 768) * (16 - 8) + 8px);
-  }
-  .card:nth-of-type(3){
-    margin-right: 0;
-  }
-}
-
-@media (max-width: 896px) {
-  .card{
-    min-height: calc( (100vw - 320px)/(768 - 320) * (576 - 420) + 420px);
-    margin-bottom: calc( (100vw - 320px)/(768 - 320) * (16 - 8) + 8px);
-
-    width: 44.64%;
-    margin-right: 1.78%;
-  }
-  .card:nth-of-type(2){
-    margin-right: 0;
-  }
-}
-
-
-/*
-@media (max-width: 768px) {
-  .card{
-    min-width: 224px;
-    width: 40%;
-    max-width: 400px;
-   }
-}
-/*
-@media (max-width: 480px) {
-  .card{
-    min-width: 224px;
-    width: 95%;
-    max-width: 400px;
-    min-height: calc( (100vw - 320px)/(768 - 320) * (576 - 420) + 420px);
-    margin-bottom: 2.5%;
-    margin-right: 2.5%;
-   }
-}
-*/
-
 .card:hover{
   box-shadow: 8px 8px 8px -8px rgba(8, 29, 45, 0.1);
 }
