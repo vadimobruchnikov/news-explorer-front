@@ -9,15 +9,4 @@
   align-items: center;
   justify-content: center;
   z-index: 100;
-  /* DEBUG display: none; */
 }
-/*
-@media (max-width: 400px) {
-  .popup{
-    top: 56px;
-    left: 0;
-    width: 100%;
-    display: none;
-  }
-}
-*/

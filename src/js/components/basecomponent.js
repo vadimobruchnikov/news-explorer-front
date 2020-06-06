@@ -1,7 +1,7 @@
 import { handleValidate } from "./validate";
   
 export { BaseComponent }
-export const HIDDEN_CLASS_NAME = `hidden`;
+export const HIDDEN_CLASS_NAME = `hidden`; // TODO Перенести в конфиг
 
 class BaseComponent {
     

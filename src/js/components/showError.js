@@ -6,8 +6,6 @@ class ShowError {
     constructor({ errorPopup, errorTextElement }) {
         this.errorPopup = errorPopup || null;
         this.errorTextElement = errorTextElement || null;
-        //console.log('this', this);
-        //console.log('this.errorPopup', this.errorPopup);
         this.init();
     }
 
@@ -16,12 +14,10 @@ class ShowError {
     }
 
     disapearingOn() {
-        //console.log('disapearingOn()');
         this.errorPopup.classList.add('disappearing');
     }
 
     disapearingOff() {
-        //console.log('disapearingOff()');
         this.errorPopup.classList.add('hidden');
         this.errorPopup.classList.remove('disappearing');
     }

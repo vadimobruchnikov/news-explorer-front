@@ -22,6 +22,7 @@ const sanitizeSpanHTML = function (str) {
 
 class NewsCardList {
 
+    // TODO Переписать на options/props
     constructor({ 
         newsCardList, 
         nameLoader, 
@@ -165,8 +166,6 @@ class NewsCardList {
 
     _searchButtonClick(event) {
         event.preventDefault();
-        //console.log('_searchButtonClick()');
-        //console.log(event.target);
         if (searchInput.value.trim() == '') {
             this.popupError.show(ErrorValidationMessages.VALUE_MISSING);
             return true;
@@ -250,7 +249,6 @@ class NewsCardList {
         const finish = this._newsShowed + this._newsLazyLoad < this._newsCount - 1 ? this._newsShowed + this._newsLazyLoad : this._newsCount;
         let createdCards = [];
         for (let i = start; i < finish; i++) {
-            //const newCard = new NewsCard(this._newsArray[i], this._notFoundImageUrl);
             const newCard = this.createCard(this._newsArray[i], this._notFoundImageUrl);
             this.addCard(newCard);
             createdCards.push({"link": this._newsArray[i].url});
@@ -289,19 +287,15 @@ class NewsCardList {
             }
             gruppedArr = sortArrayByValue(gruppedArr, 'value');
             if (gruppedArr.length == 1){
-                //savedStats.innerHTML = `По ключевому слову: <span class="saved__keywords saved__keywords_bold">${gruppedArr[0].name}</span>`;
                 savedStats.innerHTML = 'По ключевому слову: ' + sanitizeSpanHTML(gruppedArr[0].name);
             }
             if (gruppedArr.length > 1){
-                //savedStats.innerHTML = `По ключевым словам: <span class="saved__keywords saved__keywords_bold">${gruppedArr[0].name}, ${gruppedArr[1].name}</span>`;
                 savedStats.innerHTML = 'По ключевому слову: ' + sanitizeSpanHTML(gruppedArr[0].name + ', ' + gruppedArr[1].name);
             }
             if (gruppedArr.length == 3){
-                //savedStats.innerHTML = savedStats.innerHTML +  ` и <span class="saved__keywords saved__keywords_bold">одному другому</span>`;                
                 savedStats.innerHTML = savedStats.innerHTML +  ' и ' + sanitizeSpanHTML('одному другому');                
             }
             if (gruppedArr.length > 3){
-                //savedStats.innerHTML = savedStats.innerHTML +  ` и <span class="saved__keywords saved__keywords_bold">${gruppedArr.length - 2} другим</span>`;                
                 savedStats.innerHTML = savedStats.innerHTML +  ' и ' + sanitizeSpanHTML(Number(gruppedArr.length - 2) + ' другим');                
             }     
             savedTitle.textContent = `${getCookie('user.name')} у вас ${res.length} сохраненных статей`;  
@@ -327,6 +321,7 @@ class NewsCardList {
         this._container.appendChild(card);
     }
 
+    //TODO hiddenClass вынести
     showResults() {
         this.elementSearchResults.classList.remove('hidden');
     }
@@ -372,7 +367,6 @@ class NewsCardList {
                 return Promise.reject({message: res.status, res: res});
             })
             .then(result =>  {
-                // console.log(result);
                 // вернулись ссылки, которые сохранены у пользователя
                 if(result && result.data && Array.isArray(result.data)){
                     result.data.forEach(function(link) {

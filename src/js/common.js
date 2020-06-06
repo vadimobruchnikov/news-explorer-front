@@ -50,7 +50,7 @@ const header = new Header({
 const createCard = (...args) => new NewsCard(...args);
 
 const newsCardList = new NewsCardList({
-  // nameCardList: getElement('.search-results__items'),
+  // TODO Переименовать по цепочке name
   newsCardList: getElement('#newsCardList'),
   nameLoader: getElement('.news-preloader'),
   nameShowMore: getElement('.show-more'),
@@ -234,34 +234,6 @@ mobileMenuClose.addEventListener('click', (event) => {
   mobileMenuOpen.classList.remove('hidden');
   mobileMenuClose.classList.add('hidden');
 });
-
-
-/*
-const closeOnEsc = new CloseOnEsc(
-    [
-     
-      { 
-        elem: document.body,
-        eventName: 'keydown', 
-        callBack: (event) => {
-          if(event.key == "Escape") {
-
-            console.log(event.key);
-            /*
-            this._elements.forEach(element => {
-                if(element){
-                    element.classList.add('hidden');
-                } 
-            });
-          }
-        }
-      }
-    ],
-    
-);
-*/
-
-
 
 // ошибка подгрузки изображения
 document.addEventListener('onerror', (event) => {

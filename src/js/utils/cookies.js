@@ -14,6 +14,7 @@ function getCookie(name) {
 function setCookie(name, value, options = {}) {
 
     const expires = new Date(Date.now() + 604800e3);
+    // TODO Проверить старый вариант
     // let date = new Date();
     // let expires = date.setTime(date.getTime() + (LOGIN_EXPIRES_DAYS * 24 * 60 * 60 * 1000));
     options = {
