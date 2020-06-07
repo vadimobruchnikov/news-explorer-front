@@ -51,8 +51,7 @@ module.exports = {
                 quality: 90,
               },
               optipng: {
-                //enabled: false,
-                optimizationLevel: 7,
+                enabled: false,
               },
               pngquant: {
                 quality: [0.75, 0.90],
@@ -61,9 +60,9 @@ module.exports = {
               gifsicle: {
                 interlaced: false,
               },
-              webp: {
-                quality: 90,
-              },
+              //webp: {
+              //  quality: 90,
+              //},
             },
           },
         ],

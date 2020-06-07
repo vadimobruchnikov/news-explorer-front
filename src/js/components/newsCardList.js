@@ -6,7 +6,7 @@ import {
     NEWS_API_KEY,
     NEWS_PERIOD,
 } from '../config/main.js';
-import { getElement, getNewsDate, clearStr, sortArrayByValue, deleteArrayElementById } from '../utils/utils';
+import { getElement, getNewsDate, clearStr, sortArrayByValue, deleteArrayElementById, showElement, hideElement } from '../utils/utils';
 import { isValidLink } from "../../js/components/validate";
 import { getCookie } from '../utils/cookies';
 import { ErrorValidationMessages, ErrorMessages } from '../../js/resources/messages';
@@ -259,9 +259,9 @@ class NewsCardList {
 
         const start = this._newsShowed < this._newsCount ? this._newsShowed : this._newsCount;
         const finish = this._newsShowed + this._newsLazyLoad < this._newsCount - 1 ? this._newsShowed + this._newsLazyLoad : this._newsCount;
-        console.log('start', start);
-        console.log('finish', finish);
-        console.log('this.elementNewsNotFound', this.elementNewsNotFound);
+        // console.log('start', start);
+        // console.log('finish', finish);
+        // console.log('this.elementNewsNotFound', this.elementNewsNotFound);
         
         let createdCards = [];
         for (let i = start; i < finish; i++) {
@@ -276,7 +276,6 @@ class NewsCardList {
         } else {
             this.hideMore();
         }
-        console.log('_newsCount', this._newsCount);
         if (this._newsCount == 0) {
             this.renderError();
             this.hideNewsResultsTilte();
@@ -285,7 +284,6 @@ class NewsCardList {
             this.showNewsResultsTilte();
             this.checkNewsStatus(createdCards);
         }
-
     }
 
     renderSavedNewsHeader(res) {
@@ -322,7 +320,8 @@ class NewsCardList {
         } else {
             savedTitle.textContent = `${getCookie('user.name')} у вас нет сохраненных статей`;  
             savedStats.innerHTML = '';
-            this.elementSearchResults.classList.add('hidden');   
+            //this.elementSearchResults.classList.add('hidden');   
+            hideElement(this.elementSearchResults);
         }
     }
 
@@ -342,49 +341,62 @@ class NewsCardList {
 
     //TODO hiddenClass вынести
     showResults() {
-        this.elementSearchResults.classList.remove('hidden');
+        // this.elementSearchResults.classList.remove('hidden');
+        showElement(this.elementSearchResults);
     }
 
     showPreloader() {
-        this.elementShowMore.classList.add('hidden');
-        this.elementNewsPreloader.classList.remove('hidden');
+        // this.elementShowMore.classList.add('hidden');
+        hideElement(this.elementShowMore);
+        // this.elementNewsPreloader.classList.remove('hidden');
+        showElement(this.elementNewsPreloader);
     }
     
     showNewsResultsTilte() {
-        this._container.classList.remove('hidden');
-        this.newsResultsTitle.classList.remove('hidden');
+        // this._container.classList.remove('hidden');
+        // this.newsResultsTitle.classList.remove('hidden');
+        showElement(this._container);
+        showElement(this.newsResultsTitle);
     }
 
     hideNewsResultsTilte() {
-        this._container.classList.add('hidden');
-        this.newsResultsTitle.classList.add('hidden');
+        // this._container.classList.add('hidden');
+        hideElement(this._container);
+        // this.newsResultsTitle.classList.add('hidden');
+        hideElement(this.newsResultsTitle);
     }
 
     hidePreloader() {
-        this.elementNewsPreloader.classList.add('hidden');
+        // this.elementNewsPreloader.classList.add('hidden');
+        hideElement(this.elementNewsPreloader);
     }
 
     renderError() {
         this.hidePreloader();
-        this.elementNewsNotFound.classList.remove('hidden');
+        // this.elementNewsNotFound.classList.remove('hidden');
+        showElement(this.elementNewsNotFound);
     }
 
     hideError() {
-        this.elementNewsNotFound.classList.add('hidden');
+        // this.elementNewsNotFound.classList.add('hidden');
+        hideElement(this.elementNewsNotFound);
     }
 
     showMore(totalNews){
-        this.elementShowMore.classList.remove('hidden');
+        // this.elementShowMore.classList.remove('hidden');
+        showElement(this.elementShowMore);
         const newsCount = totalNews > 0 ? ` (${totalNews})` : '';
         this.elementShowMoreButton.innerHTML = `Показать еще ${newsCount}`;
     }
 
     hideMore(){
-        this.elementShowMore.classList.add('hidden');
+        // this.elementShowMore.classList.add('hidden');
+        hideElement(this.elementShowMore);
     }
 
     hideAuthorSection(){
-        this.elementAaboutAuthor.classList.add('hidden');
+        // this.elementAaboutAuthor.classList.add('hidden');
+        hideElement(this.elementAaboutAuthor);
     }
 
     checkNewsStatus(news) {

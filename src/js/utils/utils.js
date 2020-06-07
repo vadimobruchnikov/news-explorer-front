@@ -1,7 +1,22 @@
-export { getElement, getRusFormatDate, getShortDate, getNewsDate, sliceStr, clearStr, sortArrayByValue, deleteArrayElementById }
-    
+import { HIDDEN_CLASS_NAME } from "../components/basecomponent";
+export { getElement, hideElement, showElement, getRusFormatDate, getShortDate, getNewsDate, sliceStr, clearStr, sortArrayByValue, deleteArrayElementById }
+
+// TODO getElement/hideElement/showElement - кандидаты на перенос в BaseComponent
+
 function getElement(selector) {
     return document.querySelector(selector);
+}
+
+function hideElement(selector) {
+  if (selector) {
+    selector.classList.add(HIDDEN_CLASS_NAME);
+  }
+}
+
+function showElement(selector) {
+  if (selector) {
+    selector.classList.remove(HIDDEN_CLASS_NAME);
+  }
 }
 
 function getRusFormatDate(dateStr) {
