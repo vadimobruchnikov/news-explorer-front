@@ -59,10 +59,14 @@ class NewsCard {
             cardTemplate.querySelector('.button__card-keyword').classList.add('hidden');
         }
         cardTemplate.querySelector('.button__card-help').textContent = buttonCardHelpText;
+        const buttonCardLink = cardTemplate.querySelector('.button__card_link');
         if (isSavedPage) {
-            cardTemplate.querySelector('.button__card_link').classList.add('button__card-delete'); 
+            buttonCardLink.classList.add('button__card-delete'); 
         } else {
-            cardTemplate.querySelector('.button__card_link').classList.add('button__card-bookmark', 'button__card-bookmark_disable'); 
+            buttonCardLink.classList.add('button__card-bookmark'); 
+            if(!isUserLogin) {
+                buttonCardLink.classList.add('button__card-bookmark_disable'); 
+            }
         }
         cardTemplate.querySelector('.card__image').setAttribute('src', isValidLink(urlImage) ? urlImage : '#');
         cardTemplate.querySelector('.card__date').textContent = newsDate;
