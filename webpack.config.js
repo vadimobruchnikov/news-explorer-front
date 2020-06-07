@@ -51,7 +51,8 @@ module.exports = {
                 quality: 90,
               },
               optipng: {
-                enabled: false,
+                //enabled: false,
+                optimizationLevel: 7,
               },
               pngquant: {
                 quality: [0.75, 0.90],

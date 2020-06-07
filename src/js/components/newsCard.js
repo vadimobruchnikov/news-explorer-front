@@ -15,6 +15,7 @@ class NewsCard {
         const isSavedPage = getElement('.saved-page') ? true : false;
         const cardTemplate = document.createElement('a');
         cardTemplate.classList.add('card');
+        //cardTemplate.href = isValidLink(card.url) ? card.url : "#";
         cardTemplate.href = card.url;
         cardTemplate.target = "_blank";
         let urlImage = card.urlToImage;

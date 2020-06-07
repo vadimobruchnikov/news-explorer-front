@@ -25,6 +25,7 @@ class NewsCardList {
     // TODO Переписать на options/props
     constructor({ 
         newsCardList, 
+        newsResultsTitle,
         nameLoader, 
         nameShowMore, 
         nameNotFound, 
@@ -40,6 +41,7 @@ class NewsCardList {
         createCard,
         popupError}) {
     
+        // TODO Убрать переименование входящих переменных
         this._container = newsCardList || null;;
         this._loader = nameLoader || null;
         this._showMore = nameShowMore || null;
@@ -47,6 +49,7 @@ class NewsCardList {
         this._newsLazyLoad = newsLazyLoad || null;
         this._notFoundImageUrl = notFoundImageUrl || null;
         
+        this.newsResultsTitle = newsResultsTitle || null;
         this.searchButton = searchButton || null;
         this.searchInput = searchInput || null;
         this.showMoreButton = showMoreButton || null;
@@ -59,7 +62,7 @@ class NewsCardList {
 
         this.elementSearchResults = getElement('.search-results');
         this.elementNewsPreloader = getElement('.news-preloader');
-        this.elementNnewsNotFound = getElement('.news-not-found');
+        this.elementNewsNotFound = getElement('.news-not-found');
         this.elementShowMore = getElement('.show-more');
         this.elementAaboutAuthor = getElement('.about-author');
         this.elementShowMoreButton = getElement('.show-more__button');
@@ -184,14 +187,20 @@ class NewsCardList {
         })
         .then(result =>  {
             if ( result.status == "ok" ) {
-            return  result.articles ? result.articles : false;
+                return  result.articles ? result.articles : false;
             } else {
-            return Promise.reject(result.status)
+                return Promise.reject(result.status)
             }
         })
         .then(newsArray => {
-            this.saveResults(newsArray);
-            this.renderNewsResults();
+            console.log('newsArray', newsArray);
+            if (newsArray) {
+                console.log('newsArray', newsArray == true);
+                this.saveResults(newsArray);
+                this.renderNewsResults();
+            } else {
+                this.renderError();
+            }
         })
         .catch((err) => {
             console.log(err);
@@ -245,8 +254,15 @@ class NewsCardList {
 
     renderNewsResults() {
 
-        const start = this._newsShowed < this._newsCount - 1 ? this._newsShowed : this._newsCount;
+        this.hidePreloader();
+        this.hideError();
+
+        const start = this._newsShowed < this._newsCount ? this._newsShowed : this._newsCount;
         const finish = this._newsShowed + this._newsLazyLoad < this._newsCount - 1 ? this._newsShowed + this._newsLazyLoad : this._newsCount;
+        console.log('start', start);
+        console.log('finish', finish);
+        console.log('this.elementNewsNotFound', this.elementNewsNotFound);
+        
         let createdCards = [];
         for (let i = start; i < finish; i++) {
             const newCard = this.createCard(this._newsArray[i], this._notFoundImageUrl);
@@ -254,19 +270,22 @@ class NewsCardList {
             createdCards.push({"link": this._newsArray[i].url});
         }
         this._newsShowed = finish;
-        this.hidePreloader();
-        this.hideError();
         // Если дошли до конца, не показывать showmore
         if ((this._newsShowed < this._newsCount)&&(this._newsCount > 0)) {
             this.showMore(this._newsCount - this._newsShowed);
         } else {
             this.hideMore();
         }
+        console.log('_newsCount', this._newsCount);
         if (this._newsCount == 0) {
             this.renderError();
+            this.hideNewsResultsTilte();
+        } else {
+            // проверяем статусы тех карточек, которые прорисовали
+            this.showNewsResultsTilte();
+            this.checkNewsStatus(createdCards);
         }
-        // проверяем статусы тех карточек, которые прорисовали
-        this.checkNewsStatus(createdCards);
+
     }
 
     renderSavedNewsHeader(res) {
@@ -287,7 +306,6 @@ class NewsCardList {
             }
             gruppedArr = sortArrayByValue(gruppedArr, 'value');
             if (gruppedArr.length == 1){
-<<<<<<< HEAD
                 savedStats.innerHTML = 'По ключевому слову: ' + sanitizeSpanHTML(gruppedArr[0].name);
             }
             if (gruppedArr.length > 1){
@@ -297,21 +315,6 @@ class NewsCardList {
                 savedStats.innerHTML = savedStats.innerHTML +  ' и ' + sanitizeSpanHTML('одному другому');                
             }
             if (gruppedArr.length > 3){
-=======
-                //savedStats.innerHTML = `По ключевому слову: <span class="saved__keywords saved__keywords_bold">${gruppedArr[0].name}</span>`;
-                savedStats.innerHTML = 'По ключевому слову: ' + sanitizeSpanHTML(gruppedArr[0].name);
-            }
-            if (gruppedArr.length > 1){
-                //savedStats.innerHTML = `По ключевым словам: <span class="saved__keywords saved__keywords_bold">${gruppedArr[0].name}, ${gruppedArr[1].name}</span>`;
-                savedStats.innerHTML = 'По ключевому слову: ' + sanitizeSpanHTML(gruppedArr[0].name + ', ' + gruppedArr[1].name);
-            }
-            if (gruppedArr.length == 3){
-                //savedStats.innerHTML = savedStats.innerHTML +  ` и <span class="saved__keywords saved__keywords_bold">одному другому</span>`;                
-                savedStats.innerHTML = savedStats.innerHTML +  ' и ' + sanitizeSpanHTML('одному другому');                
-            }
-            if (gruppedArr.length > 3){
-                //savedStats.innerHTML = savedStats.innerHTML +  ` и <span class="saved__keywords saved__keywords_bold">${gruppedArr.length - 2} другим</span>`;                
->>>>>>> 183b7961a02ea3939a11eb7b2a699ad54852aeef
                 savedStats.innerHTML = savedStats.innerHTML +  ' и ' + sanitizeSpanHTML(Number(gruppedArr.length - 2) + ' другим');                
             }     
             savedTitle.textContent = `${getCookie('user.name')} у вас ${res.length} сохраненных статей`;  
@@ -346,17 +349,28 @@ class NewsCardList {
         this.elementShowMore.classList.add('hidden');
         this.elementNewsPreloader.classList.remove('hidden');
     }
+    
+    showNewsResultsTilte() {
+        this._container.classList.remove('hidden');
+        this.newsResultsTitle.classList.remove('hidden');
+    }
+
+    hideNewsResultsTilte() {
+        this._container.classList.add('hidden');
+        this.newsResultsTitle.classList.add('hidden');
+    }
 
     hidePreloader() {
         this.elementNewsPreloader.classList.add('hidden');
     }
 
     renderError() {
-        this.elementNewsPreloader.classList.remove('hidden');
+        this.hidePreloader();
+        this.elementNewsNotFound.classList.remove('hidden');
     }
 
     hideError() {
-        this.elementNnewsNotFound.classList.add('hidden');
+        this.elementNewsNotFound.classList.add('hidden');
     }
 
     showMore(totalNews){
