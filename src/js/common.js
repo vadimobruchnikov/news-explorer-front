@@ -235,9 +235,3 @@ mobileMenuClose.addEventListener('click', (event) => {
   mobileMenuOpen.classList.remove('hidden');
   mobileMenuClose.classList.add('hidden');
 });
-
-// ошибка подгрузки изображения
-document.addEventListener('onerror', (event) => {
-  console.log('onerror',event);
-});
-  

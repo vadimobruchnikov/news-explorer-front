@@ -193,9 +193,7 @@ class NewsCardList {
             }
         })
         .then(newsArray => {
-            console.log('newsArray', newsArray);
             if (newsArray) {
-                console.log('newsArray', newsArray == true);
                 this.saveResults(newsArray);
                 this.renderNewsResults();
             } else {
@@ -259,10 +257,6 @@ class NewsCardList {
 
         const start = this._newsShowed < this._newsCount ? this._newsShowed : this._newsCount;
         const finish = this._newsShowed + this._newsLazyLoad < this._newsCount - 1 ? this._newsShowed + this._newsLazyLoad : this._newsCount;
-        // console.log('start', start);
-        // console.log('finish', finish);
-        // console.log('this.elementNewsNotFound', this.elementNewsNotFound);
-        
         let createdCards = [];
         for (let i = start; i < finish; i++) {
             const newCard = this.createCard(this._newsArray[i], this._notFoundImageUrl);
@@ -320,7 +314,6 @@ class NewsCardList {
         } else {
             savedTitle.textContent = `${getCookie('user.name')} у вас нет сохраненных статей`;  
             savedStats.innerHTML = '';
-            //this.elementSearchResults.classList.add('hidden');   
             hideElement(this.elementSearchResults);
         }
     }
@@ -341,61 +334,48 @@ class NewsCardList {
 
     //TODO hiddenClass вынести
     showResults() {
-        // this.elementSearchResults.classList.remove('hidden');
         showElement(this.elementSearchResults);
     }
 
     showPreloader() {
-        // this.elementShowMore.classList.add('hidden');
         hideElement(this.elementShowMore);
-        // this.elementNewsPreloader.classList.remove('hidden');
         showElement(this.elementNewsPreloader);
     }
     
     showNewsResultsTilte() {
-        // this._container.classList.remove('hidden');
-        // this.newsResultsTitle.classList.remove('hidden');
         showElement(this._container);
         showElement(this.newsResultsTitle);
     }
 
     hideNewsResultsTilte() {
-        // this._container.classList.add('hidden');
         hideElement(this._container);
-        // this.newsResultsTitle.classList.add('hidden');
         hideElement(this.newsResultsTitle);
     }
 
     hidePreloader() {
-        // this.elementNewsPreloader.classList.add('hidden');
         hideElement(this.elementNewsPreloader);
     }
 
     renderError() {
         this.hidePreloader();
-        // this.elementNewsNotFound.classList.remove('hidden');
         showElement(this.elementNewsNotFound);
     }
 
     hideError() {
-        // this.elementNewsNotFound.classList.add('hidden');
         hideElement(this.elementNewsNotFound);
     }
 
     showMore(totalNews){
-        // this.elementShowMore.classList.remove('hidden');
         showElement(this.elementShowMore);
         const newsCount = totalNews > 0 ? ` (${totalNews})` : '';
         this.elementShowMoreButton.innerHTML = `Показать еще ${newsCount}`;
     }
 
     hideMore(){
-        // this.elementShowMore.classList.add('hidden');
         hideElement(this.elementShowMore);
     }
 
     hideAuthorSection(){
-        // this.elementAaboutAuthor.classList.add('hidden');
         hideElement(this.elementAaboutAuthor);
     }
 

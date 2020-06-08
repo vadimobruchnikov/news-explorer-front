@@ -1,6 +1,7 @@
 import { getElement, getRusFormatDate, getShortDate, sliceStr } from "../utils/utils";
 import { getCookie } from "../utils/cookies";
 import { isValidLink } from "../../js/components/validate";
+import { URL_NOT_FOUND_IMAGE } from "../../js/config/main";
 export { NewsCard }
 
 class NewsCard {
@@ -68,7 +69,14 @@ class NewsCard {
                 buttonCardLink.classList.add('button__card-bookmark_disable'); 
             }
         }
-        cardTemplate.querySelector('.card__image').setAttribute('src', isValidLink(urlImage) ? urlImage : '#');
+        //cardTemplate.querySelector('.card__image').setAttribute('src', isValidLink(urlImage) ? urlImage : '#');
+        const cardImage = cardTemplate.querySelector('.card__image');
+        cardImage.setAttribute('src', urlImage);
+        cardImage.onerror = function() {
+            // перехватываем ошибку GET 404 (когда плохая ссылка)
+            cardImage.setAttribute('src', URL_NOT_FOUND_IMAGE);
+        }  
+       
         cardTemplate.querySelector('.card__date').textContent = newsDate;
         cardTemplate.querySelector('.card__title').textContent = card.title;
         cardTemplate.querySelector('.card__text').textContent = card.description;
