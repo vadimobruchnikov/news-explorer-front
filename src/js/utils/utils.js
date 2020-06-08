@@ -50,8 +50,8 @@ function clearStr(str, minLength, maxLength) {
   str = str.trim();
   str = str.replace(/<ol>/i, '');
   str = str.replace(/<\/ol>/i, '');
-  str = str.replace(/<li>/i, '<p>');
-  str = str.replace(/<\/li>/i, '</p>');
+  str = str.replace(/<li>/i, '');   // <p>
+  str = str.replace(/<\/li>/i, ''); // </p>
   
   while (str.length < minLength) {
     str = str + '.';

@@ -1,4 +1,4 @@
-import { getElement, getRusFormatDate, getShortDate, sliceStr } from "../utils/utils";
+import { getElement, getRusFormatDate, clearStr } from "../utils/utils";
 import { getCookie } from "../utils/cookies";
 import { isValidLink } from "../../js/components/validate";
 import { URL_NOT_FOUND_IMAGE } from "../../js/config/main";
@@ -16,7 +16,6 @@ class NewsCard {
         const isSavedPage = getElement('.saved-page') ? true : false;
         const cardTemplate = document.createElement('a');
         cardTemplate.classList.add('card');
-        //cardTemplate.href = isValidLink(card.url) ? card.url : "#";
         cardTemplate.href = card.url;
         cardTemplate.target = "_blank";
         let urlImage = card.urlToImage;
@@ -51,9 +50,7 @@ class NewsCard {
                 </div>
             </div>`;
         // безопасное заполнение шаблона
-        //cardTemplate.querySelector('.publishedAt').textContent = card.publishedAt;
         cardTemplate.querySelector('.publishedAt').setAttribute('value', card.publishedAt);
-        //cardTemplate.querySelector('._id').textContent = cardId;
         cardTemplate.querySelector('._id').setAttribute('value', cardId);
         cardTemplate.querySelector('.button__card-keyword').textContent = keyword;
         if (keyword == '') {
@@ -69,7 +66,6 @@ class NewsCard {
                 buttonCardLink.classList.add('button__card-bookmark_disable'); 
             }
         }
-        //cardTemplate.querySelector('.card__image').setAttribute('src', isValidLink(urlImage) ? urlImage : '#');
         const cardImage = cardTemplate.querySelector('.card__image');
         cardImage.setAttribute('src', urlImage);
         cardImage.onerror = function() {
@@ -79,7 +75,7 @@ class NewsCard {
        
         cardTemplate.querySelector('.card__date').textContent = newsDate;
         cardTemplate.querySelector('.card__title').textContent = card.title;
-        cardTemplate.querySelector('.card__text').textContent = card.description;
+        cardTemplate.querySelector('.card__text').textContent = clearStr(card.description, 3, 200);
         cardTemplate.querySelector('.card__source').textContent = card.source.name;
 
         return cardTemplate;
