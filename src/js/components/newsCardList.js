@@ -332,7 +332,6 @@ class NewsCardList {
         this._container.appendChild(card);
     }
 
-    //TODO hiddenClass вынести
     showResults() {
         showElement(this.elementSearchResults);
     }

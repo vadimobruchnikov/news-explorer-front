@@ -50,7 +50,6 @@ const header = new Header({
 const createCard = (...args) => new NewsCard(...args);
 
 const newsCardList = new NewsCardList({
-  // TODO Переименовать по цепочке name
   newsCardList: getElement('#newsCardList'),
   newsResultsTitle: getElement('.search-results__title'),
   nameLoader: getElement('.news-preloader'),
