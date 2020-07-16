@@ -8,14 +8,14 @@ export const URL_NOT_FOUND_IMAGE = './images/not-found.jpg';
 // L export const MAIN_API_BASE_URL = 'http://localhost:3000';
 // L export const MAIN_API_BASE_URL_DEV = 'http://localhost:3000';
 
-// W 
+// W
 export const MAIN_API_BASE_URL = 'http://api.cloudsnews.ru';
-// W 
+// W
 export const MAIN_API_BASE_URL_DEV = 'http://api.cloudsnews.ru';
 
 export const LOGIN_EXPIRES_DAYS = 7; // Сколько хранить авторизацию
 
-// L 
+// L
 export const NEWS_API_BASE_URL = 'https://praktikum.tk/news/v2/everything';
-//export const NEWS_API_BASE_URL = 'http://localhost:3000/news-articles';
+// export const NEWS_API_BASE_URL = 'http://localhost:3000/news-articles';
 // W export const NEWS_API_BASE_URL = 'http://api.cloudsnews.ru/news-articles';
