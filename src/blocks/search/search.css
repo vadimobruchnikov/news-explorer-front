@@ -2,6 +2,7 @@
 @import url(./__text/search__text.css);
 @import url(./__field/search__field.css);
 @import url(./__field-button/search__field-button.css);
+@import url(./__field-button/search__field-button_inputing.css);
 @import url(./__field-input/search__field-input.css);
 
 .search {
@@ -12,6 +13,16 @@
   /*align-items: flex-start;*/
   flex-direction: column;
   /*margin-left : 416px;*/
+  background-image: url(../../images/georgia-de-lotz.png);
+  background-position-y: -80px;
+}
+
+@media (max-width: 560px) {
+  .search {
+    /*
+    background-position-y: calc( - 1 * (100vw - 320px)/(768 - 320) * (80 - 56) + 56px);
+  */
+  }
 }
 
 @media (max-width: 1439px) {

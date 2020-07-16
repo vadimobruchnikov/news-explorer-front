@@ -8,8 +8,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    index: './src/pages/index/index.js',
-    savednews: './src/pages/saved-news/saved-news.js',
+    index: './src/js/index.js',
+    savednews: './src/js/saved-news.js',
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
@@ -60,9 +60,9 @@ module.exports = {
               gifsicle: {
                 interlaced: false,
               },
-              webp: {
-                quality: 90,
-              },
+              //webp: {
+              //  quality: 90,
+              //},
             },
           },
         ],

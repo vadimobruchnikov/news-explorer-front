@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     browser: true,
-    commonjs: true,
+    // commonjs: true,
     es6: true,
   },
   extends: [
@@ -12,17 +12,19 @@ module.exports = {
     SharedArrayBuffer: 'readonly',
   },
   parserOptions: {
+    // ecmaVersion: 11,
+    // sourceType: 'module',
     ecmaVersion: 2018,
   },
   rules: {
-    "no-underscore-dangle": [
-      "error",
+    'no-underscore-dangle': [
+      'error',
       {
-        "allow": [
-          "_id",
+        allow: [
+          '_id',
         ]
       }
     ],
-    "linebreak-style": 0
+    'linebreak-style': 0,
   },
 };

@@ -1,6 +1,24 @@
-.button__card-bookmark{
-  background-image: url(../../../images/button/__card-bookmark/button__card-bookmark.svg);
+.button__card-bookmark {
+  /*margin: 0;*/
+  margin: 0em;
+  padding: 1px 6px;
+  background-image: url(../../../images/button/__card-bookmark/button__card-bookmark_disable.svg);
   background-repeat: no-repeat;
   background-position-x: 7px;
   background-position-y: 8px;
+  cursor: pointer;
+  text-transform: none;
+  overflow: visible;
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  box-sizing: border-box;
+  text-rendering: auto;
+  box-shadow: 0px 5px 10px rgba(14, 26, 57, 0.2);
 }
+
+.button__card-bookmark:hover {
+  background-image: url(../../../images/button/__card-bookmark/button__card-bookmark.svg);
+  box-shadow: 0px 5px 15px rgba(14, 26, 57, 0.2);
+}
+

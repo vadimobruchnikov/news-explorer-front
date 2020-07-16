@@ -1,4 +1,12 @@
-@media (max-width: 1280px) {
+.button__card-help{
+  padding: 0 8px;
+  margin-right: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  display:none;
+}
+/* @media (max-width: 1280px) */
+@media (max-width: 520px) {
   .button__card-help{
     display:none;
   }

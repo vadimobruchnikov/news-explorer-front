@@ -21,4 +21,16 @@
 }
 
 
+@media (max-width: 680px) { 
+  .header__menu{
+    width: 90%;
+    margin : 0 auto;
+    font-style: bold;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 42px;
+  }
+}
+
+
 

@@ -1,0 +1,5 @@
+.hidden {
+    /* Общий класс для скрытия всего */
+    display: none;
+    visibility: hidden;
+}

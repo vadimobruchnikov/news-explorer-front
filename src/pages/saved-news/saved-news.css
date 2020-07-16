@@ -9,6 +9,8 @@
 
 @import url(../../blocks/header/header.css);
 @import url(../../blocks/header/header_black.css);
+@import url(../../blocks/header/header_mobile.css);
+
 @import url(../../blocks/header/__menu/header__menu.css);
 @import url(../../blocks/header/__menu/header__menu_a.css);
 @import url(../../blocks/header/__menu/header__menu_black.css);
@@ -20,9 +22,17 @@
 @import url(../../blocks/header/__menu_exit/header__menu_exit.css);
 @import url(../../blocks/header/__menu_exit/header__menu_exit-black.css);
 @import url(../../blocks/header/__nav/header__nav.css);
+@import url(../../blocks/header/__nav/header__nav_black.css);
+
 
 @import url(../../blocks/search-results/search-results.css);
+/*
 @import url(../../blocks/search-results/__preloader/search-results__preloader.css);
+*/
+
+@import url(../../blocks/news-preloader/news-preloader.css);
+@import url(../../blocks/news-preloader/__animation/news-preloader__animation.css);
+@import url(../../blocks/news-preloader/__text/news-preloader__text.css);
 
 @import url(../../blocks/show-more/show-more.css);
 @import url(../../blocks/show-more/__button/show-more__button.css);
@@ -83,6 +93,7 @@
 @import url(../../blocks/popup/__button/popup__button.css);
 @import url(../../blocks/popup/__button/popup__button_edit.css);
 @import url(../../blocks/popup/__button/popup__button_validate.css);
+@import url(../../blocks/popup/__button/popup__button_validate.css);
 
 @import url(../../blocks/popup/__help/popup__help.css);
 @import url(../../blocks/popup/__help/popup__help_link.css);
@@ -92,15 +103,14 @@
 @import url(../../blocks/input/input.css);
 @import url(../../blocks/error-message/error-message.css);
 @import url(../../blocks/error-message/error-message__under-button.css);
+@import url(../../blocks/error-message/error-message_simple.css);
 
-body {
-  background-color: #fff;
-  display: flex;
-  justify-content: center;
-}
+@import url(../../blocks/mobile-menu/mobile-menu.css);
+@import url(../../blocks/mobile-menu/mobile-menu_close.css);
+@import url(../../blocks/mobile-menu/mobile-menu_icon.css);
 
-ul {
-  margin: 0;
-  padding: 0;
-}
+@import url(../../blocks/body/body.css);
+@import url(../../blocks/ul/ul.css);
+@import url(../../blocks/hidden/hidden.css);
+@import url(../../blocks/disappearing/disappearing.css);
 

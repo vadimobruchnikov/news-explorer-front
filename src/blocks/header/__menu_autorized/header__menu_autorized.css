@@ -1,3 +1,10 @@
 .header__menu_autorized{
   line-height: 24px;
 }
+
+@media (max-width: 680px) { 
+  .header__menu_autorized{
+    margin : 0 auto;
+    margin-bottom: 24px;
+  }
+}

@@ -1,6 +1,14 @@
 .header__menu_a{
   padding: 0;
+  margin-left: 0;
+  margin-right: 8px;
 }
 a.header__menu_a:hover, a.header__menu_a:active{
   color:#fff;
+}
+
+@media (max-width: 680px) { 
+  .header__menu_a {
+    width: unset;
+  }
 }

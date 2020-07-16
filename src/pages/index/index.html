@@ -12,19 +12,33 @@
 
 </head>
 <body>
-  <section class="root">
+  <section class="root index-page">
     <section class="header">
       <a class="logo" href="./index.html">
         NewsExplorer
       </a>
       <nav class="header__nav">
-        <a class="header__menu" id= "menuPopupSuccess" href="#">1</a>
-        <a class="header__menu" id= "menuPopupEnter" href="#">2</a>
         <a class="header__menu header__menu_active" href="./index.html">Главная</a>
-        <a class="header__menu" href="./saved-news.html">Сохраненные статьи</a>
-        <a class="header__menu header__menu_button" id="popup-active" href="#">Авторизоваться</a>
+        <a class="header__menu hidden" href="./saved-news.html" id="menuSavedNews">Сохраненные статьи</a>
+        <a class="header__menu header__menu_button hidden" id="menuSignin" href="#">Войти</a>
+        <div class="header__menu header__menu_button header__menu_autorized hidden" id="menuAutorized">
+          <a class="header__menu header__menu_a" id="menuUserProfile" href="#">Username</a>
+          <a class="header__menu header__menu_exit" id="menuLogout" href="#"></a>
+        </div>
       </nav>
-    </section>
+      <a class="mobile-menu mobile-menu_icon" href="#" id="mobileMemuOpen">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="8" width="16" height="2" fill="white"/>
+          <rect x="4" y="14" width="16" height="2" fill="white"/>
+        </svg>
+      </a>
+      <a class="mobile-menu mobile-menu_close hidden" href="#" id="mobileMemuClose">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13.4142 12L18.7071 17.2928L17.2929 18.7071L11.2929 12.7071C10.9024 12.3165 10.9024 11.6834 11.2929 11.2928L17.2929 5.29285L18.7071 6.70706L13.4142 12Z" fill="white"/>
+          <path d="M10.8787 12L5.58577 17.2928L6.99999 18.7071L13 12.7071C13.3905 12.3165 13.3905 11.6834 13 11.2928L6.99999 5.29285L5.58577 6.70706L10.8787 12Z" fill="white"/>
+        </svg>
+      </a>
+  </section>
 
     <section class="search">
       <div class="search__title">
@@ -34,160 +48,37 @@
         Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.
       </div>
 
-      <form class="search__field">
-        <input class="search__field-input" type="search" placeholder="Введите то, что вас интересует">
-        <button class="search__field-button">Найти</button>
+      <form class="search__field" action="#" name="search">
+        <input class="search__field-input" id="searchInput" type="search" placeholder="Введите то, что вас интересует" autocomplete="off" required minlength="2" maxlength="30" value="">
+        <button class="search__field-button button_submit" id="searcButton">Найти</button>
       </form>
     </section>
 
-    <section class="search-results">
+    <section class="search-results hidden">
 
       <div class="search-results__title">
         Результаты поиска
       </div>
 
-      <div class="search-results__items">
+      <div class="search-results__items" id="newsCardList">
 
-        <div class="card">
-          <div class="card__top-buttons button"> 
-            <!-- Пример скрытой подсказки-->
-            <div class="button__card button__card-help button__card-help_hidden">
-               Войдите, чтобы сохранять статьи
-            </div>
-            <button class="button__card button__card-bookmark button__card-bookmark_disable">
-            </button>
-          </div>
-          <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>" alt="Парки">
-          <div class="card__bottom">
-            <div class="card__date">
-              2 августа, 2019
-            </div>
-            <h3 class="card__title">
-              Национальное достояние – парки
-            </h3>
-            <p class="card__text">
-                В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-            </p>
-            <div class="card__source">
-              Лента.ру
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card__top-buttons button">
-            <button class="button__card button__card-keyword">
-              Природа
-            </button>
-            <button class="button__card button__card-bookmark button__card-bookmark_active">
-            </button>
-          </div>
-          <img class="card__image" src="<%=require('../../images/cards/image_04.png')%>" alt="Парки">
-          <div class="card__bottom">
-            <div class="card__date">
-                10 августа, 2019
-            </div>
-            <h3 class="card__title">
-              Лесные огоньки: история одной фотографии
-            </h3>
-            <p class="card__text">
-              Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.
-            </p>
-            <div class="card__source">
-              Медуза
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card__top-buttons button">
-            <button class="button__card button__card-keyword">
-              Природа
-            </button>
-            <button class="button__card button__card-bookmark">
-            </button>
-          </div>
-          <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>" alt="Парки">
-          <div class="card__bottom">
-            <div class="card__date">
-              30 августа, 2019
-            </div>
-            <h3 class="card__title">
-              «Первозданная тайга»: новый фотопроект Игоря Шпиленка
-            </h3>
-            <p class="card__text">
-              Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-            </p>
-            <div class="card__source">
-              риа
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card__top-buttons button">
-            <button class="button__card button__card-keyword">
-              Парки
-            </button>
-            <button class="button__card button__card-help">
-               Убрать из сохраненных
-            </button>
-            <button class="button__card button__card-delete">
-            </button>
-          </div>
-          <img class="card__image" src="<%=require('../../images/cards/image_07.png')%>" alt="Парки">
-          <div class="card__bottom">
-            <div class="card__date">
-              30 августа, 2019
-            </div>
-            <h3 class="card__title">
-              «Первозданная тайга»: новый фотопроект Игоря Шпиленка
-            </h3>
-            <p class="card__text">
-              Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...
-            </p>
-            <div class="card__source">
-              риа
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card__top-buttons button">
-            <button class="button__card button__card-keyword">
-              Растения
-            </button>
-            <button class="button__card button__card-delete button__card-delete_disable">
-            </button>
-          </div>
-          <img class="card__image" src="<%=require('../../images/cards/image_08.png')%>" alt="Парки">
-          <div class="card__bottom">
-            <div class="card__date">
-              2 августа, 2019
-            </div>
-            <h3 class="card__title">
-              Национальное достояние – парки
-            </h3>
-            <p class="card__text">
-              В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-            </p>
-            <div class="card__source">
-              Лента.ру
-            </div>
-          </div>
-        </div>
+        <!-- тут отрисовываются карточки -->
 
       </div>
 
-      <div class="show-more">
+      <div class="news-preloader hidden">
+        <div class="news-preloader__animation"></div>
+        <div class="news-preloader__text">Идет поиск новостей...</div>
+      </div>
+
+      <div class="news-not-found hidden">
+        <div class="news-not-found__wraper"></div>
+        <div class="news-not-found__title">Ничего не найдено</div>
+        <div class="news-not-found__text">К сожалению, по вашему запросу ничего не найдено.</div>
+      </div>
+
+      <div class="show-more hidden">
         <button class="show-more__button">Показать еще</button>
-      </div>
-
-      <div class="search-results__searching-news">
-        <div class="search-results__preloader"></div>
-        <div class="search-results__searching-news search-results__searching-news_text">Идет поиск новостей...</div>
-      </div>
-
-      <div class="search-results__searching-news">
-        <div class="search-results__no-found"></div>
-        <div class="search-results__searching-news search-results__searching-news_title">Ничего не найдено</div>
-        <div class="search-results__searching-news search-results__searching-news_text">К сожалению, по вашему запросу ничего не найдено.</div>
       </div>
 
     </section>
@@ -210,7 +101,7 @@
 
     <section class="footer">
       <div class="footer__copyright">
-        © 2020  Supersite
+        © 2020 CloudsNews
       </div>
 
       <nav>
@@ -231,39 +122,89 @@
 
     </section>
 
-    <!-- Модальное окно "Выполнить вход" -->
-
-    <div class="popup" id="popupSuccess">
+    <!-- Модальное окно "Регистрация" (SIGNUP) -->
+    <div class="popup hidden" id="popupSignup">
       <div class="popup__content">
-        <img id="popupSuccessClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
-        <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-        <div class="popup__info-message">Выполнить вход</div>
-      </div>
-    </div>
+        <img id="buttonSignupClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
 
-    <!-- Модальное окно "Регистрация" -->
+        <h3 class="popup__title">Регистрация</h3>
+        <form class="popup__form" name="signup" action="#">
 
-    <div class="popup" id="popupEnter">
-      <div class="popup__content">
-        <img id="popupEnterClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
-        <form id="form__add-card" class="popup__form" name="new">
           <span class="popup__input popup__input_title">Email</span>
-          <input id="add-card_name" type="text" name="name" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Название" autocomplete="off" value="abcde">
-          <span id="error_add-card_name" class="error-message">Ошибка #1</span>
+          <input id="popupSignupEmail" type="email" name="email" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="">
+          <span id="error_popupSignupEmail" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
+
+          <span class="popup__input popup__input_title">Имя пользователя</span>
+          <input id="popupSignupUserName" type="text" name="username" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Имя пользователя" autocomplete="off" value="">
+          <span id="error_popupSignupUserName" class="error-message">&nbsp;</span><!-- Ошибка #2 -->
+
           <span class="popup__input popup__input_title">Пароль</span>
-          <input id="add-card_link" type="text" name="link" class="popup__input popup__input_type-link-url" required minlength="6" maxlength="255" placeholder="Ссылка на картинку" autocomplete="off">
-          <span id="error_add-card_link" class="error-message">Ошибка #2</span>
-          <span class="error-message error-message__under-button">Такой пользователь уже есть</span>
-          <button class="button popup__button popup__button_edit button_submit">Войти</button>
+          <input id="popupSignupPass" type="password" name="password" class="popup__input popup__input_type-link-url" required minlength="8" maxlength="64" placeholder="Введите ваш пароль" autocomplete="off" value=''>
+          <span id="error_popupSignupPass" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
+
+          <span class="error-message error-message__under-button hidden" id="popupSignupErrorMessage"></span><!-- Ошибка #API -->
+          <button class="button popup__button popup__button_edit button_submit" id="buttonSignupSubmit">Зарегистрироваться</button>
         </form>
         <div class="popup__help">
           или
-          <span class="popup__help popup__help_link">Зарегистрироваться</span>
+          <a class="popup__help popup__help_link" id="buttonSignupRedirect" href="#">Войти</a>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Модальное окно "Авторизации" (SIGNIN) -->
+    <div class="popup hidden" id="popupSignin">
+      <div class="popup__content">
+        <img id="buttonSigninClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
+
+        <h3 class="popup__title">Авторизизация</h3>
+
+        <form class="popup__form" name="signin" action="#">
+          <span class="popup__input popup__input_title">Email</span>
+          <input id="popupSigninEmail" type="email" name="email" class="popup__input popup__input_type-name" required minlength="2" maxlength="30" placeholder="Введите свой email" autocomplete="off" value="">
+          <span id="error_popupSigninEmail" class="error-message">&nbsp;</span><!-- Ошибка #1 -->
+          <span class="popup__input popup__input_title">Пароль</span>
+          <input id="popupSigninPass" type="password" name="password" class="popup__input popup__input_type-link-url" required minlength="8" maxlength="64" placeholder="Введите ваш пароль" autocomplete="off" value=''>
+          <span id="error_popupSigninPass" class="error-message">&nbsp;</span><!-- Ошибка #3 -->
+          <span class="error-message error-message__under-button hidden" id="popupSigninErrorMessage"></span><!-- Ошибка #API -->
+          <button class="button popup__button popup__button_edit button_submit" id="buttonSigninSubmit">Войти</button>
+        </form>
+
+        <div class="popup__help">
+          или
+          <a class="popup__help popup__help_link" id="buttonSigninRedirect" href="#">Зарегистрироваться</a>
         </div>
       </div>
     </div>
 
+    <!-- Модальное окно "successInfo" -->
+    <div class="popup hidden" id="popupSuccessInfo">
+      <div class="popup__content">
+        <img id="popupSuccessClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
+        <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+        <a class="popup__info-message" id="popupSuccessRedirect" href="#">Выполнить вход</a>
+      </div>
+    </div>
+    
+    <!-- Модальное окно "successExit" -->
+    <div class="popup hidden" id="popupSuccessExit">
+      <div class="popup__content">
+        <img id="popupSuccessExitClose" src="<%=require('../../images/popup/close-mid.svg')%>" alt="" class="popup__close popup__close_add-card">
+        <h3 class="popup__title">Вы успешно вышли!</h3>
+      </div>
+    </div>
+
+    <!-- Модальное окно "showError" -->
+    <div class="popup hidden" id="popupShowModalError">
+      <div class="popup__content">
+        <h3 class="popup__title error-message_simple" id="popupShowModalErrorTitle">Ошибка!</h3>
+        <p class="popup__info-message error-message_simple" id="popupShowModalErrorText">Выполнить вход</p>
+      </div>
+    </div>
+
   </section>
+
+  <img class="hidden" src="<%=require('../../images/404/not-found.jpg')%>" alt="Картинка не загружена">
 
   <script src="<%=htmlWebpackPlugin.files.chunks.index.entry%>"></script>
 

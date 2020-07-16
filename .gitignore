@@ -1,6 +1,7 @@
 # Custom setting
 dist/
 README.md.zip
+README.zip
 
 # Dependency directory
 node_modules
